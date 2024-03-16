@@ -17,12 +17,12 @@ module.exports = {
       parser: 'astro-eslint-parser',
       // Parse the script in `.astro` as TypeScript by adding the following configuration.
       // It's the setting you need when using TypeScript.
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-        extraFileExtensions: ['.astro'],
-        // The script of Astro components uses ESM.
-        sourceType: 'module'
-      },
+      // parserOptions: {
+      //   parser: '@typescript-eslint/parser',
+      //   extraFileExtensions: ['.astro'],
+      //   // The script of Astro components uses ESM.
+      //   sourceType: 'module'
+      // },
       rules: {
         // Enable recommended rules
         'astro/no-conflict-set-directives': 'error',
@@ -65,7 +65,6 @@ module.exports = {
         sourceType: 'module',
         project: null
       },
-      processor: 'astro/client-side-ts',
       rules: {
         // override/add rules settings here, such as:
         // "no-unused-vars": "error"

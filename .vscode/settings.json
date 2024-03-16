@@ -1,0 +1,40 @@
+{
+  "workbench.colorTheme": "poimandres-storm",
+  "workbench.productIconTheme": "icons-carbon",
+  "editor.renderWhitespace": "none",
+  "editor.minimap.autohide": true,
+  "editor.minimap.enabled": false,
+  "projectManager.git.baseFolders": ["~\\\\Documents\\\\repos"],
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.fontFamily": "iosevka extended",
+  "editor.fontLigatures": true,
+  // "dimmer.enabled": true,
+  "editor.stickyScroll.enabled": true,
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.iconTheme": "file-icons-colourless",
+  "window.commandCenter": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "window.zoomLevel": 1,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "projectManager.any.ignoredFolders": ["out", "typings", "test"],
+  "projectManager.vscode.ignoredFolders": ["out", "typings", "test"],
+  "files.watcherExclude": {
+    "**/node_modules/**": true
+  },
+  "security.promptForLocalFileProtocolHandling": false,
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  }
+}
