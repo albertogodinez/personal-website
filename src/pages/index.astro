@@ -1,26 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import CardPreview from '../components/CardPreview.astro';
-import { Image } from 'astro:assets';
+import GridLayout from '../layouts/GridLayout.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-  <body>
-    <main>
-      <h1>my favorite <span>______</span> of <span>____</span></h1>
-      <div class="grid">
-        <Image src="https://picsum.photos/200/300" alt="A bird." width="200" height="300" />
-        <Image src="https://picsum.photos/200/300" alt="A bird." width="200" height="300" />
-        <Image src="https://picsum.photos/200/300" alt="A bird." width="200" height="300" />
-        <Image src="https://picsum.photos/200/300" alt="A bird." width="200" height="300" />
-        <Image src="https://picsum.photos/200/300" alt="A bird." width="200" height="300" />
-      </div>
-    </main>
-  </body>
-</Layout>
+<GridLayout title="Welcome to Astro." />
 
 <style>
-  /* CSS Reset */
+  /* CSS Reset 
+  inspired by https://www.joshwcomeau.com/css/custom-css-reset/
+  */
   *,
   *::before,
   *::after {
@@ -29,11 +16,6 @@ import { Image } from 'astro:assets';
 
   * {
     margin: 0;
-  }
-
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
   }
 
   img,
@@ -51,56 +33,18 @@ import { Image } from 'astro:assets';
     font: inherit;
   }
 
-  /* grid code */
-  :root {
-    font-size: 18px;
-    --grid-columns: 5;
-    --grid-min-width: 250px;
-    --grid-gap: 2.5rem;
-
-    --spacing: 2rem;
-    --spacing-half: 1rem;
-    --spacing-double: 4rem;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(100%, max(var(--grid-min-width), 100% / calc(var(--grid-columns) + 1))), 1fr)
-    );
-    gap: var(--grid-gap);
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
   }
 
-  .grid[data-columns] {
-    /* define */
-    &[data-columns='1'] {
-      --grid-columns: 1;
-    }
-    &[data-columns='2'] {
-      --grid-columns: 2;
-    }
-    &[data-columns='3'] {
-      --grid-columns: 3;
-    }
-    &[data-columns='4'] {
-      --grid-columns: 4;
-    }
-    &[data-columns='5'] {
-      --grid-columns: 5;
-    }
-    &[data-columns='6'] {
-      --grid-columns: 6;
-    }
-    /* apply */
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(100%, max(var(--grid-min-width), 100% / calc(var(--grid-columns) + 1))), 1fr)
-    );
+  #root,
+  #__next {
+    isolation: isolate;
   }
-
-  /* TODO: Add this in the future */
-  /* .grid[data-columns]{
-		margin-bottom: var(--spacing-double);
-		> div { padding: var(--spacing); background: rgba(255,255,255,0.1); border-radius: 1rem; }
-	} */
 </style>
