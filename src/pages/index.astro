@@ -51,41 +51,17 @@ import { Image } from 'astro:assets';
     font: inherit;
   }
 
-  :root {
-    font-size: 18px;
-    /* --color-text: #fff;
-		--color-bg: #fbfaf9
-		--color-link: #fff;
-		--color-link-hover: #a2a2a2;
-		--perspective: 0px;
-		--grid-item-translate: 0px;
-		--grid-item-ratio: 0.75;
-		--grid-item-radius: 7px; */
-    /* --grid-gap: 4vw; */
-    /* --grid-columns: 3; */
-    /* --grid-width: 100%; */
 
-    --grid-columns: 5;
+  /* grid code */
+  :root {
+    font-size: 18px;s: 5;
     --grid-min-width: 250px;
     --grid-gap: 2.5rem;
 
     --spacing: 2rem;
     --spacing-half: 1rem;
     --spacing-double: 4rem;
-
-    /* --grid-max-width: 1200px; */
   }
-  body {
-    margin: 0;
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    font-family: 'marlide-display-variable', sans-serif;
-    /* font-variation-settings: "wght" 300; */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /* overflow-x: hidden; */
-  }
-
   .grid {
     display: grid;
     grid-template-columns: repeat(
