@@ -1,196 +1,130 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CardPreview from '../components/CardPreview.astro';
+import { Image } from 'astro:assets';
 ---
 
 <Layout title="Welcome to Astro.">
-	<body class="demo-1">
-	<main>
-		<h1>my favorite <span class="text-gradient">______</span> of <span class="text-gradient">____</span></h1>
-			<section class="columns">
-				<div class="column">
-		            <figure class="column__item">
-		                <div class="column__item-imgwrap">
-		                    <div class="column__item-img" style="background-image:url(https://picsum.photos/600/900)"></div>
-		                </div>
-		            </figure>
-					<figure class="column__item">
-		                <div class="column__item-imgwrap">
-		                    <div class="column__item-img" style="background-image:url(https://picsum.photos/600/900)"></div>
-		                </div>
-		            </figure>
-					<figure class="column__item">
-		                <div class="column__item-imgwrap">
-		                    <div class="column__item-img" style="background-image:url(https://picsum.photos/600/900)"></div>
-		                </div>
-		            </figure>
-					<!-- <CardPreview
-						href="https://astro.build/chat/"
-						title="Community"
-						body="Come say hi to our amazing Discord community. ❤️"
-					/> -->
-				</div>
-				<div class="column">
-		            <figure class="column__item">
-		                <div class="column__item-imgwrap">
-		                    <div class="column__item-img" style="background-image:url(https://picsum.photos/600/900)"></div>
-		                </div>
-		            </figure>
-					<figure class="column__item">
-		                <div class="column__item-imgwrap">
-		                    <div class="column__item-img" style="background-image:url(https://picsum.photos/600/900)"></div>
-		                </div>
-		            </figure>
-					<figure class="column__item">
-		                <div class="column__item-imgwrap">
-		                    <div class="column__item-img" style="background-image:url(https://picsum.photos/600/900)"></div>
-		                </div>
-		            </figure>
-					<!-- <CardPreview
-						href="https://astro.build/chat/"
-						title="Community"
-						body="Come say hi to our amazing Discord community. ❤️"
-					/> -->
-				</div>
-				<div class="column">
-		            <figure class="column__item">
-		                <div class="column__item-imgwrap">
-		                    <div class="column__item-img" style="background-image:url(https://picsum.photos/600/900)"></div>
-		                </div>
-		            </figure>
-					<figure class="column__item">
-		                <div class="column__item-imgwrap">
-		                    <div class="column__item-img" style="background-image:url(https://picsum.photos/600/900)"></div>
-		                </div>
-		            </figure>
-					<figure class="column__item">
-		                <div class="column__item-imgwrap">
-		                    <div class="column__item-img" style="background-image:url(https://picsum.photos/600/900)"></div>
-		                </div>
-		            </figure>
-					<!-- <CardPreview
-						href="https://astro.build/chat/"
-						title="Community"
-						body="Come say hi to our amazing Discord community. ❤️"
-					/> -->
-				</div>
-		</section>
-	</main>
-</body>
+  <body>
+    <main>
+      <h1>my favorite <span>______</span> of <span>____</span></h1>
+      <div class="grid">
+        <Image src="https://picsum.photos/200/300" alt="A bird." width="200" height="300" />
+        <Image src="https://picsum.photos/200/300" alt="A bird." width="200" height="300" />
+        <Image src="https://picsum.photos/200/300" alt="A bird." width="200" height="300" />
+        <Image src="https://picsum.photos/200/300" alt="A bird." width="200" height="300" />
+        <Image src="https://picsum.photos/200/300" alt="A bird." width="200" height="300" />
+      </div>
+    </main>
+  </body>
 </Layout>
 
 <style>
-	*,
-	*::after,
-	*::before {
-		box-sizing: border-box;
-	}
+  /* CSS Reset */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-	:root {
-		font-size: 18px;
-		--color-text: #fff;
+  * {
+    margin: 0;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  :root {
+    font-size: 18px;
+    /* --color-text: #fff;
 		--color-bg: #fbfaf9
 		--color-link: #fff;
 		--color-link-hover: #a2a2a2;
 		--perspective: 0px;
 		--grid-item-translate: 0px;
 		--grid-item-ratio: 0.75;
-		--grid-item-radius: 7px;
-		--grid-gap: 4vw;
-		--grid-columns: 3;
-		--grid-width: 100%;
-		--grid-max-width: 1200px;
-	}
-	body {
-		margin: 0;
-		color: var(--color-text);
-		background-color: var(--color-bg);
-		font-family: "marlide-display-variable", sans-serif;
-		font-variation-settings: "wght" 300;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		overflow-x: hidden;
-	}
-	main {
-		display: grid;
-		place-items: center;
-		width: 100%;
-		position: relative;
-	}
-	.demo-1 {
-		--grid-item-translate: 30px;
-		--grid-gap: 2vw;
-	}
-	.card-wrap {
-		margin-top: 5vh;
-		display: grid;
-		grid-gap: 2rem;
-		grid-auto-flow: row;
-		grid-template-columns: 250px;
-		text-align: center;
-	}
+		--grid-item-radius: 7px; */
+    /* --grid-gap: 4vw; */
+    /* --grid-columns: 3; */
+    /* --grid-width: 100%; */
 
-	.card__image {
-		display: block;
-		border-radius: 7px;
-		background-size: cover;
-		background-position: 50% 50%;
-		width: 100%;
-		height: auto;
-		aspect-ratio: 4 / 3;
-		filter: contrast(0.8);
-	}
+    --grid-columns: 5;
+    --grid-min-width: 250px;
+    --grid-gap: 2.5rem;
 
-	.columns {
-	width: var(--grid-width);
-	max-width: var(--grid-max-width);
-	position: relative;
-	padding: 20vh 0;
-	display: grid;
-	place-items: center;
-    grid-template-columns: repeat(var(--grid-columns),1fr);
+    --spacing: 2rem;
+    --spacing-half: 1rem;
+    --spacing-double: 4rem;
+
+    /* --grid-max-width: 1200px; */
+  }
+  body {
+    margin: 0;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    font-family: 'marlide-display-variable', sans-serif;
+    /* font-variation-settings: "wght" 300; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* overflow-x: hidden; */
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, max(var(--grid-min-width), 100% / calc(var(--grid-columns) + 1))), 1fr)
+    );
     gap: var(--grid-gap);
-}
+  }
 
-	.column {
-		width: 100%;
-		position: relative;
-		display: grid;
-		gap: var(--grid-gap);
-		grid-template-columns: 100%;
-		will-change: transform;
-	}
+  .grid[data-columns] {
+    /* define */
+    &[data-columns='1'] {
+      --grid-columns: 1;
+    }
+    &[data-columns='2'] {
+      --grid-columns: 2;
+    }
+    &[data-columns='3'] {
+      --grid-columns: 3;
+    }
+    &[data-columns='4'] {
+      --grid-columns: 4;
+    }
+    &[data-columns='5'] {
+      --grid-columns: 5;
+    }
+    &[data-columns='6'] {
+      --grid-columns: 6;
+    }
+    /* apply */
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, max(var(--grid-min-width), 100% / calc(var(--grid-columns) + 1))), 1fr)
+    );
+  }
 
-	.column__item {
-		margin: 0;
-		position: relative;
-		z-index: 1;
-	}
-
-	.column__item-imgwrap {
-		width: 100%;
-		aspect-ratio: var(--grid-item-ratio);
-		height: auto;
-		position: relative;
-		overflow: hidden;
-		border-radius: var(--grid-item-radius);
-	}
-
-	.column__item-img {
-		position: absolute;
-		top: calc(-1 * var(--grid-item-translate));
-		left: calc(-1 * var(--grid-item-translate));
-		height: calc(100% + var(--grid-item-translate) * 2);
-		width: calc(100% + var(--grid-item-translate) * 2);
-		background-size: cover;
-		background-position: 50% 20%;
-		backface-visibility: hidden;
-	}
-
-	@media screen and (min-width: 53em) {
-	.card-wrap {
-		grid-template-columns: repeat(2,300px);
-	}
-
-}
+  /* TODO: Add this in the future */
+  /* .grid[data-columns]{
+		margin-bottom: var(--spacing-double);
+		> div { padding: var(--spacing); background: rgba(255,255,255,0.1); border-radius: 1rem; }
+	} */
 </style>

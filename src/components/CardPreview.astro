@@ -1,25 +1,22 @@
-
 ---
 import { Image } from 'astro:assets';
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+  title: string;
+  body: string;
+  href: string;
 }
 
 const { href, title, body } = Astro.props;
 ---
-<!-- <li class="link-card"> -->
-	<!-- <a href={href}> -->
-		<!-- <Image src="https://example.com/remote-bird.jpg" alt="A bird." width="50" height="50"/> -->
 
+<!-- <li class="link-card"> --><!-- <a href={href}> --><!-- <Image src="https://example.com/remote-bird.jpg" alt="A bird." width="50" height="50"/> -->
 <Image src="https://picsum.photos/600/900" alt="Arrow right" width={600} height={900} />
-		<!-- <h2>
+<!-- <h2>
 			{title}
 			<span>&rarr;</span>
 		</h2>
 		<p>
 			{body}
 		</p> -->
-	<!-- </a> -->
+<!-- </a> -->
 <!-- </li> -->
