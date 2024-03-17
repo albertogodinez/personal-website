@@ -2,6 +2,9 @@
 import CardPreview from '../components/CardPreview.jsx';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import '@fontsource/abril-fatface';
+import '@fontsource/poppins';
+
 interface Props {
   title: string;
 }
@@ -21,7 +24,6 @@ const favorites = await getCollection('favorites');
     <title>{title}</title>
   </head>
 
-  <!-- <body> -->
   <h1>my favorite <span>______</span> of <span>____</span></h1>
   <div class="grid">
     {
@@ -33,8 +35,6 @@ const favorites = await getCollection('favorites');
       ))
     }
   </div>
-  <!-- </body> -->
-
   <style is:global>
     body {
       line-height: 1.5;
@@ -99,6 +99,11 @@ const favorites = await getCollection('favorites');
       object-fit: cover;
       width: 100%;
       height: 100%;
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      /* font-family: 'Abril Fatface', system-ui; */
     }
   </style>
 
