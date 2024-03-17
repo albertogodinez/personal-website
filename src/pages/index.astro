@@ -2,7 +2,7 @@
 import GridLayout from '../layouts/GridLayout.astro';
 ---
 
-<GridLayout title="Welcome to Astro." />
+<GridLayout title="welcome" />
 
 <style>
   /* CSS Reset 
@@ -46,5 +46,17 @@ import GridLayout from '../layouts/GridLayout.astro';
   #root,
   #__next {
     isolation: isolate;
+  }
+
+  body {
+    &::before {
+      width: 100%;
+      display: block;
+      content: '';
+      height: 0.1rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 </style>

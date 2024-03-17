@@ -9,7 +9,7 @@ const favoritesCollection = defineCollection({
       title: z.string(),
       year: z.number(),
       // TODO: Add remaining favorite types
-      favoriteType: z.enum(['sneakers']),
+      favoriteType: z.enum(['games', 'meals', 'memories', 'movies', 'purchases', 'shows', 'sneakers', 'songs']),
       image: image()
     })
 });

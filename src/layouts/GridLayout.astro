@@ -8,8 +8,6 @@ interface Props {
 
 const { title } = Astro.props;
 const favorites = await getCollection('favorites');
-
-console.log('favorites', favorites);
 ---
 
 <!doctype html>
@@ -23,6 +21,7 @@ console.log('favorites', favorites);
     <title>{title}</title>
   </head>
 
+  <!-- <body> -->
   <h1>my favorite <span>______</span> of <span>____</span></h1>
   <div class="grid">
     {
@@ -34,16 +33,19 @@ console.log('favorites', favorites);
       ))
     }
   </div>
+  <!-- </body> -->
+
   <style is:global>
     body {
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
+
     /* grid code */
     :root {
       font-size: 18px;
       --grid-columns: 5;
-      --grid-min-width: 250px;
+      --grid-min-width: 200px;
       --grid-gap: 2.5rem;
 
       --spacing: 2rem;
@@ -52,6 +54,7 @@ console.log('favorites', favorites);
     }
     .grid {
       display: grid;
+      justify-items: center;
       grid-template-columns: repeat(
         auto-fit,
         minmax(min(100%, max(var(--grid-min-width), 100% / calc(var(--grid-columns) + 1))), 1fr)
@@ -60,7 +63,6 @@ console.log('favorites', favorites);
     }
 
     .grid[data-columns] {
-      /* define */
       &[data-columns='1'] {
         --grid-columns: 1;
       }
@@ -79,14 +81,12 @@ console.log('favorites', favorites);
       &[data-columns='6'] {
         --grid-columns: 6;
       }
-      /* apply */
       grid-template-columns: repeat(
         auto-fit,
         minmax(min(100%, max(var(--grid-min-width), 100% / calc(var(--grid-columns) + 1))), 1fr)
       );
     }
 
-    /* TODO: Add this in the future */
     .grid[data-columns] {
       margin-bottom: var(--spacing-double);
       > div {
