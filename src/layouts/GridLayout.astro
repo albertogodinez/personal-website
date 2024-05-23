@@ -1,5 +1,6 @@
 ---
 import CardPreview from '../components/CardPreview.jsx';
+import MemorabiliaDefinition from '../components/MemorabiliaDefinition';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import '@fontsource/abril-fatface';
@@ -11,6 +12,24 @@ interface Props {
 
 const { title } = Astro.props;
 const favorites = await getCollection('favorites');
+const years = ['2019', '2020', '2021', '2022', '2023', '2024'];
+const favoriteTypes = [
+  'music',
+  'movies',
+  'books',
+  'tv',
+  'podcasts',
+  'games',
+  'apps',
+  'products',
+  'places',
+  'food',
+  'drinks',
+  'events',
+  'people',
+  'memories',
+  'misc'
+];
 ---
 
 <!doctype html>
@@ -24,7 +43,7 @@ const favorites = await getCollection('favorites');
     <title>{title}</title>
   </head>
 
-  <h1>my favorite <span>______</span> of <span>____</span></h1>
+  <MemorabiliaDefinition years={years} favoriteTypes={favoriteTypes} client:load />
   <div class="grid">
     {
       favorites.map((favorite: any) => (
@@ -106,6 +125,18 @@ const favorites = await getCollection('favorites');
       /* font-family: 'Abril Fatface', system-ui; */
     }
   </style>
+  <!-- 
+  <script>
+    // Find all buttons with the `alert` class on the page.
+    const buttons = document.querySelectorAll('button.overlay-menu');
+    // Handle clicks on each button.
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        console.log('clicked');
+        showYearMenu = true;
+      });
+    });
+  </script> -->
 
 
 </html>
