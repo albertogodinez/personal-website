@@ -42,14 +42,42 @@ const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
           </Dialog.Trigger>
         </h1>
         <Dialog.Portal>
-          <Dialog.Overlay className="DialogOverlay" />
-          <Dialog.Content className="DialogContent">
-            <ScrollableOverlay options={years} client:load />
+          <Dialog.Overlay
+            className="DialogOverlay"
+            style={{
+              position: 'fixed',
+              inset: 0,
+              background: 'rgba(255, 255, 255, 0.7)', // You can adjust the alpha value for opacity
+              backdropFilter: 'blur(10px)' // You can adjust the pixel value for blur intensity
+            }}
+          />
+          <Dialog.Content
+            className="DialogContent"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)'
+            }}
+          >
             <Dialog.Close asChild>
-              <button className="IconButton" aria-label="Close">
-                x
+              <button
+                className="IconButton"
+                aria-label="Close"
+                style={{
+                  position: 'absolute', // This will take the button out of the normal flow
+                  top: '-40vh', // Adjust as needed
+                  right: '-45vw' // Adjust as needed
+                }}
+              >
+                close
               </button>
             </Dialog.Close>
+            <ScrollableOverlay options={years} client:load />
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
