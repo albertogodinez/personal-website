@@ -1,23 +1,24 @@
 import ScrollableOverlay from './ScrollableOverlay';
-import { isYearMenuSelected, isDialogOpen } from '../functionalityStore.js';
+import { menuOptions, isDialogOpen } from '../functionalityStore.js';
 import { useStore } from '@nanostores/react';
 import * as Dialog from '@radix-ui/react-dialog';
 
 const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
-  const $isYearMenuSelected = useStore(isYearMenuSelected);
+  const $menuOptions = useStore(menuOptions);
   const $isDialogOpen = useStore(isDialogOpen);
 
-  const handleYearsClick = (years) => {
-    console.log('handling years click');
-    isYearMenuSelected.set(!$isYearMenuSelected);
+  const handleDialogChange = (type) => {
+    console.log('type:', type);
+    console.log('isDialogOpen:', $isDialogOpen);
 
-    handleDialogChange($isYearMenuSelected, years);
-  };
-
-  const handleDialogChange = (menuSelection, options) => {
-    console.log('menuSelection:', menuSelection);
-    console.log('options:', options);
-
+    if (!$isDialogOpen) {
+      if (type === 'years') {
+        menuOptions.set(years);
+      }
+      if (type === 'favoriteTypes') {
+        menuOptions.set(favoriteTypes);
+      }
+    }
     isDialogOpen.set(!$isDialogOpen);
   };
 
@@ -26,17 +27,12 @@ const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
       <Dialog.Root open={$isDialogOpen} onOpenChange={handleDialogChange}>
         <h1>
           my favorite{' '}
-          <button
-            onClick={() => {
-              console.log('hello');
-            }}
-            className="overlay-menu-handler"
-          >
+          <span onClick={() => handleDialogChange('favoriteTypes')} className="overlay-menu-handler">
             things
-          </button>{' '}
+          </span>{' '}
           of{' '}
           <Dialog.Trigger asChild>
-            <span onClick={() => handleYearsClick(years)} className="overlay-menu-handler">
+            <span onClick={() => handleDialogChange('years')} className="overlay-menu-handler">
               all time
             </span>
           </Dialog.Trigger>
@@ -70,14 +66,15 @@ const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
                 aria-label="Close"
                 style={{
                   position: 'absolute', // This will take the button out of the normal flow
-                  top: '-40vh', // Adjust as needed
+                  //   TODO: Fix the following. It is still not responsive
+                  top: '-20vh', // Adjust as needed
                   right: '-45vw' // Adjust as needed
                 }}
               >
                 close
               </button>
             </Dialog.Close>
-            <ScrollableOverlay options={years} client:load />
+            <ScrollableOverlay options={$menuOptions} client:load />
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
