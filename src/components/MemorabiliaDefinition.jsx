@@ -21,7 +21,6 @@ const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
     }
     isDialogOpen.set(!$isDialogOpen);
   };
-
   return (
     <div>
       <Dialog.Root open={$isDialogOpen} onOpenChange={handleDialogChange}>
@@ -48,7 +47,6 @@ const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
             }}
           />
           <Dialog.Content
-            className="DialogContent"
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -57,23 +55,29 @@ const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
               position: 'fixed',
               top: '50%',
               left: '50%',
-              transform: 'translate(-50%, -50%)'
+              transform: 'translate(-50%, -50%)',
+              width: '90%',
+              maxWidth: '90vw',
+              height: '600px',
+              overflow: 'auto'
             }}
           >
-            <Dialog.Close asChild>
-              <button
-                className="IconButton"
-                aria-label="Close"
-                style={{
-                  position: 'absolute', // This will take the button out of the normal flow
-                  //   TODO: Fix the following. It is still not responsive
-                  top: '-20vh', // Adjust as needed
-                  right: '-45vw' // Adjust as needed
-                }}
-              >
-                close
-              </button>
-            </Dialog.Close>
+            <div
+              style={{
+                position: 'absolute',
+                top: '0.5em',
+                right: '0.5em',
+                display: 'flex',
+                justifyContent: 'flex-end',
+                width: 'auto'
+              }}
+            >
+              <Dialog.Close asChild>
+                <button className="IconButton" aria-label="Close">
+                  close
+                </button>
+              </Dialog.Close>
+            </div>
             <ScrollableOverlay options={$menuOptions} client:load />
           </Dialog.Content>
         </Dialog.Portal>
