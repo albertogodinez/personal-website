@@ -1,44 +1,58 @@
 import ScrollableOverlay from './ScrollableOverlay';
-import { menuOptions, isDialogOpen } from '../functionalityStore.js';
+import {
+  menuOptions,
+  isDialogOpen,
+  selectedFavoriteType,
+  selectedYear,
+  currentSelectionStore
+} from '../functionalityStore.js';
 import { useStore } from '@nanostores/react';
 import * as Dialog from '@radix-ui/react-dialog';
 
 const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
   const $menuOptions = useStore(menuOptions);
   const $isDialogOpen = useStore(isDialogOpen);
+  const $selectedYear = useStore(selectedYear);
+  const $selectedFavoriteType = useStore(selectedFavoriteType);
+  const selectionStoreMap = new Map([
+    ['years', selectedYear],
+    ['favoriteTypes', selectedFavoriteType]
+  ]);
+  const $currentSelectionStore = useStore(currentSelectionStore);
 
-  const handleDialogChange = (type) => {
-    console.log('type:', type);
-    console.log('isDialogOpen:', $isDialogOpen);
+  const setStore = (type) => {
+    currentSelectionStore.set(selectionStoreMap.get(type));
 
-    if (!$isDialogOpen) {
-      if (type === 'years') {
-        menuOptions.set(years);
-      }
-      if (type === 'favoriteTypes') {
-        menuOptions.set(favoriteTypes);
-      }
+    if (type === 'years') {
+      menuOptions.set(years);
     }
-    isDialogOpen.set(!$isDialogOpen);
+    if (type === 'favoriteTypes') {
+      menuOptions.set(favoriteTypes);
+    }
+    handleDialogChange(true);
   };
+
+  const handleDialogChange = (isOpen) => {
+    isDialogOpen.set(isOpen);
+  };
+
   return (
-    <div>
+    <div id="test">
       <Dialog.Root open={$isDialogOpen} onOpenChange={handleDialogChange}>
         <h1>
           my favorite{' '}
-          <span onClick={() => handleDialogChange('favoriteTypes')} className="overlay-menu-handler">
-            things
+          <span style={{ cursor: 'pointer' }} onClick={() => setStore('favoriteTypes')}>
+            {$selectedFavoriteType ? $selectedFavoriteType : 'things'}
           </span>{' '}
           of{' '}
           <Dialog.Trigger asChild>
-            <span onClick={() => handleDialogChange('years')} className="overlay-menu-handler">
-              all time
+            <span style={{ cursor: 'pointer' }} onClick={() => setStore('years')}>
+              {$selectedYear ? $selectedYear : 'all time'}
             </span>
           </Dialog.Trigger>
         </h1>
         <Dialog.Portal>
           <Dialog.Overlay
-            className="DialogOverlay"
             style={{
               position: 'fixed',
               inset: 0,
@@ -73,12 +87,10 @@ const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
               }}
             >
               <Dialog.Close asChild>
-                <button className="IconButton" aria-label="Close">
-                  close
-                </button>
+                <button aria-label="Close">close</button>
               </Dialog.Close>
             </div>
-            <ScrollableOverlay options={$menuOptions} client:load />
+            <ScrollableOverlay options={$menuOptions} selectionStore={$currentSelectionStore} client:load />
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
