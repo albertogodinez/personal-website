@@ -1,16 +1,28 @@
 import * as Select from '@radix-ui/react-select';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 import './styles.css';
-import { forwardRef } from 'react';
+import { storeMap } from '../functionalityStore';
 
-const SelectWrapper = ({ placeholder, options, selectionStore }) => {
-  if (!options || !selectionStore) {
+import { useStore } from '@nanostores/react';
+
+export interface SelectionWrapperProps {
+  placeholder: string;
+  options: string[];
+  selectionStoreKey: string;
+}
+
+const SelectionWrapper: React.FC<SelectionWrapperProps> = ({ placeholder, options, selectionStoreKey }) => {
+  if (!options || !selectionStoreKey) {
     return null;
   }
 
-  const handleValueChange = (option) => {
-    console.log(option);
-    selectionStore.set(option);
+  const $storeMap = useStore(storeMap);
+  const selectionStore = $storeMap.get(selectionStoreKey);
+
+  const handleValueChange = (option: string) => {
+    if (selectionStore) {
+      selectionStore.set(option);
+    }
   };
 
   return (
@@ -19,14 +31,14 @@ const SelectWrapper = ({ placeholder, options, selectionStore }) => {
         <Select.Value placeholder={placeholder} />
       </Select.Trigger>
       <Select.Portal>
-        <Select.Content sideOffset={50}>
+        <Select.Content>
           <Select.Viewport>
             <ScrollArea.Root className="ScrollAreaRoot">
               <ScrollArea.Viewport className="ScrollAreaViewport">
                 <Select.Group>
                   {options.map((option) => (
                     <Select.Item className="Tag" key={option} value={option} style={{ cursor: 'pointer' }}>
-                      <Select.ItemText onClick={() => handleClick(option)}>{option}</Select.ItemText>
+                      <Select.ItemText>{option}</Select.ItemText>
                     </Select.Item>
                   ))}
                 </Select.Group>
@@ -46,4 +58,4 @@ const SelectWrapper = ({ placeholder, options, selectionStore }) => {
   );
 };
 
-export default SelectWrapper;
+export default SelectionWrapper;
