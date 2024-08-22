@@ -1,4 +1,4 @@
-import ScrollableOverlay from './ScrollableOverlay.jsx';
+import OverlayContent from './OverlayContent.jsx';
 import {
   menuOptions,
   isDialogOpen,
@@ -8,8 +8,9 @@ import {
 } from '../functionalityStore.js';
 import { useStore } from '@nanostores/react';
 import * as Dialog from '@radix-ui/react-dialog';
+import SelectWrapper from './SelectWrapper.jsx';
 
-const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
+const Memorabilia = ({ years, favoriteTypes }) => {
   const $menuOptions = useStore(menuOptions);
   const $isDialogOpen = useStore(isDialogOpen);
   const $selectedYear = useStore(selectedYear);
@@ -39,20 +40,18 @@ const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
 
   return (
     <div id="test">
-      <Dialog.Root open={$isDialogOpen} onOpenChange={handleDialogChange}>
-        <h1>
-          my favorite{' '}
-          <span style={{ cursor: 'pointer' }} onClick={() => setStore('favoriteTypes')}>
-            {$selectedFavoriteType ? $selectedFavoriteType : 'things'}
-          </span>{' '}
-          of{' '}
-          <Dialog.Trigger asChild>
+      {/* <Dialog.Root open={$isDialogOpen} onOpenChange={handleDialogChange}> */}
+      <h1>
+        my favorite{' '}
+        <SelectWrapper placeholder="things" options={favoriteTypes} selectionStore={selectedFavoriteType} client:load />{' '}
+        of <SelectWrapper placeholder="all time" options={years} selectionStore={selectedYear} client:load />
+        {/* <Dialog.Trigger asChild>
             <span style={{ cursor: 'pointer' }} onClick={() => setStore('years')}>
               {$selectedYear ? $selectedYear : 'all time'}
             </span>
-          </Dialog.Trigger>
-        </h1>
-        <Dialog.Portal>
+          </Dialog.Trigger> */}
+      </h1>
+      {/* <Dialog.Portal>
           <Dialog.Overlay
             style={{
               position: 'fixed',
@@ -91,12 +90,12 @@ const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
                 <button aria-label="Close">close</button>
               </Dialog.Close>
             </div>
-            <ScrollableOverlay options={$menuOptions} selectionStore={$currentSelectionStore} client:load />
+            <OverlayContent options={$menuOptions} selectionStore={$currentSelectionStore} client:load />
           </Dialog.Content>
         </Dialog.Portal>
-      </Dialog.Root>
+      </Dialog.Root> */}
     </div>
   );
 };
 
-export default MemorabiliaDefinition;
+export default Memorabilia;

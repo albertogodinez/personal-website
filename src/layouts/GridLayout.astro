@@ -12,6 +12,7 @@ interface Props {
 
 const { title } = Astro.props;
 const favorites = await getCollection('favorites');
+// TODO: Move to a config file
 const years = ['2019', '2020', '2021', '2022', '2023', '2024'];
 const favoriteTypes = [
   'music',

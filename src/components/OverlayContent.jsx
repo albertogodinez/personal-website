@@ -1,6 +1,6 @@
 import { useStore } from '@nanostores/react';
 
-const ScrollableOverlay = ({ options, selectionStore }) => {
+const OverlayContent = ({ options, selectionStore }) => {
   if (!options || !selectionStore) {
     return null;
   }
@@ -22,4 +22,4 @@ const ScrollableOverlay = ({ options, selectionStore }) => {
   );
 };
 
-export default ScrollableOverlay;
+export default OverlayContent;
