@@ -1,4 +1,4 @@
-import ScrollableOverlay from './ScrollableOverlay';
+import ScrollableOverlay from './ScrollableOverlay.jsx';
 import {
   menuOptions,
   isDialogOpen,
@@ -14,6 +14,7 @@ const MemorabiliaDefinition = ({ years, favoriteTypes }) => {
   const $isDialogOpen = useStore(isDialogOpen);
   const $selectedYear = useStore(selectedYear);
   const $selectedFavoriteType = useStore(selectedFavoriteType);
+
   const selectionStoreMap = new Map([
     ['years', selectedYear],
     ['favoriteTypes', selectedFavoriteType]

@@ -1,6 +1,6 @@
 ---
 import CardPreview from '../components/CardPreview.jsx';
-import MemorabiliaDefinition from '../components/MemorabiliaDefinition';
+import Memorabilia from '../components/Memorabilia.jsx';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import '@fontsource/abril-fatface';
@@ -43,7 +43,7 @@ const favoriteTypes = [
     <title>{title}</title>
   </head>
 
-  <MemorabiliaDefinition years={years} favoriteTypes={favoriteTypes} client:load />
+  <Memorabilia years={years} favoriteTypes={favoriteTypes} client:load />
   <div class="grid">
     {
       favorites.map((favorite: any) => (
