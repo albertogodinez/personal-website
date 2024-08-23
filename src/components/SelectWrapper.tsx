@@ -1,6 +1,6 @@
 import * as Select from '@radix-ui/react-select';
-import * as ScrollArea from '@radix-ui/react-scroll-area';
 import './styles.css';
+import * as ScrollArea from '@radix-ui/react-scroll-area';
 import { storeMap } from '../functionalityStore';
 
 import { useStore } from '@nanostores/react';

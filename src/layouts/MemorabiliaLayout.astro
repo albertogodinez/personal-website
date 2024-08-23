@@ -1,40 +1,23 @@
 ---
 import '@fontsource/abril-fatface';
 import '@fontsource/poppins';
-import CardPreview from '../components/CardPreview.jsx';
+import CardPreview from '../components/CardPreview';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import SelectWrapper from '../components/SelectWrapper.jsx';
-import { selectedFavoriteType, selectedYear } from '../functionalityStore.js';
-import { useStore } from '@nanostores/react';
+import SelectWrapper from '../components/SelectWrapper';
+import { FAVORITE_TYPES, YEARS } from '../constants/memorabilia';
 
 const favorites = await getCollection('favorites');
-// TODO: Move to a config file
-const years = ['2019', '2020', '2021', '2022', '2023', '2024'];
-const favoriteTypes = [
-  'music',
-  'movies',
-  'books',
-  'tv',
-  'podcasts',
-  'games',
-  'apps',
-  'products',
-  'places',
-  'food',
-  'drinks',
-  'events',
-  'people',
-  'memories',
-  'misc'
-];
+const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLowerCase());
 ---
 
 <body>
   <h1>
     my favorite{' '}
-    <SelectWrapper placeholder="things" options={favoriteTypes} selectionStoreKey={'SELECTED_YEAR'} client:load />{' '}
-    of <SelectWrapper placeholder="all time" options={years} selectionStoreKey={'SELECTED_TYPE'} client:load />
+    <SelectWrapper placeholder="things" options={favoriteTypesArray} selectionStoreKey={'SELECTED_YEAR'} client:load />{
+      ' '
+    }
+    of <SelectWrapper placeholder="all time" options={YEARS} selectionStoreKey={'SELECTED_TYPE'} client:load />
   </h1>
   <div class="grid">
     {
