@@ -1,9 +1,9 @@
-import * as Select from '@radix-ui/react-select';
-import './styles.css';
-import * as ScrollArea from '@radix-ui/react-scroll-area';
-import { storeMap } from '../functionalityStore';
-
 import { useStore } from '@nanostores/react';
+import * as ScrollArea from '@radix-ui/react-scroll-area';
+import * as Select from '@radix-ui/react-select';
+
+import { storeMap } from '../functionalityStore';
+import './styles.css';
 
 export interface SelectionWrapperProps {
   placeholder: string;
