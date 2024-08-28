@@ -1,5 +1,9 @@
 import { defineCollection, z } from 'astro:content';
 
+import { FAVORITE_TYPES } from '../constants/memorabilia';
+
+const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLowerCase()) as [string, ...string[]];
+
 const favoritesCollection = defineCollection({
   type: 'content',
   // The following uses zod to define the schema. For more info:
@@ -8,13 +12,10 @@ const favoritesCollection = defineCollection({
     z.object({
       title: z.string(),
       year: z.number(),
-      // TODO: Add remaining favorite types
-      favoriteType: z.enum(['games', 'meals', 'memories', 'movies', 'purchases', 'shows', 'sneakers', 'songs']),
+      favoriteType: z.enum(favoriteTypesArray),
       image: image()
     })
 });
-
-console.log(favoritesCollection);
 
 export const collections = {
   favorites: favoritesCollection
