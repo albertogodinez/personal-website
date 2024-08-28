@@ -8,12 +8,12 @@ const favoritesCollection = defineCollection({
   type: 'content',
   // The following uses zod to define the schema. For more info:
   // https://docs.astro.build/en/guides/content-collections/#defining-datatypes-with-zod
-  schema: ({ image }) =>
+  schema: ({}) =>
     z.object({
       title: z.string(),
       year: z.number(),
       favoriteType: z.enum(favoriteTypesArray),
-      image: image()
+      imageId: z.string()
     })
 });
 

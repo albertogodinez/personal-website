@@ -7,6 +7,8 @@ import { FAVORITE_TYPES, YEARS } from '../constants/memorabilia';
 import Favorites from '../components/Favorites';
 
 const favoritesCollection = await getCollection('favorites');
+console.log('hello');
+console.log(favoritesCollection);
 const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLowerCase());
 ---
 
