@@ -3,7 +3,15 @@
 @import '@radix-ui/colors/violet.css';
 
 :root {
+  font-size: 18px;
   --black-a7: rgba(0, 0, 0, 0.5);
+  --grid-columns: 5;
+  --grid-min-width: 200px;
+  --grid-gap: 2.5rem;
+
+  --spacing: 2rem;
+  --spacing-half: 1rem;
+  --spacing-double: 4rem;
 }
 .card-preview-container {
   width: 300px;
