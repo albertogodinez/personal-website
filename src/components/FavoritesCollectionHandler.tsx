@@ -1,11 +1,12 @@
 import { Cloudinary } from '@cloudinary/url-gen';
 import { scale } from '@cloudinary/url-gen/actions/resize';
 
-import CardPreview from '../components/CardPreview';
+import { type FavoritesCollection } from '../content/config';
+import CardPreview from './CardPreview';
 import './styles.css';
 
-export interface FavoritesProps {
-  collection: any;
+export interface FavoritesCollectionHandlerProps {
+  collection: FavoritesCollection;
 }
 
 const cld = new Cloudinary({
@@ -14,7 +15,7 @@ const cld = new Cloudinary({
   }
 });
 
-const Favorites: React.FC<FavoritesProps> = ({ collection }) => {
+const FavoritesCollectionHandler: React.FC<FavoritesCollectionHandlerProps> = ({ collection }) => {
   return (
     <div className="grid">
       {collection.map((favorite: any, index: number) => (
@@ -31,4 +32,4 @@ const Favorites: React.FC<FavoritesProps> = ({ collection }) => {
   );
 };
 
-export default Favorites;
+export default FavoritesCollectionHandler;

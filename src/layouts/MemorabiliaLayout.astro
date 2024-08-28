@@ -4,11 +4,9 @@ import '@fontsource/poppins';
 import { getCollection } from 'astro:content';
 import SelectWrapper from '../components/SelectWrapper';
 import { FAVORITE_TYPES, YEARS } from '../constants/memorabilia';
-import Favorites from '../components/Favorites';
+import FavoritesCollectionHandler from '../components/FavoritesCollectionHandler';
 
 const favoritesCollection = await getCollection('favorites');
-console.log('hello');
-console.log(favoritesCollection);
 const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLowerCase());
 ---
 
@@ -20,7 +18,7 @@ const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLo
     }
     of <SelectWrapper placeholder="all time" options={YEARS} selectionStoreKey={'SELECTED_TYPE'} client:load />
   </h1>
-  <Favorites collection={favoritesCollection} client:load />
+  <FavoritesCollectionHandler collection={favoritesCollection} client:load />
 </body>
 
 <style is:global>
