@@ -18,7 +18,7 @@ const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLo
     }
     of <SelectWrapper placeholder="all time" options={YEARS} selectionStoreKey={'SELECTED_TYPE'} client:load />
   </h1>
-  <FavoritesCollectionHandler collection={favoritesCollection} client:load />
+  <FavoritesCollectionHandler favoritesCollection={favoritesCollection} client:load />
 </body>
 
 <style is:global>

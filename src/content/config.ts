@@ -22,3 +22,4 @@ export const collections = {
 };
 
 export type FavoritesCollection = CollectionEntry<'favorites'>[];
+export type FavoritesCollectionEntry = CollectionEntry<'favorites'>;
