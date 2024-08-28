@@ -18,7 +18,6 @@ const FavoritesCollectionHandler: React.FC<FavoritesCollectionHandlerProps> = ({
   const $selectedYear = useStore(selectedYear);
 
   useEffect(() => {
-    // TODO: Fix the filter, currently not working
     let filtered = favoritesCollection;
 
     if ($selectedFavoriteType && $selectedYear) {

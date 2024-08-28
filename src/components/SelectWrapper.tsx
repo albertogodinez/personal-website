@@ -2,13 +2,14 @@ import { useStore } from '@nanostores/react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 import * as Select from '@radix-ui/react-select';
 
+import type { SELECTION_TYPES } from '../constants/memorabilia';
 import { storeMap } from '../functionalityStore';
 import './styles.css';
 
 export interface SelectionWrapperProps {
   placeholder: string;
   options: string[];
-  selectionStoreKey: string;
+  selectionStoreKey: SELECTION_TYPES;
 }
 
 const SelectionWrapper: React.FC<SelectionWrapperProps> = ({ placeholder, options, selectionStoreKey }) => {
@@ -21,6 +22,7 @@ const SelectionWrapper: React.FC<SelectionWrapperProps> = ({ placeholder, option
 
   const handleValueChange = (option: string) => {
     if (selectionStore) {
+      console.log(`Setting ${selectionStoreKey} to ${option}`);
       selectionStore.set(option);
     }
   };

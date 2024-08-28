@@ -12,3 +12,8 @@ export enum FAVORITE_TYPES {
 }
 
 export const YEARS: string[] = ['2024', '2023', '2022', '2021', '2020', '2019'];
+
+export enum SELECTION_TYPES {
+  SELECTED_TYPE = 'SELECTED_TYPE',
+  SELECTED_YEAR = 'SELECTED_YEAR'
+}
