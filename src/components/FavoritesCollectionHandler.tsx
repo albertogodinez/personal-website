@@ -1,5 +1,4 @@
 import { useStore } from '@nanostores/react';
-import type { WritableAtom } from 'nanostores';
 import { useEffect, useState } from 'react';
 
 import type { FavoritesCollection, FavoritesCollectionEntry } from '../content/config';
