@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import type { FavoritesCollection, FavoritesCollectionEntry } from '../content/config';
 import { selectedFavoriteType, selectedYear } from '../functionalityStore';
-import ImageHandler from './ImageHandler';
+import ContentHandler from './ContentHandler';
 import './styles.css';
 
 export interface FavoritesCollectionHandlerProps {
@@ -28,7 +28,8 @@ const FavoritesCollectionHandler: React.FC<FavoritesCollectionHandlerProps> = ({
     } else if ($selectedFavoriteType) {
       filtered = filtered.filter((favoriteEntry) => favoriteEntry.data.favoriteType === $selectedFavoriteType);
     } else if ($selectedYear) {
-      // TODO: UPDATE THIS so we're not having to change the type
+      // chose to not change the `year` to a number in the store since the selection component requires a string
+      // changing it to a number would've overcomplicated the component, so rather than changing the store, I'm changing the comparison here
       filtered = filtered.filter((favoriteEntry) => favoriteEntry.data.year.toString() === $selectedYear);
     }
 
@@ -36,16 +37,16 @@ const FavoritesCollectionHandler: React.FC<FavoritesCollectionHandlerProps> = ({
   }, [favoritesCollection, $selectedFavoriteType, $selectedYear]);
 
   return (
-    <div className="grid">
+    <section className="grid">
       {filteredCollection.map((favoriteEntry: FavoritesCollectionEntry, index: number) => (
-        <ImageHandler
-          className="image"
+        <ContentHandler
+          imageId={favoriteEntry.data.imageId}
           key={index}
           title={favoriteEntry.data.title}
-          imageId={favoriteEntry.data.imageId}
+          description={favoriteEntry.data.description}
         />
       ))}
-    </div>
+    </section>
   );
 };
 

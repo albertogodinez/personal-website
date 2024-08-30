@@ -13,7 +13,8 @@ const favoritesSchema = defineCollection({
       title: z.string(),
       year: z.number(),
       favoriteType: z.enum(favoriteTypesArray),
-      imageId: z.string()
+      imageId: z.string(),
+      description: z.string().optional()
     })
 });
 
