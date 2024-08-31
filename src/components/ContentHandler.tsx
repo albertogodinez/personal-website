@@ -30,9 +30,9 @@ const ContentHandler: React.FC<ImageHandlerProps> = ({ title, description, image
         <div className="content-info__overlay" aria-hidden={!isContentInfoVisible} />
       </div>
       <img
-        className="image"
+        className="content-image"
         src={`${cld.image(imageId).quality('auto').format('auto').resize(scale().width(1000)).toURL()}`}
-        alt="card preview"
+        alt={title}
       />
     </div>
   );
