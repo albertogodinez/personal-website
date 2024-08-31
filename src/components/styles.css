@@ -7,7 +7,10 @@
   --black-a7: rgba(0, 0, 0, 0.5);
   --grid-columns: 5;
   --grid-min-width: 300px;
-  --grid-gap: 2.5rem;
+
+  --grid-gap: 1rem;
+  --grid-gap-half: 0.5rem;
+  --grid-gap-double: 2rem;
 
   --spacing: 2rem;
   --spacing-half: 1rem;
@@ -18,6 +21,10 @@
 
   --font-size-content-header: 1.1rem;
   --font-color-content-header: black;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
 }
 
 h1 {
@@ -104,6 +111,19 @@ h1 {
   padding-top: 10px;
 }
 
+.memorabilia-body {
+  width: 100vw;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.memorabilia-body h1 {
+  padding-block: 1rem;
+}
+
 .grid {
   display: grid;
   justify-items: center;
@@ -111,7 +131,7 @@ h1 {
     auto-fit,
     minmax(min(100%, max(var(--grid-min-width), 100% / calc(var(--grid-columns) + 1))), 1fr)
   );
-  gap: var(--grid-gap);
+  gap: var(--grid-gap-half);
 }
 
 .grid[data-columns] {
@@ -140,17 +160,12 @@ h1 {
 }
 
 .grid[data-columns] {
-  margin-bottom: var(--spacing-double);
+  margin-bottom: var(--spacing-half);
   > div {
-    padding: var(--spacing);
+    padding: var(--spacing-half);
     background: rgba(255, 255, 255, 0.1);
     border-radius: 1rem;
   }
-}
-
-.page-width {
-  max-width: 1250px;
-  margin-inline: auto;
 }
 
 .content-image {
@@ -171,7 +186,7 @@ h1 {
   overflow: hidden;
   height: 85vh;
   max-height: 600px;
-  max-width: 400px;
+  min-width: 350px;
 }
 
 .content-info {

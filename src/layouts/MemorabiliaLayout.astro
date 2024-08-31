@@ -10,7 +10,7 @@ const favoritesCollection = await getCollection('favorites');
 const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLowerCase());
 ---
 
-<body class="page-width">
+<body class="memorabilia-body">
   <h1>
     my favorite{' '}
     <SelectWrapper
@@ -26,12 +26,7 @@ const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLo
       client:load
     />
   </h1>
-  <FavoritesCollectionHandler favoritesCollection={favoritesCollection} client:load />
+  <section>
+    <FavoritesCollectionHandler favoritesCollection={favoritesCollection} client:load />
+  </section>
 </body>
-
-<style is:global>
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-</style>
