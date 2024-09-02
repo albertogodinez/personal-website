@@ -6,6 +6,7 @@ import SelectWrapper from '../components/SelectWrapper';
 import { SELECTION_TYPES, YEARS } from '../constants/memorabilia';
 import { FAVORITE_TYPES } from '../constants/memorabilia';
 import { selectedFavoriteType, selectedYear } from '../functionalityStore';
+import './gradient-bg.css';
 
 const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLowerCase());
 
@@ -47,16 +48,37 @@ export const SelectionHandler: React.FC = () => {
       <Dialog.Portal>
         <Dialog.Overlay className="DialogOverlay" />
         <Dialog.Content className="DialogContent">
-          <SelectWrapper
-            placeholder={activePlaceholder}
-            options={activeOptions}
-            selectionStoreKey={activeSelectionStoreKey}
-          />
-          <Dialog.Close asChild>
-            <button className="IconButton" aria-label="Close">
-              x
-            </button>
-          </Dialog.Close>
+          <div className="text-container">
+            <SelectWrapper
+              placeholder={activePlaceholder}
+              options={activeOptions}
+              selectionStoreKey={activeSelectionStoreKey}
+            />
+          </div>
+          <div className="gradient-bg">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="goo">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                  <feColorMatrix
+                    in="blur"
+                    mode="matrix"
+                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+                    result="goo"
+                  />
+                  <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+              </defs>
+            </svg>
+            <div className="gradients-container">
+              <div className="g1"></div>
+              <div className="g2"></div>
+              <div className="g3"></div>
+              <div className="g4"></div>
+              <div className="g5"></div>
+              <div className="interactive"></div>
+            </div>
+          </div>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
