@@ -6,13 +6,13 @@ import type { SELECTION_TYPES } from '../constants/memorabilia';
 import { storeMap } from '../functionalityStore';
 import './styles.css';
 
-export interface SelectionWrapperProps {
+export interface SelectWrapperProps {
   placeholder: string;
-  options: string[];
-  selectionStoreKey: SELECTION_TYPES;
+  options?: string[];
+  selectionStoreKey?: SELECTION_TYPES;
 }
 
-const SelectionWrapper: React.FC<SelectionWrapperProps> = ({ placeholder, options, selectionStoreKey }) => {
+const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, selectionStoreKey }) => {
   if (!options || !selectionStoreKey) {
     return null;
   }
@@ -60,4 +60,4 @@ const SelectionWrapper: React.FC<SelectionWrapperProps> = ({ placeholder, option
   );
 };
 
-export default SelectionWrapper;
+export default SelectWrapper;

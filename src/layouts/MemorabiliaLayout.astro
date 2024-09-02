@@ -2,30 +2,14 @@
 import '@fontsource/abril-fatface';
 import '@fontsource/poppins';
 import { getCollection } from 'astro:content';
-import SelectWrapper from '../components/SelectWrapper';
-import { FAVORITE_TYPES, YEARS, SELECTION_TYPES } from '../constants/memorabilia';
 import FavoritesCollectionHandler from '../components/FavoritesCollectionHandler';
+import { SelectionHandler } from '../components/SelectionHandler';
 
 const favoritesCollection = await getCollection('favorites');
-const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLowerCase());
 ---
 
 <body class="memorabilia-body">
-  <h1>
-    my favorite{' '}
-    <SelectWrapper
-      placeholder="things"
-      options={favoriteTypesArray}
-      selectionStoreKey={SELECTION_TYPES.SELECTED_TYPE}
-      client:load
-    />{' '}
-    of <SelectWrapper
-      placeholder="all time"
-      options={YEARS}
-      selectionStoreKey={SELECTION_TYPES.SELECTED_YEAR}
-      client:load
-    />
-  </h1>
+  <SelectionHandler client:load />
   <section>
     <FavoritesCollectionHandler favoritesCollection={favoritesCollection} client:load />
   </section>
