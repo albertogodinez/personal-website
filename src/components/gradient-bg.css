@@ -5,7 +5,7 @@
   } */
 
 .text-container {
-  font-family: 'Dongle', sans-serif;
+  font-family: var(--font-primary);
   z-index: 100;
   width: 100vw;
   height: 100vh;
@@ -16,21 +16,21 @@
   justify-content: center;
   align-items: center;
   font-size: 96px;
-  color: white;
+  /* color: white; */
   opacity: 0.8;
   user-select: none;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 :root {
-  --color-bg1: rgb(108, 0, 162);
-  --color-bg2: rgb(0, 17, 82);
-  --color1: 18, 113, 255;
-  --color2: 221, 74, 255;
-  --color3: 100, 220, 255;
-  --color4: 200, 50, 50;
-  --color5: 180, 180, 50;
-  --color-interactive: 140, 100, 255;
+  --color-bg1: rgb(51, 158, 100);
+  --color-bg2: rgb(235, 219, 188);
+  --color1: 51, 158, 100;
+  --color2: 51, 158, 100;
+  --color3: 235, 219, 188;
+  --color4: 235, 219, 188;
+  --color5: 9, 131, 189;
+  --color-interactive: 9, 131, 189;
   --circle-size: 80%;
   --blending: hard-light;
 }
@@ -76,9 +76,13 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+  /* background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2)); */
   top: 0;
   left: 0;
+
+  opacity: 0.95;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
 }
 
 .gradient-bg svg {
@@ -100,7 +104,7 @@
   position: absolute;
   mix-blend-mode: var(--blending);
   opacity: 1;
-  background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+  /* background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat; */
 }
 
 .gradient-bg .g1 {
@@ -110,7 +114,7 @@
   top: calc(50% - var(--circle-size) / 2);
   left: calc(50% - var(--circle-size) / 2);
   transform-origin: center center;
-  animation: moveVertical 30s ease infinite;
+  animation: moveVertical 20s ease infinite;
 }
 
 .gradient-bg .g2 {

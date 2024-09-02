@@ -1,6 +1,6 @@
 import { useStore } from '@nanostores/react';
 import * as Dialog from '@radix-ui/react-dialog';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import SelectWrapper from '../components/SelectWrapper';
 import { SELECTION_TYPES, YEARS } from '../constants/memorabilia';
@@ -16,6 +16,8 @@ export const SelectionHandler: React.FC = () => {
   const [activeOptions, setActiveOptions] = useState<string[] | undefined>(undefined);
   const [activeSelectionStoreKey, setActiveSelectionStoreKey] = useState<SELECTION_TYPES | undefined>(undefined);
   const [activePlaceholder, setActivePlaceholder] = useState<string>('');
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+  const [interBubble, setInterBubble] = useState<HTMLDivElement | null>(null);
 
   const handleActiveSelection = (options: string[], selectionStoreKey: SELECTION_TYPES, placeholder: string) => {
     setActiveOptions(options);
@@ -23,8 +25,46 @@ export const SelectionHandler: React.FC = () => {
     setActivePlaceholder(placeholder);
   };
 
+  const interactiveRef = useCallback((node: HTMLDivElement | null) => {
+    if (node !== null) {
+      setInterBubble(node);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isDialogOpen || !interBubble) return;
+
+    let curX = 0;
+    let curY = 0;
+    let tgX = 0;
+    let tgY = 0;
+
+    function move() {
+      curX += (tgX - curX) / 20;
+      curY += (tgY - curY) / 20;
+      if (interBubble) {
+        interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+      }
+      requestAnimationFrame(move);
+    }
+
+    const handleMouseMove = (event: MouseEvent) => {
+      tgX = event.clientX;
+      tgY = event.clientY;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    move();
+
+    // Cleanup function to remove event listener
+    return () => {
+      console.log('cleanup');
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [isDialogOpen, interBubble]);
+
   return (
-    <Dialog.Root>
+    <Dialog.Root open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <Dialog.Trigger asChild>
         <h1>
           my favorite{' '}
@@ -46,7 +86,7 @@ export const SelectionHandler: React.FC = () => {
         </h1>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className="DialogOverlay" />
+        <Dialog.Overlay />
         <Dialog.Content className="DialogContent">
           <div className="text-container">
             <SelectWrapper
@@ -74,9 +114,9 @@ export const SelectionHandler: React.FC = () => {
               <div className="g1"></div>
               <div className="g2"></div>
               <div className="g3"></div>
-              <div className="g4"></div>
-              <div className="g5"></div>
-              <div className="interactive"></div>
+              {/* <div className="g4"></div>
+              <div className="g5"></div> */}
+              <div className="interactive" ref={interactiveRef}></div>
             </div>
           </div>
         </Dialog.Content>
