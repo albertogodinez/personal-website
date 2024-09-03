@@ -4,24 +4,6 @@
     padding: 0;
   } */
 
-.text-container {
-  font-family: var(--font-primary);
-  z-index: 100;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  font-size: 96px;
-  /* color: white; */
-  opacity: 0.8;
-  user-select: none;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
-}
-
 :root {
   --color-bg1: rgb(51, 158, 100);
   --color-bg2: rgb(235, 219, 188);

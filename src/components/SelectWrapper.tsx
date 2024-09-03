@@ -28,30 +28,32 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, sel
   };
 
   return (
-    <Select.Root onValueChange={handleValueChange}>
-      <Select.Trigger aria-label={placeholder}>
-        <Select.Value placeholder={placeholder} />
-      </Select.Trigger>
+    <Select.Root open={true} onValueChange={handleValueChange}>
+      {/* <Select.Trigger aria-label={placeholder}><Select.Value placeholder={placeholder} /></Select.Trigger> */}
       <Select.Portal>
         <Select.Content>
           <Select.Viewport>
-            <ScrollArea.Root className="ScrollAreaRoot">
-              <ScrollArea.Viewport className="ScrollAreaViewport">
+            <ScrollArea.Root className="scroll-area__root">
+              <ScrollArea.Viewport>
                 <Select.Group>
                   {options.map((option) => (
-                    <Select.Item className="Tag" key={option} value={option} style={{ cursor: 'pointer' }}>
+                    <Select.Item
+                      className="scroll-area__item"
+                      key={option}
+                      value={option}
+                      style={{ cursor: 'pointer' }}
+                    >
                       <Select.ItemText>{option}</Select.ItemText>
                     </Select.Item>
                   ))}
                 </Select.Group>
               </ScrollArea.Viewport>
-              <ScrollArea.Scrollbar className="ScrollAreaScrollbar" orientation="vertical">
+              <ScrollArea.Scrollbar orientation="vertical">
                 <ScrollArea.Thumb className="ScrollAreaThumb" />
               </ScrollArea.Scrollbar>
-              <ScrollArea.Scrollbar className="ScrollAreaScrollbar" orientation="horizontal">
+              <ScrollArea.Scrollbar orientation="horizontal">
                 <ScrollArea.Thumb className="ScrollAreaThumb" />
               </ScrollArea.Scrollbar>
-              <ScrollArea.Corner className="ScrollAreaCorner" />
             </ScrollArea.Root>
           </Select.Viewport>
         </Select.Content>
