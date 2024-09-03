@@ -93,6 +93,7 @@ export const SelectionHandler: React.FC = () => {
               placeholder={activePlaceholder}
               options={activeOptions}
               selectionStoreKey={activeSelectionStoreKey}
+              onSelectionMade={() => setIsDialogOpen(!isDialogOpen)}
             />
           </div>
           <div className="gradient-bg">

@@ -10,9 +10,11 @@ export interface SelectWrapperProps {
   placeholder: string;
   options?: string[];
   selectionStoreKey?: SELECTION_TYPES;
+  // callback function to be called when a selection is made
+  onSelectionMade: () => void;
 }
 
-const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, selectionStoreKey }) => {
+const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, selectionStoreKey, onSelectionMade }) => {
   if (!options || !selectionStoreKey) {
     return null;
   }
@@ -22,14 +24,13 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, sel
 
   const handleValueChange = (option: string) => {
     if (selectionStore) {
-      console.log(`Setting ${selectionStoreKey} to ${option}`);
       selectionStore.set(option);
+      onSelectionMade();
     }
   };
 
   return (
     <Select.Root open={true} onValueChange={handleValueChange}>
-      {/* <Select.Trigger aria-label={placeholder}><Select.Value placeholder={placeholder} /></Select.Trigger> */}
       <Select.Portal>
         <Select.Content>
           <Select.Viewport>
