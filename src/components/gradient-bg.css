@@ -13,7 +13,7 @@
   --color4: 235, 219, 188;
   --color5: 9, 131, 189;
   --color-interactive: 9, 131, 189;
-  --circle-size: 80%;
+  --circle-size: 60%;
   --blending: hard-light;
 }
 
@@ -58,7 +58,6 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
-  /* background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2)); */
   top: 0;
   left: 0;
 

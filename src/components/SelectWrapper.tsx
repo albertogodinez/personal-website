@@ -29,7 +29,11 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, sel
     }
   };
 
-  // TODO: Investigate why mobile view doesn't work
+  // TODO: focus on the selected item
+  // TODO: update how select items appear when they are focused
+  // TODO: Close dialog when escape key is pressed
+  // TODO: Update mobile styles so that select items fit well
+  // TODO: Separate the styles into a separate file
   return (
     <Select.Root open={true} onValueChange={handleValueChange}>
       <Select.Portal>
