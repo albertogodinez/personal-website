@@ -29,35 +29,42 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, sel
     }
   };
 
+  // TODO: Investigate why mobile view doesn't work
   return (
     <Select.Root open={true} onValueChange={handleValueChange}>
       <Select.Portal>
-        <Select.Content>
-          <Select.Viewport>
-            <ScrollArea.Root className="scroll-area__root">
-              <ScrollArea.Viewport>
-                <Select.Group>
-                  {options.map((option) => (
-                    <Select.Item
-                      className="scroll-area__item"
-                      key={option}
-                      value={option}
-                      style={{ cursor: 'pointer' }}
-                    >
-                      <Select.ItemText>{option}</Select.ItemText>
-                    </Select.Item>
-                  ))}
-                </Select.Group>
-              </ScrollArea.Viewport>
-              <ScrollArea.Scrollbar orientation="vertical">
-                <ScrollArea.Thumb className="ScrollAreaThumb" />
-              </ScrollArea.Scrollbar>
-              <ScrollArea.Scrollbar orientation="horizontal">
-                <ScrollArea.Thumb className="ScrollAreaThumb" />
-              </ScrollArea.Scrollbar>
-            </ScrollArea.Root>
-          </Select.Viewport>
-        </Select.Content>
+        <div
+          id="select-wrapper"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            margin: 'auto',
+            width: '100vw',
+            height: 'auto'
+          }}
+        >
+          <Select.Content className="select__content">
+            <Select.Viewport>
+              <ScrollArea.Root className="scroll-area__root">
+                <ScrollArea.Viewport className="scroll-area__viewport">
+                  <Select.Group>
+                    {options.map((option) => (
+                      <Select.Item key={option} value={option} style={{ cursor: 'pointer' }}>
+                        <Select.ItemText>{option}</Select.ItemText>
+                      </Select.Item>
+                    ))}
+                  </Select.Group>
+                </ScrollArea.Viewport>
+                <ScrollArea.Scrollbar orientation="vertical">
+                  <ScrollArea.Thumb className="ScrollAreaThumb" />
+                </ScrollArea.Scrollbar>
+                <ScrollArea.Scrollbar orientation="horizontal">
+                  <ScrollArea.Thumb className="ScrollAreaThumb" />
+                </ScrollArea.Scrollbar>
+              </ScrollArea.Root>
+            </Select.Viewport>
+          </Select.Content>
+        </div>
       </Select.Portal>
     </Select.Root>
   );

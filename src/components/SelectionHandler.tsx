@@ -88,14 +88,12 @@ export const SelectionHandler: React.FC = () => {
       <Dialog.Portal>
         <Dialog.Overlay />
         <Dialog.Content className="DialogContent">
-          <div className="text-container">
-            <SelectWrapper
-              placeholder={activePlaceholder}
-              options={activeOptions}
-              selectionStoreKey={activeSelectionStoreKey}
-              onSelectionMade={() => setIsDialogOpen(!isDialogOpen)}
-            />
-          </div>
+          <SelectWrapper
+            placeholder={activePlaceholder}
+            options={activeOptions}
+            selectionStoreKey={activeSelectionStoreKey}
+            onSelectionMade={() => setIsDialogOpen(!isDialogOpen)}
+          />
           <div className="gradient-bg">
             <svg xmlns="http://www.w3.org/2000/svg">
               <defs>
