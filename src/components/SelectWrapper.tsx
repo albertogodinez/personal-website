@@ -4,6 +4,7 @@ import * as Select from '@radix-ui/react-select';
 
 import type { SELECTION_TYPES } from '../constants/memorabilia';
 import { storeMap } from '../functionalityStore';
+import './select.css';
 import './styles.css';
 
 export interface SelectWrapperProps {
@@ -53,7 +54,7 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, sel
                 <ScrollArea.Viewport className="scroll-area__viewport">
                   <Select.Group>
                     {options.map((option) => (
-                      <Select.Item key={option} value={option} style={{ cursor: 'pointer' }}>
+                      <Select.Item className="select__item" key={option} value={option}>
                         <Select.ItemText>{option}</Select.ItemText>
                       </Select.Item>
                     ))}
