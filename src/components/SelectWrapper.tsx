@@ -4,8 +4,8 @@ import * as Select from '@radix-ui/react-select';
 
 import type { SELECTION_TYPES } from '../constants/memorabilia';
 import { storeMap } from '../functionalityStore';
-import './select.css';
-import './styles.css';
+import './styles/select.css';
+import './styles/styles.css';
 
 export interface SelectWrapperProps {
   placeholder: string;
@@ -30,8 +30,6 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, sel
     }
   };
 
-  // TODO: focus on the selected item
-  // TODO: update how select items appear when they are focused
   // TODO: Close dialog when escape key is pressed
   // TODO: Update mobile styles so that select items fit well
   // TODO: Separate the styles into a separate file
@@ -54,7 +52,12 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, sel
                 <ScrollArea.Viewport className="scroll-area__viewport">
                   <Select.Group>
                     {options.map((option) => (
-                      <Select.Item className="select__item" key={option} value={option}>
+                      <Select.Item
+                        className="select__item"
+                        key={option}
+                        value={option}
+                        disabled={selectionStore?.get() === option}
+                      >
                         <Select.ItemText>{option}</Select.ItemText>
                       </Select.Item>
                     ))}

@@ -6,7 +6,7 @@ import SelectWrapper from '../components/SelectWrapper';
 import { SELECTION_TYPES, YEARS } from '../constants/memorabilia';
 import { FAVORITE_TYPES } from '../constants/memorabilia';
 import { selectedFavoriteType, selectedYear } from '../functionalityStore';
-import './gradient-bg.css';
+import './styles/gradient-bg.css';
 
 const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLowerCase());
 
@@ -62,6 +62,7 @@ export const SelectionHandler: React.FC = () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, [isDialogOpen, interBubble]);
+
   // TODO: Separate the gradient background into a separate component
   return (
     <Dialog.Root open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -69,6 +70,7 @@ export const SelectionHandler: React.FC = () => {
         <h1>
           my favorite{' '}
           <span
+            style={{ cursor: 'pointer', fontWeight: 'bold' }}
             onClick={() =>
               handleActiveSelection(
                 favoriteTypesArray,
@@ -81,6 +83,7 @@ export const SelectionHandler: React.FC = () => {
           </span>
           of
           <span
+            style={{ cursor: 'pointer', fontSize: '2rem' }}
             onClick={() => handleActiveSelection(YEARS, SELECTION_TYPES.SELECTED_YEAR, $selectedYear || 'all time')}
           >{` ${$selectedYear || 'all time'}`}</span>
         </h1>
