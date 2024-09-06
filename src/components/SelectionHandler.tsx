@@ -6,7 +6,7 @@ import SelectWrapper from '../components/SelectWrapper';
 import { SELECTION_TYPES, YEARS } from '../constants/memorabilia';
 import { FAVORITE_TYPES } from '../constants/memorabilia';
 import { selectedFavoriteType, selectedYear } from '../functionalityStore';
-import './styles/gradient-bg.css';
+import '../styles/gradient-bg.css';
 
 const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLowerCase());
 

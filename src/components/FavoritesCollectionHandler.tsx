@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 
 import type { FavoritesCollection, FavoritesCollectionEntry } from '../content/config';
 import { selectedFavoriteType, selectedYear } from '../functionalityStore';
+import '../styles/content.css';
+import '../styles/global.css';
 import ContentHandler from './ContentHandler';
-import './styles/styles.css';
 
 export interface FavoritesCollectionHandlerProps {
   favoritesCollection: FavoritesCollection;

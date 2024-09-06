@@ -4,6 +4,7 @@ import '@fontsource/poppins';
 import { getCollection } from 'astro:content';
 import FavoritesCollectionHandler from '../components/FavoritesCollectionHandler';
 import { SelectionHandler } from '../components/SelectionHandler';
+import '../styles/global.css';
 
 const favoritesCollection = await getCollection('favorites');
 ---

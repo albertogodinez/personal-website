@@ -20,8 +20,6 @@
     "@fontsource/abril-fatface": "^5.0.21",
     "@fontsource/poppins": "^5.0.15",
     "@nanostores/react": "^0.7.3",
-    "@radix-ui/colors": "^3.0.0",
-    "@radix-ui/react-aspect-ratio": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-scroll-area": "^1.1.0",
     "@radix-ui/react-select": "^2.1.1",

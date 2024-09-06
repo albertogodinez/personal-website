@@ -4,8 +4,8 @@ import * as Select from '@radix-ui/react-select';
 
 import type { SELECTION_TYPES } from '../constants/memorabilia';
 import { storeMap } from '../functionalityStore';
-import './styles/select.css';
-import './styles/styles.css';
+import '../styles/global.css';
+import '../styles/select.css';
 
 export interface SelectWrapperProps {
   placeholder: string;
@@ -32,7 +32,6 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, sel
 
   // TODO: Close dialog when escape key is pressed
   // TODO: Update mobile styles so that select items fit well
-  // TODO: Separate the styles into a separate file
   return (
     <Select.Root open={true} onValueChange={handleValueChange}>
       <Select.Portal>
