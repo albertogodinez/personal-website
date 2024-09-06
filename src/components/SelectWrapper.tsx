@@ -13,9 +13,16 @@ export interface SelectWrapperProps {
   selectionStoreKey?: SELECTION_TYPES;
   // callback function to be called when a selection is made
   onSelectionMade: () => void;
+  onEscapeKeyDownCallback?: () => void;
 }
 
-const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, selectionStoreKey, onSelectionMade }) => {
+const SelectWrapper: React.FC<SelectWrapperProps> = ({
+  placeholder,
+  options,
+  selectionStoreKey,
+  onSelectionMade,
+  onEscapeKeyDownCallback
+}) => {
   if (!options || !selectionStoreKey) {
     return null;
   }
@@ -30,8 +37,11 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, sel
     }
   };
 
-  // TODO: Close dialog when escape key is pressed
   // TODO: Update mobile styles so that select items fit well
+  // TODO: fix styling of select component
+  // TODO: Remove unused css
+  // TODO: Update background color
+  // todo: fix aria issues
   return (
     <Select.Root open={true} onValueChange={handleValueChange}>
       <Select.Portal>
@@ -45,7 +55,12 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({ placeholder, options, sel
             height: 'auto'
           }}
         >
-          <Select.Content className="select__content">
+          <Select.Content
+            onEscapeKeyDown={() => {
+              if (onEscapeKeyDownCallback) onEscapeKeyDownCallback();
+            }}
+            className="select__content"
+          >
             <Select.Viewport>
               <ScrollArea.Root className="scroll-area__root">
                 <ScrollArea.Viewport className="scroll-area__viewport">

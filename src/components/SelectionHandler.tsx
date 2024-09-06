@@ -51,14 +51,17 @@ export const SelectionHandler: React.FC = () => {
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay />
-        <Dialog.Content className="DialogContent">
-          <SelectWrapper
-            placeholder={activePlaceholder}
-            options={activeOptions}
-            selectionStoreKey={activeSelectionStoreKey}
-            onSelectionMade={() => setIsDialogOpen(!isDialogOpen)}
-          />
-          <GradientBackground />
+        <Dialog.Content className="dialog__content">
+          <div>
+            <SelectWrapper
+              placeholder={activePlaceholder}
+              options={activeOptions}
+              selectionStoreKey={activeSelectionStoreKey}
+              onSelectionMade={() => setIsDialogOpen(!isDialogOpen)}
+              onEscapeKeyDownCallback={() => setIsDialogOpen(false)}
+            />
+            <GradientBackground />
+          </div>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

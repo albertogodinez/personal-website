@@ -10,6 +10,16 @@
   font-family: var(--font-secondary);
   font-size: 6rem;
   padding-block-end: 1rem;
+  animation: fadeIn 0.7s ease-in-out; /* Add animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .select__item {
@@ -26,7 +36,7 @@
 }
 
 .select__item[data-disabled] {
-  cursor: not-allowed;
+  /* cursor: not-allowed; */
   opacity: 0.5;
 }
 
