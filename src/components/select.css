@@ -3,14 +3,14 @@
     justify-content: center;
     align-items: center;
     height: 100vh; */
-  /* overflow: hidden; */
+  overflow: hidden;
 
   width: 100vw;
   height: 100vh;
+  font-family: var(--font-secondary);
   font-size: 6rem;
+  padding-block-end: 1rem;
 }
-
-/* TODO: Fix cursor point not showing up properly */
 
 .select__item {
   line-height: 1;
@@ -20,57 +20,12 @@
   padding: 8px 16px;
   position: relative; /* Needed for span::before to position correctly */
   transition: transform 0.4s cubic-bezier(0.2, 1, 0.8, 1);
-  text-decoration: none; /* Explicitly remove underline from select__item */
 }
 
 .select__item[data-highlighted] {
   cursor: pointer;
   outline: none;
-  transform: translateY(-2px); /* Moves the highlighted item upwards */
-}
-
-/* Move the underline effect to span */
-.select__item span {
-  position: relative;
-  text-decoration: none; /* Remove default text underline */
-  transition: transform 0.4s cubic-bezier(0.2, 1, 0.8, 1);
-}
-
-/* Underline effect using ::before pseudo-element on span */
-.select__item span::before {
-  content: '';
-  position: absolute;
-  bottom: -1rem;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: currentColor;
-  transform-origin: 50% 100%;
-  clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%, 100% 100%, 100% 0%);
-  transition:
-    clip-path 0.4s,
-    transform 0.4s cubic-bezier(0.2, 1, 0.8, 1);
-
-  /* Prevent the ::before element from interfering with the cursor */
-  pointer-events: none;
-}
-
-/* Animate underline when highlighted */
-.select__item[data-highlighted] span::before {
-  transform: translate3d(0, 2px, 0) scale3d(1.08, 3, 1);
-  clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 0, 50% 0, 50% 100%, 50% 100%, 0 100%, 100% 100%, 100% 0%);
-}
-
-/* Hover effect for smooth text movement */
-.select__item[data-highlighted] span {
-  transform: translate3d(0, -2px, 0); /* Moves the text upwards */
-}
-
-.scroll-area__root {
-  /* width: 100vw;
-    height: 100vh;
-    font-size: 8rem;
-    overflow: hidden; */
+  transform: scaleX(1.25) scaleY(1.25);
 }
 
 .scroll-area__viewport {
