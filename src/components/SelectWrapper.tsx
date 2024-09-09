@@ -38,9 +38,7 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({
   };
 
   // TODO: Update mobile styles so that select items fit well
-  // TODO: fix styling of select component
   // TODO: Remove unused css
-  // TODO: Update background color
   // todo: fix aria issues
   return (
     <Select.Root open={true} onValueChange={handleValueChange}>
