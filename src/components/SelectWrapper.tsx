@@ -37,7 +37,7 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({
     }
   };
 
-  // TODO: Update mobile styles so that select items fit well
+  // TODO: Fix issues with certain styles not working in safari
   // TODO: Remove unused css
   // todo: fix aria issues
   return (
