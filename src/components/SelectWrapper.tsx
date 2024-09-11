@@ -38,6 +38,8 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({
   };
 
   // TODO: Fix issues with certain styles not working in safari
+  // TODO: Center vertically the entire select viewport or component and validate
+  // that theres enough space in the bottom and top for mobile
   // TODO: Remove unused css
   // todo: fix aria issues
   return (
