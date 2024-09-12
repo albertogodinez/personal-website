@@ -60,7 +60,7 @@
 
 /* todo: figure out if I even need this */
 /* increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html */
-.ScrollAreaThumb::before {
+/* .ScrollAreaThumb::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -70,4 +70,4 @@
   height: 100%;
   min-width: 44px;
   min-height: 44px;
-}
+} */

@@ -28,9 +28,9 @@ export const SelectionHandler: React.FC = () => {
 
   return (
     <Dialog.Root open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-      <Dialog.Trigger asChild>
-        <h1>
-          my favorite{' '}
+      <h1>
+        my favorite{' '}
+        <Dialog.Trigger asChild>
           <span
             className="selection-trigger"
             onClick={() =>
@@ -43,13 +43,15 @@ export const SelectionHandler: React.FC = () => {
           >
             {` ${$selectedFavoriteType || 'things'} `}
           </span>
-          of
+        </Dialog.Trigger>
+        of
+        <Dialog.Trigger asChild>
           <span
             className="selection-trigger"
             onClick={() => handleActiveSelection(YEARS, SELECTION_TYPES.SELECTED_YEAR, $selectedYear || 'all time')}
           >{` ${$selectedYear || 'all time'}`}</span>
-        </h1>
-      </Dialog.Trigger>
+        </Dialog.Trigger>
+      </h1>
       <Dialog.Portal>
         <Dialog.Overlay />
         <Dialog.Content className="dialog__content">

@@ -57,9 +57,9 @@
   left: 0;
 
   opacity: 0.95;
-  background: rgba(255, 255, 255, 0.5);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 
   animation: fadeIn 0.9s ease-in-out; /* Add animation */
 }
