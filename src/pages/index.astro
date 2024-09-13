@@ -1,5 +1,4 @@
 ---
-import MemorabiliaLayout from '../layouts/MemorabiliaLayout.astro';
 interface Props {
   title: string;
 }
@@ -17,62 +16,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <MemorabiliaLayout title="welcome" />
-
-  <style is:global>
-    /* CSS Reset 
-  inspired by https://www.joshwcomeau.com/css/custom-css-reset/
-  */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    * {
-      margin: 0;
-    }
-
-    img,
-    picture,
-    video,
-    canvas,
-    svg {
-      display: block;
-      max-width: 100%;
-    }
-    input,
-    button,
-    textarea,
-    select {
-      font: inherit;
-    }
-
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      overflow-wrap: break-word;
-    }
-
-    #root,
-    #__next {
-      isolation: isolate;
-    }
-
-    body {
-      &::before {
-        width: 100%;
-        display: block;
-        content: '';
-        height: 0.1rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-    }
-  </style>
+  <body>
+    <h1>hello</h1>
+  </body>
 </html>

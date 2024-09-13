@@ -51,7 +51,7 @@ h1 {
     auto-fit,
     minmax(min(100%, max(var(--grid-min-width), 100% / calc(var(--grid-columns) + 1))), 1fr)
   );
-  gap: var(--grid-gap-half);
+  gap: var(--grid-gap-double);
 }
 
 .grid[data-columns] {
@@ -85,5 +85,60 @@ h1 {
     padding: var(--spacing-half);
     background: rgba(255, 255, 255, 0.1);
     border-radius: 1rem;
+  }
+}
+
+/* CSS Reset 
+  inspired by https://www.joshwcomeau.com/css/custom-css-reset/
+  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+  &::before {
+    width: 100%;
+    display: block;
+    content: '';
+    height: 0.1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
