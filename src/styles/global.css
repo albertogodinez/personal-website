@@ -19,6 +19,8 @@
   --font-color-content-header: black;
 
   --bg-primary: #f3f1ea;
+  --bg-secondary: rgb(51, 158, 100);
+  --bg-tertiary: rgb(9, 131, 189);
 }
 
 body {
