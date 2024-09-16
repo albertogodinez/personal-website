@@ -4,18 +4,20 @@
 }
 
 .wrapper {
-  -webkit-tap-highlight-color: transparent;
+  /* -webkit-tap-highlight-color: transparent;
 
-  transition: background-color var(--duration);
+  transition: background-color var(--duration); */
   display: flex;
   justify-content: center;
   padding: 6em 0;
 }
 
 .menu {
-  width: 32.05em;
+  /*! COULD REMOVE THE FOLLOWING TWO */
   font-size: 1.5em;
   background-color: var(--bgColorMenu);
+
+  width: 32.05em;
 
   display: flex;
   justify-content: center;
@@ -23,24 +25,18 @@
   position: relative;
 }
 
-/* TODO: Update this to use query containers instead */
-@media screen and (max-width: 50em) {
-  .menu {
-    font-size: 0.8em;
-  }
-}
-
 .menu__item {
-  /* "all" resets every property of an element and requires you to set each property yourself */
+  /* z-index: 1; */
   all: unset;
   flex-grow: 1;
-  z-index: 1;
   position: relative;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.55em 0 0.85em;
+  padding: 1.2em 0 1.4em;
+  /* transition: transform var(--duration); */
+
   border-radius: 50%;
   /* The var inside a var is used as a kind of if statement. If the first isn't available, it uses the second one and vice versa  */
   transition: transform var(--timeOut, var(--duration));
@@ -48,23 +44,7 @@
   will-change: transform;
 }
 
-.menu__item-text {
-  /* Helps view the icon */
-  width: 2.6em;
-  height: 2.6em;
-  stroke: white;
-  /* End of help */
-
-  /* Beautification styling */
-  stroke-width: 0.1em;
-  stroke-dasharray: 400;
-  stroke-miterlimit: 10;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  /* End of Beautification styling */
-}
-
-.menu__item::before {
+/* .menu__item::before {
   content: '';
   position: absolute;
   z-index: -1;
@@ -73,34 +53,44 @@
   border-radius: 50%;
   transform: scale(0);
 
-  /* You can combine two or more properties in transition */
   transition:
     background-color var(--duration),
     transform var(--duration);
+} */
+
+.menu__item-text {
+  color: white; /* Update as per the design */
 }
 
 .menu__item.active {
-  /* This and the transition above handles the movement of the active button  */
   transform: translateY(-0.8em);
-}
-
-.menu__item.active::before {
-  transform: scale(1);
 
   /* This handles the changing color of active button */
-  background-color: var(--bgColorItem);
+  /* TODO: Could remove this later on */
+  /* transform: scale(1); */
+  /* background-color: var(--bgColorItem); */
 }
 
-/* This handles movement of the icons from left to right */
-.menu__item.active .menu__item-text {
-  /* The reverse direction offers a smoother experience */
+/* ! this controlled the circle around the text */
+/* .menu__item.active .menu__item-text {
   animation: stroker 1.5s reverse;
+} */
+
+.menu__dot {
+  position: absolute;
+  bottom: 0; /* Place dot underneath */
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: white; /* Dot color */
+  border-radius: 50%;
+  transition:
+    transform var(--duration),
+    background-color var(--duration);
 }
 
-@keyframes stroker {
-  100% {
-    stroke-dashoffset: 400;
-  }
+.menu__item.active + .menu__dot {
+  transform: translateX(calc(50% - 5px)); /* Adjust position under active item */
 }
 
 .menu__border {

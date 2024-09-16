@@ -15,6 +15,7 @@ import '../styles/footer.css';
     <button class="menu__item" style="--bgColorItem: #ff8c00"><span class="menu__item-text">Email</span></button>
     <button class="menu__item" style="--bgColorItem: #ff8c00"><span class="menu__item-text">Github</span></button> -->
     <div class="menu__border"></div>
+    <div class="menu__dot"></div>
   </nav>
   <div class="svg-container">
     <svg viewBox="0 0 202.9 45.5">
@@ -31,13 +32,12 @@ import '../styles/footer.css';
 <script>
   const menu = document.querySelector('.menu') as HTMLElement;
   const menuItems = document.querySelectorAll('.menu__item');
+  const menuDot = document.querySelector('.menu__dot') as HTMLElement;
   const menuBorder = document.querySelector('.menu__border') as HTMLElement;
 
-  function handleClick(item: Element, menu: HTMLElement) {
-    let activeItem = document.querySelector('.active') as Element;
+  function handleClick(item: Element) {
+    let activeItem = document.querySelector('.menu__item.active');
     if (item === activeItem || !activeItem) return;
-
-    menu.style.removeProperty('--timeOut');
 
     activeItem.classList.remove('active');
     item.classList.add('active');
@@ -45,6 +45,7 @@ import '../styles/footer.css';
     activeItem = item;
 
     handleBorderPosition(menuBorder, menu, activeItem);
+    moveDot(item);
   }
 
   function handleBorderPosition(menuBorder: HTMLElement, menu: HTMLElement, activeItem?: Element) {
@@ -57,12 +58,23 @@ import '../styles/footer.css';
     menuBorder.style.transform = `translateX(${moveRight})`;
   }
 
-  menuItems.forEach((item: Element) => {
-    item.addEventListener('click', () => handleClick(item, menu));
+  function moveDot(activeItem: Element) {
+    const { left, width } = activeItem.getBoundingClientRect();
+    const menuLeft = menu.offsetLeft;
+
+    // Center dot under active item
+    const moveX = Math.floor(left - menuLeft + width / 2 - 5) + 'px';
+    menuDot.style.transform = `translateX(${moveX})`;
+  }
+
+  menuItems.forEach((item) => {
+    item.addEventListener('click', () => handleClick(item));
   });
 
   window.addEventListener('resize', () => {
-    handleBorderPosition(menuBorder, menu);
     menu.style.setProperty('--timeOut', 'none');
+    const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
+    moveDot(activeItem);
+    handleBorderPosition(menuBorder, menu);
   });
 </script>
