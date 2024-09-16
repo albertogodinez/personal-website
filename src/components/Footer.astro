@@ -62,13 +62,22 @@ import '../styles/footer.css';
     const { left, width } = activeItem.getBoundingClientRect();
     const menuLeft = menu.offsetLeft;
 
-    // Center dot under active item
+    // Center the dot under the active item
     const moveX = Math.floor(left - menuLeft + width / 2 - 5) + 'px';
-    menuDot.style.transform = `translateX(${moveX})`;
+
+    // Remove the active class to reset animation
+    menuDot.classList.remove('active');
+
+    // Wait for the next animation frame to re-add the active class and retrigger the animation
+    requestAnimationFrame(() => {
+      menuDot.style.setProperty('--dotPosition', moveX);
+      menuDot.classList.add('active'); // Re-trigger the dot elongation animation
+    });
   }
 
-  menuItems.forEach((item) => {
-    item.addEventListener('click', () => handleClick(item));
+  // Add an event listener to detect when the transition ends, and remove the active class
+  menuDot.addEventListener('transitionend', () => {
+    menuDot.classList.remove('active');
   });
 
   window.addEventListener('resize', () => {
@@ -76,5 +85,9 @@ import '../styles/footer.css';
     const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
     moveDot(activeItem);
     handleBorderPosition(menuBorder, menu);
+  });
+
+  menuItems.forEach((item) => {
+    item.addEventListener('click', () => handleClick(item));
   });
 </script>

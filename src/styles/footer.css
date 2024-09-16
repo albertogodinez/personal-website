@@ -78,19 +78,29 @@
 
 .menu__dot {
   position: absolute;
-  bottom: 0; /* Place dot underneath */
+  bottom: 0;
   left: 0;
   width: 10px;
   height: 10px;
-  background-color: white; /* Dot color */
+  background-color: white;
   border-radius: 50%;
   transition:
     transform var(--duration),
-    background-color var(--duration);
+    background-color var(--duration),
+    width 0.5s ease-in-out; /* Include width transition */
 }
 
 .menu__item.active + .menu__dot {
-  transform: translateX(calc(50% - 5px)); /* Adjust position under active item */
+  transform: translateX(calc(50% - 5px));
+}
+
+/* Adjust the movement to include scaling */
+.menu__dot {
+  transform: translateX(var(--dotPosition)) scale(1); /* Set default scale */
+}
+
+.menu__dot.active {
+  animation: dot-elongate 0.5s ease-in-out forwards; /* Trigger elongation */
 }
 
 .menu__border {
@@ -112,4 +122,16 @@
 .svg-container {
   width: 0;
   height: 0;
+}
+
+@keyframes dot-elongate {
+  0%,
+  100% {
+    width: 10px; /* Start and end with default width */
+    border-radius: 50%;
+  }
+  30% {
+    width: 50px; /* Elongate width at midpoint */
+    border-radius: 20%;
+  }
 }
