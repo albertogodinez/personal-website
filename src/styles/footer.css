@@ -1,106 +1,99 @@
 :root {
-  --bgColorMenu: var(--bg-tertiary);
+  --bgColorMenu: rgba(255, 255, 255, 0.7);
   --duration: 0.7s;
 }
 
 .wrapper {
-  /* -webkit-tap-highlight-color: transparent;
-
-  transition: background-color var(--duration); */
   display: flex;
   justify-content: center;
-  padding: 6em 0;
+  padding: 2em 0;
+  width: 100%;
+  max-width: 600px;
+  /* overflow: hidden; */
+}
+
+.menu-container {
+  position: relative;
+  width: 100%;
 }
 
 .menu {
-  /*! COULD REMOVE THE FOLLOWING TWO */
-  font-size: 1.5em;
+  font-size: 1em;
   background-color: var(--bgColorMenu);
+  /* todo: make the following into a variable */
+  box-shadow:
+  /* Top shadow is none, so svg can appear seamlessly */
+    0 -10px 10px -10px rgba(0, 0, 0, 0),
+    /* Bottom shadow */ 0 10px 10px -10px rgba(0, 0, 0, 0.06),
+    /* Left shadow */ -10px 0 10px -10px rgba(0, 0, 0, 0.06),
+    /* Right shadow */ 10px 0 10px -10px rgba(0, 0, 0, 0.06);
 
-  width: 32.05em;
+  width: 100%;
 
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0 2.85em;
   position: relative;
+  border-radius: 10px;
+  /* ensure horizontal scrolling */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+
+.menu::-webkit-scrollbar {
+  display: none;
 }
 
 .menu__item {
-  /* z-index: 1; */
   all: unset;
-  flex-grow: 1;
   position: relative;
   cursor: pointer;
-  display: flex;
+  display: inline-flex; /* Use inline-flex to allow natural content size */
   justify-content: center;
   align-items: center;
   padding: 1.2em 0 1.4em;
-  /* transition: transform var(--duration); */
-
-  border-radius: 50%;
-  /* The var inside a var is used as a kind of if statement. If the first isn't available, it uses the second one and vice versa  */
   transition: transform var(--timeOut, var(--duration));
-
   will-change: transform;
+  margin-right: 1em;
 }
 
-/* .menu__item::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  width: 4.4em;
-  height: 4.4em;
-  border-radius: 50%;
-  transform: scale(0);
-
-  transition:
-    background-color var(--duration),
-    transform var(--duration);
-} */
-
 .menu__item-text {
-  color: white; /* Update as per the design */
+  color: rgba(133, 133, 133, 0.5);
+  transition: color var(--duration);
 }
 
 .menu__item.active {
-  transform: translateY(-0.8em);
-
-  /* This handles the changing color of active button */
-  /* TODO: Could remove this later on */
-  /* transform: scale(1); */
-  /* background-color: var(--bgColorItem); */
+  transform: translateY(-0.5em);
 }
 
-/* ! this controlled the circle around the text */
-/* .menu__item.active .menu__item-text {
-  animation: stroker 1.5s reverse;
-} */
+.menu__item.active .menu__item-text {
+  color: #555555;
+}
 
 .menu__dot {
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
   left: 0;
   width: 10px;
   height: 10px;
-  background-color: white;
+  /* TODO: convert to  variable */
+  background-color: #555555;
+  box-shadow: 0 0 20px rgba(243, 241, 234, 1);
   border-radius: 50%;
   transition:
     transform var(--duration),
     background-color var(--duration),
-    width 0.5s ease-in-out; /* Include width transition */
-}
-
-.menu__item.active + .menu__dot {
-  transform: translateX(calc(50% - 5px));
+    width var(--duration) ease-in-out;
 }
 
 /* Adjust the movement to include scaling */
 .menu__dot {
-  transform: translateX(var(--dotPosition)) scale(1); /* Set default scale */
+  transform: translateX(var(--dotPosition)) scale(1);
 }
 
 .menu__dot.active {
-  animation: dot-elongate 0.5s ease-in-out forwards; /* Trigger elongation */
+  animation: dot-elongate var(--duration) ease-in-out forwards;
 }
 
 .menu__border {
@@ -112,26 +105,26 @@
   bottom: 99%;
 
   /* Handle size of svg in with id menu */
-  width: 10.9em;
-  height: 2.7em;
+  width: 8em;
+  height: 1.75em;
   background-color: var(--bgColorMenu);
   transition: transform var(--timeOut, var(--duration));
   will-change: transform;
 }
 
+/* TODO: might not need this */
 .svg-container {
-  width: 0;
-  height: 0;
+  position: relative;
 }
 
 @keyframes dot-elongate {
   0%,
   100% {
-    width: 10px; /* Start and end with default width */
+    width: 10px;
     border-radius: 50%;
   }
   30% {
-    width: 50px; /* Elongate width at midpoint */
+    width: 50px;
     border-radius: 20%;
   }
 }

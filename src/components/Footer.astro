@@ -6,17 +6,19 @@ import '../styles/footer.css';
 <!-- todo: consider updating this an ID -->
 <footer class="wrapper">
   <!-- TODO: might need to update the name -->
-  <nav class="menu">
-    <button class="menu__item active" style="--bgColorItem: #ff8c00"><span class="menu__item-text">Home</span></button>
-    <button class="menu__item" style="--bgColorItem: #ff8c00"><span class="menu__item-text">Projects</span></button>
-    <button class="menu__item" style="--bgColorItem: #ff8c00"><span class="menu__item-text">Work</span></button>
-    <!-- <button class="menu__item" style="--bgColorItem: #ff8c00"><span class="menu__item-text">Moodboard</span></button>
-    <button class="menu__item" style="--bgColorItem: #ff8c00"><span class="menu__item-text">Memorabilium</span></button>
-    <button class="menu__item" style="--bgColorItem: #ff8c00"><span class="menu__item-text">Email</span></button>
-    <button class="menu__item" style="--bgColorItem: #ff8c00"><span class="menu__item-text">Github</span></button> -->
+  <div class="menu-container">
+    <nav class="menu">
+      <button class="menu__item active"><span class="menu__item-text">home</span></button>
+      <button class="menu__item"><span class="menu__item-text">projects</span></button>
+      <button class="menu__item"><span class="menu__item-text">work</span></button>
+      <button class="menu__item"><span class="menu__item-text">moodboard</span></button>
+      <button class="menu__item"><span class="menu__item-text">memorabilium</span></button>
+      <button class="menu__item"><span class="menu__item-text">email</span></button>
+      <button class="menu__item"><span class="menu__item-text">github</span></button>
+      <div class="menu__dot"></div>
+    </nav>
     <div class="menu__border"></div>
-    <div class="menu__dot"></div>
-  </nav>
+  </div>
   <div class="svg-container">
     <svg viewBox="0 0 202.9 45.5">
       <clipPath id="menu" clipPathUnits="objectBoundingBox" transform="scale(0.0049285362247413 0.021978021978022)">
@@ -54,7 +56,7 @@ import '../styles/footer.css';
 
     const { left, width } = activeItemPosition;
 
-    const moveRight = Math.floor(left - menu.offsetLeft - (menuBorder.offsetWidth - width) / 2) + 'px';
+    const moveRight = Math.floor(left - menu.offsetLeft - (menuBorder.offsetWidth - width) / 2 - 22) + 'px';
     menuBorder.style.transform = `translateX(${moveRight})`;
   }
 
@@ -63,7 +65,7 @@ import '../styles/footer.css';
     const menuLeft = menu.offsetLeft;
 
     // Center the dot under the active item
-    const moveX = Math.floor(left - menuLeft + width / 2 - 5) + 'px';
+    const moveX = Math.floor(left - menuLeft + width / 2 - 22) + 'px';
 
     // Remove the active class to reset animation
     menuDot.classList.remove('active');
