@@ -1,5 +1,5 @@
 .selection-trigger {
-  font-family: var(--font-secondary);
+  font-weight: 700;
 }
 
 .selection-trigger:hover {
@@ -14,7 +14,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
   background-size: 500% auto;
   animation: textShine 3s ease-in-out infinite alternate;
   cursor: pointer;

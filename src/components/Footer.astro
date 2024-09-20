@@ -12,7 +12,7 @@ import '../styles/footer.css';
       <button class="menu__item"><span class="menu__item-text">projects</span></button>
       <button class="menu__item"><span class="menu__item-text">work</span></button>
       <button class="menu__item"><span class="menu__item-text">moodboard</span></button>
-      <button class="menu__item"><span class="menu__item-text">memorabilium</span></button>
+      <button class="menu__item"><span class="menu__item-text">memorabilia</span></button>
       <button class="menu__item"><span class="menu__item-text">email</span></button>
       <button class="menu__item"><span class="menu__item-text">github</span></button>
       <div class="menu__dot"></div>
@@ -36,6 +36,7 @@ import '../styles/footer.css';
   const menuItems = document.querySelectorAll('.menu__item');
   const menuDot = document.querySelector('.menu__dot') as HTMLElement;
   const menuBorder = document.querySelector('.menu__border') as HTMLElement;
+  let isScrolling = false;
 
   function handleClick(item: Element) {
     let activeItem = document.querySelector('.menu__item.active');
@@ -46,6 +47,9 @@ import '../styles/footer.css';
 
     activeItem = item;
 
+    // Enable animation on click
+    menuBorder.style.transition = 'transform var(--timeOut, var(--duration))';
+
     handleBorderPosition(menuBorder, menu, activeItem);
     moveDot(item);
   }
@@ -55,19 +59,20 @@ import '../styles/footer.css';
     const activeItemPosition = activeItem.getBoundingClientRect();
 
     const { left, width } = activeItemPosition;
+    const menuLeft = menu.getBoundingClientRect().left;
 
-    const moveRight = Math.floor(left - menu.offsetLeft - (menuBorder.offsetWidth - width) / 2 - 22) + 'px';
+    // Adjust the border's position relative to the active item's position and menu's scroll
+    const moveRight = Math.floor(left - menuLeft - (menuBorder.offsetWidth - width) / 2) + 'px';
     menuBorder.style.transform = `translateX(${moveRight})`;
   }
 
   function moveDot(activeItem: Element) {
     const { left, width } = activeItem.getBoundingClientRect();
-    const menuLeft = menu.offsetLeft;
+    const menuLeft = menu.getBoundingClientRect().left;
 
     // Center the dot under the active item
-    const moveX = Math.floor(left - menuLeft + width / 2 - 22) + 'px';
+    const moveX = Math.floor(left - menuLeft + width / 2) + 'px';
 
-    // Remove the active class to reset animation
     menuDot.classList.remove('active');
 
     // Wait for the next animation frame to re-add the active class and retrigger the animation
@@ -77,11 +82,24 @@ import '../styles/footer.css';
     });
   }
 
-  // Add an event listener to detect when the transition ends, and remove the active class
-  menuDot.addEventListener('transitionend', () => {
-    menuDot.classList.remove('active');
+  // Handle border movement on scroll
+  menu.addEventListener('scroll', () => {
+    if (!isScrolling) {
+      // Disable animation during scroll
+      menuBorder.style.transition = 'none';
+      isScrolling = true;
+    }
+
+    const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
+    handleBorderPosition(menuBorder, menu, activeItem);
+
+    // Set a delay to allow for scrolling to finish
+    setTimeout(() => {
+      isScrolling = false;
+    }, 150); // Adjust the delay as needed
   });
 
+  // Resize event to adjust position on window resize
   window.addEventListener('resize', () => {
     menu.style.setProperty('--timeOut', 'none');
     const activeItem = document.querySelector('.menu__item.active') as HTMLElement;

@@ -1,15 +1,15 @@
 :root {
-  --bgColorMenu: rgba(255, 255, 255, 0.7);
+  --bgColorMenu: rgba(255, 255, 255, 1);
   --duration: 0.7s;
 }
 
 .wrapper {
   display: flex;
   justify-content: center;
-  padding: 2em 0;
+  padding-block: 2em;
   width: 100%;
   max-width: 600px;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .menu-container {
@@ -18,21 +18,21 @@
 }
 
 .menu {
-  font-size: 1em;
+  font-size: 1.25em;
   background-color: var(--bgColorMenu);
   /* todo: make the following into a variable */
   box-shadow:
   /* Top shadow is none, so svg can appear seamlessly */
     0 -10px 10px -10px rgba(0, 0, 0, 0),
-    /* Bottom shadow */ 0 10px 10px -10px rgba(0, 0, 0, 0.06),
-    /* Left shadow */ -10px 0 10px -10px rgba(0, 0, 0, 0.06),
-    /* Right shadow */ 10px 0 10px -10px rgba(0, 0, 0, 0.06);
+    /* Bottom shadow */ 0 10px 10px -10px rgba(0, 0, 0, 0.09),
+    /* Left shadow */ -10px 0 10px -10px rgba(0, 0, 0, 0.09),
+    /* Right shadow */ 10px 0 10px -10px rgba(0, 0, 0, 0.09);
 
   width: 100%;
 
   display: flex;
   justify-content: flex-start;
-  padding: 0 2.85em;
+  padding: 0 2em;
   position: relative;
   border-radius: 10px;
   /* ensure horizontal scrolling */
@@ -49,10 +49,10 @@
   all: unset;
   position: relative;
   cursor: pointer;
-  display: inline-flex; /* Use inline-flex to allow natural content size */
-  justify-content: center;
-  align-items: center;
-  padding: 1.2em 0 1.4em;
+  /* display: inline-flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  padding: 1em 0 1.5em;
   transition: transform var(--timeOut, var(--duration));
   will-change: transform;
   margin-right: 1em;
@@ -73,7 +73,7 @@
 
 .menu__dot {
   position: absolute;
-  bottom: 1rem;
+  bottom: 0.75rem;
   left: 0;
   width: 10px;
   height: 10px;
@@ -102,20 +102,20 @@
 
   position: absolute;
   left: 0;
-  bottom: 99%;
+  bottom: 94%;
 
   /* Handle size of svg in with id menu */
-  width: 8em;
-  height: 1.75em;
+  width: 9em;
+  height: 2em;
   background-color: var(--bgColorMenu);
   transition: transform var(--timeOut, var(--duration));
   will-change: transform;
 }
 
 /* TODO: might not need this */
-.svg-container {
+/* .svg-container {
   position: relative;
-}
+} */
 
 @keyframes dot-elongate {
   0%,

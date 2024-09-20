@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { SELECTION_TYPES, YEARS } from '../constants/memorabilia';
 import { FAVORITE_TYPES } from '../constants/memorabilia';
 import { selectedFavoriteType, selectedYear } from '../functionalityStore';
+import '../styles/global.css';
 import '../styles/gradient-bg.css';
 import '../styles/text-gradient.css';
 import GradientBackground from './GradientBackground';
