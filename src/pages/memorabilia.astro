@@ -24,11 +24,13 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="memorabilia-body">
-    <SelectionHandler client:load />
-    <section>
-      <FavoritesCollectionHandler favoritesCollection={favoritesCollection} client:load />
-    </section>
+  <body>
+    <main>
+      <SelectionHandler client:load />
+      <section>
+        <FavoritesCollectionHandler favoritesCollection={favoritesCollection} client:load />
+      </section>
+    </main>
   </body>
   <Footer />
 </html>

@@ -45,6 +45,8 @@
   --bg-primary: #f3f1ea;
   --bg-secondary: rgb(51, 158, 100);
   --bg-tertiary: rgb(9, 131, 189);
+
+  --max-screen-width: 1200px;
 }
 
 /* Register your custom font family and tell the browser where to find it. */
@@ -53,25 +55,24 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-primary);
   background-color: var(--bg-primary);
+  line-height: 1.5;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: auto;
+  max-width: var(--max-screen-width);
+  /* TODO: Consider creating separate variables or classes for default padding spacing */
+  padding-inline: var(--spacing);
+  padding-block: var(--spacing-double);
 }
 
 h1 {
   font-family: var(--font-secondary);
   font-weight: 300;
   word-spacing: -0.05em;
-}
-
-.memorabilia-body {
-  width: 100vw;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-.memorabilia-body h1 {
-  padding-block: 1rem;
 }
 
 .grid {
