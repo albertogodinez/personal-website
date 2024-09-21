@@ -48,6 +48,28 @@ import '../styles/footer.css';
       }
     }
 
+    // TODO: investigate if this can be implemented on startup
+    // and then saved throughout application lifecycle
+    function setActiveMenuItem() {
+      const currentPath = window.location.pathname;
+
+      let foundActive = false;
+      menuItems.forEach((item) => {
+        const link = item.querySelector('a') as HTMLAnchorElement;
+
+        if (link && link.getAttribute('href') === currentPath) {
+          item.classList.add('active');
+          foundActive = true;
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      if (!foundActive && menuItems.length > 0) {
+        menuItems[0].classList.add('active');
+      }
+    }
+
     function handleClick(item: Element) {
       let activeItem = document.querySelector('.menu__item.active');
       if (item === activeItem || !activeItem) return;
@@ -129,9 +151,7 @@ import '../styles/footer.css';
       item.addEventListener('click', () => handleClick(item));
     });
 
-    // Initialize positioning when the page loads
-    window.addEventListener('load', () => {
-      initPositioning();
-    });
+    setActiveMenuItem();
+    initPositioning();
   });
 </script>

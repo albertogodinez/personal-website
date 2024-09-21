@@ -1,5 +1,5 @@
 :root {
-  --bgColorMenu: rgba(255, 255, 255, 0.9);
+  --bgColorMenu: rgba(255, 255, 255, 1);
   --duration: 0.7s;
 }
 
@@ -16,7 +16,6 @@
 
 .menu-container {
   position: relative;
-  width: 100%;
 }
 
 .menu {
