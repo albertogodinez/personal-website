@@ -1,11 +1,22 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import Footer from '../components/Footer.astro';
+import Experience from '../components/Experience.tsx';
+import { getCollection } from 'astro:content';
+
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+const allExperience = await getCollection('experience');
+const workExperience = await getCollection('experience', ({ data }) => {
+  // TODO: create a constant for the type 'work'
+  return data.type === 'work';
+});
+const projectExperience = await getCollection('experience', ({ data }) => {
+  return data.type === 'project';
+});
 ---
 
 <!doctype html>
@@ -22,6 +33,12 @@ const { title } = Astro.props;
   <body>
     <main>
       <h1>hello</h1>
+      <Experience
+        allExperience={allExperience}
+        workExperience={workExperience}
+        projectExperience={projectExperience}
+        client:load
+      />
     </main>
     <Footer />
   </body>

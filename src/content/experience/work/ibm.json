@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../.astro/collections/experience.schema.json",
+  "company": "IBM",
+  "position": "Software Engineer",
+  "type": "work",
+  "startDate": "2020-02",
+  "endDate": "2021-06",
+  "description": "Helped develop and architect an inventory system managing over 2.5 million systems, integrating ElasticSearch for faster, more flexible search functionality. I also implemented API gateways using IBM’s API Connect, designed a Python scheduler for daily data ingestion into CouchDB, and worked with Kafka streams to synchronize data across sources."
+}

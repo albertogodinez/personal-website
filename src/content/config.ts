@@ -1,10 +1,11 @@
 import { type CollectionEntry, defineCollection, z } from 'astro:content';
 
 import { FAVORITE_TYPES } from '../constants/memorabilia';
+import { experienceSchema } from '../schemas';
 
 const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLowerCase()) as [string, ...string[]];
 
-const favoritesSchema = defineCollection({
+const favoritesCollection = defineCollection({
   type: 'content',
   // The following uses zod to define the schema. For more info:
   // https://docs.astro.build/en/guides/content-collections/#defining-datatypes-with-zod
@@ -18,9 +19,18 @@ const favoritesSchema = defineCollection({
     })
 });
 
+const experienceCollection = defineCollection({
+  type: 'data',
+  schema: experienceSchema
+});
+
 export const collections = {
-  favorites: favoritesSchema
+  favorites: favoritesCollection,
+  experience: experienceCollection
 };
 
 export type FavoritesCollection = CollectionEntry<'favorites'>[];
 export type FavoritesCollectionEntry = CollectionEntry<'favorites'>;
+
+export type ExperienceCollection = CollectionEntry<'experience'>[];
+export type ExperienceCollectionEntry = CollectionEntry<'experience'>;
