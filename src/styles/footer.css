@@ -31,7 +31,7 @@
 
   width: 100%;
 
-  padding: 0 2em;
+  padding: 1.25em 2em;
   position: relative;
   border-radius: 10px;
 
@@ -46,16 +46,14 @@
 
 .menu__item {
   all: unset;
-  position: relative;
+  display: inline-block;
   cursor: pointer;
-  padding: 1em 0 1.5em;
   transition: transform var(--timeOut, var(--duration));
   will-change: transform;
   margin-right: 1em;
 }
 
 .menu__item-text {
-  all: unset;
   color: rgba(133, 133, 133, 0.5);
   transition: color var(--duration);
 }
@@ -93,6 +91,8 @@
   animation: dot-elongate var(--duration) ease-in-out forwards;
 }
 
+/* TODO: consider adding a border or shadow to the top of this so it
+doesn't blend into white images */
 .menu__border {
   /* Access the svg using id from the html */
   clip-path: url(#menu);

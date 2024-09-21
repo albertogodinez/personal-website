@@ -8,13 +8,13 @@ import '../styles/footer.css';
   <!-- TODO: might need to update the name -->
   <div class="menu-container">
     <nav class="menu">
-      <button class="menu__item active"><a href="/" class="menu__item-text">home</a></button>
-      <button class="menu__item"><a class="menu__item-text">projects</a></button>
-      <button class="menu__item"><a class="menu__item-text">work</a></button>
-      <button class="menu__item"><a class="menu__item-text">moodboard</a></button>
-      <button class="menu__item"><a href="/memorabilia" class="menu__item-text">memorabilia</a></button>
-      <button class="menu__item"><a class="menu__item-text">email</a></button>
-      <button class="menu__item"><a class="menu__item-text">github</a></button>
+      <a href="/" class="menu__item"><span class="menu__item-text">home</span></a>
+      <a class="menu__item"><span class="menu__item-text">projects</span></a>
+      <a class="menu__item"><span class="menu__item-text">work</span></a>
+      <a class="menu__item"><span class="menu__item-text">moodboard</span></a>
+      <a href="/memorabilia" class="menu__item"><span class="menu__item-text">memorabilia</span></a>
+      <a class="menu__item"><span class="menu__item-text">email</span></a>
+      <a class="menu__item"><span class="menu__item-text">github</span></a>
       <div class="menu__dot"></div>
     </nav>
     <div class="menu__border"></div>
@@ -39,7 +39,6 @@ import '../styles/footer.css';
     const menuBorder = document.querySelector('.menu__border') as HTMLElement;
     let isScrolling = false;
 
-    // Function to handle initial positioning
     function initPositioning() {
       const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
       if (activeItem) {
@@ -55,9 +54,10 @@ import '../styles/footer.css';
 
       let foundActive = false;
       menuItems.forEach((item) => {
-        const link = item.querySelector('a') as HTMLAnchorElement;
+        const link = item.getAttribute('href') || ''; // Get href directly from anchor
 
-        if (link && link.getAttribute('href') === currentPath) {
+        // Compare current path and href
+        if (link === currentPath || (link === '/' && currentPath === '/')) {
           item.classList.add('active');
           foundActive = true;
         } else {
@@ -65,6 +65,7 @@ import '../styles/footer.css';
         }
       });
 
+      // Fallback to the first item if no match was found
       if (!foundActive && menuItems.length > 0) {
         menuItems[0].classList.add('active');
       }
