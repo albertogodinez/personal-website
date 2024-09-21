@@ -3,8 +3,10 @@
   --duration: 0.7s;
 }
 
+/* todo: consider adding a border to this to make it stand out even more */
+
 .wrapper {
-  padding-block: 2em;
+  padding-block: 1.5em 1em;
   width: min(90%, 600px);
   overflow: hidden;
 
@@ -19,7 +21,7 @@
 }
 
 .menu {
-  font-size: 1.25em;
+  font-size: 1em;
   background-color: var(--bgColorMenu);
   /* todo: make the following into a variable */
   box-shadow:
@@ -31,7 +33,7 @@
 
   width: 100%;
 
-  padding: 1.25em 2em;
+  padding: 1em 2em;
   position: relative;
   border-radius: 10px;
 
@@ -102,7 +104,7 @@ doesn't blend into white images */
   bottom: 94%;
 
   /* Handle size of svg in with id menu */
-  width: 9em;
+  width: 7em;
   height: 2em;
   background-color: var(--bgColorMenu);
   transition: transform var(--timeOut, var(--duration));
