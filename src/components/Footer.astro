@@ -8,13 +8,13 @@ import '../styles/footer.css';
   <!-- TODO: might need to update the name -->
   <div class="menu-container">
     <nav class="menu">
-      <button class="menu__item active"><span class="menu__item-text">home</span></button>
-      <button class="menu__item"><span class="menu__item-text">projects</span></button>
-      <button class="menu__item"><span class="menu__item-text">work</span></button>
-      <button class="menu__item"><span class="menu__item-text">moodboard</span></button>
-      <button class="menu__item"><span class="menu__item-text">memorabilia</span></button>
-      <button class="menu__item"><span class="menu__item-text">email</span></button>
-      <button class="menu__item"><span class="menu__item-text">github</span></button>
+      <button class="menu__item active"><a href="/" class="menu__item-text">home</a></button>
+      <button class="menu__item"><a class="menu__item-text">projects</a></button>
+      <button class="menu__item"><a class="menu__item-text">work</a></button>
+      <button class="menu__item"><a class="menu__item-text">moodboard</a></button>
+      <button class="menu__item"><a href="/memorabilia" class="menu__item-text">memorabilia</a></button>
+      <button class="menu__item"><a class="menu__item-text">email</a></button>
+      <button class="menu__item"><a class="menu__item-text">github</a></button>
       <div class="menu__dot"></div>
     </nav>
     <div class="menu__border"></div>
@@ -32,104 +32,106 @@ import '../styles/footer.css';
   </div>
 </footer>
 <script>
-  const menu = document.querySelector('.menu') as HTMLElement;
-  const menuItems = document.querySelectorAll('.menu__item');
-  const menuDot = document.querySelector('.menu__dot') as HTMLElement;
-  const menuBorder = document.querySelector('.menu__border') as HTMLElement;
-  let isScrolling = false;
+  document.addEventListener('astro:page-load', () => {
+    const menu = document.querySelector('.menu') as HTMLElement;
+    const menuItems = document.querySelectorAll('.menu__item');
+    const menuDot = document.querySelector('.menu__dot') as HTMLElement;
+    const menuBorder = document.querySelector('.menu__border') as HTMLElement;
+    let isScrolling = false;
 
-  // Function to handle initial positioning
-  function initPositioning() {
-    const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
-    if (activeItem) {
+    // Function to handle initial positioning
+    function initPositioning() {
+      const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
+      if (activeItem) {
+        handleBorderPosition(menuBorder, menu, activeItem);
+        moveDot(activeItem);
+      }
+    }
+
+    function handleClick(item: Element) {
+      let activeItem = document.querySelector('.menu__item.active');
+      if (item === activeItem || !activeItem) return;
+
+      activeItem.classList.remove('active');
+      item.classList.add('active');
+
+      activeItem = item;
+
+      // Enable animation on click
+      menuBorder.style.transition = 'transform var(--timeOut, var(--duration))';
+
       handleBorderPosition(menuBorder, menu, activeItem);
-      moveDot(activeItem);
-    }
-  }
-
-  function handleClick(item: Element) {
-    let activeItem = document.querySelector('.menu__item.active');
-    if (item === activeItem || !activeItem) return;
-
-    activeItem.classList.remove('active');
-    item.classList.add('active');
-
-    activeItem = item;
-
-    // Enable animation on click
-    menuBorder.style.transition = 'transform var(--timeOut, var(--duration))';
-
-    handleBorderPosition(menuBorder, menu, activeItem);
-    moveDot(item, true);
-  }
-
-  function handleBorderPosition(menuBorder: HTMLElement, menu: HTMLElement, activeItem?: Element) {
-    activeItem = activeItem || (document.querySelector('.active') as Element);
-    const activeItemPosition = activeItem.getBoundingClientRect();
-
-    const { left, width } = activeItemPosition;
-    const menuLeft = menu.getBoundingClientRect().left;
-
-    // Adjust the border's position relative to the active item's position and menu's scroll
-    const moveRight = Math.floor(left - menuLeft - (menuBorder.offsetWidth - width) / 2) + 'px';
-    menuBorder.style.transform = `translateX(${moveRight})`;
-  }
-
-  function moveDot(activeItem: Element, shouldAnimate = false) {
-    const { left, width } = activeItem.getBoundingClientRect();
-    const menuLeft = menu.getBoundingClientRect().left;
-
-    // Get the scroll position of the menu
-    const scrollLeft = menu.scrollLeft;
-
-    // Adjust the dot position calculation to include the menu's scroll position
-    const moveX = Math.floor(left - menuLeft + scrollLeft + width / 2 - 4) + 'px';
-
-    // Update the dot position
-    menuDot.style.setProperty('--dotPosition', moveX);
-
-    // Only trigger animation if shouldAnimate is true
-    if (shouldAnimate) {
-      menuDot.classList.remove('active');
-      // Wait for the next animation frame to re-add the active class and re-trigger the animation
-      requestAnimationFrame(() => {
-        menuDot.classList.add('active');
-      });
-    }
-  }
-
-  // Handle border movement on scroll
-  menu.addEventListener('scroll', () => {
-    if (!isScrolling) {
-      // Disable animation during scroll
-      menuBorder.style.transition = 'none';
-      isScrolling = true;
+      moveDot(item, true);
     }
 
-    const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
-    handleBorderPosition(menuBorder, menu, activeItem);
-    moveDot(activeItem, false); // No animation on scroll
+    function handleBorderPosition(menuBorder: HTMLElement, menu: HTMLElement, activeItem?: Element) {
+      activeItem = activeItem || (document.querySelector('.active') as Element);
+      const activeItemPosition = activeItem.getBoundingClientRect();
 
-    // Set a delay to allow for scrolling to finish
-    // otherwise the menu border will flicker
-    setTimeout(() => {
-      isScrolling = false;
-    }, 150); // Adjust the delay as needed
-  });
+      const { left, width } = activeItemPosition;
+      const menuLeft = menu.getBoundingClientRect().left;
 
-  // Resize event to adjust position on window resize
-  window.addEventListener('resize', () => {
-    const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
-    moveDot(activeItem, false); // No animation on resize
-    handleBorderPosition(menuBorder, menu);
-  });
+      // Adjust the border's position relative to the active item's position and menu's scroll
+      const moveRight = Math.floor(left - menuLeft - (menuBorder.offsetWidth - width) / 2) + 'px';
+      menuBorder.style.transform = `translateX(${moveRight})`;
+    }
 
-  menuItems.forEach((item) => {
-    item.addEventListener('click', () => handleClick(item));
-  });
+    function moveDot(activeItem: Element, shouldAnimate = false) {
+      const { left, width } = activeItem.getBoundingClientRect();
+      const menuLeft = menu.getBoundingClientRect().left;
 
-  // Initialize positioning when the page loads
-  window.addEventListener('load', () => {
-    initPositioning();
+      // Get the scroll position of the menu
+      const scrollLeft = menu.scrollLeft;
+
+      // Adjust the dot position calculation to include the menu's scroll position
+      const moveX = Math.floor(left - menuLeft + scrollLeft + width / 2 - 4) + 'px';
+
+      // Update the dot position
+      menuDot.style.setProperty('--dotPosition', moveX);
+
+      // Only trigger animation if shouldAnimate is true
+      if (shouldAnimate) {
+        menuDot.classList.remove('active');
+        // Wait for the next animation frame to re-add the active class and re-trigger the animation
+        requestAnimationFrame(() => {
+          menuDot.classList.add('active');
+        });
+      }
+    }
+
+    // Handle border movement on scroll
+    menu.addEventListener('scroll', () => {
+      if (!isScrolling) {
+        // Disable animation during scroll
+        menuBorder.style.transition = 'none';
+        isScrolling = true;
+      }
+
+      const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
+      handleBorderPosition(menuBorder, menu, activeItem);
+      moveDot(activeItem, false); // No animation on scroll
+
+      // Set a delay to allow for scrolling to finish
+      // otherwise the menu border will flicker
+      setTimeout(() => {
+        isScrolling = false;
+      }, 150); // Adjust the delay as needed
+    });
+
+    // Resize event to adjust position on window resize
+    window.addEventListener('resize', () => {
+      const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
+      moveDot(activeItem, false); // No animation on resize
+      handleBorderPosition(menuBorder, menu);
+    });
+
+    menuItems.forEach((item) => {
+      item.addEventListener('click', () => handleClick(item));
+    });
+
+    // Initialize positioning when the page loads
+    window.addEventListener('load', () => {
+      initPositioning();
+    });
   });
 </script>
