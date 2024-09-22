@@ -47,6 +47,14 @@
   --bg-tertiary: rgb(9, 131, 189);
 
   --max-screen-width: 1200px;
+
+  --fs-sm: clamp(0.7rem, 0.35vi + 0.61rem, 0.89rem);
+  --fs-base: clamp(0.88rem, 0.57vi + 0.73rem, 1.19rem);
+  --fs-md: clamp(1.09rem, 0.89vi + 0.87rem, 1.58rem);
+  --fs-lg: clamp(1.37rem, 1.35vi + 1.03rem, 2.11rem);
+  --fs-xl: clamp(1.71rem, 2.01vi + 1.21rem, 2.81rem);
+  --fs-xxl: clamp(2.14rem, 2.93vi + 1.4rem, 3.75rem);
+  --fs-xxxl: clamp(2.67rem, 4.23vi + 1.61rem, 5rem);
 }
 
 /* Register your custom font family and tell the browser where to find it. */
@@ -59,14 +67,14 @@ body {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   min-height: 100vh;
-  margin: auto;
+  /* margin: auto; */
   max-width: var(--max-screen-width);
   /* TODO: Consider creating separate variables or classes for default padding spacing */
-  padding-inline: var(--spacing);
-  padding-block: var(--spacing-double);
+  /* padding-inline: var(--spacing);
+  padding-block: var(--spacing-double); */
 }
 
 h1 {

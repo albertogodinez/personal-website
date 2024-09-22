@@ -1,6 +1,6 @@
 {
   "$schema": "../../../.astro/collections/experience.schema.json",
-  "company": "Teacher Retirement System of Texas",
+  "company": "TRS",
   "position": "Software Developer",
   "type": "work",
   "startDate": "2017-09",

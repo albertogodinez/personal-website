@@ -18,6 +18,10 @@
   padding-bottom: 1rem;
 }
 
+.pi-4 {
+  padding-inline: 1rem;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -33,3 +37,17 @@
 .width-screen {
   width: 100vw;
 }
+
+.experience-accordion {
+  font-size: var(--fs-sm);
+  padding-inline: min(1rem, 3%);
+  cursor: pointer;
+}
+
+.experience-accordion:hover .experience-accordion__trigger:not(:hover)[data-state='closed'] {
+  /* TODO: change this to a variable */
+  color: rgba(133, 133, 133, 0.5);
+}
+
+/* TODO: add animation for when Accordion.Content is extended */
+/* TODO: add animation for each Accordion.Item for how they are displayed into the screen */
