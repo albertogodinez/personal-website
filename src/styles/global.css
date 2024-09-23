@@ -221,6 +221,10 @@ body {
   padding-bottom: 1rem;
 }
 
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
 .pi-4 {
   padding-inline: 1rem;
 }
@@ -233,8 +237,16 @@ body {
   padding-inline: 2rem;
 }
 
+.p-block-2 {
+  padding-block: 0.5rem;
+}
+
 .p-block-4 {
   padding-block: 1rem;
+}
+
+.p-block-6 {
+  padding-block: 1.5rem;
 }
 
 .p-block-8 {

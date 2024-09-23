@@ -16,7 +16,7 @@ const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, 
   //   TODO: Fix order of the accordion items according to the date
   return (
     <section>
-      <h2>
+      <h2 className="pi-4 p-block-2">
         {/* TODO: Implement popover with ability to select work/projects */}
         Experience
         {/* Experience: <button>work</button> */}

@@ -34,9 +34,7 @@ const projectExperience = await getCollection('experience', ({ data }) => {
   </head>
   <body>
     <main style="width: 100%">
-      <div>
-        <Slider sliderItems={['🚧 please excuse the construction 🚧']} />
-      </div>
+      <Slider sliderItems={['🚧 please excuse the construction 🚧']} />
 
       <div
         style="font-family: var(--font-secondary); font-size: var(--fs-base);"
@@ -53,15 +51,12 @@ const projectExperience = await getCollection('experience', ({ data }) => {
           <p>Hope you enjoy this little sliver of the internet!</p>
         </div>
       </div>
-      <div class="p-block-8 pi-6">
-        <Experience
-          allExperience={allExperience}
-          workExperience={workExperience}
-          projectExperience={projectExperience}
-          client:load
-        />
-      </div>
-
+      <Experience
+        allExperience={allExperience}
+        workExperience={workExperience}
+        projectExperience={projectExperience}
+        client:load
+      />
       <Footer />
     </main>
   </body>

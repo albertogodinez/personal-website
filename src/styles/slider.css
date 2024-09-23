@@ -7,18 +7,18 @@
   width: 100%;
   font-size: var(--slider-font-size);
   height: var(--slider-height);
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
 }
 
 .slider__list {
   display: flex;
   width: 100%;
-  height: -var(--font-height-calc);
   position: relative;
 }
 
 .slider__item {
   text-wrap: nowrap;
-  height: -var(--slider-height);
   position: absolute;
   left: 100%;
   animation: autoRun 12s linear infinite;
