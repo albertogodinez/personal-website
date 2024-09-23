@@ -15,30 +15,37 @@ const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, 
   console.log('projectExperience', projectExperience);
   //   TODO: Fix order of the accordion items according to the date
   return (
-    <Accordion.Root className="width-screen flex flex-column gap-4 experience-accordion" type="single" collapsible>
-      {allExperience.map((experience: ExperienceCollectionEntry) => (
-        <Accordion.Item value={experience.data.company}>
-          <Accordion.Header>
-            <Accordion.Trigger asChild>
-              <div className="flex flex-row justify-between experience-accordion__trigger">
-                <span>
-                  {experience.data.position} @ {experience.data.company}
-                </span>
-                <span>
-                  {experience.data.startDate.toLocaleDateString('en-US', { year: 'numeric' })}-
-                  {experience.data.endDate
-                    ? experience.data.endDate.toLocaleDateString('en-US', { year: 'numeric' })
-                    : 'present'}
-                </span>
-              </div>
-            </Accordion.Trigger>
-          </Accordion.Header>
-          <Accordion.Content>
-            <p>{experience.data.description}</p>
-          </Accordion.Content>
-        </Accordion.Item>
-      ))}
-    </Accordion.Root>
+    <section>
+      <h2>
+        {/* TODO: Implement popover with ability to select work/projects */}
+        Experience
+        {/* Experience: <button>work</button> */}
+      </h2>
+      <Accordion.Root className="width-screen flex flex-column gap-4 experience-accordion" type="single" collapsible>
+        {allExperience.map((experience: ExperienceCollectionEntry) => (
+          <Accordion.Item value={experience.data.company}>
+            <Accordion.Header>
+              <Accordion.Trigger asChild>
+                <div className="flex flex-row justify-between experience-accordion__trigger">
+                  <span>
+                    {experience.data.position} @ {experience.data.company}
+                  </span>
+                  <span>
+                    {experience.data.startDate.toLocaleDateString('en-US', { year: 'numeric' })}-
+                    {experience.data.endDate
+                      ? experience.data.endDate.toLocaleDateString('en-US', { year: 'numeric' })
+                      : 'present'}
+                  </span>
+                </div>
+              </Accordion.Trigger>
+            </Accordion.Header>
+            <Accordion.Content>
+              <p>{experience.data.description}</p>
+            </Accordion.Content>
+          </Accordion.Item>
+        ))}
+      </Accordion.Root>
+    </section>
   );
 };
 

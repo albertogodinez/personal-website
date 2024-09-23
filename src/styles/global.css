@@ -1,3 +1,4 @@
+/* TODO: Remove unused fonts */
 @font-face {
   font-family: 'Butler';
   src: url('/fonts/Butler-Free-Light.woff2') format('otf');
@@ -55,6 +56,8 @@
   --fs-xl: clamp(1.71rem, 2.01vi + 1.21rem, 2.81rem);
   --fs-xxl: clamp(2.14rem, 2.93vi + 1.4rem, 3.75rem);
   --fs-xxxl: clamp(2.67rem, 4.23vi + 1.61rem, 5rem);
+
+  --font-height-calc: calc(1.71rem, 2.01vi + 1.21rem, 2.81rem);
 }
 
 /* Register your custom font family and tell the browser where to find it. */
@@ -71,7 +74,7 @@ main {
   flex-direction: column; */
   min-height: 100vh;
   /* margin: auto; */
-  max-width: var(--max-screen-width);
+  /* max-width: var(--max-screen-width); */
   /* TODO: Consider creating separate variables or classes for default padding spacing */
   /* padding-inline: var(--spacing);
   padding-block: var(--spacing-double); */
@@ -83,7 +86,7 @@ h1 {
   word-spacing: -0.05em;
 }
 
-.grid {
+.font .grid {
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(
@@ -180,4 +183,104 @@ body {
     top: 0;
     left: 0;
   }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-jc-center {
+  justify-content: center;
+}
+
+.flex-jc-space-around {
+  justify-content: space-around;
+}
+
+.flex-jc-space-between {
+  justify-content: space-between;
+}
+
+.flex-ac-center {
+  align-items: center;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
+.pi-4 {
+  padding-inline: 1rem;
+}
+
+.pi-6 {
+  padding-inline: 1.5rem;
+}
+
+.pi-8 {
+  padding-inline: 2rem;
+}
+
+.p-block-4 {
+  padding-block: 1rem;
+}
+
+.p-block-8 {
+  padding-block: 2rem;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-gap-4 {
+  gap: 1rem;
+}
+
+.flex-gap-8 {
+  gap: 2rem;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.width-screen {
+  width: 100vw;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.width-30 {
+  width: 30%;
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-align-left {
+  text-align: left;
 }
