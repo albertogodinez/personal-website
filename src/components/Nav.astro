@@ -1,10 +1,10 @@
 ---
 import '../styles/global.css';
-import '../styles/footer.css';
+import '../styles/nav.css';
 ---
 
-<!-- TODO: Consider moving the entire footer logic into its own navbar component --><!-- todo: consider updating this an ID -->
-<footer class="wrapper">
+<!-- todo: consider updating this an ID -->
+<div class="wrapper">
   <!-- TODO: might need to update the name -->
   <div class="menu-container">
     <nav class="menu">
@@ -30,17 +30,17 @@ import '../styles/footer.css';
       </clipPath>
     </svg>
   </div>
-</footer>
-<script>
-  document.addEventListener('astro:page-load', () => {
-    const menu = document.querySelector('.menu') as HTMLElement;
-    const menuItems = document.querySelectorAll('.menu__item');
-    const menuDot = document.querySelector('.menu__dot') as HTMLElement;
-    const menuBorder = document.querySelector('.menu__border') as HTMLElement;
-    let isScrolling = false;
+</div>
+<script is:inline>
+  const menu = document.querySelector('.menu');
+  const menuItems = document.querySelectorAll('.menu__item');
+  const menuDot = document.querySelector('.menu__dot');
+  const menuBorder = document.querySelector('.menu__border');
+  let isScrolling = false;
 
+  function initializeNav() {
     function initPositioning() {
-      const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
+      const activeItem = document.querySelector('.menu__item.active');
       if (activeItem) {
         handleBorderPosition(menuBorder, menu, activeItem);
         moveDot(activeItem);
@@ -71,7 +71,7 @@ import '../styles/footer.css';
       }
     }
 
-    function handleClick(item: Element) {
+    function handleClick(item) {
       let activeItem = document.querySelector('.menu__item.active');
       if (item === activeItem || !activeItem) return;
 
@@ -87,8 +87,8 @@ import '../styles/footer.css';
       moveDot(item, true);
     }
 
-    function handleBorderPosition(menuBorder: HTMLElement, menu: HTMLElement, activeItem?: Element) {
-      activeItem = activeItem || (document.querySelector('.active') as Element);
+    function handleBorderPosition(menuBorder, menu, activeItem) {
+      activeItem = activeItem || document.querySelector('.active');
       const activeItemPosition = activeItem.getBoundingClientRect();
 
       const { left, width } = activeItemPosition;
@@ -99,7 +99,7 @@ import '../styles/footer.css';
       menuBorder.style.transform = `translateX(${moveRight})`;
     }
 
-    function moveDot(activeItem: Element, shouldAnimate = false) {
+    function moveDot(activeItem, shouldAnimate = false) {
       const { left, width } = activeItem.getBoundingClientRect();
       const menuLeft = menu.getBoundingClientRect().left;
 
@@ -130,7 +130,7 @@ import '../styles/footer.css';
         isScrolling = true;
       }
 
-      const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
+      const activeItem = document.querySelector('.menu__item.active');
       handleBorderPosition(menuBorder, menu, activeItem);
       moveDot(activeItem, false); // No animation on scroll
 
@@ -141,18 +141,27 @@ import '../styles/footer.css';
       }, 150); // Adjust the delay as needed
     });
 
-    // Resize event to adjust position on window resize
-    window.addEventListener('resize', () => {
-      const activeItem = document.querySelector('.menu__item.active') as HTMLElement;
-      moveDot(activeItem, false); // No animation on resize
-      handleBorderPosition(menuBorder, menu);
-    });
-
     menuItems.forEach((item) => {
       item.addEventListener('click', () => handleClick(item));
     });
 
     setActiveMenuItem();
     initPositioning();
+  }
+
+  // Initialize on page load
+  initializeNav();
+
+  // Resize event to adjust position on window resize
+  window.addEventListener('resize', () => {
+    const activeItem = document.querySelector('.menu__item.active');
+    moveDot(activeItem, false); // No animation on resize
+    handleBorderPosition(menuBorder, menu);
+  });
+
+  // Re-initialize after navigation
+  document.addEventListener('astro:after-swap', () => {
+    console.log('re-initializing nav');
+    initializeNav();
   });
 </script>
