@@ -10,9 +10,6 @@ export interface ExperienceProps {
 }
 
 const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, projectExperience }) => {
-  console.log('allExperience', allExperience);
-  console.log('workExperience', workExperience);
-  console.log('projectExperience', projectExperience);
   //   TODO: Fix order of the accordion items according to the date
   return (
     <section>
@@ -22,8 +19,8 @@ const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, 
         {/* Experience: <button>work</button> */}
       </h2>
       <Accordion.Root className="width-screen flex flex-column gap-4 experience-accordion" type="single" collapsible>
-        {allExperience.map((experience: ExperienceCollectionEntry) => (
-          <Accordion.Item value={experience.data.company}>
+        {allExperience.map((experience: ExperienceCollectionEntry, i: number) => (
+          <Accordion.Item key={i} value={experience.data.company}>
             <Accordion.Header>
               <Accordion.Trigger asChild>
                 <div className="flex flex-row justify-between experience-accordion__trigger">

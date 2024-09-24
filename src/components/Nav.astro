@@ -31,15 +31,15 @@ import '../styles/nav.css';
     </svg>
   </div>
 </div>
-<script is:inline>
-  const menu = document.querySelector('.menu');
-  const menuItems = document.querySelectorAll('.menu__item');
-  const menuDot = document.querySelector('.menu__dot');
-  const menuBorder = document.querySelector('.menu__border');
-  let isScrolling = false;
-
-  function initializeNav() {
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const menu = document.querySelector('.menu');
+    const menuItems = document.querySelectorAll('.menu__item');
+    const menuDot = document.querySelector('.menu__dot');
+    const menuBorder = document.querySelector('.menu__border');
+    let isScrolling = false;
     function initPositioning() {
+      console.log('initPositioning');
       const activeItem = document.querySelector('.menu__item.active');
       if (activeItem) {
         handleBorderPosition(menuBorder, menu, activeItem);
@@ -47,16 +47,14 @@ import '../styles/nav.css';
       }
     }
 
-    // TODO: investigate if this can be implemented on startup
-    // and then saved throughout application lifecycle
     function setActiveMenuItem() {
+      console.log('setActiveMenuItem');
       const currentPath = window.location.pathname;
 
       let foundActive = false;
       menuItems.forEach((item) => {
-        const link = item.getAttribute('href') || ''; // Get href directly from anchor
+        const link = item.getAttribute('href') || '';
 
-        // Compare current path and href
         if (link === currentPath || (link === '/' && currentPath === '/')) {
           item.classList.add('active');
           foundActive = true;
@@ -65,13 +63,13 @@ import '../styles/nav.css';
         }
       });
 
-      // Fallback to the first item if no match was found
       if (!foundActive && menuItems.length > 0) {
         menuItems[0].classList.add('active');
       }
     }
 
     function handleClick(item) {
+      console.log('click');
       let activeItem = document.querySelector('.menu__item.active');
       if (item === activeItem || !activeItem) return;
 
@@ -88,6 +86,7 @@ import '../styles/nav.css';
     }
 
     function handleBorderPosition(menuBorder, menu, activeItem) {
+      console.log('handleBorderPosition');
       activeItem = activeItem || document.querySelector('.active');
       const activeItemPosition = activeItem.getBoundingClientRect();
 
@@ -141,27 +140,18 @@ import '../styles/nav.css';
       }, 150); // Adjust the delay as needed
     });
 
+    // Resize event to adjust position on window resize
+    window.addEventListener('resize', () => {
+      const activeItem = document.querySelector('.menu__item.active');
+      moveDot(activeItem, false); // No animation on resize
+      handleBorderPosition(menuBorder, menu);
+    });
+
     menuItems.forEach((item) => {
       item.addEventListener('click', () => handleClick(item));
     });
 
     setActiveMenuItem();
     initPositioning();
-  }
-
-  // Initialize on page load
-  initializeNav();
-
-  // Resize event to adjust position on window resize
-  window.addEventListener('resize', () => {
-    const activeItem = document.querySelector('.menu__item.active');
-    moveDot(activeItem, false); // No animation on resize
-    handleBorderPosition(menuBorder, menu);
-  });
-
-  // Re-initialize after navigation
-  document.addEventListener('astro:after-swap', () => {
-    console.log('re-initializing nav');
-    initializeNav();
   });
 </script>
