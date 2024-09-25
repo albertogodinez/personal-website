@@ -31,7 +31,8 @@ import '../styles/nav.css';
     </svg>
   </div>
 </div>
-<script is:inline>
+<script>
+  import { navigate } from 'astro:transitions/client';
   const menu = document.querySelector('.menu');
   const menuItems = document.querySelectorAll('.menu__item');
   const menuDot = document.querySelector('.menu__dot');
@@ -39,7 +40,6 @@ import '../styles/nav.css';
   let isScrolling = false;
 
   function initPositioning() {
-    console.log('initPositioning');
     const activeItem = document.querySelector('.menu__item.active');
     if (activeItem) {
       handleBorderPosition(menuBorder, menu, activeItem);
@@ -67,17 +67,7 @@ import '../styles/nav.css';
     }
   }
 
-  function isValidUrl(url) {
-    try {
-      new URL(url, window.location.origin);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
-
   function handleClick(item) {
-    console.log('click');
     let activeItem = document.querySelector('.menu__item.active');
     const link = item.getAttribute('href') || '';
 
@@ -100,14 +90,12 @@ import '../styles/nav.css';
     handleBorderPosition(menuBorder, menu, activeItem);
     moveDot(item, true);
 
-    // Validate and route to the new link
-    if (isValidUrl(link)) {
-      window.location.href = link;
-    }
+    setTimeout(() => {
+      navigate(link);
+    }, 600);
   }
 
   function handleBorderPosition(menuBorder, menu, activeItem) {
-    console.log('handleBorderPosition');
     activeItem = activeItem || document.querySelector('.active');
     const activeItemPosition = activeItem.getBoundingClientRect();
 
@@ -142,52 +130,39 @@ import '../styles/nav.css';
     }
   }
 
-  document.addEventListener(
-    'astro:page-load',
-    () => {
-      console.log('page-load');
-      // Handle border movement on scroll
-      menu.addEventListener('scroll', () => {
-        if (!isScrolling) {
-          // Disable animation during scroll
-          menuBorder.style.transition = 'none';
-          isScrolling = true;
-        }
+  // Handle border movement on scroll
+  menu.addEventListener('scroll', () => {
+    if (!isScrolling) {
+      // Disable animation during scroll
+      menuBorder.style.transition = 'none';
+      isScrolling = true;
+    }
 
-        const activeItem = document.querySelector('.menu__item.active');
-        handleBorderPosition(menuBorder, menu, activeItem);
-        moveDot(activeItem, false); // No animation on scroll
+    const activeItem = document.querySelector('.menu__item.active');
+    handleBorderPosition(menuBorder, menu, activeItem);
+    moveDot(activeItem, false); // No animation on scroll
 
-        // Set a delay to allow for scrolling to finish
-        // otherwise the menu border will flicker
-        setTimeout(() => {
-          isScrolling = false;
-        }, 150); // Adjust the delay as needed
-      });
-
-      // Resize event to adjust position on window resize
-      window.addEventListener('resize', () => {
-        const activeItem = document.querySelector('.menu__item.active');
-        moveDot(activeItem, false); // No animation on resize
-        handleBorderPosition(menuBorder, menu);
-      });
-
-      menuItems.forEach((item) => {
-        item.addEventListener('click', (event) => {
-          event.preventDefault(); // Prevent default link behavior
-          handleClick(item);
-        });
-      });
-
-      setActiveMenuItem();
-      initPositioning();
-    },
-    { once: true }
-  );
-
-  document.addEventListener('astro:after-swap', () => {
-    console.log('after-swap');
-    setActiveMenuItem();
-    initPositioning();
+    // Set a delay to allow for scrolling to finish
+    // otherwise the menu border will flicker
+    setTimeout(() => {
+      isScrolling = false;
+    }, 150); // Adjust the delay as needed
   });
+
+  // Resize event to adjust position on window resize
+  window.addEventListener('resize', () => {
+    const activeItem = document.querySelector('.menu__item.active');
+    moveDot(activeItem, false); // No animation on resize
+    handleBorderPosition(menuBorder, menu);
+  });
+
+  menuItems.forEach((item) => {
+    item.addEventListener('click', (event) => {
+      event.preventDefault(); // Prevent default link behavior
+      handleClick(item);
+    });
+  });
+
+  setActiveMenuItem();
+  initPositioning();
 </script>

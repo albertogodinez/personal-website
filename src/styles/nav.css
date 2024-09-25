@@ -91,7 +91,10 @@
 }
 
 .menu__dot.active {
-  animation: dot-elongate var(--duration) ease-in-out forwards;
+  /* TODO: figure out why the dot-elongate animation would get triggered again after each click */
+  /* This has to be related with how the element is nav element is being persisted */
+  /* but commenting out for now */
+  /* animation: dot-elongate var(--duration) ease-in-out forwards; */
 }
 
 /* TODO: consider adding a border or shadow to the top of this so it
