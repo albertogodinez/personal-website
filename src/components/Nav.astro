@@ -67,10 +67,27 @@ import '../styles/nav.css';
     }
   }
 
+  function isValidUrl(url) {
+    try {
+      new URL(url, window.location.origin);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
   function handleClick(item) {
     console.log('click');
     let activeItem = document.querySelector('.menu__item.active');
-    if (item === activeItem || !activeItem) return;
+    const link = item.getAttribute('href') || '';
+
+    if (item === activeItem) {
+      // If the clicked item is the active item, scroll to the top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (!activeItem) return;
 
     activeItem.classList.remove('active');
     item.classList.add('active');
@@ -82,6 +99,11 @@ import '../styles/nav.css';
 
     handleBorderPosition(menuBorder, menu, activeItem);
     moveDot(item, true);
+
+    // Validate and route to the new link
+    if (isValidUrl(link)) {
+      window.location.href = link;
+    }
   }
 
   function handleBorderPosition(menuBorder, menu, activeItem) {
@@ -151,7 +173,10 @@ import '../styles/nav.css';
       });
 
       menuItems.forEach((item) => {
-        item.addEventListener('click', () => handleClick(item));
+        item.addEventListener('click', (event) => {
+          event.preventDefault(); // Prevent default link behavior
+          handleClick(item);
+        });
       });
 
       setActiveMenuItem();
