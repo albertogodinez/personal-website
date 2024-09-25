@@ -7,12 +7,12 @@
 /* todo: consider adding separators in the navbar */
 
 .wrapper {
-  padding-block: 1.5em 1em;
+  padding-block: 1.5em 0;
   width: min(90%, 600px);
   overflow: hidden;
 
   position: fixed;
-  bottom: 0;
+  bottom: 1.25em;
   left: 50%;
   transform: translateX(-50%);
 }
