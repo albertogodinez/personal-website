@@ -4,7 +4,7 @@ import '../styles/nav.css';
 ---
 
 <!-- todo: consider updating this an ID -->
-<div class="wrapper">
+<div class="wrapper" transition:persist>
   <!-- TODO: might need to update the name -->
   <div class="menu-container">
     <nav class="menu">
@@ -31,126 +31,137 @@ import '../styles/nav.css';
     </svg>
   </div>
 </div>
-<script>
-  document.addEventListener('astro:page-load', () => {
-    const menu = document.querySelector('.menu');
-    const menuItems = document.querySelectorAll('.menu__item');
-    const menuDot = document.querySelector('.menu__dot');
-    const menuBorder = document.querySelector('.menu__border');
-    let isScrolling = false;
-    function initPositioning() {
-      console.log('initPositioning');
-      const activeItem = document.querySelector('.menu__item.active');
-      if (activeItem) {
-        handleBorderPosition(menuBorder, menu, activeItem);
-        moveDot(activeItem);
-      }
+<script is:inline>
+  const menu = document.querySelector('.menu');
+  const menuItems = document.querySelectorAll('.menu__item');
+  const menuDot = document.querySelector('.menu__dot');
+  const menuBorder = document.querySelector('.menu__border');
+  let isScrolling = false;
+
+  function initPositioning() {
+    console.log('initPositioning');
+    const activeItem = document.querySelector('.menu__item.active');
+    if (activeItem) {
+      handleBorderPosition(menuBorder, menu, activeItem);
+      moveDot(activeItem);
     }
+  }
 
-    function setActiveMenuItem() {
-      console.log('setActiveMenuItem');
-      const currentPath = window.location.pathname;
+  function setActiveMenuItem() {
+    const currentPath = window.location.pathname;
 
-      let foundActive = false;
-      menuItems.forEach((item) => {
-        const link = item.getAttribute('href') || '';
+    let foundActive = false;
+    menuItems.forEach((item) => {
+      const link = item.getAttribute('href') || '';
 
-        if (link === currentPath || (link === '/' && currentPath === '/')) {
-          item.classList.add('active');
-          foundActive = true;
-        } else {
-          item.classList.remove('active');
+      if (link === currentPath || (link === '/' && currentPath === '/')) {
+        item.classList.add('active');
+        foundActive = true;
+      } else {
+        item.classList.remove('active');
+      }
+    });
+
+    if (!foundActive && menuItems.length > 0) {
+      menuItems[0].classList.add('active');
+    }
+  }
+
+  function handleClick(item) {
+    console.log('click');
+    let activeItem = document.querySelector('.menu__item.active');
+    if (item === activeItem || !activeItem) return;
+
+    activeItem.classList.remove('active');
+    item.classList.add('active');
+
+    activeItem = item;
+
+    // Enable animation on click
+    menuBorder.style.transition = 'transform var(--timeOut, var(--duration))';
+
+    handleBorderPosition(menuBorder, menu, activeItem);
+    moveDot(item, true);
+  }
+
+  function handleBorderPosition(menuBorder, menu, activeItem) {
+    console.log('handleBorderPosition');
+    activeItem = activeItem || document.querySelector('.active');
+    const activeItemPosition = activeItem.getBoundingClientRect();
+
+    const { left, width } = activeItemPosition;
+    const menuLeft = menu.getBoundingClientRect().left;
+
+    // Adjust the border's position relative to the active item's position and menu's scroll
+    const moveRight = Math.floor(left - menuLeft - (menuBorder.offsetWidth - width) / 2) + 'px';
+    menuBorder.style.transform = `translateX(${moveRight})`;
+  }
+
+  function moveDot(activeItem, shouldAnimate = false) {
+    const { left, width } = activeItem.getBoundingClientRect();
+    const menuLeft = menu.getBoundingClientRect().left;
+
+    // Get the scroll position of the menu
+    const scrollLeft = menu.scrollLeft;
+
+    // Adjust the dot position calculation to include the menu's scroll position
+    const moveX = Math.floor(left - menuLeft + scrollLeft + width / 2 - 4) + 'px';
+
+    // Update the dot position
+    menuDot.style.setProperty('--dotPosition', moveX);
+
+    // Only trigger animation if shouldAnimate is true
+    if (shouldAnimate) {
+      menuDot.classList.remove('active');
+      // Wait for the next animation frame to re-add the active class and re-trigger the animation
+      requestAnimationFrame(() => {
+        menuDot.classList.add('active');
+      });
+    }
+  }
+
+  document.addEventListener(
+    'astro:page-load',
+    () => {
+      console.log('page-load');
+      // Handle border movement on scroll
+      menu.addEventListener('scroll', () => {
+        if (!isScrolling) {
+          // Disable animation during scroll
+          menuBorder.style.transition = 'none';
+          isScrolling = true;
         }
+
+        const activeItem = document.querySelector('.menu__item.active');
+        handleBorderPosition(menuBorder, menu, activeItem);
+        moveDot(activeItem, false); // No animation on scroll
+
+        // Set a delay to allow for scrolling to finish
+        // otherwise the menu border will flicker
+        setTimeout(() => {
+          isScrolling = false;
+        }, 150); // Adjust the delay as needed
       });
 
-      if (!foundActive && menuItems.length > 0) {
-        menuItems[0].classList.add('active');
-      }
-    }
+      // Resize event to adjust position on window resize
+      window.addEventListener('resize', () => {
+        const activeItem = document.querySelector('.menu__item.active');
+        moveDot(activeItem, false); // No animation on resize
+        handleBorderPosition(menuBorder, menu);
+      });
 
-    function handleClick(item) {
-      console.log('click');
-      let activeItem = document.querySelector('.menu__item.active');
-      if (item === activeItem || !activeItem) return;
+      menuItems.forEach((item) => {
+        item.addEventListener('click', () => handleClick(item));
+      });
 
-      activeItem.classList.remove('active');
-      item.classList.add('active');
+      setActiveMenuItem();
+      initPositioning();
+    },
+    { once: true }
+  );
 
-      activeItem = item;
-
-      // Enable animation on click
-      menuBorder.style.transition = 'transform var(--timeOut, var(--duration))';
-
-      handleBorderPosition(menuBorder, menu, activeItem);
-      moveDot(item, true);
-    }
-
-    function handleBorderPosition(menuBorder, menu, activeItem) {
-      console.log('handleBorderPosition');
-      activeItem = activeItem || document.querySelector('.active');
-      const activeItemPosition = activeItem.getBoundingClientRect();
-
-      const { left, width } = activeItemPosition;
-      const menuLeft = menu.getBoundingClientRect().left;
-
-      // Adjust the border's position relative to the active item's position and menu's scroll
-      const moveRight = Math.floor(left - menuLeft - (menuBorder.offsetWidth - width) / 2) + 'px';
-      menuBorder.style.transform = `translateX(${moveRight})`;
-    }
-
-    function moveDot(activeItem, shouldAnimate = false) {
-      const { left, width } = activeItem.getBoundingClientRect();
-      const menuLeft = menu.getBoundingClientRect().left;
-
-      // Get the scroll position of the menu
-      const scrollLeft = menu.scrollLeft;
-
-      // Adjust the dot position calculation to include the menu's scroll position
-      const moveX = Math.floor(left - menuLeft + scrollLeft + width / 2 - 4) + 'px';
-
-      // Update the dot position
-      menuDot.style.setProperty('--dotPosition', moveX);
-
-      // Only trigger animation if shouldAnimate is true
-      if (shouldAnimate) {
-        menuDot.classList.remove('active');
-        // Wait for the next animation frame to re-add the active class and re-trigger the animation
-        requestAnimationFrame(() => {
-          menuDot.classList.add('active');
-        });
-      }
-    }
-
-    // Handle border movement on scroll
-    menu.addEventListener('scroll', () => {
-      if (!isScrolling) {
-        // Disable animation during scroll
-        menuBorder.style.transition = 'none';
-        isScrolling = true;
-      }
-
-      const activeItem = document.querySelector('.menu__item.active');
-      handleBorderPosition(menuBorder, menu, activeItem);
-      moveDot(activeItem, false); // No animation on scroll
-
-      // Set a delay to allow for scrolling to finish
-      // otherwise the menu border will flicker
-      setTimeout(() => {
-        isScrolling = false;
-      }, 150); // Adjust the delay as needed
-    });
-
-    // Resize event to adjust position on window resize
-    window.addEventListener('resize', () => {
-      const activeItem = document.querySelector('.menu__item.active');
-      moveDot(activeItem, false); // No animation on resize
-      handleBorderPosition(menuBorder, menu);
-    });
-
-    menuItems.forEach((item) => {
-      item.addEventListener('click', () => handleClick(item));
-    });
-
+  document.addEventListener('astro:after-swap', () => {
+    console.log('after-swap');
     setActiveMenuItem();
     initPositioning();
   });
