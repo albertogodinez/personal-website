@@ -4,6 +4,7 @@ interface ImportMetaEnv {
   readonly CLOUDINARY_URL: string;
   readonly PUBLIC_CLOUDINARY_CLOUD_NAME: string;
   readonly CLOUDINARY_API_SECRET: string;
+  readonly NETLIFY_BUILD_TIME: string;
   // more env variables...
 }
 

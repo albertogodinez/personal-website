@@ -12,9 +12,10 @@
   overflow: hidden;
 
   position: fixed;
-  bottom: 1.25em;
+  bottom: 1.25rem;
   left: 50%;
   transform: translateX(-50%);
+  margin-bottom: 1rem;
 }
 
 .menu-container {
@@ -22,7 +23,7 @@
 }
 
 .menu {
-  font-size: 1em;
+  font-size: var(--fs-base);
   background-color: var(--bgColorMenu);
   /* todo: make the following into a variable */
   box-shadow:

@@ -1,0 +1,19 @@
+---
+const rawBuildTime = import.meta.env.NETLIFY_BUILD_TIME;
+
+// TODO: move this to a utility file
+function formatDate(dateString: string) {
+  if (!dateString) return '🤔';
+
+  const date = new Date(dateString);
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+}
+
+const lastUpdated = formatDate(rawBuildTime);
+---
+
+<footer>
+  <p>Last updated on: {lastUpdated}</p>
+  <p>View code on <a href="https://github.com/albertogodinez/personal-website">Github</a></p>
+</footer>

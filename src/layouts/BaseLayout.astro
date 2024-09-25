@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 const { title } = Astro.props;
 ---
@@ -19,5 +20,6 @@ const { title } = Astro.props;
   <body>
     <slot />
     <Nav transition:persist />
+    <Footer />
   </body>
 </html>

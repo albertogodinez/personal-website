@@ -86,6 +86,19 @@ h1 {
   word-spacing: -0.05em;
 }
 
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100vw;
+  height: 1rem;
+  font-size: var(--fs-sm);
+  /* padding-block: var(--spa); */
+  padding-bottom: 1rem;
+  padding-inline: var(--spacing);
+}
+
 .font .grid {
   display: grid;
   justify-items: center;
