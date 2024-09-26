@@ -1,7 +1,12 @@
 .experience-accordion {
   font-size: var(--fs-sm);
-  padding-inline: min(1rem, 3%);
   cursor: pointer;
+}
+
+.experience-accordion__trigger {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 .experience-accordion:hover .experience-accordion__trigger:not(:hover)[data-state='closed'] {

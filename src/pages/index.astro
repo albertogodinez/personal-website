@@ -2,8 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Experience from '../components/Experience.tsx';
 import { getCollection } from 'astro:content';
-import Slider from '../components/Slider.astro';
 import '../styles/global.css';
+import About from '../components/About.astro';
+import Contact from '../components/Contact.astro';
 
 const allExperience = await getCollection('experience');
 const workExperience = await getCollection('experience', ({ data }) => {
@@ -16,28 +17,14 @@ const projectExperience = await getCollection('experience', ({ data }) => {
 ---
 
 <BaseLayout title="Alberto Godinez">
-  <main style="width: 100%">
-    <Slider sliderItems={['🚧 please excuse the construction 🚧']} />
-    <div
-      style="font-family: var(--font-secondary); font-size: var(--fs-base);"
-      class="flex flex-column flex-ac-center pi-8 p-block-8 text-align-left"
-    >
-      <div class="text-align-left">
-        <p>
-          Hi, I'm <span class="font-secondary font-bold">Alberto Godinez</span>
-        </p>
-        <p>
-          Currently living in Austin, Texas and working at <a href="https://expedia.com/trips/">Expedia Group</a> on trips
-          experience.
-        </p>
-        <p>Hope you enjoy this little sliver of the internet!</p>
-      </div>
-    </div>
+  <main class="flex flex-column pi-8 p-block-8 width-screen">
+    <About />
     <Experience
       allExperience={allExperience}
       workExperience={workExperience}
       projectExperience={projectExperience}
       client:load
     />
+    <Contact />
   </main>
 </BaseLayout>
