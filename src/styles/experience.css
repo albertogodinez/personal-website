@@ -1,12 +1,48 @@
 .experience-accordion {
   font-size: var(--fs-sm);
   cursor: pointer;
+  max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .experience-accordion {
+    max-width: 768px;
+  }
+}
+
+.accordion-content {
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.accordion-content[data-state='open'] {
+  animation: slideDown 300ms ease-out;
+}
+
+.accordion-content[data-state='closed'] {
+  animation: slideUp 300ms ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
 }
 
 .experience-accordion__trigger {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  transition: color 300ms ease-out; /* Add transition for color change */
 }
 
 .experience-accordion:hover .experience-accordion__trigger:not(:hover)[data-state='closed'] {

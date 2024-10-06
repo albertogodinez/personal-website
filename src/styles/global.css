@@ -73,7 +73,9 @@ main {
   /* display: flex;
   flex-direction: column; */
   min-height: 100vh;
-  /* margin: auto; */
+  max-width: max(390px, 80%);
+
+  margin: auto;
   /* max-width: var(--max-screen-width); */
   /* TODO: Consider creating separate variables or classes for default padding spacing */
   /* padding-inline: var(--spacing);
@@ -230,12 +232,24 @@ body {
   gap: 0.5rem;
 }
 
+.gap-8 {
+  gap: 2rem;
+}
+
+.gap-16 {
+  gap: 4rem;
+}
+
 .pb-4 {
   padding-bottom: 1rem;
 }
 
 .pb-8 {
   padding-bottom: 2rem;
+}
+
+.pi-2 {
+  padding-inline: 0.5rem;
 }
 
 .pi-4 {
@@ -288,6 +302,14 @@ body {
 
 .width-screen {
   width: 100vw;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.height-screen {
+  height: 100vh;
 }
 
 .width-50 {

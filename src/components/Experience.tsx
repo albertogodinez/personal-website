@@ -20,23 +20,23 @@ const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, 
       </h2>
       <Accordion.Root className="flex flex-column gap-4 experience-accordion" type="single" collapsible>
         {allExperience.map((experience: ExperienceCollectionEntry, i: number) => (
-          <Accordion.Item key={i} value={experience.data.company}>
+          <Accordion.Item key={i} value={experience.data.company} className="flex flex-column">
             <Accordion.Header>
               <Accordion.Trigger asChild>
-                <div className="experience-accordion__trigger">
+                <div className="flex flex-jc-space-between experience-accordion__trigger">
                   <span>
                     {experience.data.position} @ {experience.data.company}
                   </span>
                   <span>
-                    {experience.data.startDate.toLocaleDateString('en-US', { year: 'numeric' })}-
+                    {experience.data.startDate.toLocaleDateString('en-US', { year: 'numeric' })} -{' '}
                     {experience.data.endDate
                       ? experience.data.endDate.toLocaleDateString('en-US', { year: 'numeric' })
-                      : 'present'}
+                      : ''}
                   </span>
                 </div>
               </Accordion.Trigger>
             </Accordion.Header>
-            <Accordion.Content>
+            <Accordion.Content className="accordion-content">
               <p>{experience.data.description}</p>
             </Accordion.Content>
           </Accordion.Item>
