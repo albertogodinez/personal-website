@@ -31,15 +31,18 @@ import '../styles/nav.css';
 </div>
 <script>
   import { navigate } from 'astro:transitions/client';
+
   const menu = document.querySelector('.menu');
   const menuItems = document.querySelectorAll('.menu__item');
   const menuDot = document.querySelector('.menu__dot');
   const menuBorder = document.querySelector('.menu__border');
   let isScrolling = false;
+  let activeItem = null;
 
   function initPositioning() {
-    const activeItem = document.querySelector('.menu__item.active');
+    activeItem = document.querySelector('.menu__item.active') || menuItems[0];
     if (activeItem) {
+      activeItem.classList.add('active');
       handleBorderPosition(menuBorder, menu, activeItem);
       moveDot(activeItem);
     }
@@ -48,115 +51,109 @@ import '../styles/nav.css';
   function setActiveMenuItem() {
     const currentPath = window.location.pathname;
 
-    let foundActive = false;
     menuItems.forEach((item) => {
       const link = item.getAttribute('href') || '';
-
       if (link === currentPath || (link === '/' && currentPath === '/')) {
-        item.classList.add('active');
-        foundActive = true;
+        setActive(item);
       } else {
         item.classList.remove('active');
       }
     });
 
-    if (!foundActive && menuItems.length > 0) {
-      menuItems[0].classList.add('active');
+    if (!activeItem && menuItems.length > 0) {
+      setActive(menuItems[0]);
     }
   }
 
+  function setActive(item) {
+    if (activeItem) {
+      activeItem.classList.remove('active');
+    }
+    item.classList.add('active');
+    activeItem = item;
+    handleBorderPosition(menuBorder, menu, activeItem);
+    moveDot(activeItem);
+  }
+
   function handleClick(item) {
-    let activeItem = document.querySelector('.menu__item.active');
     const link = item.getAttribute('href') || '';
 
     if (item === activeItem) {
-      // If the clicked item is the active item, scroll to the top
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
-    if (!activeItem) return;
-
-    activeItem.classList.remove('active');
-    item.classList.add('active');
-
-    activeItem = item;
-
-    // Enable animation on click
-    menuBorder.style.transition = 'transform var(--timeOut, var(--duration))';
-
-    handleBorderPosition(menuBorder, menu, activeItem);
-    moveDot(item, true);
+    setActive(item);
 
     setTimeout(() => {
       navigate(link);
     }, 600);
   }
 
-  function handleBorderPosition(menuBorder, menu, activeItem) {
-    activeItem = activeItem || document.querySelector('.active');
-    const activeItemPosition = activeItem.getBoundingClientRect();
-
-    const { left, width } = activeItemPosition;
+  function handleBorderPosition(menuBorder, menu, item) {
+    const itemPosition = item.getBoundingClientRect();
+    const { left, width } = itemPosition;
     const menuLeft = menu.getBoundingClientRect().left;
-
-    // Adjust the border's position relative to the active item's position and menu's scroll
     const moveRight = Math.floor(left - menuLeft - (menuBorder.offsetWidth - width) / 2) + 'px';
     menuBorder.style.transform = `translateX(${moveRight})`;
   }
 
-  function moveDot(activeItem, shouldAnimate = false) {
-    const { left, width } = activeItem.getBoundingClientRect();
+  function moveDot(item, shouldAnimate = false) {
+    const { left, width } = item.getBoundingClientRect();
     const menuLeft = menu.getBoundingClientRect().left;
-
-    // Get the scroll position of the menu
     const scrollLeft = menu.scrollLeft;
-
-    // Adjust the dot position calculation to include the menu's scroll position
     const moveX = Math.floor(left - menuLeft + scrollLeft + width / 2 - 4) + 'px';
-
-    // Update the dot position
     menuDot.style.setProperty('--dotPosition', moveX);
 
-    // Only trigger animation if shouldAnimate is true
     if (shouldAnimate) {
       menuDot.classList.remove('active');
-      // Wait for the next animation frame to re-add the active class and re-trigger the animation
       requestAnimationFrame(() => {
         menuDot.classList.add('active');
       });
     }
   }
 
-  // Handle border movement on scroll
+  // Handle hover events for devices with hover capability
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    menuItems.forEach((item) => {
+      item.addEventListener('mouseenter', () => {
+        handleBorderPosition(menuBorder, menu, item);
+        moveDot(item, true);
+      });
+
+      item.addEventListener('mouseleave', () => {
+        handleBorderPosition(menuBorder, menu, activeItem);
+        moveDot(activeItem, true);
+      });
+    });
+  }
+
+  // Handle scroll events
   menu.addEventListener('scroll', () => {
     if (!isScrolling) {
-      // Disable animation during scroll
       menuBorder.style.transition = 'none';
       isScrolling = true;
     }
 
-    const activeItem = document.querySelector('.menu__item.active');
     handleBorderPosition(menuBorder, menu, activeItem);
-    moveDot(activeItem, false); // No animation on scroll
+    moveDot(activeItem, false);
 
-    // Set a delay to allow for scrolling to finish
-    // otherwise the menu border will flicker
     setTimeout(() => {
       isScrolling = false;
-    }, 150); // Adjust the delay as needed
+      menuBorder.style.transition = `transform var(--hoverDuration)`;
+    }, 150);
   });
 
   // Resize event to adjust position on window resize
   window.addEventListener('resize', () => {
-    const activeItem = document.querySelector('.menu__item.active');
-    moveDot(activeItem, false); // No animation on resize
-    handleBorderPosition(menuBorder, menu);
+    moveDot(activeItem, false);
+    handleBorderPosition(menuBorder, menu, activeItem);
   });
 
+  // Handle click events for all devices
   menuItems.forEach((item) => {
     item.addEventListener('click', (event) => {
-      event.preventDefault(); // Prevent default link behavior
+      event.preventDefault();
       handleClick(item);
     });
   });

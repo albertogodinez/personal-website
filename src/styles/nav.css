@@ -1,6 +1,7 @@
 :root {
   --bgColorMenu: rgba(255, 255, 255, 1);
   --duration: 0.7s;
+  --hoverDuration: 0.3s;
 }
 
 /* todo: consider adding a border to this to make it stand out even more */
@@ -35,7 +36,7 @@
 
   width: 100%;
 
-  padding: 1em 2em;
+  padding: 0 2em;
   position: relative;
   border-radius: 10px;
 
@@ -50,24 +51,51 @@
 
 .menu__item {
   all: unset;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  padding: 1em 0.5em;
+  height: 100%;
   cursor: pointer;
-  transition: transform var(--timeOut, var(--duration));
+  transition: transform var(--hoverDuration);
   will-change: transform;
   margin-right: 1em;
+  position: relative;
 }
 
 .menu__item-text {
   color: rgba(133, 133, 133, 0.5);
-  transition: color var(--duration);
+  transition: color var(--hoverDuration);
 }
 
 .menu__item.active {
   transform: translateY(-0.5em);
 }
 
+.menu__item:hover {
+  transform: translateY(-0.5em);
+}
+
+.menu:hover .menu__item.active {
+  transform: translateY(0);
+}
+
+.menu:hover .menu__item:hover {
+  transform: translateY(-0.5em);
+}
+
+.menu__item:hover,
+.menu__item-text {
+  color: #555555;
+}
+
 .menu__item.active .menu__item-text {
   color: #555555;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .menu__item:hover {
+    transform: translateY(-0.5em);
+  }
 }
 
 .menu__dot {
@@ -81,9 +109,9 @@
   box-shadow: 0 0 20px rgba(243, 241, 234, 1);
   border-radius: 50%;
   transition:
-    transform var(--duration),
-    background-color var(--duration),
-    width var(--duration) ease-in-out;
+    transform var(--hoverDuration),
+    background-color var(--hoverDuration),
+    width var(--hoverDuration) ease-in-out;
 }
 
 /* Adjust the movement to include scaling */
@@ -112,7 +140,7 @@ doesn't blend into white images */
   width: 7em;
   height: 2em;
   background-color: var(--bgColorMenu);
-  transition: transform var(--timeOut, var(--duration));
+  transition: transform var(--hoverDuration);
   will-change: transform;
 }
 
