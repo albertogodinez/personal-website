@@ -23,7 +23,7 @@ const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, 
           <Accordion.Item key={i} value={experience.data.company} className="flex flex-column">
             <Accordion.Header>
               <Accordion.Trigger asChild>
-                <div className="flex flex-jc-space-between experience-accordion__trigger">
+                <div className="flex flex-jc-space-between flex-ai-stretch experience-accordion__trigger">
                   <span>
                     {experience.data.position} @ {experience.data.company}
                   </span>

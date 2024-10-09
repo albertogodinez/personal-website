@@ -60,8 +60,6 @@
   --font-height-calc: calc(1.71rem, 2.01vi + 1.21rem, 2.81rem);
 }
 
-/* Register your custom font family and tell the browser where to find it. */
-
 body {
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-primary);
@@ -69,17 +67,16 @@ body {
   line-height: 1.5;
 }
 
-main {
-  /* display: flex;
-  flex-direction: column; */
-  min-height: 100vh;
-  max-width: max(390px, 80%);
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
 
+main {
+  max-width: max(390px, 80%);
   margin: auto;
-  /* max-width: var(--max-screen-width); */
-  /* TODO: Consider creating separate variables or classes for default padding spacing */
-  /* padding-inline: var(--spacing);
-  padding-block: var(--spacing-double); */
 }
 
 h1 {
@@ -96,7 +93,6 @@ footer {
   width: 100vw;
   height: 1rem;
   font-size: var(--fs-sm);
-  /* padding-block: var(--spa); */
   padding-bottom: 1rem;
   padding-inline: var(--spacing);
 }
@@ -279,6 +275,21 @@ body {
 .p-block-8 {
   padding-block: 2rem;
 }
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.mb-32 {
+  margin-bottom: 8rem;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-ai-stretch {
+  align-items: stretch;
+}
 
 .flex-row {
   flex-direction: row;
@@ -306,6 +317,14 @@ body {
 
 .width-100 {
   width: 100%;
+}
+
+.min-height-100 {
+  min-height: 100%;
+}
+
+.height-100 {
+  height: 100%;
 }
 
 .height-screen {

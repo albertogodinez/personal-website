@@ -15,13 +15,14 @@ const projectExperience = await getCollection('experience', ({ data }) => {
   return data.type === 'project';
 });
 
+allExperience.sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
 workExperience.sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
 projectExperience.sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
 ---
 
 <BaseLayout title="Alberto Godinez">
-  <main class="flex flex-column flex-ac-center pi-2">
-    <div class="flex flex-column gap-16 height-screen">
+  <main class="flex flex-column pi-2 mb-32 mt-16 height-100">
+    <section class="flex flex-column gap-16 min-height-100">
       <About />
       <Experience
         allExperience={allExperience}
@@ -30,6 +31,6 @@ projectExperience.sort((a, b) => new Date(b.data.startDate).getTime() - new Date
         client:load
       />
       <Contact />
-    </div>
+    </section>
   </main>
 </BaseLayout>
