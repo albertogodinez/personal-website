@@ -1,17 +1,3 @@
-:root {
-  --color-bg1: rgb(51, 158, 100);
-  --color-bg2: rgb(235, 219, 188);
-  --color-bg3: rgb(9, 131, 189);
-  --color1: 51, 158, 100;
-  --color2: 51, 158, 100;
-  --color3: 235, 219, 188;
-  --color4: 235, 219, 188;
-  --color5: 9, 131, 189;
-  --color-interactive: 9, 131, 189;
-  --circle-size: 60%;
-  --blending: hard-light;
-}
-
 @keyframes moveInCircle {
   0% {
     transform: rotate(0deg);

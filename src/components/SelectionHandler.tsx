@@ -7,7 +7,6 @@ import { FAVORITE_TYPES } from '../constants/memorabilia';
 import { selectedFavoriteType, selectedYear } from '../functionalityStore';
 import '../styles/global.css';
 import '../styles/gradient-bg.css';
-import '../styles/text-gradient.css';
 import GradientBackground from './GradientBackground';
 import SelectWrapper from './SelectWrapper';
 
@@ -30,7 +29,7 @@ export const SelectionHandler: React.FC = () => {
   return (
     <Dialog.Root open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <h1>
-        my favorite{' '}
+        some of my favorite{' '}
         <Dialog.Trigger asChild>
           <span
             className="selection-trigger"
@@ -45,7 +44,7 @@ export const SelectionHandler: React.FC = () => {
             {` ${$selectedFavoriteType || 'things'} `}
           </span>
         </Dialog.Trigger>
-        of
+        {` ${$selectedYear ? 'from' : 'of'}`}
         <Dialog.Trigger asChild>
           <span
             className="selection-trigger"
