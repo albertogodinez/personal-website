@@ -5,5 +5,19 @@
   "type": "work",
   "startDate": "2021-06",
   "endDate": "2022-01",
-  "description": "Architected the frontend environment for the SoleSavy member's dashboard using NextJS, Redux, and Tailwind CSS, and integrated data from Sanity.io. I also led code quality initiatives with pre-commit hooks, built a reusable component library with StorybookJS, and set up Jenkins and Docker for automated deployments. Additionally, I worked on tool to automate new member onboarding in Slack, using NestJS and PostgreSQL."
+  "description": "Built SoleSavy member's dashboard as well as several other initiatives to improve the member experience.",
+  "tags": [
+    "React",
+    "Typescript",
+    "Express.js",
+    "GraphQL",
+    "Jest",
+    "PostgreSQL,",
+    "Docker",
+    "Puppeteer",
+    "Storybook.js",
+    "Jenkins",
+    "Tailwind",
+    "Sanity.io"
+  ]
 }

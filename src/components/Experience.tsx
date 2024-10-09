@@ -20,7 +20,7 @@ const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, 
       </h2>
       <Accordion.Root className="flex flex-column gap-4 experience-accordion" type="single" collapsible>
         {allExperience.map((experience: ExperienceCollectionEntry, i: number) => (
-          <Accordion.Item key={i} value={experience.data.company} className="flex flex-column">
+          <Accordion.Item key={i} value={experience.data.company} className="flex flex-column gap-2 accordion-item">
             <Accordion.Header>
               <Accordion.Trigger asChild>
                 <div className="flex flex-jc-space-between flex-ai-stretch experience-accordion__trigger">
@@ -37,7 +37,14 @@ const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, 
               </Accordion.Trigger>
             </Accordion.Header>
             <Accordion.Content className="accordion-content">
-              <p>{experience.data.description}</p>
+              <p className="mb-2">{experience.data.description}</p>
+              <div className="flex flex-wrap gap-2">
+                {experience.data.tags?.map((tag, i) => (
+                  <span key={i} className="selection-trigger">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
             </Accordion.Content>
           </Accordion.Item>
         ))}

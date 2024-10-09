@@ -4,5 +4,6 @@
   "position": "Software Engineer",
   "type": "work",
   "startDate": "2023-02",
-  "description": "Working under Expedia's Trips Experience team (expedia.com/trips), leading feature development using React, TypeScript, and Kotlin, and enhancing testing workflows to reduce CI latency by 50%. I also developed a Chrome extension for sharing GraphiQL/GraphQL links, which was adopted internally as a developer tool."
+  "description": "Working under Expedia Group Trips Experience team (expedia.com/trips, vrbo.com/trips, hotels.com/trips, etc.), where I've built and maintained features such as comments and vote, request to join, and more.",
+  "tags": ["React", "Typescript", "Node.js", "Kotlin", "GraphQL", "Jest", "Cypress", "Docker", "Kubernetes"]
 }

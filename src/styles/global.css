@@ -219,6 +219,10 @@ body {
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .flex-jc-center {
   justify-content: center;
 }
@@ -292,6 +296,10 @@ body {
 }
 .mt-16 {
   margin-top: 4rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 .mb-32 {

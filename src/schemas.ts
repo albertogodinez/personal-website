@@ -10,7 +10,8 @@ export const experienceSchema = ({}) =>
       .string()
       .optional()
       .transform((date) => (date ? new Date(date) : null)),
-    description: z.string().optional()
+    description: z.string().optional(),
+    tags: z.array(z.string()).optional()
     // TODO: later on I can add some of the following
     // - list of technologies used
     // - list of projects worked on

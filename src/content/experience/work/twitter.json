@@ -5,5 +5,6 @@
   "type": "work",
   "startDate": "2022-04",
   "endDate": "2022-11",
-  "description": "Shipped rebuild of the ads.twitter.com Reporting Dashboard, migrating 17,000 advertisers to GraphQL APIs, reducing operational overhead. I also revamped how we manage ad metric presets, which led to fewer future code changes."
+  "description": "Helped ship rebuild of the ads.twitter.com Reporting Dashboard",
+  "tags": ["React", "Typescript", "Node.js", "GraphQL", "Scala"]
 }

@@ -5,5 +5,6 @@
   "type": "work",
   "startDate": "2017-09",
   "endDate": "2020-01",
-  "description": "Implemented Java-based solutions for ActiveMQ messaging and developed new functionalities that reduced customer wait times by 66%. Additionally, I initiated porting Angular 4 components to React, designed health insurance tools, and developed RESTful web services to support internal and external applications."
+  "description": "Built internal tooling to support the Health Insurance Line of Business.",
+  "tags": ["Angular", "Typescript", "Java", "Node.js", "MySQL", "ActiveMQ"]
 }
