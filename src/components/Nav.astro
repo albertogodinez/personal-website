@@ -8,11 +8,11 @@ import '../styles/nav.css';
   <!-- TODO: might need to update the name -->
   <div class="menu-container">
     <nav class="menu">
-      <a href="/" class="menu__item"><span class="menu__item-text">about</span></a>
-      <a class="menu__item"><span class="menu__item-text">experience</span></a>
+      <a href="/" data-section="about" class="menu__item"><span class="menu__item-text">about</span></a>
+      <a href="/" data-section="experience" class="menu__item"><span class="menu__item-text">experience</span></a>
       <a class="menu__item"><span class="menu__item-text">moodboard</span></a>
       <a href="/memorabilia" class="menu__item"><span class="menu__item-text">memorabilia</span></a>
-      <a class="menu__item"><span class="menu__item-text">contact</span></a>
+      <a href="/" data-section="contact" class="menu__item"><span class="menu__item-text">contact</span></a>
       <div class="menu__dot"></div>
     </nav>
     <div class="menu__border"></div>
@@ -50,10 +50,12 @@ import '../styles/nav.css';
 
   function setActiveMenuItem() {
     const currentPath = window.location.pathname;
+    const currentHash = window.location.hash.slice(1);
 
     menuItems.forEach((item) => {
-      const link = item.getAttribute('href') || '';
-      if (link === currentPath || (link === '/' && currentPath === '/')) {
+      const link = item.getAttribute('href');
+      const section = item.getAttribute('data-section');
+      if ((link === currentPath && !section) || (link === '/' && section === currentHash)) {
         setActive(item);
       } else {
         item.classList.remove('active');
@@ -76,18 +78,28 @@ import '../styles/nav.css';
   }
 
   function handleClick(item) {
-    const link = item.getAttribute('href') || '';
+    const link = item.getAttribute('href');
+    const section = item.getAttribute('data-section');
 
-    if (item === activeItem) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
+    if (window.location.pathname === '/' && section) {
+      // We're on the home page, so we can smooth scroll
+      const targetElement = document.getElementById(section);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        history.pushState(null, '', `/#${section}`);
+      }
+    } else {
+      navigate(section ? `/#${section}` : link).then(() => {
+        if (section) {
+          const targetElement = document.getElementById(section);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
     }
 
     setActive(item);
-
-    setTimeout(() => {
-      navigate(link);
-    }, 600);
   }
 
   function handleBorderPosition(menuBorder, menu, item) {
@@ -156,6 +168,17 @@ import '../styles/nav.css';
       event.preventDefault();
       handleClick(item);
     });
+  });
+
+  // Handle initial load with hash
+  window.addEventListener('load', () => {
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      const targetElement = document.getElementById(hash);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   });
 
   setActiveMenuItem();
