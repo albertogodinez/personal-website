@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import '../styles/gradient-bg.css';
+import '../styles/gradient-background.css';
 
 export const GradientBackground: React.FC = () => {
   const [interBubble, setInterBubble] = useState<HTMLDivElement | null>(null);

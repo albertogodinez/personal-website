@@ -1,0 +1,82 @@
+/* Font Face Declarations */
+/* TODO: Remove unused fonts */
+@font-face {
+  font-family: 'Butler';
+  src: url('/fonts/Butler-Free-Light.woff2') format('otf');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('/fonts/Butler-Free-Med.woff2') format('otf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('/fonts/Butler-Free-XBd.woff2') format('otf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Base Font Size */
+  font-size: 18px;
+
+  /* Colors */
+  --black-a7: rgba(0, 0, 0, 0.5);
+  --bg-primary: #f3f1ea;
+  --bg-secondary: rgb(51, 158, 100);
+  --bg-tertiary: rgb(9, 131, 189);
+  --color-bg1: rgb(51, 158, 100);
+  --color-bg2: rgb(235, 219, 188);
+  --color-bg3: rgb(9, 131, 189);
+  --color1: 51, 158, 100;
+  --color2: 51, 158, 100;
+  --color3: 235, 219, 188;
+  --color4: 235, 219, 188;
+  --color5: 9, 131, 189;
+  --color-interactive: 9, 131, 189;
+
+  /* Grid Settings */
+  --grid-columns: 5;
+  --grid-min-width: 300px;
+  --grid-gap: 1rem;
+  --grid-gap-half: 0.5rem;
+  --grid-gap-double: 2rem;
+
+  /* Spacing */
+  --spacing: 2rem;
+  --spacing-half: 1rem;
+  --spacing-double: 4rem;
+
+  /* Fonts */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Butler', serif;
+
+  /* Font Sizes */
+  --font-size-content-header: 1.1rem;
+  --fs-sm: clamp(0.7rem, 0.35vi + 0.61rem, 0.89rem);
+  --fs-base: clamp(0.88rem, 0.57vi + 0.73rem, 1.19rem);
+  --fs-md: clamp(1.09rem, 0.89vi + 0.87rem, 1.58rem);
+  --fs-lg: clamp(1.37rem, 1.35vi + 1.03rem, 2.11rem);
+  --fs-xl: clamp(1.71rem, 2.01vi + 1.21rem, 2.81rem);
+  --fs-xxl: clamp(2.14rem, 2.93vi + 1.4rem, 3.75rem);
+  --fs-xxxl: clamp(2.67rem, 4.23vi + 1.61rem, 5rem);
+
+  /* Font Colors */
+  --font-color-content-header: black;
+
+  /* Layout */
+  --max-screen-width: 1200px;
+
+  /* Miscellaneous */
+  --circle-size: 60%;
+  --blending: hard-light;
+  --font-height-calc: calc(1.71rem, 2.01vi + 1.21rem, 2.81rem);
+}

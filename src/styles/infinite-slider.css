@@ -3,7 +3,7 @@
   --slider-height: calc(var(--slider-font-size) * 1.2);
 }
 
-.slider {
+.infinite-slider {
   width: 100%;
   font-size: var(--slider-font-size);
   height: var(--slider-height);
@@ -11,13 +11,13 @@
   mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
 }
 
-.slider__list {
+.infinite-slider__list {
   display: flex;
   width: 100%;
   position: relative;
 }
 
-.slider__item {
+.infinite-slider__item {
   text-wrap: nowrap;
   position: absolute;
   left: 100%;

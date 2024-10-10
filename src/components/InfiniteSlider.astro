@@ -1,0 +1,15 @@
+---
+import '../styles/infinite-slider.css';
+
+interface Props {
+  infiniteSliderItems: string[];
+}
+const { infiniteSliderItems } = Astro.props;
+---
+
+<!-- TODO: Add proper null check -->
+<div class="infinite-slider" style={`--quantity: ${infiniteSliderItems.length}`}>
+  <div class="infinite-slider__list">
+    {infiniteSliderItems.map((item: string) => <p class="infinite-slider__item">{item}</p>)}
+  </div>
+</div>

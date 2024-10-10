@@ -5,8 +5,8 @@ import { useState } from 'react';
 import { SELECTION_TYPES, YEARS } from '../constants/memorabilia';
 import { FAVORITE_TYPES } from '../constants/memorabilia';
 import { selectedFavoriteType, selectedYear } from '../functionalityStore';
-import '../styles/global.css';
-import '../styles/gradient-bg.css';
+import '../styles/action-trigger.css';
+import '../styles/gradient-background.css';
 import GradientBackground from './GradientBackground';
 import SelectWrapper from './SelectWrapper';
 
@@ -32,7 +32,7 @@ export const SelectionHandler: React.FC = () => {
         some of my favorite{' '}
         <Dialog.Trigger asChild>
           <span
-            className="selection-trigger"
+            className="action-trigger"
             onClick={() =>
               handleActiveSelection(
                 favoriteTypesArray,
@@ -47,7 +47,7 @@ export const SelectionHandler: React.FC = () => {
         {` ${$selectedYear ? 'from' : 'of'}`}
         <Dialog.Trigger asChild>
           <span
-            className="selection-trigger"
+            className="action-trigger"
             onClick={() => handleActiveSelection(YEARS, SELECTION_TYPES.SELECTED_YEAR, $selectedYear || 'all time')}
           >{` ${$selectedYear || 'all time'}`}</span>
         </Dialog.Trigger>

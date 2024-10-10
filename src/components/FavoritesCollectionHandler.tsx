@@ -3,9 +3,8 @@ import { useEffect, useState } from 'react';
 
 import type { FavoritesCollection, FavoritesCollectionEntry } from '../content/config';
 import { selectedFavoriteType, selectedYear } from '../functionalityStore';
-import '../styles/content.css';
-import '../styles/global.css';
-import ContentHandler from './ContentHandler';
+import '../styles/card.css';
+import Card from './Card';
 
 export interface FavoritesCollectionHandlerProps {
   favoritesCollection: FavoritesCollection;
@@ -40,7 +39,7 @@ const FavoritesCollectionHandler: React.FC<FavoritesCollectionHandlerProps> = ({
   return (
     <section className="grid">
       {filteredCollection.map((favoriteEntry: FavoritesCollectionEntry, index: number) => (
-        <ContentHandler
+        <Card
           imageId={favoriteEntry.data.imageId}
           key={index}
           title={favoriteEntry.data.title}

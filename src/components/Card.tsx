@@ -15,7 +15,7 @@ const cld = new Cloudinary({
   }
 });
 
-const ContentHandler: React.FC<ImageHandlerProps> = ({ title, description, imageId, className }) => {
+const Card: React.FC<ImageHandlerProps> = ({ title, description, imageId, className }) => {
   const [isContentInfoVisible, setContentInfoVisibility] = useState(false);
 
   const handleClick = () => {
@@ -38,4 +38,4 @@ const ContentHandler: React.FC<ImageHandlerProps> = ({ title, description, image
   );
 };
 
-export default ContentHandler;
+export default Card;

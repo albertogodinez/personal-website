@@ -40,7 +40,7 @@ const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, 
               <p className="mb-2">{experience.data.description}</p>
               <div className="flex flex-wrap gap-2">
                 {experience.data.tags?.map((tag, i) => (
-                  <span key={i} className="selection-trigger">
+                  <span key={i} className="action-trigger">
                     #{tag}
                   </span>
                 ))}
