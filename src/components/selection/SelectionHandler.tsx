@@ -2,13 +2,13 @@ import { useStore } from '@nanostores/react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useState } from 'react';
 
-import { SELECTION_TYPES, YEARS } from '../constants/memorabilia';
-import { FAVORITE_TYPES } from '../constants/memorabilia';
-import { selectedFavoriteType, selectedYear } from '../functionalityStore';
-import '../styles/action-trigger.css';
-import '../styles/gradient-background.css';
+import { SELECTION_TYPES, YEARS } from '../../constants/memorabilia';
+import { FAVORITE_TYPES } from '../../constants/memorabilia';
+import { selectedFavoriteType, selectedYear } from '../../functionalityStore';
+import '../../styles/action-trigger.css';
 import GradientBackground from './GradientBackground';
 import SelectWrapper from './SelectWrapper';
+import './gradient-background.css';
 
 const favoriteTypesArray = Object.values(FAVORITE_TYPES).map((type) => type.toLowerCase());
 

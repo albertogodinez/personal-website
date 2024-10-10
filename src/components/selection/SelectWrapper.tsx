@@ -2,10 +2,9 @@ import { useStore } from '@nanostores/react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 import * as Select from '@radix-ui/react-select';
 
-import type { SELECTION_TYPES } from '../constants/memorabilia';
-import { storeMap } from '../functionalityStore';
-import '../styles/global.css';
-import '../styles/select.css';
+import type { SELECTION_TYPES } from '../../constants/memorabilia';
+import { storeMap } from '../../functionalityStore';
+import './selection.css';
 
 export interface SelectWrapperProps {
   placeholder: string;

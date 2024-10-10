@@ -2,6 +2,8 @@ import { Cloudinary } from '@cloudinary/url-gen';
 import { scale } from '@cloudinary/url-gen/actions/resize';
 import { useState } from 'react';
 
+import './card.css';
+
 export interface ImageHandlerProps {
   imageId: string;
   title: string;

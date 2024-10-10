@@ -1,7 +1,8 @@
 import * as Accordion from '@radix-ui/react-accordion';
 
-import type { ExperienceCollection, ExperienceCollectionEntry } from '../content/config';
-import '../styles/experience.css';
+import type { ExperienceCollection, ExperienceCollectionEntry } from '../../content/config';
+import '../../styles/action-trigger.css';
+import './experience.css';
 
 export interface ExperienceProps {
   allExperience: ExperienceCollection;
