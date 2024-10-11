@@ -28,7 +28,7 @@ export const SelectionHandler: React.FC = () => {
 
   return (
     <Dialog.Root open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-      <h1>
+      <h1 className="font-secondary font-thin text-align-center">
         some of my favorite{' '}
         <Dialog.Trigger asChild>
           <span

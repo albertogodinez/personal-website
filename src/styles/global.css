@@ -5,7 +5,7 @@ html {
 }
 
 main {
-  max-width: max(390px, 80%);
+  max-width: max(390px, 90%);
   margin: auto;
 }
 

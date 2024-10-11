@@ -37,7 +37,7 @@ const FavoritesCollectionHandler: React.FC<FavoritesCollectionHandlerProps> = ({
   }, [favoritesCollection, $selectedFavoriteType, $selectedYear]);
 
   return (
-    <section className="grid">
+    <section className="list">
       {filteredCollection.map((favoriteEntry: FavoritesCollectionEntry, index: number) => (
         <Card
           imageId={favoriteEntry.data.imageId}
