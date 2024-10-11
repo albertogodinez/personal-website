@@ -22,3 +22,6 @@ pnpm-debug.log*
 .DS_Store
 
 .vscode/
+
+# bruno HTTP calls
+raindrop/

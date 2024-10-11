@@ -1,5 +1,9 @@
 @import 'variables.css';
 
+html {
+  height: 100%;
+}
+
 main {
   max-width: max(390px, 80%);
   margin: auto;

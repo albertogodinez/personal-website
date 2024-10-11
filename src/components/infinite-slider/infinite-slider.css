@@ -6,7 +6,7 @@
 .infinite-slider {
   width: 100%;
   font-size: var(--slider-font-size);
-  height: var(--slider-height);
+  height: 100%;
   overflow: hidden;
   mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
 }

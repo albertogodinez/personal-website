@@ -1,3 +1,5 @@
+<!-- TODO: Update this readme file -->
+
 # Astro Starter Kit: Basics
 
 ```sh
