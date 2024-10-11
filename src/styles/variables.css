@@ -2,26 +2,44 @@
 /* TODO: Remove unused fonts */
 @font-face {
   font-family: 'Butler';
-  src: url('/fonts/Butler-Free-Light.woff2') format('otf');
+  src: url('/fonts/Butler-Light.woff2') format('woff2');
+  font-style: normal;
   font-weight: 300;
-  font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
   font-family: 'Butler';
-  src: url('/fonts/Butler-Free-Med.woff2') format('otf');
+  src: url('/fonts/Butler.woff2') format('woff2');
+  font-style: normal;
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
   font-family: 'Butler';
-  src: url('/fonts/Butler-Free-XBd.woff2') format('otf');
+  src: url('/fonts/Butler-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('/fonts/Butler-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('/fonts/Butler-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('/fonts/Butler-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
 }
 
 :root {

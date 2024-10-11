@@ -84,3 +84,13 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+h2 {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+}
+
+h3 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+}
