@@ -9,7 +9,7 @@
 
 .wrapper {
   padding-block: 1.5em 0;
-  width: min(90%, 600px);
+  width: min(90%, 512px);
   overflow: hidden;
 
   position: fixed;
@@ -58,7 +58,7 @@
   cursor: pointer;
   transition: transform var(--hoverDuration);
   will-change: transform;
-  margin-right: 1em;
+  margin-inline: 0.5em;
   position: relative;
 }
 

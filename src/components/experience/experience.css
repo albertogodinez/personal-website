@@ -1,7 +1,7 @@
 .experience-accordion {
   font-size: var(--fs-sm);
   cursor: pointer;
-  max-width: 100%;
+  /* width: 100%; */
 }
 
 .accordion-item {
@@ -9,16 +9,17 @@
   border-top: 0.5px solid var(--font-color-content-header);
 }
 
-@media screen and (min-width: 768px) {
-  .experience-accordion {
-    max-width: 768px;
-  }
-}
-
 .accordion-content {
   overflow: hidden;
   margin: 0;
   text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+  /* Theres a small bug when the accordion is opened and this helps mitigate it */
+  .accordion-content {
+    max-width: min(calc(100vw * 0.8), 768px);
+  }
 }
 
 .accordion-content[data-state='open'] {

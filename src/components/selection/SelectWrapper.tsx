@@ -71,7 +71,7 @@ const SelectWrapper: React.FC<SelectWrapperProps> = ({
                         value={option}
                         disabled={selectionStore?.get() === option}
                       >
-                        <Select.ItemText>{option}</Select.ItemText>
+                        <Select.ItemText className="underline">{option}</Select.ItemText>
                       </Select.Item>
                     ))}
                   </Select.Group>

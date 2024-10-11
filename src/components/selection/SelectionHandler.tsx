@@ -6,6 +6,7 @@ import { SELECTION_TYPES, YEARS } from '../../constants/memorabilia';
 import { FAVORITE_TYPES } from '../../constants/memorabilia';
 import { selectedFavoriteType, selectedYear } from '../../functionalityStore';
 import '../../styles/action-trigger.css';
+import '../../styles/utilities.css';
 import GradientBackground from './GradientBackground';
 import SelectWrapper from './SelectWrapper';
 import './gradient-background.css';
@@ -28,7 +29,7 @@ export const SelectionHandler: React.FC = () => {
 
   return (
     <Dialog.Root open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-      <h1 className="font-secondary font-thin text-align-center">
+      <h1 className="font-secondary font-thin text-align-center mb-8">
         some of my favorite{' '}
         <Dialog.Trigger asChild>
           <span

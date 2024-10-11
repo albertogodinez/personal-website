@@ -14,7 +14,6 @@ footer {
   justify-content: space-between;
   align-items: center;
 
-  width: 100vw;
   height: 1rem;
   font-size: var(--fs-sm);
   padding-bottom: 1rem;
