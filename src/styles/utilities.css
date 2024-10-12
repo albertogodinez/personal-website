@@ -95,6 +95,9 @@
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mb-4 {
+  margin-bottom: 1rem;
+}
 .mb-8 {
   margin-bottom: 2rem;
 }
@@ -111,6 +114,9 @@
 }
 .width-100 {
   width: 100%;
+}
+.width-75 {
+  width: 75%;
 }
 .width-50 {
   width: 50%;
@@ -220,4 +226,10 @@
     background: rgba(255, 255, 255, 0.1);
     border-radius: 1rem;
   }
+}
+
+/* TODO: move this */
+.list {
+  columns: 3 350px;
+  gap: 1.5rem;
 }

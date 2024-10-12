@@ -79,9 +79,3 @@
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
-
-/* TODO: move this */
-.list {
-  columns: 3 350px;
-  gap: 1.5rem;
-}

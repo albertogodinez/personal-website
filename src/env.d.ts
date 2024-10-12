@@ -5,7 +5,10 @@ interface ImportMetaEnv {
   readonly PUBLIC_CLOUDINARY_CLOUD_NAME: string;
   readonly CLOUDINARY_API_SECRET: string;
   readonly NETLIFY_BUILD_TIME: string;
-  // more env variables...
+  readonly RAINDROP_MULTIPLE_ENDPOINT: string;
+  readonly RAINDROP_SINGLE_ENDPOINT: string;
+  readonly RAINDROP_TOKEN: string;
+  readonly RAINDROP_MOODBOARD_ID: string;
 }
 
 interface ImportMeta {
