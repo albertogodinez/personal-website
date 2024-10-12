@@ -1,0 +1,24 @@
+---
+import '../styles/utilities.css';
+
+const multipleRaindropsEndpoint = import.meta.env.RAINDROP_MULTIPLE_ENDPOINT;
+const moodboardRaindropId = import.meta.env.RAINDROP_MOODBOARD_ID;
+const token = import.meta.env.RAINDROP_TOKEN;
+
+const response = await fetch(`${multipleRaindropsEndpoint}/${moodboardRaindropId}`, {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+});
+const data = await response.json();
+const items = data.items;
+
+console.log(items);
+console.log('got the itemsss');
+
+console.log('got the permanent copies');
+---
+
+<div class="list">
+  {items.map((item: any) => <img class="mb-8" style={{ width: '100%' }} src={item.cover} alt={item.title} />)}
+</div>
