@@ -9,7 +9,7 @@ const favoritesCollection = await getCollection('favorites');
 ---
 
 <BaseLayout title="Alberto Godinez - memo">
-  <main class="width-screen height-screen pi-2 mb-48 mt-16">
+  <main class="width-screen pi-2 mb-48 mt-16">
     <SelectionHandler client:load />
     <FavoritesCollectionHandler favoritesCollection={favoritesCollection} client:load />
   </main>

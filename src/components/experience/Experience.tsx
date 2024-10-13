@@ -1,7 +1,9 @@
 import * as Accordion from '@radix-ui/react-accordion';
+import { useState } from 'react';
 
 import type { ExperienceCollection, ExperienceCollectionEntry } from '../../content/config';
 import '../../styles/action-trigger.css';
+import PopoverWrapper from '../popover/popover';
 import './experience.css';
 
 export interface ExperienceProps {
@@ -11,14 +13,53 @@ export interface ExperienceProps {
 }
 
 const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, projectExperience }) => {
-  //   TODO: Fix order of the accordion items according to the date
+  const [experienceSelection, setExperienceSelection] = useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+  const handleExperienceSelectionChange = (selection: string[]) => {
+    setExperienceSelection(selection);
+  };
+  const handleSelectedTagsChange = (tags: string[]) => {
+    setSelectedTags(tags);
+  };
+  //TODO: this can probably be done in another file so we're not doing this every time the component renders
+  const tags = allExperience.reduce((accumulator: string[], experience) => {
+    if (experience.data.tags) {
+      experience.data.tags.forEach((tag) => {
+        if (!accumulator.includes(tag)) {
+          accumulator.push(tag);
+        }
+      });
+    }
+    return accumulator;
+  }, []);
   return (
     <section id="experience" className="p-block-2 width-100">
-      <h2>
-        {/* TODO: Implement popover with ability to select work/projects */}
-        Experience
-        {/* Experience: <button>work</button> */}
-      </h2>
+      <div className="flex gap-2 mb-4">
+        <h2>Experience</h2>
+        <PopoverWrapper
+          onExperienceSelectionChange={handleExperienceSelectionChange}
+          onSelectedTagsChange={handleSelectedTagsChange}
+          tags={tags}
+        />
+      </div>
+      <div className="flex">
+        {experienceSelection.map((experience, i) => {
+          return (
+            <p className="action-trigger" key={i}>
+              #{experience}{' '}
+            </p>
+          );
+        })}
+        {selectedTags.length > 0 && experienceSelection.length > 0 && <span>{' | '}</span>}
+        {selectedTags.map((tag, i) => {
+          return (
+            <p className="action-trigger" key={i}>
+              #{tag}
+            </p>
+          );
+        })}{' '}
+      </div>
       <Accordion.Root className="flex flex-column gap-4 experience-accordion" type="single" collapsible>
         {allExperience.map((experience: ExperienceCollectionEntry, i: number) => (
           <Accordion.Item key={i} value={experience.data.company} className="flex flex-column gap-2 accordion-item">

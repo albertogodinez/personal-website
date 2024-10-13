@@ -47,7 +47,11 @@
   font-size: 18px;
 
   /* Colors */
+  --black-a9: rgba(0, 0, 0, 0.9);
   --black-a7: rgba(0, 0, 0, 0.5);
+  --black-a5: rgba(0, 0, 0, 0.3);
+  --black-a3: rgba(0, 0, 0, 0.2);
+  --black-a1: rgba(0, 0, 0, 0.1);
   --bg-primary: #f3f1ea;
   --bg-secondary: rgb(51, 158, 100);
   --bg-tertiary: rgb(9, 131, 189);
@@ -60,6 +64,7 @@
   --color4: 235, 219, 188;
   --color5: 9, 131, 189;
   --color-interactive: 9, 131, 189;
+  --bgColorMenu: rgba(255, 255, 255, 1);
 
   /* Grid Settings */
   --grid-columns: 5;

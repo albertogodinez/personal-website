@@ -23,6 +23,9 @@
 .flex-jc-space-between {
   justify-content: space-between;
 }
+.flex-align-items-start {
+  align-items: start;
+}
 .flex-ac-center {
   align-items: center;
 }
