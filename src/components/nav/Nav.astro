@@ -38,8 +38,6 @@ import './nav.css';
 <script>
   // TODO: eventually move this to a separate file and restructure how this is handled
   import { navigate } from 'astro:transitions/client';
-  import type { HtmlHTMLAttributes } from 'react';
-
   function setupNavigation() {
     const menu = document.querySelector('.menu') as HTMLElement;
     const menuItems = document.querySelectorAll('.menu__item') as NodeListOf<Element>;
@@ -200,16 +198,9 @@ import './nav.css';
       });
     }
 
-    document.addEventListener('astro:after-swap', setActiveMenuItem);
-
     setActiveMenuItem();
     initPositioning();
   }
 
-  // Run setup immediately if the document is already loaded
-  if (document.readyState === 'complete') {
-    setupNavigation();
-  } else {
-    document.addEventListener('astro:page-load', setupNavigation);
-  }
+  document.addEventListener('astro:page-load', setupNavigation);
 </script>
