@@ -56,8 +56,6 @@ import './nav.css';
 
       if (link === currentPath || (link === '/' && currentPath === '/')) {
         setActive(item as HTMLElement);
-      } else {
-        item.classList.remove('active');
       }
     });
 
