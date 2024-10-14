@@ -46,30 +46,29 @@ import './nav.css';
   let isScrolling = false;
   let activeItem: HTMLElement | null = null;
 
-  function initPositioning() {
-    activeItem = document.querySelector('.menu__item.active') || (menuItems[0] as HTMLElement);
-    if (activeItem) {
-      activeItem.classList.add('active');
-      handleBorderPosition(menuBorder, menu, activeItem);
-      moveDot(activeItem);
-    }
-  }
+  // function initPositioning() {
+  //   activeItem = document.querySelector('.menu__item.active') || (menuItems[0] as HTMLElement);
+  //   if (activeItem) {
+  //     activeItem.classList.add('active');
+  //     handleBorderPosition(menuBorder, menu, activeItem);
+  //     moveDot(activeItem);
+  //   }
+  // }
 
   function setActiveMenuItem() {
     const currentPath = window.location.pathname;
-    const currentHash = window.location.hash.slice(1);
+    // const currentHash = window.location.hash.slice(1);
 
     activeItem = null; // Reset activeItem
 
     menuItems.forEach((item: Element) => {
-      const link = item.getAttribute('href');
-      const section = item.getAttribute('data-section');
+      const link = item.getAttribute('href') || '';
+      // const section = item.getAttribute('data-section');
 
-      // Check for exact match first
       if (link === currentPath || (link === '/' && currentPath === '/')) {
         setActive(item);
-      } else if (link === '/' && section === currentHash) {
-        setActive(item);
+        // } else if (link === '/' && section === currentHash) {
+        //   setActive(item);
       } else {
         item.classList.remove('active');
       }
@@ -97,29 +96,38 @@ import './nav.css';
   function handleClick(item: HTMLElement, event: MouseEvent) {
     event.preventDefault();
     const link = item.getAttribute('href') || '';
-    const section = item.getAttribute('data-section') || '';
-
-    if (window.location.pathname === '/' && section) {
-      // We're on the home page, so we can smooth scroll
-      const targetElement = document.getElementById(section);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-        history.pushState(null, '', `/#${section}`);
-      }
-    } else {
-      navigate(section ? `/#${section}` : link).then(() => {
-        if (section) {
-          const targetElement = document.getElementById(section);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      });
+    if (item === activeItem) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
     }
+    // const section = item.getAttribute('data-section') || '';
+
+    // if (window.location.pathname === '/' && section) {
+    // We're on the home page, so we can smooth scroll
+    // const targetElement = document.getElementById(section);
+    // if (targetElement) {
+    // targetElement.scrollIntoView({ behavior: 'smooth' });
+    // history.pushState(null, '', `/#${section}`);
+    // }
+    // }
+    // else {
+    //   navigate(section ? `/#${section}` : link).then(() => {
+    //     if (section) {
+    //       const targetElement = document.getElementById(section);
+    //       if (targetElement) {
+    //         targetElement.scrollIntoView({ behavior: 'smooth' });
+    //       }
+    //     }
+    //   });
+    // }
 
     setActive(item);
-    handleBorderPosition(menuBorder, menu, item);
-    moveDot(item);
+    // handleBorderPosition(menuBorder, menu, item);
+    // moveDot(item);
+    // TODO: MAYBE ADD THIS BACK
+    setTimeout(() => {
+      navigate(link);
+    }, 600);
   }
 
   function handleBorderPosition(menuBorder: HTMLElement, menu: HTMLElement, item: HTMLElement) {
@@ -174,13 +182,13 @@ import './nav.css';
 
   window.addEventListener('load', () => {
     setActiveMenuItem();
-    const hash = window.location.hash.slice(1);
-    if (hash) {
-      const targetElement = document.getElementById(hash);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    // const hash = window.location.hash.slice(1);
+    // if (hash) {
+    //   const targetElement = document.getElementById(hash);
+    //   if (targetElement) {
+    //     targetElement.scrollIntoView({ behavior: 'smooth' });
+    //   }
+    // }
   });
 
   // Handle hover events for devices with hover capability
@@ -199,8 +207,12 @@ import './nav.css';
   }
 
   setActiveMenuItem();
-  initPositioning();
+  // initPositioning();
 
-  document.addEventListener('astro:page-load', setActiveMenuItem);
+  document.addEventListener('astro:route-change', setActiveMenuItem);
+  document.addEventListener('astro:page-load', () => {
+    console.log('page loaded');
+    setActiveMenuItem();
+  });
   // document.addEventListener('astro:page-load', initPositioning);
 </script>
