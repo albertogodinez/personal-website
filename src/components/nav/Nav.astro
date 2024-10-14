@@ -48,15 +48,11 @@ import './nav.css';
 
   function setActiveMenuItem() {
     const currentPath = window.location.pathname;
-    console.log('currentPath', currentPath);
-
-    // activeItem = null; // Reset activeItem
 
     menuItems.forEach((item: Element) => {
       const link = item.getAttribute('href') || '';
 
       if (link === currentPath || (link === '/' && currentPath === '/')) {
-        console.log('found active item', item);
         setActive(item);
       } else {
         item.classList.remove('active');
@@ -64,7 +60,6 @@ import './nav.css';
     });
 
     if (!activeItem && menuItems.length > 0) {
-      console.log('no active item found, setting first item as active');
       setActive(menuItems[0]);
     }
 
@@ -81,7 +76,6 @@ import './nav.css';
     }
     item.classList.add('active');
     activeItem = item as HTMLElement;
-    console.log('activeItem', activeItem);
   }
 
   function handleClick(item: HTMLElement, event: MouseEvent) {
@@ -171,7 +165,6 @@ import './nav.css';
   setActiveMenuItem();
 
   document.addEventListener('astro:page-load', () => {
-    console.log('page loaded');
     setActiveMenuItem();
   });
 </script>

@@ -75,12 +75,21 @@
   transform: translateY(-0.5em);
 }
 
-.menu:hover .menu__item.active {
-  transform: translateY(0);
+.menu__item {
+  transition: transform 0.3s;
+}
+.menu__item:not(.active):hover {
+  transform: translateY(-0.5em);
 }
 
-.menu:hover .menu__item:hover {
+.menu__item.active {
   transform: translateY(-0.5em);
+  transition: transform 0.3s;
+}
+
+.menu__item:hover ~ .menu__item.active,
+.menu__item:hover .menu__item.active {
+  transform: translateY(0);
 }
 
 .menu__item:hover,
