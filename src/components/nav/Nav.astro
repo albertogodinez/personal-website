@@ -38,6 +38,7 @@ import './nav.css';
 <script>
   // TODO: eventually move this to a separate file and restructure how this is handled
   import { navigate } from 'astro:transitions/client';
+  import type { HtmlHTMLAttributes } from 'react';
 
   function setupNavigation() {
     const menu = document.querySelector('.menu') as HTMLElement;
@@ -48,6 +49,7 @@ import './nav.css';
     let activeItem: HTMLElement | null = null;
 
     function initPositioning() {
+      activeItem = document.querySelector('.menu__item.active') || (menuItems[0] as HTMLElement);
       if (activeItem) {
         activeItem.classList.add('active');
         handleBorderPosition(menuBorder, menu, activeItem);
