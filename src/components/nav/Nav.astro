@@ -46,35 +46,25 @@ import './nav.css';
   let isScrolling = false;
   let activeItem: HTMLElement | null = null;
 
-  // function initPositioning() {
-  //   activeItem = document.querySelector('.menu__item.active') || (menuItems[0] as HTMLElement);
-  //   if (activeItem) {
-  //     activeItem.classList.add('active');
-  //     handleBorderPosition(menuBorder, menu, activeItem);
-  //     moveDot(activeItem);
-  //   }
-  // }
-
   function setActiveMenuItem() {
     const currentPath = window.location.pathname;
-    // const currentHash = window.location.hash.slice(1);
+    console.log('currentPath', currentPath);
 
-    activeItem = null; // Reset activeItem
+    // activeItem = null; // Reset activeItem
 
     menuItems.forEach((item: Element) => {
       const link = item.getAttribute('href') || '';
-      // const section = item.getAttribute('data-section');
 
       if (link === currentPath || (link === '/' && currentPath === '/')) {
+        console.log('found active item', item);
         setActive(item);
-        // } else if (link === '/' && section === currentHash) {
-        //   setActive(item);
       } else {
         item.classList.remove('active');
       }
     });
 
     if (!activeItem && menuItems.length > 0) {
+      console.log('no active item found, setting first item as active');
       setActive(menuItems[0]);
     }
 
@@ -91,6 +81,7 @@ import './nav.css';
     }
     item.classList.add('active');
     activeItem = item as HTMLElement;
+    console.log('activeItem', activeItem);
   }
 
   function handleClick(item: HTMLElement, event: MouseEvent) {
@@ -100,31 +91,9 @@ import './nav.css';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    // const section = item.getAttribute('data-section') || '';
-
-    // if (window.location.pathname === '/' && section) {
-    // We're on the home page, so we can smooth scroll
-    // const targetElement = document.getElementById(section);
-    // if (targetElement) {
-    // targetElement.scrollIntoView({ behavior: 'smooth' });
-    // history.pushState(null, '', `/#${section}`);
-    // }
-    // }
-    // else {
-    //   navigate(section ? `/#${section}` : link).then(() => {
-    //     if (section) {
-    //       const targetElement = document.getElementById(section);
-    //       if (targetElement) {
-    //         targetElement.scrollIntoView({ behavior: 'smooth' });
-    //       }
-    //     }
-    //   });
-    // }
 
     setActive(item);
-    // handleBorderPosition(menuBorder, menu, item);
-    // moveDot(item);
-    // TODO: MAYBE ADD THIS BACK
+
     setTimeout(() => {
       navigate(link);
     }, 600);
@@ -182,13 +151,6 @@ import './nav.css';
 
   window.addEventListener('load', () => {
     setActiveMenuItem();
-    // const hash = window.location.hash.slice(1);
-    // if (hash) {
-    //   const targetElement = document.getElementById(hash);
-    //   if (targetElement) {
-    //     targetElement.scrollIntoView({ behavior: 'smooth' });
-    //   }
-    // }
   });
 
   // Handle hover events for devices with hover capability
@@ -207,12 +169,9 @@ import './nav.css';
   }
 
   setActiveMenuItem();
-  // initPositioning();
 
-  document.addEventListener('astro:route-change', setActiveMenuItem);
   document.addEventListener('astro:page-load', () => {
     console.log('page loaded');
     setActiveMenuItem();
   });
-  // document.addEventListener('astro:page-load', initPositioning);
 </script>
