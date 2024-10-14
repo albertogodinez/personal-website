@@ -60,6 +60,8 @@ import './nav.css';
     });
 
     if (!activeItem && menuItems.length > 0) {
+      // TODO: maybe related to this?
+      console.log('setting active item to first item');
       setActive(menuItems[0]);
     }
 
@@ -90,7 +92,7 @@ import './nav.css';
 
     setTimeout(() => {
       navigate(link);
-    }, 600);
+    }, 100);
   }
 
   function handleBorderPosition(menuBorder: HTMLElement, menu: HTMLElement, item: HTMLElement) {

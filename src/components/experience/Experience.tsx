@@ -11,14 +11,9 @@ export interface ExperienceProps {
 }
 
 const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, projectExperience }) => {
-  //   TODO: Fix order of the accordion items according to the date
   return (
     <section id="experience" className="p-block-2 width-100">
-      <h2>
-        {/* TODO: Implement popover with ability to select work/projects */}
-        Experience
-        {/* Experience: <button>work</button> */}
-      </h2>
+      <h2>Experience</h2>
       <Accordion.Root className="flex flex-column gap-4 experience-accordion" type="single" collapsible>
         {allExperience.map((experience: ExperienceCollectionEntry, i: number) => (
           <Accordion.Item key={i} value={experience.data.company} className="flex flex-column gap-2 accordion-item">
