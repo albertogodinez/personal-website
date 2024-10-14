@@ -6,5 +6,13 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   integrations: [react()],
   output: 'static',
-  adapter: netlify()
+  adapter: netlify(),
+  build: {
+    inlineStylesheets: 'auto'
+  },
+  vite: {
+    build: {
+      sourcemap: true
+    }
+  }
 });
