@@ -47,22 +47,22 @@ import './nav.css';
   let activeItem: HTMLElement | null = null;
 
   function setActiveMenuItem() {
+    // TODO: Start from here!!
+    // it turns out the active
     const currentPath = window.location.pathname;
 
     menuItems.forEach((item: Element) => {
       const link = item.getAttribute('href') || '';
 
       if (link === currentPath || (link === '/' && currentPath === '/')) {
-        setActive(item);
+        setActive(item as HTMLElement);
       } else {
         item.classList.remove('active');
       }
     });
 
     if (!activeItem && menuItems.length > 0) {
-      // TODO: maybe related to this?
-      console.log('setting active item to first item');
-      setActive(menuItems[0]);
+      setActive(menuItems[0] as HTMLElement);
     }
 
     // Update positioning after setting active item
@@ -72,12 +72,16 @@ import './nav.css';
     }
   }
 
-  function setActive(item: Element) {
+  function setActive(item: HTMLElement) {
     if (activeItem) {
+      console.log('removing active');
+      console.log(activeItem);
       activeItem.classList.remove('active');
     }
     item.classList.add('active');
     activeItem = item as HTMLElement;
+    console.log('setting active');
+    console.log(activeItem);
   }
 
   function handleClick(item: HTMLElement, event: MouseEvent) {
@@ -89,10 +93,7 @@ import './nav.css';
     }
 
     setActive(item);
-
-    setTimeout(() => {
-      navigate(link);
-    }, 100);
+    navigate(link);
   }
 
   function handleBorderPosition(menuBorder: HTMLElement, menu: HTMLElement, item: HTMLElement) {
