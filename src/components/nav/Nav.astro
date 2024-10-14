@@ -38,169 +38,169 @@ import './nav.css';
 <script>
   // TODO: eventually move this to a separate file and restructure how this is handled
   import { navigate } from 'astro:transitions/client';
-  function setupNavigation() {
-    const menu = document.querySelector('.menu') as HTMLElement;
-    const menuItems = document.querySelectorAll('.menu__item') as NodeListOf<Element>;
-    const menuDot = document.querySelector('.menu__dot') as HTMLElement;
-    const menuBorder: HTMLElement = document.querySelector('.menu__border') as HTMLElement;
-    let isScrolling = false;
-    let activeItem: HTMLElement | null = null;
 
-    function initPositioning() {
-      activeItem = document.querySelector('.menu__item.active') || (menuItems[0] as HTMLElement);
-      if (activeItem) {
-        activeItem.classList.add('active');
-        handleBorderPosition(menuBorder, menu, activeItem);
-        moveDot(activeItem);
-      }
+  const menu = document.querySelector('.menu') as HTMLElement;
+  const menuItems = document.querySelectorAll('.menu__item') as NodeListOf<Element>;
+  const menuDot = document.querySelector('.menu__dot') as HTMLElement;
+  const menuBorder: HTMLElement = document.querySelector('.menu__border') as HTMLElement;
+  let isScrolling = false;
+  let activeItem: HTMLElement | null = null;
+
+  function initPositioning() {
+    activeItem = document.querySelector('.menu__item.active') || (menuItems[0] as HTMLElement);
+    if (activeItem) {
+      activeItem.classList.add('active');
+      handleBorderPosition(menuBorder, menu, activeItem);
+      moveDot(activeItem);
     }
-
-    function setActiveMenuItem() {
-      const currentPath = window.location.pathname;
-      const currentHash = window.location.hash.slice(1);
-
-      activeItem = null; // Reset activeItem
-
-      menuItems.forEach((item: Element) => {
-        const link = item.getAttribute('href');
-        const section = item.getAttribute('data-section');
-
-        // Check for exact match first
-        if (link === currentPath || (link === '/' && currentPath === '/')) {
-          setActive(item);
-        } else if (link === '/' && section === currentHash) {
-          setActive(item);
-        } else {
-          item.classList.remove('active');
-        }
-      });
-
-      if (!activeItem && menuItems.length > 0) {
-        setActive(menuItems[0]);
-      }
-
-      // Update positioning after setting active item
-      if (activeItem) {
-        handleBorderPosition(menuBorder, menu, activeItem);
-        moveDot(activeItem);
-      }
-    }
-
-    function setActive(item: Element) {
-      if (activeItem) {
-        activeItem.classList.remove('active');
-      }
-      item.classList.add('active');
-      activeItem = item as HTMLElement;
-    }
-
-    function handleClick(item: HTMLElement, event: MouseEvent) {
-      event.preventDefault();
-      const link = item.getAttribute('href') || '';
-      const section = item.getAttribute('data-section') || '';
-
-      if (window.location.pathname === '/' && section) {
-        // We're on the home page, so we can smooth scroll
-        const targetElement = document.getElementById(section);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-          history.pushState(null, '', `/#${section}`);
-        }
-      } else {
-        navigate(section ? `/#${section}` : link).then(() => {
-          if (section) {
-            const targetElement = document.getElementById(section);
-            if (targetElement) {
-              targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-          }
-        });
-      }
-
-      setActive(item);
-      handleBorderPosition(menuBorder, menu, item);
-      moveDot(item);
-    }
-
-    function handleBorderPosition(menuBorder: HTMLElement, menu: HTMLElement, item: HTMLElement) {
-      const itemPosition = item.getBoundingClientRect();
-      const { left, width } = itemPosition;
-      const menuLeft = menu.getBoundingClientRect().left;
-      const moveRight = Math.floor(left - menuLeft - (menuBorder.offsetWidth - width) / 2) + 'px';
-      menuBorder.style.transform = `translateX(${moveRight})`;
-    }
-
-    function moveDot(item: HTMLElement, shouldAnimate = false) {
-      const { left, width } = item.getBoundingClientRect();
-      const menuLeft = menu.getBoundingClientRect().left;
-      const scrollLeft = menu.scrollLeft;
-      const moveX = Math.floor(left - menuLeft + scrollLeft + width / 2 - 4) + 'px';
-      menuDot.style.setProperty('--dotPosition', moveX);
-
-      if (shouldAnimate) {
-        menuDot.classList.remove('active');
-        requestAnimationFrame(() => {
-          menuDot.classList.add('active');
-        });
-      }
-    }
-
-    // Handle scroll events
-    menu.addEventListener('scroll', () => {
-      if (!isScrolling) {
-        menuBorder.style.transition = 'none';
-        isScrolling = true;
-      }
-
-      handleBorderPosition(menuBorder, menu, activeItem as HTMLElement);
-      moveDot(activeItem as HTMLElement, false);
-
-      setTimeout(() => {
-        isScrolling = false;
-        menuBorder.style.transition = `transform var(--hoverDuration)`;
-      }, 150);
-    });
-
-    // Resize event to adjust position on window resize
-    window.addEventListener('resize', () => {
-      moveDot(activeItem as HTMLElement, false);
-      handleBorderPosition(menuBorder, menu, activeItem as HTMLElement);
-    });
-
-    // Handle click events for all devices
-    menuItems.forEach((item: Element) => {
-      item.addEventListener('click', (event) => handleClick(item as HTMLElement, event as MouseEvent));
-    });
-
-    window.addEventListener('load', () => {
-      setActiveMenuItem();
-      const hash = window.location.hash.slice(1);
-      if (hash) {
-        const targetElement = document.getElementById(hash);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    });
-
-    // Handle hover events for devices with hover capability
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      menuItems.forEach((item: Element) => {
-        item.addEventListener('mouseenter', () => {
-          handleBorderPosition(menuBorder, menu, item as HTMLElement);
-          moveDot(item as HTMLElement, true);
-        });
-
-        item.addEventListener('mouseleave', () => {
-          handleBorderPosition(menuBorder, menu, activeItem as HTMLElement);
-          moveDot(activeItem as HTMLElement, true);
-        });
-      });
-    }
-
-    setActiveMenuItem();
-    initPositioning();
   }
 
-  document.addEventListener('astro:page-load', setupNavigation);
+  function setActiveMenuItem() {
+    const currentPath = window.location.pathname;
+    const currentHash = window.location.hash.slice(1);
+
+    activeItem = null; // Reset activeItem
+
+    menuItems.forEach((item: Element) => {
+      const link = item.getAttribute('href');
+      const section = item.getAttribute('data-section');
+
+      // Check for exact match first
+      if (link === currentPath || (link === '/' && currentPath === '/')) {
+        setActive(item);
+      } else if (link === '/' && section === currentHash) {
+        setActive(item);
+      } else {
+        item.classList.remove('active');
+      }
+    });
+
+    if (!activeItem && menuItems.length > 0) {
+      setActive(menuItems[0]);
+    }
+
+    // Update positioning after setting active item
+    if (activeItem) {
+      handleBorderPosition(menuBorder, menu, activeItem);
+      moveDot(activeItem);
+    }
+  }
+
+  function setActive(item: Element) {
+    if (activeItem) {
+      activeItem.classList.remove('active');
+    }
+    item.classList.add('active');
+    activeItem = item as HTMLElement;
+  }
+
+  function handleClick(item: HTMLElement, event: MouseEvent) {
+    event.preventDefault();
+    const link = item.getAttribute('href') || '';
+    const section = item.getAttribute('data-section') || '';
+
+    if (window.location.pathname === '/' && section) {
+      // We're on the home page, so we can smooth scroll
+      const targetElement = document.getElementById(section);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        history.pushState(null, '', `/#${section}`);
+      }
+    } else {
+      navigate(section ? `/#${section}` : link).then(() => {
+        if (section) {
+          const targetElement = document.getElementById(section);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    }
+
+    setActive(item);
+    handleBorderPosition(menuBorder, menu, item);
+    moveDot(item);
+  }
+
+  function handleBorderPosition(menuBorder: HTMLElement, menu: HTMLElement, item: HTMLElement) {
+    const itemPosition = item.getBoundingClientRect();
+    const { left, width } = itemPosition;
+    const menuLeft = menu.getBoundingClientRect().left;
+    const moveRight = Math.floor(left - menuLeft - (menuBorder.offsetWidth - width) / 2) + 'px';
+    menuBorder.style.transform = `translateX(${moveRight})`;
+  }
+
+  function moveDot(item: HTMLElement, shouldAnimate = false) {
+    const { left, width } = item.getBoundingClientRect();
+    const menuLeft = menu.getBoundingClientRect().left;
+    const scrollLeft = menu.scrollLeft;
+    const moveX = Math.floor(left - menuLeft + scrollLeft + width / 2 - 4) + 'px';
+    menuDot.style.setProperty('--dotPosition', moveX);
+
+    if (shouldAnimate) {
+      menuDot.classList.remove('active');
+      requestAnimationFrame(() => {
+        menuDot.classList.add('active');
+      });
+    }
+  }
+
+  // Handle scroll events
+  menu.addEventListener('scroll', () => {
+    if (!isScrolling) {
+      menuBorder.style.transition = 'none';
+      isScrolling = true;
+    }
+
+    handleBorderPosition(menuBorder, menu, activeItem as HTMLElement);
+    moveDot(activeItem as HTMLElement, false);
+
+    setTimeout(() => {
+      isScrolling = false;
+      menuBorder.style.transition = `transform var(--hoverDuration)`;
+    }, 150);
+  });
+
+  // Resize event to adjust position on window resize
+  window.addEventListener('resize', () => {
+    moveDot(activeItem as HTMLElement, false);
+    handleBorderPosition(menuBorder, menu, activeItem as HTMLElement);
+  });
+
+  // Handle click events for all devices
+  menuItems.forEach((item: Element) => {
+    item.addEventListener('click', (event) => handleClick(item as HTMLElement, event as MouseEvent));
+  });
+
+  window.addEventListener('load', () => {
+    setActiveMenuItem();
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      const targetElement = document.getElementById(hash);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+
+  // Handle hover events for devices with hover capability
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    menuItems.forEach((item: Element) => {
+      item.addEventListener('mouseenter', () => {
+        handleBorderPosition(menuBorder, menu, item as HTMLElement);
+        moveDot(item as HTMLElement, true);
+      });
+
+      item.addEventListener('mouseleave', () => {
+        handleBorderPosition(menuBorder, menu, activeItem as HTMLElement);
+        moveDot(activeItem as HTMLElement, true);
+      });
+    });
+  }
+
+  setActiveMenuItem();
+  initPositioning();
+
+  document.addEventListener('astro:page-load', setActiveMenuItem);
+  // document.addEventListener('astro:page-load', initPositioning);
 </script>
