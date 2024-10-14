@@ -36,14 +36,15 @@ import './nav.css';
   </div>
 </header>
 <script>
+  // TODO: eventually move this to a separate file and restructure how this is handled
   import { navigate } from 'astro:transitions/client';
 
-  const menu = document.querySelector('.menu');
-  const menuItems = document.querySelectorAll('.menu__item');
-  const menuDot = document.querySelector('.menu__dot');
-  const menuBorder = document.querySelector('.menu__border');
+  const menu = document.querySelector('.menu') as HTMLElement;
+  const menuItems = document.querySelectorAll('.menu__item') as NodeListOf<Element>;
+  const menuDot = document.querySelector('.menu__dot') as HTMLElement;
+  const menuBorder: HTMLElement = document.querySelector('.menu__border') as HTMLElement;
   let isScrolling = false;
-  let activeItem = null;
+  let activeItem: HTMLElement | null = null;
 
   function initPositioning() {
     if (activeItem) {
@@ -59,7 +60,7 @@ import './nav.css';
 
     activeItem = null; // Reset activeItem
 
-    menuItems.forEach((item) => {
+    menuItems.forEach((item: Element) => {
       const link = item.getAttribute('href');
       const section = item.getAttribute('data-section');
 
@@ -84,18 +85,18 @@ import './nav.css';
     }
   }
 
-  function setActive(item) {
+  function setActive(item: Element) {
     if (activeItem) {
       activeItem.classList.remove('active');
     }
     item.classList.add('active');
-    activeItem = item;
+    activeItem = item as HTMLElement;
   }
 
-  function handleClick(item, event) {
+  function handleClick(item: HTMLElement, event: MouseEvent) {
     event.preventDefault();
-    const link = item.getAttribute('href');
-    const section = item.getAttribute('data-section');
+    const link = item.getAttribute('href') || '';
+    const section = item.getAttribute('data-section') || '';
 
     if (window.location.pathname === '/' && section) {
       // We're on the home page, so we can smooth scroll
@@ -120,7 +121,7 @@ import './nav.css';
     moveDot(item);
   }
 
-  function handleBorderPosition(menuBorder, menu, item) {
+  function handleBorderPosition(menuBorder: HTMLElement, menu: HTMLElement, item: HTMLElement) {
     const itemPosition = item.getBoundingClientRect();
     const { left, width } = itemPosition;
     const menuLeft = menu.getBoundingClientRect().left;
@@ -128,7 +129,7 @@ import './nav.css';
     menuBorder.style.transform = `translateX(${moveRight})`;
   }
 
-  function moveDot(item, shouldAnimate = false) {
+  function moveDot(item: HTMLElement, shouldAnimate = false) {
     const { left, width } = item.getBoundingClientRect();
     const menuLeft = menu.getBoundingClientRect().left;
     const scrollLeft = menu.scrollLeft;
@@ -145,15 +146,15 @@ import './nav.css';
 
   // Handle hover events for devices with hover capability
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    menuItems.forEach((item) => {
+    menuItems.forEach((item: Element) => {
       item.addEventListener('mouseenter', () => {
-        handleBorderPosition(menuBorder, menu, item);
-        moveDot(item, true);
+        handleBorderPosition(menuBorder, menu, item as HTMLElement);
+        moveDot(item as HTMLElement, true);
       });
 
       item.addEventListener('mouseleave', () => {
-        handleBorderPosition(menuBorder, menu, activeItem);
-        moveDot(activeItem, true);
+        handleBorderPosition(menuBorder, menu, activeItem as HTMLElement);
+        moveDot(activeItem as HTMLElement, true);
       });
     });
   }
@@ -165,8 +166,8 @@ import './nav.css';
       isScrolling = true;
     }
 
-    handleBorderPosition(menuBorder, menu, activeItem);
-    moveDot(activeItem, false);
+    handleBorderPosition(menuBorder, menu, activeItem as HTMLElement);
+    moveDot(activeItem as HTMLElement, false);
 
     setTimeout(() => {
       isScrolling = false;
@@ -176,13 +177,13 @@ import './nav.css';
 
   // Resize event to adjust position on window resize
   window.addEventListener('resize', () => {
-    moveDot(activeItem, false);
-    handleBorderPosition(menuBorder, menu, activeItem);
+    moveDot(activeItem as HTMLElement, false);
+    handleBorderPosition(menuBorder, menu, activeItem as HTMLElement);
   });
 
   // Handle click events for all devices
-  menuItems.forEach((item) => {
-    item.addEventListener('click', (event) => handleClick(item, event));
+  menuItems.forEach((item: Element) => {
+    item.addEventListener('click', (event) => handleClick(item as HTMLElement, event as MouseEvent));
   });
 
   window.addEventListener('load', () => {
