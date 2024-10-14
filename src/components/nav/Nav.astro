@@ -46,7 +46,6 @@ import './nav.css';
   let activeItem = null;
 
   function initPositioning() {
-    activeItem = document.querySelector('.menu__item.active') || menuItems[0];
     if (activeItem) {
       activeItem.classList.add('active');
       handleBorderPosition(menuBorder, menu, activeItem);
@@ -58,10 +57,16 @@ import './nav.css';
     const currentPath = window.location.pathname;
     const currentHash = window.location.hash.slice(1);
 
+    activeItem = null; // Reset activeItem
+
     menuItems.forEach((item) => {
       const link = item.getAttribute('href');
       const section = item.getAttribute('data-section');
-      if ((link === currentPath && !section) || (link === '/' && section === currentHash)) {
+
+      // Check for exact match first
+      if (link === currentPath || (link === '/' && currentPath === '/')) {
+        setActive(item);
+      } else if (link === '/' && section === currentHash) {
         setActive(item);
       } else {
         item.classList.remove('active');
@@ -71,6 +76,12 @@ import './nav.css';
     if (!activeItem && menuItems.length > 0) {
       setActive(menuItems[0]);
     }
+
+    // Update positioning after setting active item
+    if (activeItem) {
+      handleBorderPosition(menuBorder, menu, activeItem);
+      moveDot(activeItem);
+    }
   }
 
   function setActive(item) {
@@ -79,11 +90,10 @@ import './nav.css';
     }
     item.classList.add('active');
     activeItem = item;
-    handleBorderPosition(menuBorder, menu, activeItem);
-    moveDot(activeItem);
   }
 
-  function handleClick(item) {
+  function handleClick(item, event) {
+    event.preventDefault();
     const link = item.getAttribute('href');
     const section = item.getAttribute('data-section');
 
@@ -106,6 +116,8 @@ import './nav.css';
     }
 
     setActive(item);
+    handleBorderPosition(menuBorder, menu, item);
+    moveDot(item);
   }
 
   function handleBorderPosition(menuBorder, menu, item) {
@@ -170,14 +182,11 @@ import './nav.css';
 
   // Handle click events for all devices
   menuItems.forEach((item) => {
-    item.addEventListener('click', (event) => {
-      event.preventDefault();
-      handleClick(item);
-    });
+    item.addEventListener('click', (event) => handleClick(item, event));
   });
 
-  // Handle initial load with hash
   window.addEventListener('load', () => {
+    setActiveMenuItem();
     const hash = window.location.hash.slice(1);
     if (hash) {
       const targetElement = document.getElementById(hash);
@@ -186,6 +195,8 @@ import './nav.css';
       }
     }
   });
+
+  document.addEventListener('astro:after-swap', setActiveMenuItem);
 
   setActiveMenuItem();
   initPositioning();
