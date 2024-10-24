@@ -4,14 +4,10 @@
   --hoverDuration: 0.3s;
 }
 
-/* todo: consider adding a border to this to make it stand out even more */
-/* todo: consider adding separators in the navbar */
-
 .wrapper {
   padding-block: 1.5em 0;
   width: min(90%, 512px);
   overflow: hidden;
-
   position: fixed;
   bottom: 1.25rem;
   left: 50%;
@@ -30,16 +26,13 @@
   box-shadow:
   /* Top shadow is none, so svg can appear seamlessly */
     0 -10px 10px -10px rgba(0, 0, 0, 0),
-    /* Bottom shadow */ 0 10px 10px -10px rgba(0, 0, 0, 0.09),
-    /* Left shadow */ -10px 0 10px -10px rgba(0, 0, 0, 0.09),
-    /* Right shadow */ 10px 0 10px -10px rgba(0, 0, 0, 0.09);
-
+    0 10px 10px -10px rgba(0, 0, 0, 0.09),
+    -10px 0 10px -10px rgba(0, 0, 0, 0.09),
+    10px 0 10px -10px rgba(0, 0, 0, 0.09);
   width: 100%;
-
   padding: 0 2em;
   position: relative;
   border-radius: 10px;
-
   overflow-x: auto;
   scroll-behavior: smooth;
   white-space: nowrap;
@@ -56,10 +49,10 @@
   padding: 1em 0.5em;
   height: 100%;
   cursor: pointer;
-  transition: transform var(--hoverDuration);
-  will-change: transform;
   margin-inline: 0.5em;
   position: relative;
+  transform: translateY(0);
+  transition: transform var(--hoverDuration);
 }
 
 .menu__item-text {
@@ -67,37 +60,34 @@
   transition: color var(--hoverDuration);
 }
 
+/* Base active state */
 .menu__item.active {
   transform: translateY(-0.5em);
 }
 
+.menu__item.active .menu__item-text {
+  color: #555555;
+}
+
+/* Reset active item when any non-active item is hovered */
+.menu__item:not(.active):hover ~ .menu__item.active,
+.menu__item:not(.active):hover + .menu__item.active,
+.menu__item.active:has(~ .menu__item:hover) {
+  transform: translateY(0);
+}
+
+.menu__item:not(.active):hover ~ .menu__item.active .menu__item-text,
+.menu__item:not(.active):hover + .menu__item.active .menu__item-text,
+.menu__item.active:has(~ .menu__item:hover) .menu__item-text {
+  color: rgba(133, 133, 133, 0.5);
+}
+
+/* Hover state for menu items */
 .menu__item:hover {
   transform: translateY(-0.5em);
 }
 
-.menu__item {
-  transition: transform 0.3s;
-}
-.menu__item:not(.active):hover {
-  transform: translateY(-0.5em);
-}
-
-.menu__item.active {
-  transform: translateY(-0.5em);
-  transition: transform 0.3s;
-}
-
-.menu__item:hover ~ .menu__item.active,
-.menu__item:hover .menu__item.active {
-  transform: translateY(0);
-}
-
-.menu__item:hover,
-.menu__item-text {
-  color: #555555;
-}
-
-.menu__item.active .menu__item-text {
+.menu__item:hover .menu__item-text {
   color: #555555;
 }
 
@@ -113,7 +103,6 @@
   left: 0;
   width: 10px;
   height: 10px;
-  /* TODO: convert to  variable */
   background-color: #555555;
   box-shadow: 0 0 20px rgba(243, 241, 234, 1);
   border-radius: 50%;
@@ -129,23 +118,14 @@
 }
 
 .menu__dot.active {
-  /* TODO: figure out why the dot-elongate animation would get triggered again after each click */
-  /* This has to be related with how the element is nav element is being persisted */
-  /* but commenting out for now */
   /* animation: dot-elongate var(--duration) ease-in-out forwards; */
 }
 
-/* TODO: consider adding a border or shadow to the top of this so it
-doesn't blend into white images */
 .menu__border {
-  /* Access the svg using id from the html */
   clip-path: url(#menu);
-
   position: absolute;
   left: 0;
   bottom: 94%;
-
-  /* Handle size of svg in with id menu */
   width: 7em;
   height: 2em;
   background-color: var(--bgColorMenu);
