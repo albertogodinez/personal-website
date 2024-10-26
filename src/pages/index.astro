@@ -27,6 +27,14 @@ projectExperience.sort((a, b) => b.data.startDate.getTime() - a.data.startDate.g
       <ErrorBoundary>
         <About />
       </ErrorBoundary>
+      <ErrorBoundary>
+        <Experience
+          allExperience={allExperience}
+          workExperience={workExperience}
+          projectExperience={projectExperience}
+          client:load
+        />
+      </ErrorBoundary>
     </section>
   </main>
 </BaseLayout>
