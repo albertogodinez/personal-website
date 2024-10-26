@@ -15,9 +15,9 @@ const projectExperience = await getCollection('experience', ({ data }) => {
   return data.type === 'project';
 });
 
-allExperience.sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
-workExperience.sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
-projectExperience.sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
+allExperience.sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime());
+workExperience.sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime());
+projectExperience.sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime());
 ---
 
 <BaseLayout title="Alberto Godinez">

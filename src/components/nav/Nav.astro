@@ -4,13 +4,9 @@ import './nav.css';
 
 <!-- todo: consider updating this an ID -->
 <header class="wrapper" transition:persist>
-  <!-- TODO: might need to update the name -->
   <div class="menu-container">
     <nav class="menu">
-      <!-- TODO: add all of these navigation items into its own config file -->
-      <!-- todo: Only add some of them if viewport is small (i.e. contact/experience) -->
       <a href="/" class="menu__item"><span class="menu__item-text">home</span></a>
-      <!-- <a href="/" data-section="experience" class="menu__item"><span class="menu__item-text">experience</span></a> -->
       <a href="/moodboard" class="menu__item"><span class="menu__item-text">moodboard</span></a>
       <a href="/memorabilia" class="menu__item"><span class="menu__item-text">memorabilia</span></a>
       <a
@@ -47,8 +43,6 @@ import './nav.css';
   let activeItem: HTMLElement | null = null;
 
   function setActiveMenuItem() {
-    // TODO: Start from here!!
-    // it turns out the active
     const currentPath = window.location.pathname;
 
     menuItems.forEach((item: Element) => {
