@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import FavoritesCollectionHandler from '../components/FavoritesCollectionHandler';
+import ErrorBoundary from '../components/ErrorBoundary';
 import { SelectionHandler } from '../components/selection/SelectionHandler';
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -10,7 +11,11 @@ const favoritesCollection = await getCollection('favorites');
 
 <BaseLayout title="Alberto Godinez - memo">
   <main class="width-screen pi-2 mb-48 mt-16">
-    <SelectionHandler client:load />
-    <FavoritesCollectionHandler favoritesCollection={favoritesCollection} client:load />
+    <ErrorBoundary>
+      <SelectionHandler client:load />
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <FavoritesCollectionHandler favoritesCollection={favoritesCollection} client:load />
+    </ErrorBoundary>
   </main>
 </BaseLayout>
