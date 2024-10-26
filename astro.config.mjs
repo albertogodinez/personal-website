@@ -6,10 +6,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   integrations: [react()],
   output: 'static',
-  adapter: netlify(),
-  vite: {
-    build: {
-      sourcemap: true
-    }
-  }
+  adapter: netlify({
+    cacheOnDemandPages: true
+  })
 });
