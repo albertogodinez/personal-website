@@ -23,6 +23,10 @@ projectExperience.sort((a, b) => b.data.startDate.getTime() - a.data.startDate.g
 
 <BaseLayout title="Alberto Godinez">
   <main class="flex flex-column pi-2 mb-48 mt-16 height-100">
-    <section class="flex flex-column gap-16 min-height-100"></section>
+    <section class="flex flex-column gap-16 min-height-100">
+      <ErrorBoundary>
+        <About />
+      </ErrorBoundary>
+    </section>
   </main>
 </BaseLayout>
