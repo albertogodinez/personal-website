@@ -38,7 +38,6 @@ export const GradientBackground: React.FC = () => {
 
     // Cleanup function to remove event listener
     return () => {
-      console.log('cleanup');
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, [interBubble]);

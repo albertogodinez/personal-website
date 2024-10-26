@@ -66,15 +66,11 @@ import './nav.css';
 
   function setActive(item: HTMLElement) {
     if (activeItem) {
-      console.log('removing active');
-      console.log(activeItem);
       activeItem.classList.remove('active');
     }
     item.classList.add('active');
     activeItem = item as HTMLElement;
     activeItem.classList.add('active');
-    console.log('setting active');
-    console.log(activeItem);
   }
 
   function handleClick(item: HTMLElement, event: MouseEvent) {
