@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "scaffold:raindrop": "node ./src/scripts/scaffold-raindrop.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -26,6 +27,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "astro": "^4.16.7",
+    "dotenv": "^16.4.5",
     "nanostores": "^0.10.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
