@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 # bruno HTTP calls
 raindrop/
+# Local Netlify folder
+.netlify

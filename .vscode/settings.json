@@ -2,7 +2,7 @@
   "workbench.colorTheme": "poimandres-storm",
   "workbench.productIconTheme": "icons-carbon",
   "editor.renderWhitespace": "none",
-  "editor.minimap.autohide": true,
+  "editor.minimap.autohide": "mouseover",
   "editor.minimap.enabled": false,
   "projectManager.git.baseFolders": ["~\\\\Documents\\\\repos"],
   "security.workspace.trust.untrustedFiles": "open",
