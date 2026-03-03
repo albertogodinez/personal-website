@@ -19,6 +19,7 @@
 9. [UI/UX Specification](#ui-ux-specification)
 10. [Implementation Phases](#implementation-phases)
 11. [Migration Strategy](#migration-strategy)
+12. [Glossary](#glossary)
 
 ---
 
@@ -44,7 +45,7 @@
    - Real-time choice visualization (opponent sees your cursor snap to icons)
 5. Post-game: Replay animation + "You Won!/You Lost!"
 6. High score leaderboard
-7. Optional: Claim account (magic link or GitHub) for cross-device high scores
+7. Optional: Claim account (magic link) for cross-device high scores
 
 **Timing:**
 - Sub-50ms latency for inputs
@@ -52,9 +53,10 @@
 - Last input before timer expires = final choice
 
 **Disconnection:**
-- In-round: 10-second grace → forfeit current round (not match)
-- Between rounds: 20-second grace → forfeit entire match
-- 3rd disconnect: instant forfeit
+- In-round: 10-second grace → match voided (no winner, no loser)
+- Between rounds: 20-second grace → match voided
+- Non-disconnected player returns to front of queue
+- No stats recorded for voided matches
 
 ---
 
@@ -73,7 +75,7 @@ After evaluating PartyKit, ElectricSQL, InstantDB, and raw Durable Objects, the 
 | **Client state management** | TinyBase | Reactive hooks, optimistic updates, structured data (tables/cells) |
 | **Real-time sync** | Durable Objects | Native Cloudflare, <50ms WebSocket, no third-party dependency |
 | **Persistence** | Cloudflare D1 | Edge-native SQLite, free tier covers use case |
-| **Auth** | Better Auth | Magic link + GitHub OAuth, D1 adapter built-in |
+| **Auth** | Better Auth | Magic link only, D1 adapter built-in |
 | **Cost** | $5-10/month | Cloudflare only (no Neon, no ElectricSQL SaaS) |
 
 ### Alternatives Considered
@@ -128,10 +130,9 @@ ElectricSQL is **excellent for persistent data** but **not ideal for game sessio
 ├─────────────────────────────────────────────────────┤
 │                                                     │
 │  CursorRoom (home page)                            │
-│    └─ Broadcasts cursor positions (60fps throttle) │
-│                                                     │
-│  TriggerRoom (easter egg)                          │
-│    └─ Tracks hover count, activates power-up       │
+│    ├─ Broadcasts cursor positions (60fps throttle) │
+│    └─ Easter egg: tracks hover count on trigger,   │
+│       broadcasts 'activate' when 2+ hovering       │
 │                                                     │
 │  QueueRoom (matchmaking)                           │
 │    └─ FIFO queue, creates BattleRoom on match      │
@@ -149,11 +150,12 @@ ElectricSQL is **excellent for persistent data** but **not ideal for game sessio
 │ Cloudflare D1 (SQLite at edge)                     │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
-│  users:        id, initials, email, github_id      │
-│  sessions:     id, user_id, expires_at             │
-│  games:        id, player1_id, winner_id           │
-│  high_scores:  user_id, wins, losses, streak       │
-│  replays:      game_id, round_data (JSON)          │
+│  users:        id, initials, email, created_at     │
+│  sessions:     id, initials, created_at,           │
+│                expires_at (for GC after 30 days)   │
+│  games:        id, p1_session, p2_session,         │
+│                winner_session, rounds_data (JSON)  │
+│  high_scores:  session_id, wins, losses, streak    │
 │                                                     │
 └─────────────────────────────────────────────────────┘
 ```
@@ -434,6 +436,17 @@ await persister.startAutoSave()  // Auto-sync changes
 
 ```ts
 // workers/battle-room.ts
+
+// Typed choices — no hardcoded strings
+const CHOICES = ['rock', 'paper', 'scissors'] as const
+type Choice = typeof CHOICES[number]
+
+const WINS_AGAINST: Record<Choice, Choice> = {
+  rock: 'scissors',
+  scissors: 'paper',
+  paper: 'rock'
+}
+
 export class BattleRoom {
   state: DurableObjectState
   env: Env
@@ -542,7 +555,7 @@ export class BattleRoom {
         return
       }
 
-      if (!['rock', 'paper', 'scissors'].includes(choice)) {
+      if (!CHOICES.includes(choice)) {
         ws.send(JSON.stringify({
           type: 'reject',
           reason: 'Invalid choice'
@@ -609,11 +622,12 @@ export class BattleRoom {
     this.broadcastState()
   }
 
-  determineWinner(c1: string, c2: string): 0 | 1 | 2 {
-    if (c1 === c2) return 0
-    if (c1 === 'rock' && c2 === 'scissors') return 1
-    if (c1 === 'scissors' && c2 === 'paper') return 1
-    if (c1 === 'paper' && c2 === 'rock') return 1
+  determineWinner(c1: Choice | null, c2: Choice | null): 0 | 1 | 2 {
+    if (!c1 && !c2) return 0         // Both timed out
+    if (!c1) return 2                 // P1 didn't choose
+    if (!c2) return 1                 // P2 didn't choose
+    if (c1 === c2) return 0           // Tie
+    if (WINS_AGAINST[c1] === c2) return 1
     return 2
   }
 
@@ -631,9 +645,10 @@ export class BattleRoom {
       timestamp: Date.now()
     }, ws)
 
-    // Start forfeit timer
+    // Start void timer — nobody wins from a disconnect
     const timer = setTimeout(async () => {
-      await this.forfeitPlayer(conn.playerId)
+      await this.voidMatch(conn.playerId)
+      // Remaining player gets sent back to front of queue
     }, gracePeriod)
 
     // Store timer reference for reconnection
@@ -722,9 +737,9 @@ User lands on home page (/)
   │     └─> TinyBase updates cursors table
   │           └─> React component re-renders other cursor positions
   └─> Easter egg trigger (DOM element changes by time of day)
-        ├─> User hovers trigger
-        │     └─> Send 'hover' event to TriggerRoom
-        ├─> TriggerRoom checks if >=2 users hovering
+        ├─> User hovers trigger element
+        │     └─> Send 'hover' event to CursorRoom (same DO)
+        ├─> CursorRoom checks if >=2 users hovering trigger
         │     ├─> Yes: Broadcast 'activate' → screen shake + glow effect
         │     └─> No: Normal state
         └─> User clicks trigger → Navigate to /battleworld
@@ -735,7 +750,8 @@ User lands on home page (/)
 ```
 /battleworld route loads
   ├─> Show arcade-style initials input (3 characters, A-Z 0-9)
-  ├─> User enters "ACE" using up/down arrows per character
+  ├─> User enters "ACE" by typing OR using up/down arrows per character
+  │     └─> Mobile: simple text input with maxLength=3
   ├─> Click "ENTER QUEUE"
   │     └─> Store initials in localStorage + Better Auth anonymous session
   │           └─> POST /api/create-session { sessionId, initials }
@@ -795,8 +811,7 @@ Match finished
   └─> Options:
         ├─> "Play Again" → Return to QueueRoom
         ├─> "Claim Account" → Modal with Better Auth
-        │     ├─> Enter email → Magic link sent
-        │     └─> Or click "Sign in with GitHub"
+        │     └─> Enter email → Magic link sent
         └─> "Exit" → Return to home page
 ```
 
@@ -829,7 +844,7 @@ import { d1Adapter } from 'better-auth/adapters/d1'
 
 export const auth = betterAuth({
   database: d1Adapter({
-    binding: env.DB // Cloudflare D1 binding
+    binding: env.DB // Cloudflare D1 binding (env = Cloudflare's service bindings object)
   }),
 
   emailAndPassword: {
@@ -840,7 +855,10 @@ export const auth = betterAuth({
     enabled: true,
     expiresIn: 300, // 5 minutes
     sendMagicLink: async ({ email, url }) => {
-      // Send via Cloudflare Email Workers or Resend
+      // Resend = email API service (like SendGrid but simpler)
+      // RESEND_API_KEY is stored as a Cloudflare secret via:
+      //   wrangler secret put RESEND_API_KEY
+      // Free tier: 3,000 emails/month (plenty for this use case)
       await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
@@ -857,13 +875,7 @@ export const auth = betterAuth({
     }
   },
 
-  socialProviders: {
-    github: {
-      clientId: env.GITHUB_CLIENT_ID,
-      clientSecret: env.GITHUB_CLIENT_SECRET,
-      callbackURL: 'https://agodinez.com/api/auth/callback/github'
-    }
-  },
+  // No social providers — magic link only
 
   session: {
     cookieCache: {
@@ -876,6 +888,15 @@ export const auth = betterAuth({
     enabled: true // Support anonymous → authenticated upgrade
   }
 })
+```
+
+### Anonymous Account Lifecycle
+
+Players who never claim their account stay as anonymous sessions:
+- High scores tied to `sessionId` in localStorage
+- `sessions` table row in D1 has `expires_at` for auto-cleanup
+- A Cloudflare cron trigger runs `DELETE FROM sessions WHERE expires_at < now()` periodically
+- If browser data is cleared, scores are gone (this is fine — it's a casual game)
 ```
 
 ### Flow: Anonymous → Claimed Account
@@ -924,10 +945,8 @@ await fetch('/api/create-session', {
     Email me a magic link
   </Button>
 
-  <Divider>or</Divider>
-
-  <Button onClick={() => auth.signIn.social({ provider: 'github' })}>
-    <GitHubIcon /> Sign in with GitHub
+  <Button variant="ghost" onClick={() => setShowClaimPrompt(false)}>
+    No thanks, keep playing anonymously
   </Button>
 </ClaimAccountDialog>
 ```
@@ -945,25 +964,28 @@ User clicks magic link
 
 ## Disconnection Handling
 
-Policy from research (`plans/rps-disconnection-handling.md`):
+Policy from research (`plans/rps-disconnection-handling.md`), updated per feedback:
+
+**Core rule: Nobody wins from a disconnect.** Disconnection voids the match. No stats recorded.
 
 **In-Round Disconnect:**
 - Grace period: 10 seconds
 - UI: "Opponent disconnected... ⏱️ 10s"
 - If reconnects: Resume immediately
-- If timeout: Forfeit current round only (not entire match)
+- If timeout: Match voided — non-disconnected player returns to **front of queue**
 
 **Between-Rounds Disconnect:**
 - Grace period: 20 seconds
 - UI: "Waiting for opponent... ⏱️ 20s"
 - Block next round from starting
-- If timeout: Forfeit entire match
+- If timeout: Match voided — non-disconnected player returns to **front of queue**
 
-**Repeat Offender:**
-- 3rd disconnect in same match: 5-second grace only
-- Auto-forfeit on timeout
+**Why no "win by disconnect":**
+- Prevents abuse (intentional disconnecting to give wins to friends)
+- Fairer for the remaining player (they didn't earn a real win)
+- Simple to implement (no edge cases around partial match stats)
 
-**Reconnection Identity:** Session ID in WebSocket URL query params.
+**Reconnection Identity:** Session ID in WebSocket URL query params (from localStorage).
 
 ---
 
@@ -1066,12 +1088,13 @@ Large touch buttons instead of keyboard hints.
 - [ ] Deploy "Hello World" to validate Cloudflare setup
 
 ### Phase 1: Cursor Tracking (Week 2)
-- [ ] Create `CursorRoom` Durable Object
+- [ ] Create `CursorRoom` Durable Object (handles both cursors + easter egg hover detection)
 - [ ] Build custom TinyBase WebSocket persister
 - [ ] Add cursor tracking to home page (React component)
-- [ ] Implement easter egg trigger (time-of-day element)
-- [ ] Create `TriggerRoom` Durable Object (hover detection)
-- [ ] Add power-up effects (CSS animations)
+- [ ] Implement easter egg trigger (time-of-day DOM element in footer)
+- [ ] Add hover detection in CursorRoom (activate when 2+ hovering trigger)
+- [ ] Add power-up effects (CSS animations: screen shake + glow)
+- [ ] Mobile: touch events (`touchstart`/`touchend`) for trigger
 - [ ] Test with 5+ concurrent users
 
 ### Phase 2: Queue System (Week 3)
@@ -1103,7 +1126,7 @@ Large touch buttons instead of keyboard hints.
 - [ ] Test network interruption scenarios
 
 ### Phase 5: Auth & Persistence (Week 7)
-- [ ] Integrate Better Auth (magic link + GitHub)
+- [ ] Integrate Better Auth (magic link only)
 - [ ] Build anonymous session creation
 - [ ] Save games to D1 after each match
 - [ ] Build high score leaderboard
@@ -1188,6 +1211,24 @@ Compare to ElectricSQL approach: $50-60/month (Neon + ElectricSQL SaaS).
 5. Start Phase 1
 
 **Timeline:** 8 weeks to production-ready game.
+
+---
+
+## Glossary
+
+| Term | Explanation |
+|---|---|
+| **Durable Object (DO)** | A Cloudflare primitive — a JavaScript class that runs at the edge with persistent storage and WebSocket support. Each instance (e.g., each BattleRoom) has its own isolated state. |
+| **D1** | Cloudflare's SQLite-at-the-edge database. Used for persistent data (high scores, user accounts). Free tier: 5M reads, 100k writes/day. |
+| **Wrangler** | Cloudflare's CLI tool (`npm install -D wrangler`). Used for local dev (`wrangler dev`), creating databases, deploying, and storing secrets. |
+| **`env`** | Cloudflare's service bindings object. Like `process.env` but also gives typed access to Cloudflare services: `env.DB` (D1), `env.BATTLE_ROOM` (DO namespace), `env.RESEND_API_KEY` (secret). |
+| **WebSocket upgrade** | When a browser wants a persistent two-way connection, it sends an HTTP request with `Upgrade: websocket`. The server "upgrades" from request/response to a persistent channel. |
+| **TinyBase persister** | TinyBase is in-memory only by default. A "persister" is a plugin that syncs TinyBase state to an external source (localStorage, IndexedDB, or in our case, a Durable Object via WebSocket). |
+| **`onAlarm()`** | Durable Object's built-in timer API. You schedule a future callback (`state.storage.setAlarm(Date.now() + 1000)`). Used for countdown ticks and choosing-phase timeouts. |
+| **Resend** | Email API service for sending magic link emails. Free tier: 3,000 emails/month. API key stored as Cloudflare secret. |
+| **`sessionId`** | Generated via `crypto.randomUUID()` and stored in `localStorage`. Identifies a player across page refreshes and reconnections. Passed as WebSocket query param. |
+| **`battleId`** | Generated via `crypto.randomUUID()` on the server when QueueRoom matches two players. Becomes the URL: `/battleworld/battle/{battleId}`. |
+| **`playerId`** | Internal label (`player1` or `player2`) assigned by BattleRoom when each player connects. Not a global ID — only meaningful within one battle. |
 
 ---
 
