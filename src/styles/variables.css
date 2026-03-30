@@ -1,5 +1,11 @@
 /* Font Face Declarations */
-/* TODO: Remove unused fonts */
+@font-face {
+  font-family: 'Departure Mono';
+  src: url('/fonts/DepartureMono-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @font-face {
   font-family: 'Butler';
   src: url('/fonts/Butler-Light.woff2') format('woff2');
@@ -44,46 +50,74 @@
 
 :root {
   /* Base Font Size */
-  font-size: 18px;
+  font-size: 16px;
 
-  /* Colors */
+  /* New Cabbage Green Palette (WCAG AA compliant) */
+  --bg: #F4F3EF;
+  --text: #2C2C2A;
+  --text-muted: #7A7A72;
+  --text-subtle: #8A8A82;
+  --green: #5E7D56;
+  --green-light: #A9C2A2;
+  --green-dark: #5C7A54;
+  --divider: rgba(0,0,0,0.05);
+
+  /* Gradient Background Colors (r,g,b for rgba usage) */
+  --color1: 126, 155, 118;
+  --color2: 143, 170, 135;
+  --color3: 200, 210, 190;
+  --color4: 169, 194, 162;
+  --color5: 110, 140, 105;
+  --color-interactive: 126, 155, 118;
+  --circle-size: 60%;
+  --blending: soft-light;
+
+  /* Legacy compat (other pages still use these) */
+  --bg-primary: #F4F3EF;
   --black-a9: rgba(0, 0, 0, 0.9);
   --black-a7: rgba(0, 0, 0, 0.5);
   --black-a5: rgba(0, 0, 0, 0.3);
   --black-a3: rgba(0, 0, 0, 0.2);
   --black-a1: rgba(0, 0, 0, 0.1);
-  --bg-primary: #f3f1ea;
-  --bg-secondary: rgb(51, 158, 100);
-  --bg-tertiary: rgb(9, 131, 189);
-  --color-bg1: rgb(51, 158, 100);
-  --color-bg2: rgb(235, 219, 188);
-  --color-bg3: rgb(9, 131, 189);
-  --color1: 51, 158, 100;
-  --color2: 51, 158, 100;
-  --color3: 235, 219, 188;
-  --color4: 235, 219, 188;
-  --color5: 9, 131, 189;
-  --color-interactive: 9, 131, 189;
-  --bgColorMenu: rgba(255, 255, 255, 1);
+
+  /* Fonts */
+  --font-primary: 'Departure Mono', 'Space Mono', monospace;
+  --font-secondary: 'Butler', serif;
+
+  /* Spacing scale (4px base) */
+  --space-1: 0.25rem;   /*  4px */
+  --space-2: 0.5rem;    /*  8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.5rem;    /* 24px */
+  --space-6: 2rem;      /* 32px */
+  --space-7: 2.5rem;    /* 40px */
+  --space-8: 3rem;      /* 48px */
+  --space-9: 4rem;      /* 64px */
+
+  /* Legacy spacing aliases (used by other pages) */
+  --spacing: var(--space-6);
+  --spacing-half: var(--space-4);
+  --spacing-double: var(--space-9);
+
+  /* Layout */
+  --max-w: 1000px;
 
   /* Grid Settings */
   --grid-columns: 5;
   --grid-min-width: 300px;
-  --grid-gap: 1rem;
-  --grid-gap-half: 0.5rem;
-  --grid-gap-double: 2rem;
+  --grid-gap: var(--space-4);
+  --grid-gap-half: var(--space-2);
+  --grid-gap-double: var(--space-6);
 
-  /* Spacing */
-  --spacing: 2rem;
-  --spacing-half: 1rem;
-  --spacing-double: 4rem;
+  /* Type scale */
+  --text-2xs: 0.625rem;   /* 10px — labels, tags */
+  --text-xs: 0.6875rem;   /* 11px — dates, captions */
+  --text-sm: 0.75rem;     /* 12px — descriptions, links */
+  --text-base: 0.8125rem; /* 13px — body, names */
+  --text-md: 0.875rem;    /* 14px — subtitles */
 
-  /* Fonts */
-  --font-primary: 'Poppins', sans-serif;
-  --font-secondary: 'Butler', serif;
-
-  /* Font Sizes */
-  --font-size-content-header: 1.1rem;
+  /* Legacy fluid type scale (used by other pages) */
   --fs-sm: clamp(0.7rem, 0.35vi + 0.61rem, 0.89rem);
   --fs-base: clamp(0.88rem, 0.57vi + 0.73rem, 1.19rem);
   --fs-md: clamp(1.09rem, 0.89vi + 0.87rem, 1.58rem);
@@ -92,14 +126,6 @@
   --fs-xxl: clamp(2.14rem, 2.93vi + 1.4rem, 3.75rem);
   --fs-xxxl: clamp(2.67rem, 4.23vi + 1.61rem, 5rem);
 
-  /* Font Colors */
-  --font-color-content-header: black;
-
-  /* Layout */
+  /* Legacy layout */
   --max-screen-width: 1200px;
-
-  /* Miscellaneous */
-  --circle-size: 60%;
-  --blending: hard-light;
-  --font-height-calc: calc(1.71rem, 2.01vi + 1.21rem, 2.81rem);
 }
