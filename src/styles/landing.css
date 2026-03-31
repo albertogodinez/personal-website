@@ -20,6 +20,22 @@ html:has(.landing) body {
   flex-direction: column;
 }
 
+/* 
+
+  Suppress transitions on initial page load to prevent dark mode
+   colors from visibly animating when the blocking <head> script
+   sets data-theme="dark". Removed after first paint via rAF.
+   
+   requestAnimationFrame (rAF) — the browser API that runs a callback right    
+  before the next paint. We use two nested calls (rAF inside rAF) to
+  ensure the transition suppression is removed after the first frame has
+   rendered with the correct theme.
+   
+   */
+[data-no-transition] * {
+  transition: none !important;
+}
+
 /* Corner icons */
 .landing__icon {
   position: absolute;
@@ -27,6 +43,7 @@ html:has(.landing) body {
   height: var(--space-5);
   z-index: 2;
   pointer-events: none;
+  color: var(--text);
 }
 
 .landing__icon--left {
@@ -37,6 +54,31 @@ html:has(.landing) body {
 .landing__icon--right {
   top: var(--space-6);
   right: var(--space-6);
+}
+
+/* Theme toggle button */
+.landing__theme-toggle {
+  pointer-events: auto;
+  width: auto;
+  height: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  margin: calc(-1 * var(--space-2));
+  border-radius: var(--space-1);
+  transition: color 0.3s ease;
+}
+
+.landing__theme-toggle:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+.landing__theme-toggle svg {
+  display: block;
+  width: var(--space-5);
+  height: var(--space-5);
 }
 
 .landing__container {
@@ -78,7 +120,13 @@ html:has(.landing) body {
   overflow-y: scroll;
   min-height: 0;
   position: relative;
-  mask-image: linear-gradient(to bottom, transparent 0px, black var(--space-5), black calc(100% - var(--space-5)), transparent 100%);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0px,
+    black var(--space-5),
+    black calc(100% - var(--space-5)),
+    transparent 100%
+  );
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0px,
@@ -93,11 +141,23 @@ html:has(.landing) body {
 }
 
 /* Subtle scrollbar — always present to prevent layout shift */
-.landing__right::-webkit-scrollbar { width: 3px; }
-.landing__right::-webkit-scrollbar-track { background: transparent; }
-.landing__right::-webkit-scrollbar-thumb { background: transparent; border-radius: 3px; transition: background 0.3s; }
-.landing__right:hover::-webkit-scrollbar-thumb { background: var(--divider); }
-.landing__right::-webkit-scrollbar-thumb:hover { background: var(--green-light); }
+.landing__right::-webkit-scrollbar {
+  width: 3px;
+}
+.landing__right::-webkit-scrollbar-track {
+  background: transparent;
+}
+.landing__right::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+.landing__right:hover::-webkit-scrollbar-thumb {
+  background: var(--divider);
+}
+.landing__right::-webkit-scrollbar-thumb:hover {
+  background: var(--green-light);
+}
 
 /* Bio */
 .landing__label {
@@ -199,13 +259,21 @@ html:has(.landing) body {
 }
 
 @keyframes slideDown {
-  from { height: 0; }
-  to { height: var(--body-height); }
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--body-height);
+  }
 }
 
 @keyframes slideUp {
-  from { height: var(--body-height); }
-  to { height: 0; }
+  from {
+    height: var(--body-height);
+  }
+  to {
+    height: 0;
+  }
 }
 
 .landing__exp-desc {
@@ -229,7 +297,9 @@ html:has(.landing) body {
   border: 1px solid var(--divider);
   padding: 2px var(--space-2);
   border-radius: 2px;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .landing__exp-item.open .landing__exp-tag {
@@ -308,23 +378,43 @@ html:has(.landing) body {
 }
 
 @keyframes shine {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
-/* Fade-in animations */
+/* Text reveal — slides down from above, staggered per element */
 .fade-in {
+  --delay-step: 80ms;
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(-1lh);
+  animation: textReveal 1s ease both;
 }
 
-.d1 { animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards; }
-.d2 { animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards; }
-.d3 { animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards; }
-.d4 { animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards; }
-.d5 { animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards; }
+.d1 {
+  animation-delay: calc(1 * var(--delay-step));
+}
+.d2 {
+  animation-delay: calc(2 * var(--delay-step));
+}
+.d3 {
+  animation-delay: calc(3 * var(--delay-step));
+}
+.d4 {
+  animation-delay: calc(4 * var(--delay-step));
+}
+.d5 {
+  animation-delay: calc(5 * var(--delay-step));
+}
 
-@keyframes fadeInUp {
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-1lh);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
@@ -341,10 +431,34 @@ html:has(.landing) body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+[data-theme='dark'] .noise {
+  opacity: 0.04;
+}
+
 /* Selection */
 ::selection {
   background: var(--green-light);
   color: var(--text);
+}
+
+/* Theme color transitions */
+.landing,
+.landing__left,
+.landing__right,
+.landing__footer {
+  transition: background-color 1s ease;
+}
+
+.landing__label,
+.landing__role,
+.landing__bio,
+.landing__exp-label,
+.landing__exp-name,
+.landing__exp-date,
+.landing__exp-desc,
+.landing__icon,
+.shimmer-link {
+  transition: color 1s ease;
 }
 
 /* Reduced motion */
@@ -356,6 +470,21 @@ html:has(.landing) body {
   }
   .shimmer-link:hover::after {
     animation: none;
+  }
+  .landing,
+  .landing__left,
+  .landing__right,
+  .landing__footer,
+  .landing__label,
+  .landing__role,
+  .landing__bio,
+  .landing__exp-label,
+  .landing__exp-name,
+  .landing__exp-date,
+  .landing__exp-desc,
+  .landing__icon,
+  .shimmer-link {
+    transition: none;
   }
 }
 

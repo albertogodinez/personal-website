@@ -129,3 +129,33 @@
   /* Legacy layout */
   --max-screen-width: 1200px;
 }
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0A0A0A;
+  --text: #EDEDED;
+  --text-muted: #A1A1AA;
+  --text-subtle: #71717A;
+  --green: #4ADE80;
+  --green-light: #86EFAC;
+  --green-dark: #166534;
+  --divider: rgba(255, 255, 255, 0.08);
+
+  /* Gradient Background Colors (dark) */
+  --color1: 6, 78, 59;
+  --color2: 20, 83, 45;
+  --color3: 15, 23, 42;
+  --color4: 2, 44, 34;
+  --color5: 17, 24, 39;
+  --color-interactive: 52, 211, 153;
+
+  /* Legacy compat */
+  --bg-primary: #0A0A0A;
+  --black-a9: rgba(255, 255, 255, 0.9);
+  --black-a7: rgba(255, 255, 255, 0.5);
+  --black-a5: rgba(255, 255, 255, 0.3);
+  --black-a3: rgba(255, 255, 255, 0.2);
+  --black-a1: rgba(255, 255, 255, 0.1);
+}

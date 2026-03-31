@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Globe from '../components/icons/Globe.astro';
+import Lamp from '../components/icons/Lamp.astro';
 import { getCollection } from 'astro:content';
+import '../styles/landing.css';
 
 const workExperience = (await getCollection('experience'))
   .filter((exp) => exp.data.type === 'work')
@@ -16,8 +19,15 @@ const formatDate = (start: Date, end: Date | null) => {
 
 <BaseLayout title="alberto godinez" hideFooter>
   <div class="landing">
-    <img src="/globe.svg" alt="" class="landing__icon landing__icon--left" />
-    <img src="/doorway.svg" alt="" class="landing__icon landing__icon--right" />
+    <Globe class="landing__icon landing__icon--left" />
+    <button
+      type="button"
+      class="landing__icon landing__icon--right landing__theme-toggle"
+      aria-pressed="false"
+      aria-label="Toggle dark mode"
+    >
+      <Lamp />
+    </button>
     <div class="landing__container">
       <div class="landing__left">
         <div class="fade-in d1">
@@ -70,25 +80,57 @@ const formatDate = (start: Date, end: Date | null) => {
   </div>
 </BaseLayout>
 
-<style>
-  @import '../styles/landing.css';
-</style>
 
 <script>
   // Accordion — measure content height and toggle
-  document.querySelectorAll('.landing__exp-item').forEach((item) => {
-    const body = item.querySelector('.landing__exp-body') as HTMLElement;
-    if (!body) return;
-    body.style.height = 'auto';
-    const h = body.scrollHeight;
-    (item as HTMLElement).style.setProperty('--body-height', h + 'px');
-    body.style.height = '0';
-  });
+  function measureAccordions() {
+    document.querySelectorAll('.landing__exp-item').forEach((item) => {
+      const body = item.querySelector('.landing__exp-body') as HTMLElement;
+      if (!body) return;
+      body.style.height = 'auto';
+      const h = body.scrollHeight;
+      (item as HTMLElement).style.setProperty('--body-height', h + 'px');
+      body.style.height = item.classList.contains('open') ? h + 'px' : '0';
+    });
+  }
+
+  measureAccordions();
 
   document.querySelectorAll('.landing__exp-header').forEach((header) => {
     header.addEventListener('click', () => {
       const item = header.closest('.landing__exp-item');
       if (item) item.classList.toggle('open');
+    });
+  });
+
+  // Theme toggle
+  const toggle = document.querySelector('.landing__theme-toggle') as HTMLButtonElement;
+  if (toggle) {
+    // Sync aria-pressed with current theme on load
+    const isDark = document.documentElement.dataset.theme === 'dark';
+    toggle.setAttribute('aria-pressed', String(isDark));
+
+    toggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      const nowDark = html.dataset.theme === 'dark';
+      if (nowDark) {
+        delete html.dataset.theme;
+        localStorage.setItem('theme', 'light');
+        toggle.setAttribute('aria-pressed', 'false');
+      } else {
+        html.dataset.theme = 'dark';
+        localStorage.setItem('theme', 'dark');
+        toggle.setAttribute('aria-pressed', 'true');
+      }
+      // Re-measure accordion heights after theme change
+      requestAnimationFrame(() => measureAccordions());
+    });
+  }
+
+  // Remove transition suppression after first paint
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      delete document.documentElement.dataset.noTransition;
     });
   });
 </script>

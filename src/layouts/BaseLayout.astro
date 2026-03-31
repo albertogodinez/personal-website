@@ -13,6 +13,17 @@ const { title, hideFooter = false } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t) t = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+          if (t === 'dark') document.documentElement.dataset.theme = 'dark';
+          document.documentElement.dataset.noTransition = '';
+        } catch (e) {}
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
     <meta name="generator" content={Astro.generator} />
