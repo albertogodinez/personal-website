@@ -44,8 +44,12 @@
   transition: opacity 0.3s ease;
 }
 
+/* Hidden visually but kept in rendering tree so Firefox
+   can resolve the url(#goo) SVG filter reference */
 .gradient-bg svg {
-  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
 }
 
 .gradient-bg .gradients-container {

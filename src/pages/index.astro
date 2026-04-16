@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
 import Globe from '../components/icons/Globe.astro';
 import Lamp from '../components/icons/Lamp.astro';
 import { getCollection } from 'astro:content';
@@ -19,15 +20,17 @@ const formatDate = (start: Date, end: Date | null) => {
 
 <BaseLayout title="alberto godinez" hideFooter>
   <div class="landing">
-    <Globe class="landing__icon landing__icon--left" />
-    <button
-      type="button"
-      class="landing__icon landing__icon--right landing__theme-toggle"
-      aria-pressed="false"
-      aria-label="Toggle dark mode"
-    >
-      <Lamp />
-    </button>
+    <Navbar>
+      <button
+        slot="right"
+        type="button"
+        class="navbar__icon-btn landing__theme-toggle"
+        aria-pressed="false"
+        aria-label="Toggle dark mode"
+      >
+        <Lamp />
+      </button>
+    </Navbar>
     <div class="landing__container">
       <div class="landing__left">
         <div class="fade-in d1">
@@ -79,7 +82,6 @@ const formatDate = (start: Date, end: Date | null) => {
     </footer>
   </div>
 </BaseLayout>
-
 
 <script>
   // Accordion — measure content height and toggle

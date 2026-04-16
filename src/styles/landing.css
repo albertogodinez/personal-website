@@ -36,51 +36,6 @@ html:has(.landing) body {
   transition: none !important;
 }
 
-/* Corner icons */
-.landing__icon {
-  position: absolute;
-  width: var(--space-5);
-  height: var(--space-5);
-  z-index: 2;
-  pointer-events: none;
-  color: var(--text);
-}
-
-.landing__icon--left {
-  top: var(--space-6);
-  left: var(--space-6);
-}
-
-.landing__icon--right {
-  top: var(--space-6);
-  right: var(--space-6);
-}
-
-/* Theme toggle button */
-.landing__theme-toggle {
-  pointer-events: auto;
-  width: auto;
-  height: auto;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--space-2);
-  margin: calc(-1 * var(--space-2));
-  border-radius: var(--space-1);
-  transition: color 0.3s ease;
-}
-
-.landing__theme-toggle:focus-visible {
-  outline: 2px solid var(--green);
-  outline-offset: 2px;
-}
-
-.landing__theme-toggle svg {
-  display: block;
-  width: var(--space-5);
-  height: var(--space-5);
-}
-
 .landing__container {
   max-width: var(--max-w);
   margin: 0 auto;
@@ -441,6 +396,11 @@ html:has(.landing) body {
   color: var(--text);
 }
 
+[data-theme='dark'] ::selection {
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+
 /* Theme color transitions */
 .landing,
 .landing__left,
@@ -456,7 +416,6 @@ html:has(.landing) body {
 .landing__exp-name,
 .landing__exp-date,
 .landing__exp-desc,
-.landing__icon,
 .shimmer-link {
   transition: color 1s ease;
 }
@@ -482,7 +441,6 @@ html:has(.landing) body {
   .landing__exp-name,
   .landing__exp-date,
   .landing__exp-desc,
-  .landing__icon,
   .shimmer-link {
     transition: none;
   }

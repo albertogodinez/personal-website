@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import Footer from '../components/Footer.astro';
 import GradientBackground from '../components/selection/GradientBackground';
 
@@ -28,7 +28,7 @@ const { title, hideFooter = false } = Astro.props;
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <GradientBackground client:only="react" />
