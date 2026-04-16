@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react';
 import { useEffect, useState } from 'react';
 
-import type { FavoritesCollection, FavoritesCollectionEntry } from '../content/config';
+import type { FavoritesCollection, FavoritesCollectionEntry } from '../content.config';
 import { selectedFavoriteType, selectedYear } from '../functionalityStore';
 import '../styles/utilities.css';
 import Card from './card/Card';

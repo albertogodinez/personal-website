@@ -1,37 +1,138 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Experience from '../components/experience/Experience.tsx';
+import Navbar from '../components/Navbar.astro';
+import Globe from '../components/icons/Globe.astro';
+import Lamp from '../components/icons/Lamp.astro';
 import { getCollection } from 'astro:content';
-import '../styles/utilities.css';
-import About from '../components/About.astro';
-import Contact from '../components/Contact.astro';
-import ErrorBoundary from '../components/ErrorBoundary';
+import '../styles/landing.css';
 
-const allExperience = await getCollection('experience');
-const workExperience = await getCollection('experience', ({ data }) => {
-  // TODO: create a constant for the type 'work'
-  return data.type === 'work';
-});
-const projectExperience = await getCollection('experience', ({ data }) => {
-  return data.type === 'project';
-});
+const workExperience = (await getCollection('experience'))
+  .filter((exp) => exp.data.type === 'work')
+  .sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime());
 
-allExperience.sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime());
-workExperience.sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime());
-projectExperience.sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime());
+const formatDate = (start: Date, end: Date | null) => {
+  const startYear = start.getFullYear();
+  if (!end) return `${startYear}—present`;
+  const endYear = end.getFullYear();
+  return startYear === endYear ? `${startYear}` : `${startYear}—${endYear}`;
+};
 ---
 
-<BaseLayout title="Alberto Godinez">
-  <main class="flex flex-column pi-2 mb-48 mt-16 height-100">
-    <section class="flex flex-column gap-16 min-height-100">
-      <About />
-      <Experience
-        allExperience={allExperience}
-        workExperience={workExperience}
-        projectExperience={projectExperience}
-        client:only="react"
-      />
-      <Contact />
-    </section>
-  </main>
+<BaseLayout title="alberto godinez" hideFooter>
+  <div class="landing">
+    <Navbar>
+      <button
+        slot="right"
+        type="button"
+        class="navbar__icon-btn landing__theme-toggle"
+        aria-pressed="false"
+        aria-label="Toggle dark mode"
+      >
+        <Lamp />
+      </button>
+    </Navbar>
+    <div class="landing__container">
+      <div class="landing__left">
+        <div class="fade-in d1">
+          <h1 class="landing__label">alberto godinez</h1>
+          <p class="landing__role">software developer — austin, tx</p>
+        </div>
+        <div class="fade-in d2">
+          <p class="landing__bio">
+            currently working on adding trip planning features on all of expedia group's platforms. hope you enjoy this
+            little sliver of the internet.
+          </p>
+        </div>
+      </div>
+
+      <div class="landing__right">
+        <div class="fade-in d3">
+          <p class="landing__exp-label">experience</p>
+          <ul class="landing__exp-list">
+            {
+              workExperience.map((exp) => (
+                <li class="landing__exp-item">
+                  <div class="landing__exp-header">
+                    <span class="landing__exp-name">{exp.data.company.toLowerCase()}</span>
+                    <span class="landing__exp-date">{formatDate(exp.data.startDate, exp.data.endDate)}</span>
+                  </div>
+                  <div class="landing__exp-body">
+                    {exp.data.description && <p class="landing__exp-desc">{exp.data.description.toLowerCase()}</p>}
+                    {exp.data.tags && exp.data.tags.length > 0 && (
+                      <div class="landing__exp-tags">
+                        {exp.data.tags.map((tag: string) => (
+                          <span class="landing__exp-tag">{tag.toLowerCase()}</span>
+                        ))}
+                      </div>
+                    )}
+                    <div class="landing__exp-body-spacer" />
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer class="landing__footer fade-in d4">
+      <a href="mailto:albertogodinez@outlook.com" class="shimmer-link">email</a>
+      <a href="https://linkedin.com/in/albertogodinez" class="shimmer-link" rel="noopener">linkedin</a>
+      <a href="https://github.com/albertogodinez" class="shimmer-link" rel="noopener">github</a>
+    </footer>
+  </div>
 </BaseLayout>
+
+<script>
+  // Accordion — measure content height and toggle
+  function measureAccordions() {
+    document.querySelectorAll('.landing__exp-item').forEach((item) => {
+      const body = item.querySelector('.landing__exp-body') as HTMLElement;
+      if (!body) return;
+      body.style.height = 'auto';
+      const h = body.scrollHeight;
+      (item as HTMLElement).style.setProperty('--body-height', h + 'px');
+      body.style.height = item.classList.contains('open') ? h + 'px' : '0';
+    });
+  }
+
+  measureAccordions();
+
+  document.querySelectorAll('.landing__exp-header').forEach((header) => {
+    header.addEventListener('click', () => {
+      const item = header.closest('.landing__exp-item');
+      if (item) item.classList.toggle('open');
+    });
+  });
+
+  // Theme toggle
+  const toggle = document.querySelector('.landing__theme-toggle') as HTMLButtonElement;
+  if (toggle) {
+    // Sync aria-pressed with current theme on load
+    const isDark = document.documentElement.dataset.theme === 'dark';
+    toggle.setAttribute('aria-pressed', String(isDark));
+
+    toggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      const nowDark = html.dataset.theme === 'dark';
+      if (nowDark) {
+        delete html.dataset.theme;
+        localStorage.setItem('theme', 'light');
+        toggle.setAttribute('aria-pressed', 'false');
+      } else {
+        html.dataset.theme = 'dark';
+        localStorage.setItem('theme', 'dark');
+        toggle.setAttribute('aria-pressed', 'true');
+      }
+      // Re-measure accordion heights after theme change
+      requestAnimationFrame(() => measureAccordions());
+    });
+  }
+
+  // Remove transition suppression after first paint
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      delete document.documentElement.dataset.noTransition;
+    });
+  });
+</script>

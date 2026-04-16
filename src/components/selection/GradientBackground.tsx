@@ -31,6 +31,11 @@ export const GradientBackground: React.FC = () => {
     const handleMouseMove = (event: MouseEvent) => {
       tgX = event.clientX;
       tgY = event.clientY;
+      if (!interBubble.classList.contains('visible')) {
+        curX = tgX;
+        curY = tgY;
+        interBubble.classList.add('visible');
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);

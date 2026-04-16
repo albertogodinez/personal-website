@@ -1,0 +1,108 @@
+---
+/**
+ * Reusable sticky navbar component
+ * Supports left and right slot content for flexible navigation items
+ */
+const { class: className = '' } = Astro.props;
+---
+
+<nav class={`navbar ${className}`}>
+  <div class="navbar__container">
+    <div class="navbar__left">
+      <slot name="left" />
+    </div>
+    <div class="navbar__right">
+      <slot name="right" />
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .navbar__container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: var(--space-6);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .navbar__left,
+  .navbar__right {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  /* Enable pointer events on child elements */
+  .navbar :global(button),
+  .navbar :global(a) {
+    pointer-events: auto;
+  }
+
+  /* Icon button styles */
+  .navbar :global(.navbar__icon-btn) {
+    width: auto;
+    height: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+    border-radius: var(--space-1);
+    transition: color 0.3s ease;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar :global(.navbar__icon-btn:hover) {
+    color: var(--green);
+  }
+
+  .navbar :global(.navbar__icon-btn:focus-visible) {
+    outline: 2px solid var(--green);
+    outline-offset: 2px;
+  }
+
+  .navbar :global(.navbar__icon-btn svg) {
+    display: block;
+    width: var(--space-5);
+    height: var(--space-5);
+  }
+
+  .navbar :global(.navbar__icon) {
+    width: var(--space-5);
+    height: var(--space-5);
+    color: var(--text);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .navbar__container {
+      padding: var(--space-5);
+    }
+  }
+
+  /* Smooth color transitions */
+  .navbar :global(.navbar__icon-btn),
+  .navbar :global(.navbar__icon) {
+    transition: color 1s ease;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .navbar :global(.navbar__icon-btn),
+    .navbar :global(.navbar__icon) {
+      transition: none;
+    }
+  }
+</style>

@@ -72,17 +72,9 @@ h6 {
 body {
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-primary);
-  background-color: var(--bg-primary);
+  background-color: var(--bg);
+  color: var(--text);
   line-height: 1.5;
-  &::before {
-    width: 100%;
-    display: block;
-    content: '';
-    height: 0.1rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
 }
 
 a {
@@ -90,12 +82,3 @@ a {
   color: inherit;
 }
 
-h2 {
-  font-family: var(--font-secondary);
-  font-weight: 400;
-}
-
-h3 {
-  font-family: var(--font-secondary);
-  font-weight: 700;
-}
