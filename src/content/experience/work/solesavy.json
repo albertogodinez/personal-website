@@ -10,14 +10,7 @@
     "React",
     "Typescript",
     "Express.js",
-    "GraphQL",
-    "Jest",
     "PostgreSQL",
-    "Docker",
-    "Puppeteer",
-    "Storybook.js",
-    "Jenkins",
-    "Tailwind",
-    "Sanity.io"
+    "Storybook.js"
   ]
 }

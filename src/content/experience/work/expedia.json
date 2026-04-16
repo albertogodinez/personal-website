@@ -4,6 +4,6 @@
   "position": "Software Engineer",
   "type": "work",
   "startDate": "2023-02",
-  "description": "Working under Expedia Group Trips Experience team (expedia.com/trips, vrbo.com/trips, hotels.com/trips, etc.), where I've built and maintained features such as comments and vote, request to join, and more.",
-  "tags": ["React", "Typescript", "Node.js", "Kotlin", "GraphQL", "Jest", "Cypress", "Docker", "Kubernetes"]
+  "description": " working across expedia group's trips experience team, building trip planning features, and optimizing web performance.",
+  "tags": ["React", "Typescript", "Node.js", "Kotlin", "GraphQL", "Cypress", "Docker"]
 }
