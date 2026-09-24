@@ -1,4 +1,8 @@
-# CLAUDE.md
+# AGENTS.md
+
+## Documented Solutions
+
+`docs/solutions/` — documented solutions to past problems (bugs, best practices, workflow patterns), organized by category with YAML frontmatter (`module`, `tags`, `problem_type`). Relevant when implementing or debugging in documented areas.
 
 ## Code Style
 
@@ -7,6 +11,20 @@
 ## CSS in client:only Components
 
 - Never import CSS from inside a `client:only` React component. Astro's production build does not extract CSS from `client:only` components into the static bundle (Vite handles it in dev but not in SSG/SSR builds). Instead, import the CSS from the Astro layout or page that renders the component.
+
+## Agent skills
+
+### Issue tracker
+
+Issues and specs live as local markdown under `.scratch/<feature-slug>/`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five canonical triage roles, recorded as a `Status:` line in each issue file. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
 
 ## Pre-Push Validation
 
