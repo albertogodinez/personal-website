@@ -1,19 +1,10 @@
-# Moodboard Canvas — Follow-Up Plan
+# Moodboard broken cover inventory
 
-Companion to `docs/plans/2026-04-19-003-feat-moodboard-canvas-plan.md`. That plan
-covers the original build; this one tracks what surfaced when the branch was
-picked back up on 2026-09-19 after sitting since April.
+Probe results for every `cover` URL in `src/content/moodboard/raindrop-collection.json`,
+captured 2026-09-19 with a browser User-Agent: 81 of 133 returned 200, 52 did not.
 
-Status of the original plan: Units 1–3 and 9–12 done, Units 4–8 partly landed in
-code but never checked off. The canvas renders all three modes and holds
-60fps. What remains is content-type coverage, the polish pass, and the data rot
-described below.
-
-## 1. Media rot — 52 of 133 covers are broken
-
-Every `cover` URL in `src/content/moodboard/raindrop-collection.json` was probed
-on 2026-09-19 with a browser User-Agent. 81 returned 200; 52 did not. Full
-breakdown in [§5](#5-broken-link-inventory).
+`Raindrop ID` matches `_id` in that file; the corresponding Item id is `raindrop:<id>`.
+"Source page" is the Item's `link`, which is often still live even when the cover is not.
 
 | Host | Count | HTTP | Recoverable? |
 | --- | --- | --- | --- |
@@ -22,96 +13,12 @@ breakdown in [§5](#5-broken-link-inventory).
 | `pbs.twimg.com` | 2 | 404 | No — deleted tweets |
 | `en.goodtimes.my` | 1 | timeout | Maybe — host may be down |
 
-### Why Instagram is unrecoverable
-
-Those 42 items carry Instagram CDN signed URLs that expired years ago. There is
-no fallback in the JSON: `file` is `null` for all of them and every entry in
-`media[]` points at the same expired host. The images only come back by
+The 42 Instagram items carry signed URLs that expired years ago, with `file` null and
+every `media[]` entry pointing at the same expired host; they only come back by
 re-fetching from the Raindrop API, which re-signs them.
 
-### Current handling
-
-`src/components/moodboard/data-adapter.ts` drops items whose cover matches
-`EXPIRED_MEDIA_HOSTS`, leaving 90 usable items. `src/pages/api/proxy-image.ts`
-returns a transparent pixel with an `X-Proxy-Fallback` header for anything else
-that fails, and `CardMesh` skips those cards rather than drawing empty meshes.
-So the board looks correct — it is just 32% smaller than it should be.
-
-### Tasks
-
-- [ ] Re-sync from the Raindrop API to get fresh signed cover URLs. This is the
-      content-pipeline workstream (`docs/plans/2026-04-19-002-feat-content-pipeline-plan.md`).
-- [ ] Mirror covers into R2 on ingest so the board never depends on a
-      third-party signed URL again. Without this, re-syncing only buys time.
-- [ ] Re-probe the 7 `rdl.ink` failures. If Raindrop's renderer is the problem,
-      request `up.raindrop.io` directly and skip `rdl.ink`.
-- [ ] Once media is mirrored, delete `EXPIRED_MEDIA_HOSTS` from the adapter.
-
-## 2. Unfinished units from the original plan
-
-- [ ] **Unit 4 — markdown cards.** Video cards are done: in-scene play badge
-      plus autoplaying `youtube-nocookie` playback in the detail overlay.
-      Markdown cards (R15) remain unbuilt and have no backing data — nothing
-      in the Raindrop collection is markdown, so this needs the content
-      pipeline to land first.
-- [ ] **Unit 6 — connector lines in clustered mode.** R6 calls for lines
-      between related items. `clustered.ts` exports `clusterCenters`, so the
-      anchor points exist; the renderer does not. Choice between an SVG overlay
-      and drei `<Line>` is still open.
-- [x] **Unit 7 — detail overlay.** Shows media, title, date, content type,
-      description, tags, a source link, and video playback for YouTube items.
-- [ ] **Unit 8 — polish and integration testing.** Mobile touch and pinch are
-      implemented but unverified on a real device. The 60fps-on-mobile target
-      from the requirements has never been measured. Prod-build-versus-dev
-      comparison per `CLAUDE.md` still owed before merging to main.
-
-## 3. Known rough edges
-
-- [ ] **Timeline mode spans ~700 units** at 8 units per card for 90 cards, with
-      no indication of where you are in time. Needs year markers or a zoomed-out
-      overview.
-- [ ] **The `gif` cluster holds 2 items**, so clustered mode has one tiny
-      outlier group. Consider folding gif into video.
-- [ ] **`link` items show the page's social preview image**, which is often a
-      generic logo. They read as low-quality cards next to real imagery.
-- [ ] **Chunk throttle is time-based** (100ms idle / 400ms while moving) in
-      `MoodboardCanvas.tsx`. It works but is tuned by feel; a velocity-derived
-      throttle would be more predictable.
-- [ ] **`public/placeholder-card.jpg` is unreferenced** since failed cards skip
-      rendering entirely.
-- [ ] **Focused clusters do not recentre.** Filtering to one content type
-      tightens that cluster's radius but leaves it at its ring position, so it
-      can sit off-centre. The original mockup zoomed the camera to the focused
-      group.
-- [ ] **Detail overlay reuses the 512px proxy**, so large images look soft at
-      full size. It should request an uncapped variant.
-- [ ] **No empty state.** If the adapter ever returns zero items the canvas is
-      silently blank.
-
-## 4. Deferred decisions
-
-- **Camera transition between modes** is a position lerp to a per-mode home in
-  `CameraRig.tsx`. The plan's FOV-interpolation approach to fake an orthographic
-  projection for 2D modes was never built. Current behaviour is acceptable, but
-  clustered and timeline still render in perspective, so cards at the edge of
-  the viewport skew.
-- **Texture resolution is capped at 512px** by the proxy, which is right for
-  the canvas but wrong for the detail overlay.
-- **R14's hover preview was built and then removed.** A `lite-youtube` panel
-  mounted on hover via drei `<Html>`, but with no intent delay and no fade it
-  fired on any incidental mouse pass, and it was the only hover affordance in
-  the scene. Video cards are now identified by their play badge and open full
-  playback on click. Reinstating it means adding a hover-intent delay and a
-  fade, and re-adding the `lite-youtube-embed` dependency.
-- **Nothing in the scene responds to hover** beyond the cursor changing to a
-  pointer. A subtle scale lift on all cards would make the board feel more
-  responsive without singling out one content type.
-
-## 5. Broken link inventory
-
-Probed 2026-09-19. `Raindrop ID` matches `_id` in `raindrop-collection.json`;
-the moodboard item id is `raindrop:<id>`. "Source page" is the item's `link`,
-which is often still live even when the cover is not.
+Worked in `.scratch/moodboard-canvas/issues/` — ticket 01 (the `rdl.ink` seven),
+then 15 → 16 → 17 for the resync, mirroring and host retirement.
 
 ### Instagram (42)
 

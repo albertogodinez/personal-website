@@ -100,7 +100,7 @@ const CHUNK_SIZE = 150; // Was: 110
 - **User Guide**: performance-monitoring-guide.md
 - **Test Procedures**: performance-benchmark.md
 - **Implementation Details**: performance-monitoring-summary.md
-- **Moodboard Plan**: /docs/plans/2026-04-19-003-feat-moodboard-canvas-plan.md
+- **Remaining Work**: /.scratch/moodboard-canvas/spec.md
 
 ## Reporting Issues
 

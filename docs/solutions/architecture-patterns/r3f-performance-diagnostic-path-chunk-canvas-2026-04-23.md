@@ -221,7 +221,7 @@ Result: `cameraZ` never enters the React tree. `MemoizedCard` reconciles only wh
 
 ## Related
 
-- `docs/plans/2026-04-19-003-feat-moodboard-canvas-plan.md` — units 9, 10, 11, 11b, 12 contain the full arc, baseline measurements, and alternative-strategy scoring.
+- `docs/adr/0003-per-card-meshes-not-instancedmesh.md` — the resulting decision to keep one mesh per Card. The full arc, baseline measurements and alternative-strategy scoring lived in the original moodboard plan, now in git history.
 - `docs/analysis/chunk-boundary-stall-analysis.md` — hot-path trace that scored five alternative strategies (InstancedMesh 1/5, Web Worker 2/5, chunk-delta 4/5) and motivated Lens 1 (session history).
 - `docs/analysis/codrops-vs-ours-comparison.md` — gap analysis vs Codrops reference implementation; confirmed the `InstancedMesh`-is-wrong-for-per-card-textures decision (session history).
 - External: [Codrops "Infinite Canvas" tutorial](https://tympanus.net/codrops/2026/01/07/infinite-canvas-building-a-seamless-pan-anywhere-image-space/) and [`edoardolunardi/infinite-canvas`](https://github.com/edoardolunardi/infinite-canvas) — reference implementations for chunk streaming.

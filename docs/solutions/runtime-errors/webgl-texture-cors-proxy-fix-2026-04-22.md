@@ -201,8 +201,8 @@ When Raindrop URLs redirect to CDNs that don't send CORS headers, the browser bl
 
 ## Related Issues
 
-- Planning document: `docs/plans/2026-04-19-003-feat-moodboard-canvas-plan.md` (Unit 4 will encounter this issue)
-- Future migration: `docs/plans/2026-04-19-002-feat-content-pipeline-plan.md` (R2 storage eliminates CORS concern)
+- Decision record: `docs/adr/0001-same-origin-image-proxy-for-webgl-textures.md`
+- Future migration: `.scratch/content-pipeline/spec.md` (owned storage eliminates the CORS concern)
 
 ## Related Commits
 
