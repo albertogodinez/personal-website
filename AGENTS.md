@@ -1,16 +1,13 @@
 # AGENTS.md
 
-## Documented Solutions
+## Navigation
 
-`docs/solutions/` — documented solutions to past problems (bugs, best practices, workflow patterns), organized by category with YAML frontmatter (`module`, `tags`, `problem_type`). Relevant when implementing or debugging in documented areas.
-
-## Code Style
-
-- Never leave empty CSS rules with placeholder comments (e.g. `/* Inherits from ... */`). If a class is only used as a JS hook and needs no styles, don't create a CSS rule for it.
-
-## CSS in client:only Components
-
-- Never import CSS from inside a `client:only` React component. Astro's production build does not extract CSS from `client:only` components into the static bundle (Vite handles it in dev but not in SSG/SSR builds). Instead, import the CSS from the Astro layout or page that renders the component.
+- `CONTEXT.md` — the domain glossary. Use its vocabulary in code, tests and issues.
+- `CODING_STANDARDS.md` — judgement-call standards, read during review rather than implementation.
+- `docs/adr/` — recorded decisions. Read the ones touching the area you're working in; flag it explicitly if your change contradicts one.
+- `docs/agents/` — where issues live, how domain docs are laid out, and the triage label vocabulary.
+- `docs/solutions/` — writeups of past problems, with YAML frontmatter (`module`, `tags`, `problem_type`). Relevant when working in an area one of them covers.
+- `docs/analysis/`, `docs/features/`, `docs/testing/`, `docs/troubleshooting/` — reference material from the moodboard build.
 
 ## Agent skills
 
