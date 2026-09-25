@@ -2,8 +2,8 @@
 
 Status: ready-for-agent
 
-Original build Unit 6 (requirement R6) calls for lines between related items in
-clustered mode. `src/components/moodboard/layouts/clustered.ts` already exports
+Clustered mode was always intended to draw lines between related items, and never
+got them. `src/components/moodboard/layouts/clustered.ts` already exports
 `clusterCenters`, so the anchor points exist; there is no renderer.
 
 ## Do

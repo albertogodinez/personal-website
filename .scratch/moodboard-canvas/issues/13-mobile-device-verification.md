@@ -2,10 +2,9 @@
 
 Status: ready-for-agent
 
-Original build Unit 8. Mobile touch and pinch are implemented in
+Mobile touch and pinch are implemented in
 `src/components/moodboard/CameraRig.tsx` but have never been run on a physical
-device, and the 60fps-on-mobile target from the requirements has never been
-measured.
+device, and the canvas's 60fps-on-mobile target has never been measured.
 
 This ticket needs a human with a phone. It cannot be satisfied by browser
 device emulation, which does not reproduce real touch behaviour or real GPU

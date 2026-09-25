@@ -5,8 +5,8 @@ Status: ready-for-agent
 Blocked on the content-pipeline workstream at `.scratch/content-pipeline/`,
 not on any ticket in this directory.
 
-Original build Unit 4, requirement R15. Video cards are done (in-scene play
-badge plus autoplaying `youtube-nocookie` playback in the detail overlay).
+Of the content-type coverage the canvas was meant to reach, video cards are done
+(in-scene play badge plus autoplaying `youtube-nocookie` playback in the overlay).
 Markdown cards remain unbuilt and have no backing data — nothing in the
 Raindrop collection is markdown today.
 

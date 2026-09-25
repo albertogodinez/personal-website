@@ -12,8 +12,8 @@ expire, and it will rot again.
 
 ## Do
 
-- On ingest, download each cover and store it in storage we control (R2 per the
-  content-pipeline plan), then record the owned URL on the item.
+- On ingest, download each cover and store it in storage we control (R2, per
+  `.scratch/content-pipeline/spec.md`), then record the owned URL on the item.
 - The canvas keeps treating cover URLs as opaque — this is an ingest concern,
   not a render concern, and `data-adapter.ts` should need no knowledge of where
   a cover is hosted.

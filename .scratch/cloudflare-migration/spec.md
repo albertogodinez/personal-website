@@ -81,13 +81,18 @@ long-lived immutable cache headers to Astro's hashed asset directory by default,
 which is the behaviour the option was there to get.
 
 **The image proxy is the migration's only real blocker, and it needs a decision
-before work starts.** Both source documents assert this is a clean migration with
-"no server state" and "no Netlify-specific features," and that was true when they
-were written. It is no longer. The project now has exactly one server-rendered
-route — the moodboard's image proxy — and it depends on a Node-native image
-processing library plus Node's Buffer API. The Cloudflare Workers runtime cannot
-load native bindings, so that route will not run there as written. Resolving it
-means choosing one of:
+before work starts.** The project has exactly one server-rendered route — the
+moodboard's image proxy — and it depends on `sharp`, a Node-native image
+processing library, plus Node's Buffer API. The Cloudflare Workers runtime cannot
+load native bindings, so that route will not run there as written.
+
+This is why the April 2026 planning docs this spec was collapsed from described
+the migration as clean, with "no server state" and "no Netlify-specific features":
+the proxy did not exist when they were written. Those docs were removed when this
+spec replaced them and remain in git history. The same constraint is recorded from
+the hosting side in `docs/adr/0002-selective-ssr-runs-in-netlifys-node-function.md`.
+
+Resolving it means choosing one of:
 
 - Re-implement the resize step on Cloudflare's own image transformation
   capability, dropping the Node image library entirely. Keeps the proxy's

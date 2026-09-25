@@ -3,9 +3,9 @@
 Status: ready-for-agent
 
 Clustered and timeline are conceptually flat layouts but still render through a
-perspective camera, so cards at the edge of the viewport skew. The original plan
-called for interpolating FOV to fake an orthographic projection when entering a
-2D mode; `src/components/moodboard/CameraRig.tsx` currently only lerps position
+perspective camera, so cards at the edge of the viewport skew. The intended
+approach was to interpolate FOV to fake an orthographic projection when entering
+a 2D mode; `src/components/moodboard/CameraRig.tsx` currently only lerps position
 to a per-mode home.
 
 Current behaviour was accepted as good enough, so this is an improvement, not a

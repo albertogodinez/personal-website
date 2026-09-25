@@ -114,7 +114,7 @@ interface currently carries: composite id, title, description, date, tags, conte
 media URL, an optional YouTube id, and source metadata (original URL, source domain,
 source platform).
 
-**Normalize into tags, not a category taxonomy.** The original plan specified a required
+**Normalize into tags, not a category taxonomy.** Earlier planning specified a required
 five-value category vocabulary (web, typography, illustration, photography, motion) with
 keyword-based assignment from source tags. That did not ship: the shared type has no
 category field and the canvas filters by content type instead. The pipeline therefore
