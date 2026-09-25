@@ -6,6 +6,13 @@ Blocked on one decision only a human can make: how the image proxy survives the
 runtime change (see Implementation Decisions → "The image proxy is the migration's
 only real blocker"). Everything else in this spec is settled and ready to build.
 
+Related prior research:
+`docs/analysis/research-framework-migration-tanstack-cloudflare-local-first.md`
+evaluates a much larger move — Astro to TanStack Start on Cloudflare — and
+deliberately declines to commit to it until someone answers what the site's
+real-time feature would actually be. This spec is the narrow version of the same
+instinct: same Astro site, different host.
+
 ## Problem Statement
 
 The site is hosted on Netlify while the work queued up behind it — the content

@@ -2,8 +2,11 @@
 
 Status: ready-for-agent
 
-Blocked on the content-pipeline workstream at `.scratch/content-pipeline/`,
-not on any ticket in this directory.
+Genuinely blocked on the content-pipeline workstream at
+`.scratch/content-pipeline/`, not on any ticket in this directory. The gate is
+data: no markdown items exist to build against, and the pipeline is what would
+produce them. There is no `Blocked by:` line because the convention only
+resolves `NN` references within this directory.
 
 Of the content-type coverage the canvas was meant to reach, video cards are done
 (in-scene play badge plus autoplaying `youtube-nocookie` playback in the overlay).

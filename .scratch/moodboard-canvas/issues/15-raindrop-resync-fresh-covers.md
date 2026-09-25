@@ -2,8 +2,10 @@
 
 Status: ready-for-agent
 
-Blocked on the content-pipeline workstream at `.scratch/content-pipeline/`,
-not on any ticket in this directory.
+Not blocked on the content pipeline. Every step below is a Raindrop API re-fetch
+against the existing checked-in collection, which needs nothing the pipeline
+builds. The one prerequisite is a Raindrop API token in the environment, which
+only a human can supply.
 
 42 Instagram covers and 2 Twitter covers are dead: the Instagram URLs carry
 signatures that expired years ago, `file` is `null` on all of them, and every
