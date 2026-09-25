@@ -6,4 +6,6 @@ No adapter flag is involved. `@astrojs/netlify` v7 has no `edgeFunctions` option
 
 ## Consequences
 
-Proxy responses pay a cold start and are served from one region rather than the edge, which is acceptable because responses are immutable and cached for a year. Dropping `sharp` would be a prerequisite for any move to edge execution.
+Proxy responses pay a cold start and are served from one region rather than the edge, which is acceptable because responses are immutable and cached for a year.
+
+The same constraint blocks the planned move to Cloudflare: the Workers runtime can't load native bindings either, so while this route exists as written, changing hosts is not an adapter swap. That decision is open — see `.scratch/cloudflare-migration/spec.md`, which scopes it to porting the resize onto Cloudflare's image transforms, dropping the resize and accepting the frame-time regression it prevents, or moving media into owned storage first so the proxy is no longer needed at all.
