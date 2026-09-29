@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "files": {
+    "includes": [
+      "**/*.css",
+      "!dist",
+      "!.astro",
+      // Slated for deletion with the /memorabilia page and its components.
+      "!src/components/selection/selection.css"
+    ]
+  },
+  "linter": {
+    "enabled": true
+  },
+  "formatter": {
+    "enabled": false
+  },
+  "assist": {
+    "enabled": false
+  },
+  "plugins": [
+    "./.biome/no-placeholder-css.grit"
+  ]
+}

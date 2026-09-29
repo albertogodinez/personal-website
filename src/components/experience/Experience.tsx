@@ -10,13 +10,13 @@ export interface ExperienceProps {
   projectExperience: ExperienceCollection;
 }
 
-const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, projectExperience }) => {
+const Experience: React.FC<ExperienceProps> = ({ allExperience }) => {
   return (
     <section id="experience" className="p-block-2 width-100">
       <h2>Experience</h2>
       <Accordion.Root className="flex flex-column gap-4 experience-accordion" type="single" collapsible>
-        {allExperience.map((experience: ExperienceCollectionEntry, i: number) => (
-          <Accordion.Item key={i} value={experience.data.company} className="flex flex-column gap-2 accordion-item">
+        {allExperience.map((experience: ExperienceCollectionEntry) => (
+          <Accordion.Item key={experience.data.company} value={experience.data.company} className="flex flex-column gap-2 accordion-item">
             <Accordion.Header>
               <Accordion.Trigger asChild>
                 <div className="flex flex-jc-space-between flex-ai-stretch experience-accordion__trigger">
@@ -35,8 +35,8 @@ const Experience: React.FC<ExperienceProps> = ({ allExperience, workExperience, 
             <Accordion.Content className="accordion-content">
               <p className="mb-2">{experience.data.description}</p>
               <div className="flex flex-wrap gap-2">
-                {experience.data.tags?.map((tag, i) => (
-                  <span key={i} className="action-trigger">
+                {experience.data.tags?.map((tag) => (
+                  <span key={tag} className="action-trigger">
                     #{tag}
                   </span>
                 ))}

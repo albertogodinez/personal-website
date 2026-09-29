@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # No `version:` on purpose — the action reads package.json's
+      # `packageManager` field, so this cannot drift from the repo's pin.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.21.0
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # oxlint on .ts/.tsx, Biome on .css. Both must pass.
+      - name: Lint
+        run: pnpm lint
+
+      # Advisory only: Biome's Astro support is experimental, so it must never
+      # gate CI. Remove `continue-on-error` when it reaches stable support.
+      - name: Lint .astro (advisory)
+        run: pnpm lint:astro
+        continue-on-error: true
+
+      # Typecheck, NOT a full build. `astro build` prerenders /moodboard, and
+      # src/components/RaindropWrapper.astro fetches the Raindrop API during
+      # that prerender, so a full build needs RAINDROP_* credentials and fails
+      # here with "Failed to parse URL from undefined/undefined". `astro check`
+      # runs tsc over the same tree and needs no secrets.
+      #
+      # The full build is still gated twice: .husky/pre-push runs it locally
+      # (where .env exists), and Netlify runs it on every push to main with the
+      # real environment variables. Netlify is the deploy gate.
+      - name: Typecheck
+        run: pnpm typecheck

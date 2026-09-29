@@ -2,17 +2,27 @@
   "name": "personal-website",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@10.34.6",
+  "engines": {
+    "node": ">=24.21.0",
+    "pnpm": ">=10.26.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "typecheck": "astro check",
+    "lint": "oxlint && biome lint .",
+    "lint:fix": "oxlint --fix && biome lint --write .",
+    "lint:astro": "biome lint . --config-path=./biome.astro.jsonc",
     "preview": "astro preview",
     "astro": "astro",
-    "scaffold:raindrop": "node ./src/scripts/scaffold-raindrop.js"
+    "scaffold:raindrop": "node ./src/scripts/scaffold-raindrop.ts",
+    "scaffold:raindrop:dry": "node ./src/scripts/scaffold-raindrop.ts --dry-run",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",
-    "@astrojs/mdx": "^5.0.3",
     "@astrojs/netlify": "^7.0.6",
     "@astrojs/react": "^5.0.3",
     "@astrojs/ts-plugin": "^1.10.7",
@@ -24,6 +34,9 @@
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-scroll-area": "^1.2.10",
     "@radix-ui/react-select": "^2.2.6",
+    "@react-spring/three": "^10.0.3",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "astro": "^6.1.6",
@@ -31,24 +44,18 @@
     "nanostores": "^1.1.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "sharp": "^0.34.5",
+    "three": "0.182.0",
     "typescript": "^5.9.3"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "esbuild",
-      "sharp"
-    ]
-  },
   "devDependencies": {
+    "@biomejs/biome": "2.5.14",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
-    "@typescript-eslint/parser": "^8.56.0",
-    "eslint": "^10.0.0",
-    "eslint-plugin-astro": "^1.6.0",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "postcss-html": "^1.8.1",
+    "@types/node": "^26.6.3",
+    "@types/three": "0.182.0",
+    "husky": "^9.1.7",
+    "oxlint": "1.86.0",
     "prettier": "^3.8.1",
-    "prettier-plugin-astro": "^0.14.1",
-    "stylelint-config-html": "^1.1.0"
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

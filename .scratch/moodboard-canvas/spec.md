@@ -9,11 +9,17 @@ projection decision. It is not a retelling of the original build.
 
 ## Problem Statement
 
-I saved 133 things to a Raindrop collection and built a 3D canvas to browse
-them. Today the board shows 90. A third of my collection is invisible, and
-the reason is that the covers were never mine — they were signed URLs
-pointing at Instagram's CDN, and those signatures expired years ago. Nothing
-warns me about this; the board simply looks smaller than it should.
+I saved things to a Raindrop collection and built a 3D canvas to browse them.
+Today the board hides a quarter of them. The reason is that the covers were
+never mine — they were signed URLs pointing at Instagram's CDN, and those
+signatures expired years ago. Nothing warns me about this; the board simply
+looks smaller than it should.
+
+As of the 2026-09-29 re-sync the collection holds 158 items and the board
+shows 116; 42 are withheld by the adapter's `cdninstagram.com` exclusion.
+Those 42 are **permanently** gone, not merely stale — re-fetching from the
+Raindrop API was measured to recover 0 of them (see
+`issues/15-raindrop-resync-fresh-covers.md`).
 
 The parts that do render still feel unfinished. Timeline mode stretches
 across a span I can't orient myself in, with no sense of where in time I am.

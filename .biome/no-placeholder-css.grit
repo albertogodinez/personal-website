@@ -1,0 +1,11 @@
+language css;
+
+// CODING_STANDARDS.md: never leave an empty CSS rule with a placeholder comment.
+// Biome's built-in noEmptyBlock misses the comment-only case; this catches both.
+`$selector { }` where {
+  register_diagnostic(
+    span = $selector,
+    message = "Empty CSS rule. If this class is only a JS hook, delete the rule instead of leaving a placeholder comment.",
+    severity = "error"
+  )
+}

@@ -1,32 +1,39 @@
 # 15 — Re-sync the collection for fresh signed covers
 
-Status: ready-for-agent
+Status: wontfix
 
-Not blocked on the content pipeline. Every step below is a Raindrop API re-fetch
-against the existing checked-in collection, which needs nothing the pipeline
-builds. The one prerequisite is a Raindrop API token in the environment, which
-only a human can supply.
+**Done, and the premise it rested on is disproven. Re-syncing recovers zero
+covers.** The re-fetch was run on 2026-09-29 and
+`src/content/moodboard/raindrop-collection.json` is updated, so the mechanical
+part of this ticket is complete. But the reason for doing it does not hold.
 
-42 Instagram covers and 2 Twitter covers are dead: the Instagram URLs carry
-signatures that expired years ago, `file` is `null` on all of them, and every
-entry in their `media[]` points at the same expired host. They come back only
-by re-fetching from the Raindrop API, which re-signs them. The 2 Twitter items
-are 404s from deleted tweets and will not come back at all.
+This ticket asserted that the dead Instagram covers "come back only by
+re-fetching from the Raindrop API, which re-signs them." Measured against the
+real API:
 
-Re-syncing alone only buys time — the fresh signatures will also expire. It is
-worth doing because it is the input to mirroring (ticket 16), not as a fix in
-itself.
+- **0** cover URLs changed among the 116 items present in both the old and new
+  collections. The API returns byte-identical URLs, not re-signed ones.
+- **8 of 8** sampled `cdninstagram.com` covers returned **HTTP 403** after the
+  re-fetch. Four non-Instagram covers from the same response returned HTTP 200,
+  so the probe method is sound.
 
-## Do
+Raindrop stores the cover URL it captured at bookmark time; it does not
+re-derive it. Nothing in this repo can make an expired Instagram signature
+valid again.
 
-- Re-fetch the collection from the Raindrop API, replacing
-  `src/content/moodboard/raindrop-collection.json`.
-- Confirm how many of the 42 Instagram covers return with working signatures.
-- Record the recovered count, and confirm the 2 Twitter items are permanently
-  gone.
+Recovered-cover count, which ticket 17 was waiting on: **0 of 42**.
 
-## Done when
+What the re-fetch did change is the collection itself — the board's content had
+drifted since the last sync:
 
-- The collection JSON is refreshed from the API.
-- The recovered-cover count is recorded here, so ticket 17 knows what removing
-  the host exclusion will actually reveal.
+- 133 → 158 items (**42 added, 17 removed**)
+- Items filtered out by the `cdninstagram.com` exclusion: 43 → 42
+- Usable cards: 90 → **116**
+- YouTube items: 7 → 12
+
+## Why this is `wontfix` rather than `ready-for-agent`
+
+Re-running it is cheap (`pnpm scaffold:raindrop`, and
+`pnpm scaffold:raindrop:dry` to preview) and worth doing whenever the board's
+content drifts. But as a *media-rot remedy* it is a dead end, so it is not a
+prerequisite for anything. Ticket 16 no longer waits on it.

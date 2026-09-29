@@ -27,3 +27,6 @@ pnpm-debug.log*
 raindrop/
 # Local Netlify folder
 .netlify
+
+# playwright MCP scratch output
+.playwright-mcp/

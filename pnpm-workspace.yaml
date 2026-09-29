@@ -1,0 +1,7 @@
+# Build scripts reviewed and deliberately NOT run: each one only compiles from
+# source when no prebuilt binary exists, and the prebuilt binaries were
+# verified on macOS arm64 and Linux x64 (2026-09-29).
+allowBuilds:
+  sharp: false
+  esbuild: false
+  '@parcel/watcher': false

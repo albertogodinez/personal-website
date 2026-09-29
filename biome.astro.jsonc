@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  // Advisory only — Biome's Astro support is experimental, so this config is
+  // never used by the gating `lint` script. See CODING_STANDARDS.md.
+  "html": {
+    "experimentalFullSupportEnabled": true
+  },
+  "files": {
+    "includes": [
+      "**/*.astro",
+      "!dist",
+      "!.astro"
+    ]
+  },
+  "linter": {
+    "enabled": true
+  },
+  "formatter": {
+    "enabled": false
+  },
+  "assist": {
+    "enabled": false
+  }
+}

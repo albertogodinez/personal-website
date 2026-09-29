@@ -1,8 +1,1890 @@
 [
   {
+    "_id": 1834631394,
+    "link": "https://x.com/warmplatypus/status/2092060143408050341?s=12",
+    "title": "this is the coolest fucking menu ive ever seen in a game",
+    "excerpt": "",
+    "note": "",
+    "type": "article",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://jf.x.com/images/media-preview/2092060143408050341",
+    "media": [
+      {
+        "link": "https://jf.x.com/images/media-preview/2092060143408050341",
+        "type": "image"
+      },
+      {
+        "link": "https://pbs.twimg.com/amplify_video_thumb/2092060005830725632/img/I-cUSOf3Br4Y82tW.jpg",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2026-08-26T03:45:02.159Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2026-08-26T03:45:15.313Z",
+    "domain": "x.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1834631394,
+    "cache": {
+      "status": "ready",
+      "created": "2026-08-26T03:45:49.265Z",
+      "size": 938868
+    },
+    "broken": false,
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1823353923,
+    "link": "https://api.raindrop.io/v2/raindrop/1823353923/file?type=image/png",
+    "title": "D8CFBE0E-235C-4A68-A77B-C194DE4553C2.png",
+    "excerpt": "",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F182%2F335%2F392%2F3%2FD8_CFBE_0_E_235_C_4_A68_A77_B_C194_DE_4553_C2.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2026-08-17T15:17:38.450Z",
+    "lastUpdate": "2026-08-17T15:17:40.153Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1823353923,
+    "file": {
+      "name": "D8CFBE0E-235C-4A68-A77B-C194DE4553C2.png",
+      "size": 3900477,
+      "type": "image/png"
+    },
+    "cache": {
+      "status": "ready",
+      "created": "2026-08-17T15:18:23.905Z",
+      "size": 0
+    },
+    "broken": false,
+    "highlights": [],
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1750522108,
+    "link": "https://youtube.com/watch?v=NgHvdCcmQ4o&si=sAzjEIB4g_s5Z3eh",
+    "title": "Once you see this, You’ll see Competitive Games Differently",
+    "excerpt": "Full image here: https://x.com/real_surnex/status/20632058245335326...",
+    "note": "",
+    "type": "video",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://i.ytimg.com/vi/NgHvdCcmQ4o/maxresdefault.jpg",
+    "media": [
+      {
+        "link": "https://i.ytimg.com/vi/NgHvdCcmQ4o/maxresdefault.jpg",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2026-06-09T05:02:45.941Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2026-06-09T05:03:04.465Z",
+    "domain": "youtube.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1750522108,
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-07-21T04:51:31.225Z",
+      "size": 6292
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1695948068,
+    "link": "https://www.instagram.com/p/DXe00uUgGXD/?igsh=OHpmNWtnZnhsbm5i",
+    "title": "HIDDEN® (@hidden.ny) • Instagram photos and videos",
+    "excerpt": "61K likes, 184 comments - hidden.ny on April 23, 2026: \"Creator of Dragon Ball Akira Toriyama’s favorite character is Piccolo, he is only about four years older than Gohan. Namekians age and grow much faster than humans or Saiyans, Piccolo was already nearly full grown by age three, Vegeta is technically the king of the Saiyans after Frieza killed his father, King Vegeta. He sticks with “Prince” out of respect for his dad\n\nThe legendary “over 9000” power level line of vegeta screaming about goku was originally scripted as “over 8000” in Japanese, the English dub changed it for dramatic effect, and it became a massive meme\n\nThe longest fight in anime history is Goku vs Frieza on Namek, it spans about 3.5 hours of screen time, even though Frieza claimed the planet would explode in just five minutes\n\nSources: @vegijto @xfolderr\".",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://scontent-dus1-1.cdninstagram.com/v/t51.82787-15/658141873_18403867150194748_3201661012523601511_n.jpg?stp=c288.0.864.864a_dst-jpg_e35_s640x640_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=p78SIrdw51IQ7kNvwEOjLnV&_nc_oc=AdqgmH1Z0AZjbZf4P3J9_d7hDy3GfsrXbMnuPP0QjTm_CW_kN1EkhYhYIxJE_C_fxhQ&_nc_zt=23&_nc_ht=scontent-dus1-1.cdninstagram.com&_nc_gid=hb--H47ObGMwnmOzKIOp7w&_nc_ss=78689&oh=00_Af3p78a7y6UpiZPxIlcrWQwsWUoUib72S0_ALN0cnRrKkA&oe=69F2B799",
+    "media": [
+      {
+        "link": "https://scontent-dus1-1.cdninstagram.com/v/t51.82787-15/658141873_18403867150194748_3201661012523601511_n.jpg?stp=c288.0.864.864a_dst-jpg_e35_s640x640_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=p78SIrdw51IQ7kNvwEOjLnV&_nc_oc=AdqgmH1Z0AZjbZf4P3J9_d7hDy3GfsrXbMnuPP0QjTm_CW_kN1EkhYhYIxJE_C_fxhQ&_nc_zt=23&_nc_ht=scontent-dus1-1.cdninstagram.com&_nc_gid=hb--H47ObGMwnmOzKIOp7w&_nc_ss=78689&oh=00_Af3p78a7y6UpiZPxIlcrWQwsWUoUib72S0_ALN0cnRrKkA&oe=69F2B799",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2026-04-25T17:30:34.892Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2026-04-25T17:30:48.712Z",
+    "domain": "instagram.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1695948068,
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-04-25T17:59:57.729Z",
+      "size": 1644088
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1644148822,
+    "link": "https://tim.blog/2026/03/04/the-self-help-trap/",
+    "title": "The Self-Help Trap: What 20+ Years of \"Optimizing\" Has Taught Me - The Blog of Author Tim Ferriss",
+    "excerpt": "“We cannot reason ourselves out of our basic irrationality. All we can do is to learn the art of being irrational in a reasonable way.” — Aldous Huxley, Island It was cold out, but none of us were cold. I sat with five men in the mountains of Montana. As the sun set, the fire […]",
+    "note": "",
+    "type": "link",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://tim.blog/wp-content/uploads/2026/03/image.jpeg",
+    "media": [
+      {
+        "link": "https://tim.blog/wp-content/uploads/2026/03/image.jpeg",
+        "type": "image"
+      },
+      {
+        "link": "https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&ssl=1",
+        "type": "image"
+      },
+      {
+        "link": "https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/473740018_10236432438330039_4700476155172834776_n-1772741127.0569.jpg?fit=300%2C300&ssl=1",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2026-03-15T02:23:36.513Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2026-03-15T02:24:02.510Z",
+    "domain": "tim.blog",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1644148822,
+    "cache": {
+      "status": "ready",
+      "created": "2026-03-15T02:24:53.598Z",
+      "size": 3342826
+    },
+    "broken": false,
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1500268785,
+    "link": "https://api.raindrop.io/v2/raindrop/1500268785/file?type=image/png",
+    "title": "B18E54C8-227D-40AD-91F0-925FCD7E4AC9.png",
+    "excerpt": "",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F150%2F026%2F878%2F5%2FB18_E54_C8_227_D_40_AD_91_F0_925_FCD_7_E4_AC_9.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2025-12-21T20:18:00.051Z",
+    "lastUpdate": "2025-12-21T20:18:14.007Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1500268785,
+    "file": {
+      "name": "B18E54C8-227D-40AD-91F0-925FCD7E4AC9.png",
+      "size": 874392,
+      "type": "image/png"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:44.721Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1500268445,
+    "link": "https://api.raindrop.io/v2/raindrop/1500268445/file?type=image/png",
+    "title": "95486C34-89F3-4EF2-91C7-A8AB4D6BF869.png",
+    "excerpt": "",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F150%2F026%2F844%2F5%2F95486_C34_89_F3_4_EF_2_91_C7_A8_AB_4_D6_BF_869.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2025-12-21T20:17:14.411Z",
+    "lastUpdate": "2025-12-21T20:17:14.602Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1500268445,
+    "file": {
+      "name": "95486C34-89F3-4EF2-91C7-A8AB4D6BF869.png",
+      "size": 1217534,
+      "type": "image/png"
+    },
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:44.721Z",
+      "size": 0
+    },
+    "highlights": [],
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1471026471,
+    "link": "https://t.co/SBYTYvJz5e?ssr=true",
+    "title": "you are now entering a fever dream",
+    "excerpt": "",
+    "note": "",
+    "type": "link",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://pbs.twimg.com/tweet_video_thumb/G7QY3HiXEAEMLWA.jpg:large",
+    "media": [
+      {
+        "link": "https://pbs.twimg.com/tweet_video_thumb/G7QY3HiXEAEMLWA.jpg:large",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2025-12-03T20:54:49.950Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2025-12-03T20:54:55.670Z",
+    "domain": "t.co",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1471026471,
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2025-12-03T20:58:19.174Z",
+      "size": 116274
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1436506830,
+    "link": "https://www.instagram.com/p/DOoSNW-jTlX/?igsh=MThrYmQ2YmoxeGppaA==",
+    "title": "Diego Andrade (@diegoandradeart) • Instagram photos and videos",
+    "excerpt": "3,412 likes, 60 comments - diegoandradeart on September 15, 2025: \"Dolor. ✨\nMixed media on Rosaspina paper. \n2025\n\nHice esta pieza para la segunda edición de @salonmesones ,gracias @___miguelcasco por la invitación, un gusto formar parte 🫰🏽✨\n\nI did this piece for @salonmesones collective show, thank you @___miguelcasco for the invitation, it was a pleasure to be part  of🫰🏽✨\n\n#diegoandradeart\".",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://scontent-ber1-1.cdninstagram.com/v/t51.82787-15/549173180_18525780163032809_654538701855762452_n.jpg?stp=c288.0.864.864a_dst-jpg_e35_s640x640_tt6&_nc_cat=109&ccb=1-7&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfQ09OVEFJTkVSLmJlc3RfaW1hZ2VfdXJsZ2VuLkMzIn0%3D&_nc_ohc=-b5RrQO7CvUQ7kNvwH38DPc&_nc_oc=AdnUYHzyvnddYyyqiWxk7nokRLkgnDH1FKHLPewFwjp9VD5vSKW6dSpkY8RVc582vGQ&_nc_zt=23&_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_gid=-nOxn9POlybaJwceH6Q06g&oh=00_AfgmF4ld2CC8g5kxAzlmpdpVmOcNEzSTQFloJIeYTYwkgw&oe=69205EF0",
+    "media": [
+      {
+        "link": "https://scontent-ber1-1.cdninstagram.com/v/t51.82787-15/549173180_18525780163032809_654538701855762452_n.jpg?stp=c288.0.864.864a_dst-jpg_e35_s640x640_tt6&_nc_cat=109&ccb=1-7&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfQ09OVEFJTkVSLmJlc3RfaW1hZ2VfdXJsZ2VuLkMzIn0%3D&_nc_ohc=-b5RrQO7CvUQ7kNvwH38DPc&_nc_oc=AdnUYHzyvnddYyyqiWxk7nokRLkgnDH1FKHLPewFwjp9VD5vSKW6dSpkY8RVc582vGQ&_nc_zt=23&_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_gid=-nOxn9POlybaJwceH6Q06g&oh=00_AfgmF4ld2CC8g5kxAzlmpdpVmOcNEzSTQFloJIeYTYwkgw&oe=69205EF0",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2025-11-17T01:42:31.119Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2025-11-17T01:42:34.541Z",
+    "domain": "instagram.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1436506830,
+    "cache": {
+      "status": "ready",
+      "created": "2025-11-17T01:43:57.463Z",
+      "size": 2330926
+    },
+    "broken": false,
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1422134357,
+    "link": "https://youtube.com/watch?v=_MW-g7sbUf8&si=EO0zjYTS4KLXPccI",
+    "title": "The Most Over-Engineered Video Game Character",
+    "excerpt": "It always seemed like Mario had a stranglehold on the world, until I dug a little deeper. See, Sonic was built in a lab, crafted, programmed and delivered to...",
+    "note": "",
+    "type": "video",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://i.ytimg.com/vi/_MW-g7sbUf8/maxresdefault.jpg",
+    "media": [
+      {
+        "link": "https://i.ytimg.com/vi/_MW-g7sbUf8/maxresdefault.jpg",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2025-11-05T03:14:17.454Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2025-11-05T03:14:24.280Z",
+    "domain": "youtube.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1422134357,
+    "broken": false,
+    "cache": {
+      "status": "invalid-origin"
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1411029397,
+    "link": "https://api.raindrop.io/v2/raindrop/1411029397/file?type=image/png",
+    "title": "EAF7D436-FBA0-4801-A810-B02FC6057A6B.png",
+    "excerpt": "",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F141%2F102%2F939%2F7%2FEAF_7_D436_FBA_0_4801_A810_B02_FC_6057_A6_B.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2025-10-27T01:38:35.207Z",
+    "lastUpdate": "2025-10-27T01:38:35.481Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1411029397,
+    "file": {
+      "name": "EAF7D436-FBA0-4801-A810-B02FC6057A6B.png",
+      "size": 719770,
+      "type": "image/png"
+    },
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:44.775Z",
+      "size": 0
+    },
+    "highlights": [],
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1322613043,
+    "link": "https://api.raindrop.io/v2/raindrop/1322613043/file?type=image/png",
+    "title": "54EC7F0C-FBD4-4A26-8842-ED070A6D459F.png",
+    "excerpt": "",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F132%2F261%2F304%2F3%2F54_EC_7_F0_C_FBD_4_4_A26_8842_ED_070_A6_D459_F.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2025-09-02T18:10:29.356Z",
+    "lastUpdate": "2025-09-02T18:10:29.515Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1322613043,
+    "file": {
+      "name": "54EC7F0C-FBD4-4A26-8842-ED070A6D459F.png",
+      "size": 1265853,
+      "type": "image/png"
+    },
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:44.680Z",
+      "size": 0
+    },
+    "highlights": [],
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1282652774,
+    "link": "https://youtube.com/watch?v=VLbWnJGlyMU&si=3JShYHO7AbPAYSvU",
+    "title": "A Bug's Life - ''Then they ALL might stand up to us''",
+    "excerpt": "EDIT---I DIDN'T DISABLE COMMENTS ON THIS VIDEO, YT DID!!!WITHOUT ASKING ME!!!This is how they keep us \"in line\"!P.S.YT is playing dirty with our Channel: I c...",
+    "note": "",
+    "type": "video",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://i.ytimg.com/vi/VLbWnJGlyMU/maxresdefault.jpg",
+    "media": [
+      {
+        "link": "https://i.ytimg.com/vi/VLbWnJGlyMU/maxresdefault.jpg",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2025-08-03T17:46:47.098Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2025-08-03T17:46:54.683Z",
+    "domain": "youtube.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1282652774,
+    "cache": {
+      "status": "invalid-origin"
+    },
+    "broken": false,
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1276704918,
+    "link": "https://api.raindrop.io/v2/raindrop/1276704918/file?type=image/png",
+    "title": "3B040B20-976F-488C-9183-75C84331543A.png",
+    "excerpt": "",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F127%2F670%2F491%2F8%2F3_B040_B20_976_F_488_C_9183_75_C84331543_A.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2025-07-31T15:50:19.229Z",
+    "lastUpdate": "2025-07-31T15:50:19.491Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1276704918,
+    "file": {
+      "name": "3B040B20-976F-488C-9183-75C84331543A.png",
+      "size": 1937154,
+      "type": "image/png"
+    },
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:44.776Z",
+      "size": 0
+    },
+    "highlights": [],
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1275545233,
+    "link": "https://api.raindrop.io/v2/raindrop/1275545233/file?type=image/png",
+    "title": "CFF87796-1406-4916-A788-6C083F80E798.png",
+    "excerpt": "",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F127%2F554%2F523%2F3%2FCFF_87796_1406_4916_A788_6_C083_F80_E798.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2025-07-31T02:16:07.586Z",
+    "lastUpdate": "2025-07-31T02:16:07.889Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1275545233,
+    "file": {
+      "name": "CFF87796-1406-4916-A788-6C083F80E798.png",
+      "size": 1447575,
+      "type": "image/png"
+    },
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:44.740Z",
+      "size": 0
+    },
+    "highlights": [],
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1242427062,
+    "link": "https://www.instagram.com/reel/DLasUUmSy86/?igsh=bmRnYWJ4OXl5ZzBj",
+    "title": "Andrew Knives (@andrewknives) • Instagram reel",
+    "excerpt": "100 likes, 4 comments - andrewknives on June 27, 2025: \"Impossible Island\".",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://scontent-fra3-2.cdninstagram.com/v/t51.71878-15/504373416_2188208231678356_5477892180982528629_n.jpg?stp=cmp1_dst-jpg_e35_s640x640_tt6&_nc_cat=104&ccb=1-7&_nc_sid=18de74&_nc_ohc=uJQSIUH1K70Q7kNvwEgTvE4&_nc_oc=AdnX22QjdA6TOxAFNhnMT21SEZP97lERRRAUNbhrj677IrS36EqgwTgTfGTpgy85kNs&_nc_zt=23&_nc_ht=scontent-fra3-2.cdninstagram.com&_nc_gid=afq3yl8UYRLmjo6xw66B-A&oh=00_AfShNsHDCvW6qgdR3tvm2eZh1a4kyucI-PHPST6EgY2O1Q&oe=6876FECB",
+    "media": [
+      {
+        "link": "https://scontent-fra3-2.cdninstagram.com/v/t51.71878-15/504373416_2188208231678356_5477892180982528629_n.jpg?stp=cmp1_dst-jpg_e35_s640x640_tt6&_nc_cat=104&ccb=1-7&_nc_sid=18de74&_nc_ohc=uJQSIUH1K70Q7kNvwEgTvE4&_nc_oc=AdnX22QjdA6TOxAFNhnMT21SEZP97lERRRAUNbhrj677IrS36EqgwTgTfGTpgy85kNs&_nc_zt=23&_nc_ht=scontent-fra3-2.cdninstagram.com&_nc_gid=afq3yl8UYRLmjo6xw66B-A&oh=00_AfShNsHDCvW6qgdR3tvm2eZh1a4kyucI-PHPST6EgY2O1Q&oe=6876FECB",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2025-07-11T17:01:44.261Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2025-07-11T17:01:49.839Z",
+    "domain": "instagram.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1242427062,
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2025-07-11T17:10:10.748Z",
+      "size": 465802
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1138048506,
+    "link": "https://api.raindrop.io/v2/raindrop/1138048506/file?type=image/png",
+    "title": "6FAFE90D-EF0A-44DB-A8B0-CE9E15B191ED.png",
+    "excerpt": "",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F113%2F804%2F850%2F6%2F6_FAFE_90_D_EF_0_A_44_DB_A8_B0_CE_9_E15_B191_ED.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2025-06-05T01:34:07.825Z",
+    "lastUpdate": "2025-06-05T01:34:07.995Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1138048506,
+    "file": {
+      "name": "6FAFE90D-EF0A-44DB-A8B0-CE9E15B191ED.png",
+      "size": 2225461,
+      "type": "image/png"
+    },
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.704Z",
+      "size": 0
+    },
+    "highlights": [],
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1132251927,
+    "link": "https://www.youtube.com/watch?v=IFDkcvrSaYU",
+    "title": "Samurai Jack- Tea Ceremony",
+    "excerpt": "Jack makes tea.S5E7. http://www.adultswim.com/videos/samurai-jack/",
+    "note": "",
+    "type": "video",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://i.ytimg.com/vi/IFDkcvrSaYU/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgRChUMA8=&rs=AOn4CLBcRVGVLpaDRwx19lB8OuP17ZcNyQ",
+    "media": [
+      {
+        "link": "https://i.ytimg.com/vi/IFDkcvrSaYU/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgRChUMA8=&rs=AOn4CLBcRVGVLpaDRwx19lB8OuP17ZcNyQ",
+        "type": "image"
+      },
+      {
+        "link": "https://i.ytimg.com/vi/YOY-6VCZhic/oardefault.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLCiLAXLPHaCGNRzMvcyzYNKB-FT6w",
+        "type": "image"
+      },
+      {
+        "link": "https://i.ytimg.com/vi/Fb1pKsm_9Z0/oardefault.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLAqeqJYfqp3bphMxhN82Yed-yPc6A",
+        "type": "image"
+      },
+      {
+        "link": "https://i.ytimg.com/vi/hj_G1ewHouU/oardefault.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLAPyMbCCk7ku5urObtCp7nfOSPNgQ",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "important": false,
+    "reminder": {
+      "date": null
+    },
+    "removed": false,
+    "created": "2025-06-03T04:08:14.931Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "highlights": [],
+    "lastUpdate": "2025-06-03T04:08:15.617Z",
+    "domain": "youtube.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1132251927,
+    "broken": false,
+    "cache": {
+      "status": "invalid-origin"
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1014354963,
+    "link": "https://www.instagram.com/p/DIYw97KRoiw/?igsh=d25lbTFkajFreTFn",
+    "title": "Tomas Sanchez (@tomassanchezstudio) • Instagram photo",
+    "excerpt": "1,885 likes, 11 comments - tomassanchezstudio on March 20, 2025: \"“Encontrar al contemplador”, 2005, acrylic on linen, 45,7 x 61 cm. | 18 x 24 in.\n \n#tomassanchez #art #artist #nature #meditation #painting #landscape #forest #explore #inspiration #satisfying\".",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://scontent-ber1-1.cdninstagram.com/v/t51.75761-15/485503031_18270443545282846_5282919138781257462_n.jpg?stp=c288.0.864.864a_dst-jpg_e35_s640x640_tt6&_nc_cat=105&ccb=1-7&_nc_sid=18de74&_nc_ohc=wQtIC4rglucQ7kNvwFuBVAE&_nc_oc=AdlbVxkzJtyYK1KHXvrJKlAlBaL8Eb09uPkfyHMDWDQR_GkL8FDSivAQsjd7Z8JmKzk&_nc_zt=23&_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_gid=r2TkoWrJA2UFrrKiU9CzqQ&oh=00_AfH4C5AMLeDE4v_uu4o_1HamV4mPa9KBP3mzWMZvznQwYg&oe=6801D91D",
+    "media": [
+      {
+        "link": "https://scontent-ber1-1.cdninstagram.com/v/t51.75761-15/485503031_18270443545282846_5282919138781257462_n.jpg?stp=c288.0.864.864a_dst-jpg_e35_s640x640_tt6&_nc_cat=105&ccb=1-7&_nc_sid=18de74&_nc_ohc=wQtIC4rglucQ7kNvwFuBVAE&_nc_oc=AdlbVxkzJtyYK1KHXvrJKlAlBaL8Eb09uPkfyHMDWDQR_GkL8FDSivAQsjd7Z8JmKzk&_nc_zt=23&_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_gid=r2TkoWrJA2UFrrKiU9CzqQ&oh=00_AfH4C5AMLeDE4v_uu4o_1HamV4mPa9KBP3mzWMZvznQwYg&oe=6801D91D",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2025-04-13T17:22:04.129Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2025-04-13T17:22:10.992Z",
+    "domain": "instagram.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1014354963,
+    "cache": {
+      "status": "ready",
+      "created": "2025-04-13T17:23:45.064Z",
+      "size": 410799
+    },
+    "broken": false,
+    "collectionId": 21057150
+  },
+  {
+    "_id": 1003701979,
+    "link": "https://www.instagram.com/p/DH0usS5xMX2/?igsh=cTRmdHZweDkweThl",
+    "title": "mymind (@mymind) • Instagram photo",
+    "excerpt": "44 likes, 0 comments - mymind on March 30, 2025: \"Happy Sunday\".",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://scontent-ber1-1.cdninstagram.com/v/t51.75761-15/487840641_18018701576680025_5522564354082963230_n.jpg?stp=c176.0.530.529a_dst-jpg_e35_s640x640_tt6&_nc_cat=105&ccb=1-7&_nc_sid=18de74&_nc_ohc=ZRmHBUtT1F0Q7kNvgFt4hYQ&_nc_oc=AdmOKM8osVFhTuKfILJq8jn2l1gFesJN8Ttc7OmIWXDMBquaoRKQvrCqKRVutecZYDQ&_nc_zt=23&_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_gid=uL-H5G9-2BMl77-NRuCdRw&oh=00_AYGygVYQWrQynsri-jdWDKzHYlqQcsBcbaSLcBX51kZerw&oe=67EF1283",
+    "media": [
+      {
+        "link": "https://scontent-ber1-1.cdninstagram.com/v/t51.75761-15/487840641_18018701576680025_5522564354082963230_n.jpg?stp=c176.0.530.529a_dst-jpg_e35_s640x640_tt6&_nc_cat=105&ccb=1-7&_nc_sid=18de74&_nc_ohc=ZRmHBUtT1F0Q7kNvgFt4hYQ&_nc_oc=AdmOKM8osVFhTuKfILJq8jn2l1gFesJN8Ttc7OmIWXDMBquaoRKQvrCqKRVutecZYDQ&_nc_zt=23&_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_gid=uL-H5G9-2BMl77-NRuCdRw&oh=00_AYGygVYQWrQynsri-jdWDKzHYlqQcsBcbaSLcBX51kZerw&oe=67EF1283",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2025-03-30T14:40:26.723Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2025-03-30T14:40:33.196Z",
+    "domain": "instagram.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 1003701979,
+    "cache": {
+      "status": "ready",
+      "created": "2025-03-30T14:42:06.793Z",
+      "size": 414960
+    },
+    "broken": false,
+    "collectionId": 21057150
+  },
+  {
+    "_id": 988187436,
+    "link": "https://youtube.com/watch?v=WyvfKFVRqVs&si=KQZyYiLql1G6j0pI",
+    "title": "How Pokemon 8-bit music was inspired by classical music",
+    "excerpt": "Junichi Masuda's soundtrack for the original Pokémon Red, Blue and Yellow games is iconic. Despite the limited hardware offered by the Gameboy, Masuda manage...",
+    "note": "",
+    "type": "video",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://i.ytimg.com/vi/WyvfKFVRqVs/maxresdefault.jpg",
+    "media": [
+      {
+        "link": "https://i.ytimg.com/vi/WyvfKFVRqVs/maxresdefault.jpg",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2025-03-09T03:05:46.636Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2025-03-09T03:06:27.087Z",
+    "domain": "youtube.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 988187436,
+    "cache": {
+      "status": "invalid-origin"
+    },
+    "broken": false,
+    "collectionId": 21057150
+  },
+  {
+    "_id": 978221471,
+    "link": "https://api.raindrop.io/v2/raindrop/978221471/file?type=image/png",
+    "title": "a6119b33bcddaf0d76c83e1a433a754d7e3a9d6c.png",
+    "excerpt": "",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F978%2F221%2F471%2Fa6119b33bcddaf0d76c83e1a433a754d7e3a9d6c.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2025-02-24T03:14:53.198Z",
+    "lastUpdate": "2025-02-24T03:14:53.499Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 978221471,
+    "file": {
+      "name": "a6119b33bcddaf0d76c83e1a433a754d7e3a9d6c.png",
+      "size": 5206804,
+      "type": "image/png"
+    },
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:44.939Z",
+      "size": 0
+    },
+    "highlights": [],
+    "collectionId": 21057150
+  },
+  {
+    "_id": 975223971,
+    "link": "https://api.raindrop.io/v2/raindrop/975223971/file?type=image/png",
+    "title": "00afcd4f0b45f26ff5efd9afd33e76a9714ea301.png",
+    "excerpt": "",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F975%2F223%2F971%2F00afcd4f0b45f26ff5efd9afd33e76a9714ea301.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2025-02-19T02:29:11.706Z",
+    "lastUpdate": "2025-02-19T02:29:25.099Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 975223971,
+    "file": {
+      "name": "00afcd4f0b45f26ff5efd9afd33e76a9714ea301.png",
+      "size": 2474468,
+      "type": "image/png"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:44.881Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 969456481,
+    "link": "https://m.youtube.com/watch?v=BJe7BvZoF1g",
+    "title": "Recordando las CHISPAS DE INSURGENTES",
+    "excerpt": "",
+    "note": "",
+    "type": "video",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://i.ytimg.com/vi/BJe7BvZoF1g/hqdefault.jpg",
+    "media": [
+      {
+        "link": "https://i.ytimg.com/vi/BJe7BvZoF1g/hqdefault.jpg",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2025-02-12T02:55:41.970Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2025-02-12T02:55:50.023Z",
+    "domain": "m.youtube.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 969456481,
+    "cache": {
+      "status": "ready",
+      "size": 503776,
+      "created": "2025-02-12T02:57:02.128Z"
+    },
+    "broken": false,
+    "collectionId": 21057150
+  },
+  {
+    "_id": 934270902,
+    "link": "https://www.instagram.com/share/BAi4MIg-SB",
+    "title": "cozyvu on Instagram: \"School in the Crosshairs (Nobuhiko Obayashi, 1981)\"",
+    "excerpt": "1,007 likes, 4 comments - cozyvu on February 9, 2024: \"School in the Crosshairs (Nobuhiko Obayashi, 1981)\".",
+    "note": "",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://scontent-iad3-2.cdninstagram.com/v/t51.29350-15/425745343_893378682276047_8195079207879366118_n.jpg?stp=dst-jpg_e35_s640x640_sh0.08_tt6&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_cat=111&_nc_ohc=w_kxkzgOJuMQ7kNvgH_ZW7s&_nc_gid=0a72911f91174b5daa11e78ef8a141ad&edm=AMO9-JQAAAAA&ccb=7-5&oh=00_AYBBjJPLJipnVbvpantQ7M_9fs8CqS0yZ67GC2eCj804TA&oe=67796E78&_nc_sid=cc8940",
+    "media": [
+      {
+        "link": "https://scontent-iad3-2.cdninstagram.com/v/t51.29350-15/425745343_893378682276047_8195079207879366118_n.jpg?stp=dst-jpg_e35_s640x640_sh0.08_tt6&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_cat=111&_nc_ohc=w_kxkzgOJuMQ7kNvgH_ZW7s&_nc_gid=0a72911f91174b5daa11e78ef8a141ad&edm=AMO9-JQAAAAA&ccb=7-5&oh=00_AYBBjJPLJipnVbvpantQ7M_9fs8CqS0yZ67GC2eCj804TA&oe=67796E78&_nc_sid=cc8940",
+        "type": "image"
+      }
+    ],
+    "tags": [],
+    "highlights": [],
+    "important": false,
+    "removed": false,
+    "created": "2024-12-31T08:02:37.230Z",
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "lastUpdate": "2024-12-31T08:02:48.331Z",
+    "domain": "instagram.com",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 934270902,
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "size": 2222853,
+      "created": "2024-12-31T08:05:34.555Z"
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 911980974,
+    "link": "https://api.raindrop.io/v2/raindrop/911980974/file?type=image/jpeg",
+    "title": "her vibe",
+    "excerpt": "",
+    "note": "{source: \"https://www.instagram.com/p/DB9hKguys5F/\"}",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F911%2F980%2F974%2FInstagram_Post_Image.jpg",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-30T20:15:27.329Z",
+    "lastUpdate": "2024-11-30T20:15:51.582Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 911980974,
+    "file": {
+      "name": "Instagram Post Image.jpg",
+      "size": 499046,
+      "type": "image/jpeg"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.076Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 911464673,
+    "link": "https://api.raindrop.io/v2/raindrop/911464673/file?type=image/jpeg",
+    "title": "GANNI x New Balance",
+    "excerpt": "",
+    "note": "{ source: \"https://www.instagram.com/p/DC38tZfT7N2/\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F911%2F464%2F673%2FInstagram_Post_DC_38t_Zf_T7_N2.jpg",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-29T17:12:50.011Z",
+    "lastUpdate": "2024-11-29T17:13:19.996Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 911464673,
+    "file": {
+      "name": "Instagram Post DC38tZfT7N2.jpg",
+      "size": 263509,
+      "type": "image/jpeg"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.737Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896667082,
+    "link": "https://api.raindrop.io/v2/raindrop/896667082/file?type=image/jpeg",
+    "title": "Compassionate Note To Self Artwork",
+    "excerpt": "",
+    "note": "{ source: \"https://x.com/theartidote/status/1626291780508598273\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F667%2F082%2FCompassionate_Note_To_Self_Artwork.jpeg",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:50:15.285Z",
+    "lastUpdate": "2024-11-09T14:50:27.660Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896667082,
+    "file": {
+      "name": "Compassionate Note To Self Artwork.jpeg",
+      "size": 343784,
+      "type": "image/jpeg"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.077Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896666562,
+    "link": "https://api.raindrop.io/v2/raindrop/896666562/file?type=image/jpeg",
+    "title": "you deserve the world",
+    "excerpt": "What if it works out for you exactly how you want it or greater. Imagine that.It's also a possibility.artwork by https://t.co/pxJcWbP4xb pic.twitter.com/qQB0LZCkXc— the artidote (@TheArtidote) February 16, 2023",
+    "note": "{ source: \"https://x.com/theartidote/status/1626288671040376832\" ",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F666%2F562%2FArtidote_Artwork.jpeg",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:49:16.955Z",
+    "lastUpdate": "2024-11-09T14:50:12.408Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896666562,
+    "file": {
+      "name": "Artidote Artwork.jpeg",
+      "size": 165986,
+      "type": "image/jpeg"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.088Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896665737,
+    "link": "https://api.raindrop.io/v2/raindrop/896665737/file?type=image/jpeg",
+    "title": "BMW e30 M3",
+    "excerpt": "The story behind that iconic orange BMW e30 M3 on Frank Ocean's nostalgia, ULTRA. By @samutaro\n13 years ago today, blonded self released his debut mixtape\n'nostalgia, ULTRA' through his Tumblr account. Aside from the incredible track listing, the vehicle on the cover is perhaps one of the other most memorable parts of the album.\nDespite fan accounts, the 1988 BMW e30 M3 that graced the cover was not in fact owned by Frank, rather it was lifted from a BMW forum in 2009. The story goes that Frank discovered the images on a S14.net post from a seller under the name 'Dricebug' who had taken the photos in Hockessin, Delaware.\nThe original listing reveals all the cosmetic and performance modifications that were carried out on the vehicle. It was sold for just 12k to Evans61 - a fraction of the price of what they resell\ntoday.\nExactly a week after the release of the mixtape Evans61 acknowledged that Frank had used his car without consent or any financial compensation. He a so confirmed that he still owns the vehicle. It was same situation for Driceburg too. \"I never gave him permission, but hey, I get to see lots of my old car everywhere,\" he wrote on Reddit\nThe story has since circulated Reddit threads and recently did the rounds on TikTok when @gee_derrick ran a video on the story.\nWhat made things even more confusing for fans was that Frank ended up purchasing an identical orange BMW E30, custom built by Castro Motorsports. Thanks to its appearance on his socials, plus the five other editions of the e30 he owns, the car is now synonymous with his image",
+    "note": "{ source: \"https://www.instagram.com/p/Covzq4jJgWo/?img_index=1\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F665%2F737%2FInstagram_Image_from_Dev_Tools.jpg",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:47:26.967Z",
+    "lastUpdate": "2024-11-09T14:48:12.849Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896665737,
+    "file": {
+      "name": "Instagram Image from DevTools.jpg",
+      "size": 87871,
+      "type": "image/jpeg"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.052Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896664757,
+    "link": "https://api.raindrop.io/v2/raindrop/896664757/file?type=image/png",
+    "title": "bye bye butterfree",
+    "excerpt": "",
+    "note": "{ source: \"https://www.instagram.com/p/CovLl2kuKym/\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F664%2F757%2FClean_Shot_2024_11_09_at_08_45_31_2x.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:45:54.347Z",
+    "lastUpdate": "2024-11-09T14:46:27.548Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896664757,
+    "file": {
+      "name": "CleanShot 2024-11-09 at 08.45.31@2x.png",
+      "size": 988295,
+      "type": "image/png"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.871Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896664347,
+    "link": "https://api.raindrop.io/v2/raindrop/896664347/file?type=image/jpeg",
+    "title": "actually, life is beautiful",
+    "excerpt": "",
+    "note": "{ source: \"https://www.instagram.com/p/Co3DyqAuIcw/\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F664%2F347%2FInstagram_Post_Image.jpg",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:44:45.751Z",
+    "lastUpdate": "2024-11-09T14:45:07.629Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896664347,
+    "file": {
+      "name": "Instagram Post Image.jpg",
+      "size": 140310,
+      "type": "image/jpeg"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.485Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896663207,
+    "link": "https://api.raindrop.io/v2/raindrop/896663207/file?type=image/png",
+    "title": "i hope you heal",
+    "excerpt": "",
+    "note": "{ source: \"https://www.instagram.com/p/Cna3M_GupBy/\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F663%2F207%2FClean_Shot_2024_11_09_at_08_40_21_2x.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:42:02.320Z",
+    "lastUpdate": "2024-11-09T14:42:27.589Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896663207,
+    "file": {
+      "name": "CleanShot 2024-11-09 at 08.40.21@2x.png",
+      "size": 806927,
+      "type": "image/png"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.485Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896650183,
+    "link": "https://api.raindrop.io/v2/raindrop/896650183/file?type=image/jpeg",
+    "title": "minolta",
+    "excerpt": "Vision, strength & beauty – The story of Saul Bass, Herb Yager & Associates' 1980 logo for MinoltaDiscover this and other logo stories at https://t.co/iXtpnklgXg#logos #branding #logodesign #designhistory #graphicdesign pic.twitter.com/I2uJ7xoKsQ— Logo Histories (@logohistories) March 1, 2023",
+    "note": "{ source: \"https://x.com/logohistories/status/1630870598837493761\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F650%2F183%2FMinolta_Logo_History.jpeg",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:37:50.987Z",
+    "lastUpdate": "2024-11-09T14:38:12.711Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896650183,
+    "file": {
+      "name": "Minolta Logo History.jpeg",
+      "size": 3437963,
+      "type": "image/jpeg"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.872Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896647198,
+    "link": "https://api.raindrop.io/v2/raindrop/896647198/file?type=image/jpeg",
+    "title": "multiscreen",
+    "excerpt": "",
+    "note": "{source: \"https://x.com/archillect/status/1632025796746387456\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F647%2F198%2FArchillect_Image_from_X_1.jpeg",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:36:16.432Z",
+    "lastUpdate": "2024-11-09T14:36:58.086Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896647198,
+    "file": {
+      "name": "Archillect Image from X (1).jpeg",
+      "size": 59202,
+      "type": "image/jpeg"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.485Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896646313,
+    "link": "https://api.raindrop.io/v2/raindrop/896646313/file?type=image/jpeg",
+    "title": "current mood: escaping",
+    "excerpt": "",
+    "note": "{source: \"https://x.com/archillect/status/1631640925645447169\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F646%2F313%2FArchillect_Image_from_X.jpeg",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:34:16.459Z",
+    "lastUpdate": "2024-11-09T14:35:34.885Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896646313,
+    "file": {
+      "name": "Archillect Image from X.jpeg",
+      "size": 26120,
+      "type": "image/jpeg"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.383Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896644703,
+    "link": "https://api.raindrop.io/v2/raindrop/896644703/file?type=video/mp4",
+    "title": "Batou",
+    "excerpt": "",
+    "note": "{ source: \"ghost in the shell\" }",
+    "type": "video",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F644%2F703%2FGIF_to_MP_4_Converter.mp4",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:29:40.913Z",
+    "lastUpdate": "2024-11-09T14:30:49.117Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896644703,
+    "file": {
+      "name": "GIF to MP4 Converter.mp4",
+      "size": 124154,
+      "type": "video/mp4"
+    },
+    "highlights": [],
+    "cache": {
+      "status": "ready",
+      "size": 0,
+      "created": "2024-11-09T14:34:27.981Z"
+    },
+    "broken": false,
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896640509,
+    "link": "https://api.raindrop.io/v2/raindrop/896640509/file?type=video/mp4",
+    "title": "absorbing everything",
+    "excerpt": "",
+    "note": "{ source: \"https://x.com/jonsson_scott/status/1637177188071129089\" }",
+    "type": "video",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F640%2F509%2FImage_890x1280_GIF_to_MP_4.mp4",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:21:27.859Z",
+    "lastUpdate": "2024-11-09T14:23:29.940Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896640509,
+    "file": {
+      "name": "Image 890x1280 GIF to MP4.mp4",
+      "size": 308978,
+      "type": "video/mp4"
+    },
+    "highlights": [],
+    "cache": {
+      "status": "ready",
+      "size": 0,
+      "created": "2024-11-09T14:28:12.599Z"
+    },
+    "broken": false,
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896635029,
+    "link": "https://api.raindrop.io/v2/raindrop/896635029/file?type=image/png",
+    "title": "shortness of life",
+    "excerpt": "",
+    "note": "{ source: \"https://x.com/tylerbruno05/status/1797374033530597860\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F635%2F029%2FImage_from_X.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:05:45.830Z",
+    "lastUpdate": "2024-11-09T14:06:18.529Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896635029,
+    "file": {
+      "name": "Image from X.png",
+      "size": 76431,
+      "type": "image/png"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.872Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896634878,
+    "link": "https://api.raindrop.io/v2/raindrop/896634878/file?type=image/png",
+    "title": "note to self",
+    "excerpt": "",
+    "note": "{ source: \"unknown\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F634%2F878%2FFile_760x512.png",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:05:10.658Z",
+    "lastUpdate": "2024-11-09T14:05:30.411Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896634878,
+    "file": {
+      "name": "File 760x512.png",
+      "size": 67793,
+      "type": "image/png"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.872Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896633892,
+    "link": "https://api.raindrop.io/v2/raindrop/896633892/file?type=image/jpeg",
+    "title": "memories",
+    "excerpt": "",
+    "note": "{ source: \"https://www.amazon.com/MEMORIES-DVD/dp/B0000C8RA8\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F633%2F892%2FFile_1440x1800.jpeg",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T14:01:25.774Z",
+    "lastUpdate": "2024-11-09T14:01:47.075Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896633892,
+    "file": {
+      "name": "File 1440x1800.jpeg",
+      "size": 673853,
+      "type": "image/jpeg"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.872Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
+    "_id": 896633171,
+    "link": "https://api.raindrop.io/v2/raindrop/896633171/file?type=image/jpeg",
+    "title": "kakashi",
+    "excerpt": "",
+    "note": "{ source: \"https://www.pinterest.com/pin/826199494172120933/\" }",
+    "type": "image",
+    "user": {
+      "$ref": "users",
+      "$id": 732219
+    },
+    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F896%2F633%2F171%2Fkakashi.jpeg",
+    "tags": [],
+    "removed": false,
+    "collection": {
+      "$ref": "collections",
+      "$id": 21057150,
+      "oid": 21057150
+    },
+    "media": [],
+    "created": "2024-11-09T13:59:09.106Z",
+    "lastUpdate": "2024-11-09T13:59:31.034Z",
+    "domain": "up.raindrop.io",
+    "creatorRef": {
+      "_id": 732219,
+      "avatar": "",
+      "name": "alberto_godinez",
+      "email": ""
+    },
+    "sort": 896633171,
+    "file": {
+      "name": "kakashi.jpeg",
+      "size": 298377,
+      "type": "image/jpeg"
+    },
+    "highlights": [],
+    "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.872Z",
+      "size": 0
+    },
+    "collectionId": 21057150
+  },
+  {
     "_id": 872677513,
     "link": "https://api.raindrop.io/v2/raindrop/872677513/file?type=image/jpeg",
-    "title": "Live in Brussels",
+    "title": "live in brussels",
     "excerpt": "",
     "note": "{ source: \"https://www.instagram.com/p/CqBPmIVo1Xa/\" }",
     "type": "image",
@@ -20,7 +1902,7 @@
     },
     "media": [],
     "created": "2024-10-12T03:25:02.745Z",
-    "lastUpdate": "2024-10-12T03:25:24.540Z",
+    "lastUpdate": "2024-11-09T14:07:04.902Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -36,12 +1918,17 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.599Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 872677347,
     "link": "https://api.raindrop.io/v2/raindrop/872677347/file?type=image/jpeg",
-    "title": "It's supposed to be hard",
+    "title": "it's supposed to be hard",
     "excerpt": "",
     "note": "{ source: \"https://www.instagram.com/p/C3BLmFaPst4/\" }",
     "type": "image",
@@ -59,7 +1946,7 @@
     },
     "media": [],
     "created": "2024-10-12T03:22:44.562Z",
-    "lastUpdate": "2024-10-12T03:23:03.788Z",
+    "lastUpdate": "2024-11-09T14:07:08.982Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -75,12 +1962,17 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:53.878Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 872677220,
     "link": "https://api.raindrop.io/v2/raindrop/872677220/file?type=image/png",
-    "title": "Apple Ads",
+    "title": "apple ads",
     "excerpt": "",
     "note": "{ source: \"https://x.com/mymind/status/1634227755331010574\" }",
     "type": "image",
@@ -98,7 +1990,7 @@
     },
     "media": [],
     "created": "2024-10-12T03:21:25.130Z",
-    "lastUpdate": "2024-10-12T03:21:48.372Z",
+    "lastUpdate": "2024-11-09T14:07:14.297Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -114,12 +2006,17 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:53.878Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 872676558,
     "link": "https://api.raindrop.io/v2/raindrop/872676558/file?type=image/jpeg",
-    "title": "Contemplar al meditador de la isla",
+    "title": "contemplar al meditador de la isla",
     "excerpt": "",
     "note": "{ source: \"https://www.instagram.com/p/CqVHO_8LTSR/\" }",
     "type": "image",
@@ -137,7 +2034,7 @@
     },
     "media": [],
     "created": "2024-10-12T03:17:39.193Z",
-    "lastUpdate": "2024-10-12T03:18:01.245Z",
+    "lastUpdate": "2024-11-09T14:06:35.742Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -153,6 +2050,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.781Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -192,12 +2094,17 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.781Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 872605703,
     "link": "https://api.raindrop.io/v2/raindrop/872605703/file?type=image/jpeg",
-    "title": "Dipped painting",
+    "title": "dipped painting",
     "excerpt": "",
     "note": "{ source: \"https://www.instagram.com/p/CrbdzTgvjEd/\" }",
     "type": "image",
@@ -215,7 +2122,7 @@
     },
     "media": [],
     "created": "2024-10-12T00:55:03.064Z",
-    "lastUpdate": "2024-10-12T00:55:20.115Z",
+    "lastUpdate": "2024-11-09T14:06:38.821Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -231,12 +2138,17 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.380Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 872605601,
     "link": "https://api.raindrop.io/v2/raindrop/872605601/file?type=image/jpeg",
-    "title": "Full Belly",
+    "title": "full belly",
     "excerpt": "",
     "note": "{source: \"https://www.instagram.com/p/Cr6LHv_otVB/\"}",
     "type": "image",
@@ -254,7 +2166,7 @@
     },
     "media": [],
     "created": "2024-10-12T00:53:58.341Z",
-    "lastUpdate": "2024-10-12T00:54:17.068Z",
+    "lastUpdate": "2024-11-09T14:06:46.391Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -270,6 +2182,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:53.878Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -309,12 +2226,17 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.378Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 872601467,
     "link": "https://api.raindrop.io/v2/raindrop/872601467/file?type=image/jpeg",
-    "title": "Meditación antes del amanecer",
+    "title": "meditación antes del amanecer",
     "excerpt": "",
     "note": "{source: \"https://www.instagram.com/p/Cv7DYRqOkdP/\" }",
     "type": "image",
@@ -332,7 +2254,7 @@
     },
     "media": [],
     "created": "2024-10-12T00:51:36.176Z",
-    "lastUpdate": "2024-10-12T00:52:03.093Z",
+    "lastUpdate": "2024-11-09T14:06:49.983Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -348,12 +2270,17 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.781Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 872599639,
     "link": "https://api.raindrop.io/v2/raindrop/872599639/file?type=image/jpeg",
-    "title": "No deadline today",
+    "title": "no deadline today",
     "excerpt": "",
     "note": "{ source: \"https://www.instagram.com/p/C6a_aTVoWlE/\" }",
     "type": "image",
@@ -371,7 +2298,7 @@
     },
     "media": [],
     "created": "2024-10-12T00:48:43.771Z",
-    "lastUpdate": "2024-10-12T00:49:01.023Z",
+    "lastUpdate": "2024-11-09T14:06:58.104Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -387,6 +2314,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:47.682Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -426,6 +2358,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:53.878Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -465,6 +2402,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.704Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -504,12 +2446,17 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.244Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 872598636,
     "link": "https://api.raindrop.io/v2/raindrop/872598636/file?type=image/jpeg",
-    "title": "ram on Instagram: \"Faves of Month 2 of the 365 (2021) The first post is actually a very special poster. I remember making this on Twitch live to people and @geo.graphicdesigner and @kool.type got on a call with me to help me figure out Illustrator lol never really did figured that out! HA HA but it was fun times. Also it's actually hard to pick my 9 faves from each month... like all of these are my babies and every single one felt like a journal entry. it's weird trying to make something personal and impersonal enough to have distance for public consumption. the nature of art or just expressing yourself online. anyways, ask me anything on these cuz I really can't think of anything to say anymore other than oversettext dot com\"",
+    "title": "who are you when no one is watching?",
     "excerpt": "",
     "note": "{source: \"https://www.instagram.com/p/C8C7KO3vU6A/?igsh=dXQxdGozbm44OXYx\"}",
     "type": "image",
@@ -527,7 +2474,7 @@
     },
     "media": [],
     "created": "2024-10-12T00:38:36.096Z",
-    "lastUpdate": "2024-10-12T00:43:10.227Z",
+    "lastUpdate": "2024-11-09T14:31:31.654Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -544,7 +2491,12 @@
     "broken": false,
     "highlights": [],
     "reminder": {
-      "date": "2025-04-10T00:38:00.000Z"
+      "date": null
+    },
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:53.878Z",
+      "size": 0
     },
     "collectionId": 21057150
   },
@@ -585,100 +2537,19 @@
     },
     "highlights": [],
     "broken": false,
-    "collectionId": 21057150
-  },
-  {
-    "_id": 872257170,
-    "link": "https://scontent.cdninstagram.com/v/t51.29350-15/452077227_456658530464385_9028884203222342293_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyLmYyOTM1MC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=scontent.cdninstagram.com&_nc_cat=109&_nc_ohc=jUpO3bHYVSQQ7kNvgHqw-u-&_nc_gid=fb175ede6d5d47ea9b240afb66c95c6a&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MzQxODM4ODI2NTY4Njg3NTgwOA%3D%3D.3-ccb7-5&oh=00_AYCQP3vrFumnEHM7K8tv0ZHfg8HWFuGphfZ1cQaEajj4dg&oe=670F1DB6&_nc_sid=10d13b",
-    "title": "Memories (1995) - Japan",
-    "excerpt": "",
-    "note": "The movie posters of Katsuhiro Otomo\n\nMovie studios often adapt the layout and taglines of promotional material depending on the region they release in. The iconic movie posters of manga & anime master Katsuhiro Otomo were no exception.",
-    "type": "image",
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "cover": "https://rdl.ink/render/https%3A%2F%2Fscontent.cdninstagram.com%2Fv%2Ft51.29350-15%2F452077227_456658530464385_9028884203222342293_n.jpg%3Fstp%3Ddst-jpg_e35%26efg%3DeyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyLmYyOTM1MC5kZWZhdWx0X2ltYWdlIn0%26_nc_ht%3Dscontent.cdninstagram.com%26_nc_cat%3D109%26_nc_ohc%3DjUpO3bHYVSQQ7kNvgHqw-u-%26_nc_gid%3Dfb175ede6d5d47ea9b240afb66c95c6a%26edm%3DAPs17CUBAAAA%26ccb%3D7-5%26ig_cache_key%3DMzQxODM4ODI2NTY4Njg3NTgwOA%253D%253D.3-ccb7-5%26oh%3D00_AYCQP3vrFumnEHM7K8tv0ZHfg8HWFuGphfZ1cQaEajj4dg%26oe%3D670F1DB6%26_nc_sid%3D10d13b",
-    "media": [],
-    "tags": [],
-    "important": false,
-    "reminder": {
-      "date": null
-    },
-    "removed": false,
-    "created": "2024-10-11T14:57:45.741Z",
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "highlights": [],
-    "lastUpdate": "2024-10-11T14:58:12.892Z",
-    "domain": "scontent.cdninstagram.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 872257170,
-    "broken": false,
     "cache": {
       "status": "ready",
-      "size": 673853,
-      "created": "2024-10-11T15:01:38.417Z"
+      "created": "2026-05-24T06:28:46.244Z",
+      "size": 0
     },
-    "collectionId": 21057150
-  },
-  {
-    "_id": 807249791,
-    "link": "https://s3.eu-central-1.wasabisys.com/cache.raindrop.io/807/249/791/file?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=BE6X466RAMMR6TB09V4G%2F20241012%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241012T002805Z&X-Amz-Expires=1800&X-Amz-Signature=0e504823a76f3d50c33381d9af6acf800b9d5fa6ff54461a17100d9f17144cbf&X-Amz-SignedHeaders=host&x-id=GetObject",
-    "title": "Kakashi",
-    "excerpt": "",
-    "note": "",
-    "type": "image",
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "cover": "https://rdl.ink/render/https%3A%2F%2Fs3.eu-central-1.wasabisys.com%2Fcache.raindrop.io%2F807%2F249%2F791%2Ffile%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Content-Sha256%3DUNSIGNED-PAYLOAD%26X-Amz-Credential%3DBE6X466RAMMR6TB09V4G%252F20241012%252Feu-central-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20241012T002805Z%26X-Amz-Expires%3D1800%26X-Amz-Signature%3D0e504823a76f3d50c33381d9af6acf800b9d5fa6ff54461a17100d9f17144cbf%26X-Amz-SignedHeaders%3Dhost%26x-id%3DGetObject",
-    "media": [],
-    "tags": [],
-    "important": false,
-    "reminder": {
-      "date": null
-    },
-    "removed": false,
-    "created": "2024-06-26T20:40:38.052Z",
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "highlights": [],
-    "lastUpdate": "2024-10-12T00:29:29.330Z",
-    "domain": "s3.eu-central-1.wasabisys.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 807249791,
-    "cache": {
-      "status": "ready",
-      "size": 298377,
-      "created": "2024-06-26T20:45:38.651Z"
-    },
-    "broken": false,
     "collectionId": 21057150
   },
   {
     "_id": 794299365,
     "link": "https://api.raindrop.io/v2/raindrop/794299365/file?type=image/png",
-    "title": "BF23DBBE-E386-4985-A485-462969F64120.png",
+    "title": "me and you.",
     "excerpt": "",
-    "note": "",
+    "note": "{ source: \"https://www.instagram.com/everly_bridal/p/C2F4GSSPkTp/\" }",
     "type": "image",
     "user": {
       "$ref": "users",
@@ -694,7 +2565,7 @@
     },
     "media": [],
     "created": "2024-05-31T21:58:24.635Z",
-    "lastUpdate": "2024-05-31T21:58:24.840Z",
+    "lastUpdate": "2024-11-09T14:03:13.108Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -710,49 +2581,11 @@
     },
     "broken": false,
     "highlights": [],
-    "collectionId": 21057150
-  },
-  {
-    "_id": 769657797,
-    "link": "https://s3.eu-central-1.wasabisys.com/cache.raindrop.io/769/657/797/file?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=BE6X466RAMMR6TB09V4G%2F20241012%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20241012T003655Z&X-Amz-Expires=1800&X-Amz-Signature=672abb0345614757bbb53ec3f6235481c55bd7d83933de29eb1cd30276b20dea&X-Amz-SignedHeaders=host&x-id=GetObject",
-    "title": "Quote",
-    "excerpt": "",
-    "note": "",
-    "type": "image",
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "cover": "https://rdl.ink/render/https%3A%2F%2Fs3.eu-central-1.wasabisys.com%2Fcache.raindrop.io%2F769%2F657%2F797%2Ffile%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Content-Sha256%3DUNSIGNED-PAYLOAD%26X-Amz-Credential%3DBE6X466RAMMR6TB09V4G%252F20241012%252Feu-central-1%252Fs3%252Faws4_request%26X-Amz-Date%3D20241012T003655Z%26X-Amz-Expires%3D1800%26X-Amz-Signature%3D672abb0345614757bbb53ec3f6235481c55bd7d83933de29eb1cd30276b20dea%26X-Amz-SignedHeaders%3Dhost%26x-id%3DGetObject",
-    "media": [],
-    "tags": [],
-    "important": false,
-    "reminder": {
-      "date": null
-    },
-    "removed": false,
-    "created": "2024-04-15T05:00:48.314Z",
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "highlights": [],
-    "lastUpdate": "2024-10-12T00:37:10.951Z",
-    "domain": "s3.eu-central-1.wasabisys.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 769657797,
     "cache": {
       "status": "ready",
-      "size": 67793,
-      "created": "2024-04-15T05:02:05.605Z"
+      "created": "2026-05-24T06:28:53.878Z",
+      "size": 0
     },
-    "broken": false,
     "collectionId": 21057150
   },
   {
@@ -760,7 +2593,7 @@
     "link": "https://api.raindrop.io/v2/raindrop/708571737/file?type=image/jpeg",
     "title": "A Ma Maniére",
     "excerpt": "",
-    "note": "",
+    "note": "{source: \"personal\"}",
     "type": "image",
     "user": {
       "$ref": "users",
@@ -776,7 +2609,7 @@
     },
     "media": [],
     "created": "2024-01-04T02:15:16.311Z",
-    "lastUpdate": "2024-10-11T15:00:17.503Z",
+    "lastUpdate": "2024-11-09T14:07:50.573Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -792,14 +2625,19 @@
     },
     "broken": false,
     "highlights": [],
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.579Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 708571564,
     "link": "https://api.raindrop.io/v2/raindrop/708571564/file?type=image/jpeg",
-    "title": "IMG_0805.jpg",
+    "title": "enamorate de ti",
     "excerpt": "",
-    "note": "",
+    "note": "{source: \"personal\"}",
     "type": "image",
     "user": {
       "$ref": "users",
@@ -815,7 +2653,7 @@
     },
     "media": [],
     "created": "2024-01-04T02:13:37.779Z",
-    "lastUpdate": "2024-01-04T02:13:38.008Z",
+    "lastUpdate": "2024-11-09T14:09:19.141Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -831,14 +2669,19 @@
     },
     "broken": false,
     "highlights": [],
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.244Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 707441632,
     "link": "https://api.raindrop.io/v2/raindrop/707441632/file?type=image/png",
-    "title": "E7105CD4-4ADF-4DF4-BFAB-4E7F38A17E30.png",
+    "title": "worked my way up",
     "excerpt": "",
-    "note": "",
+    "note": "{ source: \"unknown\" }",
     "type": "image",
     "user": {
       "$ref": "users",
@@ -854,7 +2697,7 @@
     },
     "media": [],
     "created": "2024-01-02T16:39:54.424Z",
-    "lastUpdate": "2024-01-02T16:39:54.595Z",
+    "lastUpdate": "2024-11-09T14:09:50.468Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -870,14 +2713,19 @@
     },
     "broken": false,
     "highlights": [],
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.599Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 696716261,
     "link": "https://api.raindrop.io/v2/raindrop/696716261/file?type=image/png",
-    "title": "534E3CEA-0205-4120-B136-8FC30DAC549B.png",
+    "title": "ieee computer society",
     "excerpt": "",
-    "note": "",
+    "note": "{ source: \"unknown\" }",
     "type": "image",
     "user": {
       "$ref": "users",
@@ -893,7 +2741,7 @@
     },
     "media": [],
     "created": "2023-12-18T04:07:13.482Z",
-    "lastUpdate": "2023-12-18T04:07:13.700Z",
+    "lastUpdate": "2024-11-09T14:10:47.354Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -909,14 +2757,19 @@
     },
     "broken": false,
     "highlights": [],
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.599Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 682308091,
     "link": "https://api.raindrop.io/v2/raindrop/682308091/file?type=image/png",
-    "title": "FA0727BD-F44C-4033-B8C9-350324652A6F.png",
+    "title": "harvest",
     "excerpt": "",
-    "note": "",
+    "note": "{source: \"https://www.newyorker.com/magazine/2023/11/27\" }",
     "type": "image",
     "user": {
       "$ref": "users",
@@ -932,7 +2785,7 @@
     },
     "media": [],
     "created": "2023-11-21T15:35:04.259Z",
-    "lastUpdate": "2023-11-21T15:35:04.887Z",
+    "lastUpdate": "2024-11-09T14:13:13.272Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -948,14 +2801,19 @@
     },
     "broken": false,
     "highlights": [],
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.599Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
     "_id": 682076428,
     "link": "https://api.raindrop.io/v2/raindrop/682076428/file?type=image/png",
-    "title": "2C0EFC55-3AF2-4839-A203-D1E8A3190B0E.png",
+    "title": "battle angel",
     "excerpt": "",
-    "note": "",
+    "note": "{ source: \"https://www.flickr.com/photos/148330380@N03/30527139512/\" }",
     "type": "image",
     "user": {
       "$ref": "users",
@@ -971,7 +2829,7 @@
     },
     "media": [],
     "created": "2023-11-21T01:45:58.192Z",
-    "lastUpdate": "2023-11-21T01:45:58.406Z",
+    "lastUpdate": "2024-11-09T14:14:01.334Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -987,128 +2845,16 @@
     },
     "broken": false,
     "highlights": [],
-    "collectionId": 21057150
-  },
-  {
-    "_id": 559163735,
-    "excerpt": "",
-    "note": "",
-    "type": "image",
-    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F559%2F163%2F735%2F1637177188071129089.gif",
-    "tags": [],
-    "removed": false,
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:47.682Z",
+      "size": 0
     },
-    "title": "1637177188071129089.gif",
-    "link": "https://api.raindrop.io/v2/raindrop/559163735/file?type=image/gif",
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "media": [],
-    "created": "2023-04-18T02:50:57.664Z",
-    "lastUpdate": "2023-04-18T02:50:58.146Z",
-    "domain": "up.raindrop.io",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 559163735,
-    "file": {
-      "name": "1637177188071129089.gif",
-      "size": 14307195,
-      "type": "image/gif"
-    },
-    "broken": false,
-    "highlights": [],
-    "collectionId": 21057150
-  },
-  {
-    "_id": 559163660,
-    "excerpt": "",
-    "note": "",
-    "type": "image",
-    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F559%2F163%2F660%2FF416680_B_68_A7_4_AA_1_8_C39_E086_FF_4_CFFE_0.gif",
-    "tags": [],
-    "removed": false,
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "title": "F416680B-68A7-4AA1-8C39-E086FF4CFFE0.gif",
-    "link": "https://api.raindrop.io/v2/raindrop/559163660/file?type=image/gif",
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "media": [],
-    "created": "2023-04-18T02:50:03.265Z",
-    "lastUpdate": "2023-04-18T02:50:03.497Z",
-    "domain": "up.raindrop.io",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 559163660,
-    "file": {
-      "name": "F416680B-68A7-4AA1-8C39-E086FF4CFFE0.gif",
-      "size": 1385667,
-      "type": "image/gif"
-    },
-    "broken": false,
-    "highlights": [],
-    "collectionId": 21057150
-  },
-  {
-    "_id": 543715947,
-    "excerpt": "",
-    "note": "",
-    "type": "image",
-    "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F543%2F715%2F947%2F3_FCD_8_EE_2_5_EA_4_4699_A0_D8_6515_A8_A7066_F.png",
-    "tags": [],
-    "removed": false,
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "title": "3FCD8EE2-5EA4-4699-A0D8-6515A8A7066F.png",
-    "link": "https://api.raindrop.io/v2/raindrop/543715947/file?type=image/png",
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "media": [],
-    "created": "2023-03-27T02:09:24.342Z",
-    "lastUpdate": "2023-03-27T02:09:24.468Z",
-    "domain": "up.raindrop.io",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 543715947,
-    "file": {
-      "name": "3FCD8EE2-5EA4-4699-A0D8-6515A8A7066F.png",
-      "size": 14844,
-      "type": "image/png"
-    },
-    "broken": false,
-    "highlights": [],
     "collectionId": 21057150
   },
   {
     "_id": 530141236,
-    "excerpt": "null",
+    "excerpt": "",
     "note": "",
     "type": "video",
     "cover": "https://rdl.ink/render/http%3A%2F%2Fpketh.org%2Fimages%2F2021%2Fdbz-ocean.mp4",
@@ -1125,7 +2871,7 @@
     },
     "link": "http://pketh.org/images/2021/dbz-ocean.mp4",
     "created": "2023-03-04T19:01:09.359Z",
-    "lastUpdate": "2023-03-04T19:01:23.537Z",
+    "lastUpdate": "2024-11-09T14:32:52.486Z",
     "important": false,
     "media": [
       {
@@ -1156,146 +2902,9 @@
     "collectionId": 21057150
   },
   {
-    "_id": 530054126,
-    "excerpt": "pic.twitter.com/KlClbGHJJ1— Archillect (@archillect) March 3, 2023",
-    "note": "",
-    "type": "link",
-    "cover": "https://pbs.twimg.com/media/FqTAxlTWwAEA6IM.jpg:large",
-    "tags": [],
-    "removed": false,
-    "lastUpdate": "2023-03-04T18:16:47.918Z",
-    "link": "https://twitter.com/archillect/status/1631640925645447169?s=12&t=gflLx_-OryWyAeyALxDPeQ",
-    "important": false,
-    "title": "Archillect on Twitter",
-    "created": "2023-03-04T18:16:47.918Z",
-    "media": [
-      {
-        "type": "image",
-        "link": "https://pbs.twimg.com/media/FqTAxlTWwAEA6IM.jpg:large"
-      }
-    ],
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "highlights": [],
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "domain": "twitter.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 530054126,
-    "broken": false,
-    "cache": {
-      "status": "ready",
-      "size": 990243,
-      "created": "2023-03-04T21:19:03.305Z"
-    },
-    "collectionId": 21057150
-  },
-  {
-    "_id": 530051922,
-    "excerpt": "pic.twitter.com/BJv8jLADWN— Archillect (@archillect) March 4, 2023",
-    "note": "",
-    "type": "link",
-    "cover": "https://pbs.twimg.com/media/FqYe0BGWwAEyrsO.jpg:large",
-    "tags": [],
-    "removed": false,
-    "lastUpdate": "2023-03-04T18:14:44.116Z",
-    "link": "https://twitter.com/archillect/status/1632025796746387456?s=12&t=gflLx_-OryWyAeyALxDPeQ",
-    "important": false,
-    "title": "Archillect on Twitter",
-    "created": "2023-03-04T18:14:44.116Z",
-    "media": [
-      {
-        "type": "image",
-        "link": "https://pbs.twimg.com/media/FqYe0BGWwAEyrsO.jpg:large"
-      }
-    ],
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "highlights": [],
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "domain": "twitter.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 530051922,
-    "broken": false,
-    "cache": {
-      "status": "ready",
-      "size": 525903,
-      "created": "2023-03-04T21:19:03.305Z"
-    },
-    "collectionId": 21057150
-  },
-  {
-    "_id": 529070897,
-    "excerpt": "Vision, strength & beauty – The story of Saul Bass, Herb Yager & Associates' 1980 logo for MinoltaDiscover this and other logo stories at https://t.co/iXtpnklgXg#logos #branding #logodesign #designhistory #graphicdesign pic.twitter.com/I2uJ7xoKsQ— Logo Histories (@logohistories) March 1, 2023",
-    "note": "",
-    "type": "link",
-    "cover": "https://pbs.twimg.com/media/FqIEGMVXsAATkkn.jpg:large",
-    "tags": [
-      "logo"
-    ],
-    "removed": false,
-    "lastUpdate": "2023-03-03T00:53:08.856Z",
-    "link": "https://twitter.com/logohistories/status/1630870598837493761?s=12&t=gflLx_-OryWyAeyALxDPeQ",
-    "important": false,
-    "title": "Logo Histories on Twitter",
-    "created": "2023-03-03T00:53:08.856Z",
-    "media": [
-      {
-        "type": "image",
-        "link": "https://pbs.twimg.com/media/FqIEGMVXsAATkkn.jpg:large"
-      }
-    ],
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "highlights": [],
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "domain": "twitter.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 529070897,
-    "broken": false,
-    "cache": {
-      "status": "ready",
-      "size": 269614,
-      "created": "2023-03-03T02:38:16.594Z"
-    },
-    "collectionId": 21057150
-  },
-  {
     "_id": 525516309,
     "excerpt": "",
-    "note": "",
+    "note": "{ source: \"https://www.pinterest.com/pin/archillect-on-twitter--506373551865315233/\" }",
     "type": "image",
     "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F525%2F516%2F309%2Fimage.png",
     "tags": [],
@@ -1305,7 +2914,7 @@
       "$id": 21057150,
       "oid": 21057150
     },
-    "title": "image.png",
+    "title": "multiscreens 2",
     "link": "https://api.raindrop.io/v2/raindrop/525516309/file?type=image/png",
     "user": {
       "$ref": "users",
@@ -1313,7 +2922,7 @@
     },
     "media": [],
     "created": "2023-02-26T16:43:31.901Z",
-    "lastUpdate": "2023-02-26T16:43:37.883Z",
+    "lastUpdate": "2024-11-09T14:39:30.311Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -1329,108 +2938,17 @@
     },
     "highlights": [],
     "broken": false,
-    "collectionId": 21057150
-  },
-  {
-    "_id": 524479097,
-    "excerpt": "null",
-    "note": "",
-    "type": "image",
-    "cover": "https://scontent.cdninstagram.com/v/t51.2885-15/321394479_154140144072572_2235202756905374358_n.jpg?stp=dst-jpg_e35_s640x640_sh0.08&_nc_ht=scontent.cdninstagram.com&_nc_cat=108&_nc_ohc=Rbn5wjlF1V8AX9zNG_O&edm=AMO9-JQAAAAA&ccb=7-5&oh=00_AfCWX2FHFJ2gmoqStwOeZVCmKFiToUnlYyQl6iOQfzu4Dg&oe=63FA0075&_nc_sid=b9f2ee",
-    "tags": [
-      "dragon ball",
-      "moodboard"
-    ],
-    "removed": false,
-    "title": "A post shared by MODERNNOTORIETY (@modernnotoriety)",
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "link": "https://www.instagram.com/p/Cna3M_GupBy/",
-    "created": "2023-02-25T05:21:10.376Z",
-    "lastUpdate": "2023-02-25T05:21:26.119Z",
-    "important": false,
-    "media": [
-      {
-        "type": "image",
-        "link": "https://scontent.cdninstagram.com/v/t51.2885-15/321394479_154140144072572_2235202756905374358_n.jpg?stp=dst-jpg_e35_s640x640_sh0.08&_nc_ht=scontent.cdninstagram.com&_nc_cat=108&_nc_ohc=Rbn5wjlF1V8AX9zNG_O&edm=AMO9-JQAAAAA&ccb=7-5&oh=00_AfCWX2FHFJ2gmoqStwOeZVCmKFiToUnlYyQl6iOQfzu4Dg&oe=63FA0075&_nc_sid=b9f2ee"
-      }
-    ],
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "highlights": [],
-    "domain": "instagram.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 524479097,
-    "broken": false,
     "cache": {
       "status": "ready",
-      "size": 227364,
-      "created": "2023-02-26T09:26:03.000Z"
-    },
-    "collectionId": 21057150
-  },
-  {
-    "_id": 524475788,
-    "excerpt": "null",
-    "note": "",
-    "type": "image",
-    "cover": "https://scontent.cdninstagram.com/v/t51.2885-15/324612038_200122039216284_7641385238188872506_n.jpg?stp=dst-jpg_e35&_nc_ht=scontent.cdninstagram.com&_nc_cat=100&_nc_ohc=R2HOPksxInEAX_bqMUC&edm=AMO9-JQAAAAA&ccb=7-5&oh=00_AfC0nHh1LMsJNsAgXvhoOiHJaCzuotX4qzzolB_WtZfthA&oe=63FA058E&_nc_sid=b9f2ee",
-    "tags": [
-      "moodboard",
-      "pokemon"
-    ],
-    "removed": false,
-    "title": "A post shared by MODERNNOTORIETY (@modernnotoriety)",
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "link": "https://www.instagram.com/p/CnDzd1BOu65/",
-    "created": "2023-02-25T05:07:52.221Z",
-    "lastUpdate": "2023-02-25T05:08:05.685Z",
-    "important": false,
-    "media": [
-      {
-        "type": "image",
-        "link": "https://scontent.cdninstagram.com/v/t51.2885-15/324612038_200122039216284_7641385238188872506_n.jpg?stp=dst-jpg_e35&_nc_ht=scontent.cdninstagram.com&_nc_cat=100&_nc_ohc=R2HOPksxInEAX_bqMUC&edm=AMO9-JQAAAAA&ccb=7-5&oh=00_AfC0nHh1LMsJNsAgXvhoOiHJaCzuotX4qzzolB_WtZfthA&oe=63FA058E&_nc_sid=b9f2ee"
-      }
-    ],
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "highlights": [],
-    "domain": "instagram.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 524475788,
-    "broken": false,
-    "cache": {
-      "status": "ready",
-      "size": 227359,
-      "created": "2023-02-26T09:25:58.000Z"
+      "created": "2026-05-24T06:28:47.682Z",
+      "size": 0
     },
     "collectionId": 21057150
   },
   {
     "_id": 521993942,
     "excerpt": "",
-    "note": "",
+    "note": "{ source: \"https://x.com/claricetudor_/status/1617961265913294851\" }",
     "type": "image",
     "cover": "https://rdl.ink/render/https%3A%2F%2Fup.raindrop.io%2Fraindrop%2Ffiles%2F521%2F993%2F942%2Fimage.png",
     "tags": [],
@@ -1440,7 +2958,7 @@
       "$id": 21057150,
       "oid": 21057150
     },
-    "title": "image.png",
+    "title": "relate",
     "link": "https://api.raindrop.io/v2/raindrop/521993942/file?type=image/png",
     "user": {
       "$ref": "users",
@@ -1448,7 +2966,7 @@
     },
     "media": [],
     "created": "2023-02-20T22:10:57.245Z",
-    "lastUpdate": "2023-02-20T22:11:07.827Z",
+    "lastUpdate": "2024-11-09T14:44:00.090Z",
     "domain": "up.raindrop.io",
     "creatorRef": {
       "_id": 732219,
@@ -1464,57 +2982,17 @@
     },
     "highlights": [],
     "broken": false,
-    "collectionId": 21057150
-  },
-  {
-    "_id": 521773830,
-    "excerpt": "",
-    "note": "",
-    "type": "image",
-    "cover": "https://scontent.cdninstagram.com/v/t51.2885-15/331697493_3408549512717623_436411695367191855_n.jpg?stp=dst-jpg_e35_s480x480&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=FS1hywXJQYEAX-m-2Md&edm=AMO9-JQAAAAA&ccb=7-5&oh=00_AfCV7NL7RjM10X1mC7ZRB1kDqOyn9Cqpc-Tw6J5r3lNkIg&oe=63F39013&_nc_sid=b9f2ee",
-    "tags": [],
-    "removed": false,
-    "title": "A post shared by MODERNNOTORIETY (@modernnotoriety)",
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "link": "https://www.instagram.com/p/Co3DyqAuIcw/?igshid=MDJmNzVkMjY=",
-    "created": "2023-02-20T07:08:36.296Z",
-    "lastUpdate": "2023-02-20T07:08:36.296Z",
-    "important": false,
-    "media": [
-      {
-        "type": "image",
-        "link": "https://scontent.cdninstagram.com/v/t51.2885-15/331697493_3408549512717623_436411695367191855_n.jpg?stp=dst-jpg_e35_s480x480&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=FS1hywXJQYEAX-m-2Md&edm=AMO9-JQAAAAA&ccb=7-5&oh=00_AfCV7NL7RjM10X1mC7ZRB1kDqOyn9Cqpc-Tw6J5r3lNkIg&oe=63F39013&_nc_sid=b9f2ee"
-      }
-    ],
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "highlights": [],
-    "domain": "instagram.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 521773830,
     "cache": {
       "status": "ready",
-      "size": 243428,
-      "created": "2023-02-21T03:58:13.245Z"
+      "created": "2026-05-24T06:28:46.632Z",
+      "size": 0
     },
-    "broken": false,
     "collectionId": 21057150
   },
   {
     "_id": 519602304,
     "excerpt": "I colorized , restored and applied face restoration and created a sound design for this video of streets of Paris 1920s, we can clearly see what is happening...",
-    "note": "",
+    "note": "{ source: \"https://www.youtube.com/watch?v=mgVl6Yk4itw\" }",
     "type": "video",
     "cover": "https://i.ytimg.com/vi/mgVl6Yk4itw/maxresdefault.jpg",
     "tags": [
@@ -1523,7 +3001,7 @@
       "1920"
     ],
     "removed": false,
-    "title": "Paris 1920s in color [60fps, Remastered] w/sound design added",
+    "title": "Paris 1920s",
     "collection": {
       "$ref": "collections",
       "$id": 21057150,
@@ -1531,7 +3009,7 @@
     },
     "link": "https://www.youtube.com/watch?v=mgVl6Yk4itw",
     "created": "2023-02-17T19:33:57.998Z",
-    "lastUpdate": "2023-02-17T19:33:57.998Z",
+    "lastUpdate": "2024-11-09T14:48:53.290Z",
     "important": false,
     "media": [
       {
@@ -1557,187 +3035,9 @@
     },
     "sort": 519602304,
     "cache": {
-      "status": "invalid-origin"
-    },
-    "broken": false,
-    "collectionId": 21057150
-  },
-  {
-    "_id": 519260343,
-    "excerpt": "null",
-    "note": "",
-    "type": "image",
-    "cover": "https://scontent.cdninstagram.com/v/t51.2885-15/331627016_211049624812584_1924270895181308059_n.jpg?stp=dst-jpg_e35_s640x640_sh0.08&_nc_ht=scontent.cdninstagram.com&_nc_cat=100&_nc_ohc=wM4Cc0gGPNMAX8KJJnK&edm=AMO9-JQAAAAA&ccb=7-5&oh=00_AfBdr8b3N4uY2YqHrdKnU4_3ltuvckhfvWpmy8KwNtSFjQ&oe=63EF7DC8&_nc_sid=b9f2ee",
-    "tags": [],
-    "removed": false,
-    "title": "A post shared by MODERNNOTORIETY (@modernnotoriety)",
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "link": "https://www.instagram.com/p/CovLl2kuKym/?igshid=MDJmNzVkMjY=",
-    "created": "2023-02-17T04:32:08.703Z",
-    "lastUpdate": "2023-02-17T04:32:08.703Z",
-    "important": false,
-    "media": [
-      {
-        "type": "image",
-        "link": "https://scontent.cdninstagram.com/v/t51.2885-15/331627016_211049624812584_1924270895181308059_n.jpg?stp=dst-jpg_e35_s640x640_sh0.08&_nc_ht=scontent.cdninstagram.com&_nc_cat=100&_nc_ohc=wM4Cc0gGPNMAX8KJJnK&edm=AMO9-JQAAAAA&ccb=7-5&oh=00_AfBdr8b3N4uY2YqHrdKnU4_3ltuvckhfvWpmy8KwNtSFjQ&oe=63EF7DC8&_nc_sid=b9f2ee"
-      }
-    ],
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "highlights": [],
-    "domain": "instagram.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 519260343,
-    "cache": {
       "status": "ready",
-      "size": 243256,
-      "created": "2023-02-17T06:49:10.000Z"
-    },
-    "broken": false,
-    "collectionId": 21057150
-  },
-  {
-    "_id": 519259112,
-    "excerpt": "null",
-    "note": "",
-    "type": "image",
-    "cover": "https://scontent.cdninstagram.com/v/t51.2885-15/331013130_612663594024081_1678450449486233514_n.jpg?stp=dst-jpg_e35_s480x480&_nc_ht=scontent.cdninstagram.com&_nc_cat=109&_nc_ohc=-wabxJyYadQAX85ggw0&edm=AMO9-JQAAAAA&ccb=7-5&oh=00_AfChuYi4v9Waf2lONenGDsnU-tocO-fLE6cnVlbOrx0N8A&oe=63EF7759&_nc_sid=b9f2ee",
-    "tags": [],
-    "removed": false,
-    "title": "A post shared by HIDDEN ⓗ (@hidden.ny)",
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "link": "https://www.instagram.com/p/Covzq4jJgWo/?igshid=MDJmNzVkMjY=",
-    "created": "2023-02-17T04:21:18.881Z",
-    "lastUpdate": "2023-02-17T04:21:18.881Z",
-    "important": false,
-    "media": [
-      {
-        "type": "image",
-        "link": "https://scontent.cdninstagram.com/v/t51.2885-15/331013130_612663594024081_1678450449486233514_n.jpg?stp=dst-jpg_e35_s480x480&_nc_ht=scontent.cdninstagram.com&_nc_cat=109&_nc_ohc=-wabxJyYadQAX85ggw0&edm=AMO9-JQAAAAA&ccb=7-5&oh=00_AfChuYi4v9Waf2lONenGDsnU-tocO-fLE6cnVlbOrx0N8A&oe=63EF7759&_nc_sid=b9f2ee"
-      }
-    ],
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "highlights": [],
-    "domain": "instagram.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 519259112,
-    "cache": {
-      "status": "ready",
-      "size": 243139,
-      "created": "2023-02-17T06:49:09.000Z"
-    },
-    "broken": false,
-    "collectionId": 21057150
-  },
-  {
-    "_id": 519143268,
-    "excerpt": "What if it works out for you exactly how you want it or greater. Imagine that.It's also a possibility.artwork by https://t.co/pxJcWbP4xb pic.twitter.com/qQB0LZCkXc— the artidote (@TheArtidote) February 16, 2023",
-    "note": "",
-    "type": "link",
-    "cover": "https://pbs.twimg.com/media/FpG84i5acAALisx.jpg:large",
-    "tags": [],
-    "removed": false,
-    "title": "the artidote on Twitter",
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "link": "https://twitter.com/theartidote/status/1626288671040376832?s=12&t=EXDotui6bgZr5ZvfYIvT6A",
-    "created": "2023-02-16T20:48:09.840Z",
-    "lastUpdate": "2023-02-16T20:48:09.840Z",
-    "important": false,
-    "media": [
-      {
-        "type": "image",
-        "link": "https://pbs.twimg.com/media/FpG84i5acAALisx.jpg:large"
-      }
-    ],
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "highlights": [],
-    "domain": "twitter.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 519143268,
-    "cache": {
-      "status": "ready",
-      "size": 373766,
-      "created": "2023-02-17T03:02:20.302Z"
-    },
-    "broken": false,
-    "collectionId": 21057150
-  },
-  {
-    "_id": 519143149,
-    "excerpt": "Be powerful enough to wait for what you deserve. You deserve the patience you give to so many others. #CompassionateNoteToSelfartwork by https://t.co/Y20KTZQ39b pic.twitter.com/MmcyYYkMvm— the artidote (@TheArtidote) February 16, 2023",
-    "note": "",
-    "type": "link",
-    "cover": "https://pbs.twimg.com/media/FpG_mMTaIAAxzTd.jpg:large",
-    "tags": [],
-    "removed": false,
-    "title": "the artidote on Twitter",
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "link": "https://twitter.com/theartidote/status/1626291780508598273?s=12&t=EXDotui6bgZr5ZvfYIvT6A",
-    "created": "2023-02-16T20:47:02.243Z",
-    "lastUpdate": "2023-02-16T20:47:02.243Z",
-    "important": false,
-    "media": [
-      {
-        "type": "image",
-        "link": "https://pbs.twimg.com/media/FpG_mMTaIAAxzTd.jpg:large"
-      }
-    ],
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "highlights": [],
-    "domain": "twitter.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 519143149,
-    "cache": {
-      "status": "ready",
-      "size": 525061,
-      "created": "2023-02-17T03:02:20.302Z"
+      "created": "2026-07-21T04:51:31.614Z",
+      "size": 906
     },
     "broken": false,
     "collectionId": 21057150
@@ -2068,6 +3368,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.704Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -2152,6 +3457,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.704Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -2236,6 +3546,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:47.682Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -2275,6 +3590,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.625Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -2314,6 +3634,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:47.682Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -2488,6 +3813,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.704Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -2617,6 +3947,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.704Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -2656,6 +3991,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.704Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -2785,6 +4125,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:47.682Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -2824,6 +4169,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.704Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -2908,6 +4258,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:47.682Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -2947,6 +4302,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:47.682Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -2986,6 +4346,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:45.982Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -3025,6 +4390,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.963Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -3199,6 +4569,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.633Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -3602,6 +4977,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.625Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -3641,6 +5021,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.077Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -3818,6 +5203,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.633Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -4046,6 +5436,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:48.790Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -4089,6 +5484,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.632Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -4130,6 +5530,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.625Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -4219,7 +5624,9 @@
     },
     "sort": 469019053,
     "cache": {
-      "status": "invalid-origin"
+      "status": "ready",
+      "created": "2026-05-31T14:19:42.455Z",
+      "size": 31753
     },
     "broken": false,
     "collectionId": 21057150
@@ -4308,6 +5715,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.632Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -4438,7 +5850,9 @@
     },
     "sort": 443012884,
     "cache": {
-      "status": "invalid-origin"
+      "status": "ready",
+      "created": "2026-05-31T14:19:41.464Z",
+      "size": 878
     },
     "broken": false,
     "collectionId": 21057150
@@ -4528,7 +5942,9 @@
     },
     "sort": 439568786,
     "cache": {
-      "status": "invalid-origin"
+      "status": "ready",
+      "created": "2026-05-31T14:19:41.492Z",
+      "size": 879
     },
     "broken": false,
     "collectionId": 21057150
@@ -4574,7 +5990,9 @@
     },
     "sort": 435006690,
     "cache": {
-      "status": "invalid-origin"
+      "status": "ready",
+      "created": "2026-05-31T14:19:41.790Z",
+      "size": 4283
     },
     "broken": false,
     "collectionId": 21057150
@@ -4620,7 +6038,9 @@
     },
     "sort": 431555916,
     "cache": {
-      "status": "invalid-origin"
+      "status": "ready",
+      "created": "2026-05-31T14:19:41.807Z",
+      "size": 881
     },
     "broken": false,
     "collectionId": 21057150
@@ -4662,6 +6082,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.632Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -4748,6 +6173,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.633Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -4840,6 +6270,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.633Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -5141,6 +6576,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:49.089Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -5268,6 +6708,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.625Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -5309,6 +6754,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.448Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -5348,6 +6798,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.633Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -5387,6 +6842,11 @@
     },
     "highlights": [],
     "broken": false,
+    "cache": {
+      "status": "ready",
+      "created": "2026-05-24T06:28:46.633Z",
+      "size": 0
+    },
     "collectionId": 21057150
   },
   {
@@ -5647,7 +7107,9 @@
     },
     "sort": 339108989,
     "cache": {
-      "status": "invalid-origin"
+      "status": "ready",
+      "created": "2026-05-29T01:30:45.278Z",
+      "size": 878
     },
     "broken": false,
     "highlights": [],
@@ -5711,70 +7173,6 @@
     "cache": {
       "status": "ready",
       "size": 430421,
-      "created": "2023-10-13T09:42:15.162Z"
-    },
-    "broken": false,
-    "highlights": [],
-    "collectionId": 21057150
-  },
-  {
-    "note": "",
-    "_id": 326957612,
-    "excerpt": "",
-    "type": "image",
-    "cover": "https://scontent.cdninstagram.com/v/t51.2885-15/e35/p480x480/249480781_4218492681592478_7656974946452102535_n.jpg?_nc_ht=scontent.cdninstagram.com&_nc_cat=102&_nc_ohc=QNsfMn1CVfwAX8f5ZXt&edm=AMO9-JQAAAAA&ccb=7-4&oh=d7d56917d2bbab06813e1d24130d50ea&oe=617CF181&_nc_sid=b9f2ee",
-    "tags": [
-      "mood board",
-      "moodboard"
-    ],
-    "removed": false,
-    "title": "sabukaru.online on Instagram: “Acrobats Delivering Noodles - The Art of Soba Noodle Cyclists Whizzing through the inner streets of Tokyo with trays of noodles, bowls…”",
-    "collection": {
-      "$ref": "collections",
-      "$id": 21057150,
-      "oid": 21057150
-    },
-    "link": "https://www.instagram.com/p/CVmu4D2BuPz/",
-    "created": "2021-10-29T21:39:04.529Z",
-    "lastUpdate": "2021-10-29T21:39:04.529Z",
-    "important": false,
-    "media": [
-      {
-        "type": "image",
-        "link": "https://scontent-dfw5-2.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/249932995_195100829405060_8343000482613909602_n.jpg?_nc_ht=scontent-dfw5-2.cdninstagram.com&_nc_cat=108&_nc_ohc=qq90nb5TN2sAX8moknq&edm=AABBvjUBAAAA&ccb=7-4&oh=e2501d92f9c0d2edb52b29a231d09482&oe=618305E0&_nc_sid=83d603"
-      },
-      {
-        "type": "image",
-        "link": "https://scontent-dfw5-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/249859030_925002501437361_1370434213473576600_n.jpg?_nc_ht=scontent-dfw5-1.cdninstagram.com&_nc_cat=109&_nc_ohc=YCKgA0wcyKIAX93tU8B&edm=AABBvjUBAAAA&ccb=7-4&oh=7b53504ab05330a4b65befedb9d43a3f&oe=6182C6E3&_nc_sid=83d603"
-      },
-      {
-        "type": "image",
-        "link": "https://scontent-dfw5-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/249061151_291333716173859_8399705114320474824_n.jpg?_nc_ht=scontent-dfw5-1.cdninstagram.com&_nc_cat=111&_nc_ohc=TE7RWOabYdQAX8x9O73&edm=AABBvjUBAAAA&ccb=7-4&oh=dc1bcaa54bcf9bf494f478bac73d04e5&oe=6182CD4F&_nc_sid=83d603"
-      },
-      {
-        "type": "image",
-        "link": "https://scontent-dfw5-1.cdninstagram.com/v/t51.2885-15/e35/c90.0.540.540a/250254993_258213379465184_1601257329755300403_n.jpg?_nc_ht=scontent-dfw5-1.cdninstagram.com&_nc_cat=1&_nc_ohc=NDr0eTlGt1EAX-QqC0n&edm=APU89FABAAAA&ccb=7-4&oh=ea4e1cb108aea670bdad6b3cb8a12e20&oe=618351FA&_nc_sid=86f79a"
-      },
-      {
-        "type": "image",
-        "link": "https://scontent-dfw5-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/c148.0.1143.1143a/s640x640/250541239_610339103485231_7576971591940098423_n.jpg?_nc_ht=scontent-dfw5-2.cdninstagram.com&_nc_cat=107&_nc_ohc=p4751nWApRsAX8OsIA5&edm=APU89FABAAAA&ccb=7-4&oh=4e01c0fc7a7388c3c3f31d3e80cf2d15&oe=6182B479&_nc_sid=86f79a"
-      }
-    ],
-    "user": {
-      "$ref": "users",
-      "$id": 732219
-    },
-    "domain": "instagram.com",
-    "creatorRef": {
-      "_id": 732219,
-      "avatar": "",
-      "name": "alberto_godinez",
-      "email": ""
-    },
-    "sort": 326957612,
-    "cache": {
-      "status": "ready",
-      "size": 552185,
       "created": "2023-10-13T09:42:15.162Z"
     },
     "broken": false,

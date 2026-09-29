@@ -25,8 +25,7 @@ Single-context: `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/do
 
 ## Pre-Push Validation
 
-Before pushing changes to main, always:
-
-1. Run `pnpm build` to produce a production build.
-2. Compare the production build against the local dev server (check layout, styles, assets) using browser screenshots or DevTools.
-3. Only push after confirming prod build matches local dev.
+`.husky/pre-push` gates lint, build and Node version; don't bypass it with
+`--no-verify`. What it can't check is visual parity: before pushing, compare
+the production build against the local dev server (layout, styles, assets)
+with browser screenshots or DevTools.

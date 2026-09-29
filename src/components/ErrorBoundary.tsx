@@ -14,11 +14,13 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(_: Error): ErrorBoundaryState {
+  static getDerivedStateFromError(_error: Error): ErrorBoundaryState {
     return { hasError: true };
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    // Reporting the error is this method's entire purpose.
+    // oxlint-disable-next-line no-console
     console.error('Error caught by ErrorBoundary:', error, errorInfo);
   }
 

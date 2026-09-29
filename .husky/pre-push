@@ -1,0 +1,39 @@
+# Gate: lint, build and Node version before push.
+#
+# Visual parity (production build vs local dev in a browser) stays prose in
+# AGENTS.md "Pre-Push Validation" on purpose: it is a judgement call, and a
+# reminder you cannot fail is noise.
+#
+# Lint runs first because it is ~0.9s and build is ~11s — fail on the cheap
+# signal before paying for the expensive one.
+
+if ! command -v pnpm >/dev/null 2>&1; then
+  echo "pre-push: pnpm not found on PATH." >&2
+  echo "  Hook PATH: $PATH" >&2
+  exit 1
+fi
+
+# Check Node BEFORE running pnpm. .npmrc sets engine-strict=true, but that only
+# gates `install` and `run-script` — `pnpm exec` happily runs on a bad Node, so
+# the engine error would otherwise surface under the lint banner below.
+required="$(tr -dc '0-9' < .nvmrc)"
+actual="$(node -v 2>/dev/null | sed 's/^v//; s/\..*//')"
+if [ -z "$actual" ] || [ "$actual" -lt "$required" ]; then
+  echo "pre-push: wrong Node version for this repo." >&2
+  echo "  .nvmrc requires >= ${required}, found $(node -v 2>/dev/null || echo 'no node')." >&2
+  echo "  Run 'nvm use' and push again." >&2
+  exit 1
+fi
+
+pnpm lint || {
+  echo "" >&2
+  echo "pre-push: lint failed. Fix the findings, or run 'pnpm lint:fix' for the" >&2
+  echo "  autofixable ones. Do not reach for --no-verify." >&2
+  exit 1
+}
+
+pnpm build || {
+  echo "" >&2
+  echo "pre-push: production build failed." >&2
+  exit 1
+}

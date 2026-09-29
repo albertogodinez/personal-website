@@ -117,9 +117,6 @@
   transform: translateX(var(--dotPosition)) scale(1);
 }
 
-.menu__dot.active {
-  /* animation: dot-elongate var(--duration) ease-in-out forwards; */
-}
 
 .menu__border {
   clip-path: url(#menu);

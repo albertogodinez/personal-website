@@ -1,0 +1,139 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+
+  // oxlint owns .ts/.tsx only. Biome owns .css and (advisorily) .astro.
+  // See .scratch/linting-guardrail/spec.md for why the split is by file type.
+  "plugins": ["react", "react-perf", "jsx-a11y", "typescript", "unicorn", "oxc", "import", "promise"],
+
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "error"
+    // `pedantic` is deliberately absent: it adds max-lines-per-function,
+    // max-lines and no-inline-comments, which are noise for a WebGL canvas.
+  },
+
+  "env": { "browser": true, "es2024": true },
+
+  "ignorePatterns": [
+    // oxlint only sees an .astro file's frontmatter and <script> blocks, and
+    // force-disables no-unused-vars there regardless of config. Biome covers
+    // .astro instead, via `pnpm lint:astro`.
+    "**/*.astro",
+    "dist/**",
+    ".astro/**",
+    // Slated for deletion: /memorabilia and its components are being replaced
+    // by the moodboard canvas. Delete these three entries with the page.
+    "src/components/selection/**",
+    "src/components/card/**",
+    "src/components/FavoritesCollectionHandler.tsx"
+  ],
+
+  "rules": {
+    // --- Off because they are false-positive generators in THIS repo ---------
+    // Each was measured, not assumed.
+
+    // React 19's automatic JSX runtime means React need not be in scope; this
+    // fires on every JSX element in the repo.
+    "react/react-in-jsx-scope": "off",
+
+    // R3F intrinsics `group`, `line` and `points` collide with SVG element
+    // names, so the rule treats them as DOM. Measured 6 false positives in 7
+    // lines of ordinary R3F JSX. TypeScript already enforces R3F prop names
+    // via the `ThreeElements` types.
+    "react/no-unknown-property": "off",
+
+    // R3F compares array props SHALLOWLY and `args` element-wise
+    // (fiber/src/core/utils.tsx `is.equ`, core/reconciler.tsx:654), so a fresh
+    // `position={[0,0,0]}` literal is a genuine no-op. Its object sibling
+    // below stays on, because objects are compared by REFERENCE and so do
+    // re-apply every render.
+    "react-perf/jsx-no-new-array-as-prop": "off",
+
+    // Had 18 findings and zero true positives: only one component in the repo
+    // is memoized (MemoizedCard), and its handleCardClick prop is already
+    // useCallback-stable. Every other receiver is plain DOM, an R3F intrinsic,
+    // a Radix primitive, or a non-memoized component — no memo to defeat.
+    "react-perf/jsx-no-new-function-as-prop": "off",
+
+    // `import './x.css'` is the standard Astro/Vite side-effect import and
+    // trips this 17 times.
+    "import/no-unassigned-import": "off",
+
+    // Exact duplicate of eslint/no-negated-condition; both would report.
+    "unicorn/no-negated-condition": "off",
+
+    // --- React Compiler rules (the reason oxlint was chosen) ----------------
+    // A native Rust port of the React Compiler, run in lint-only mode. These
+    // found the conditional hook call and five other real defects.
+    "react/purity": "error",
+    "react/immutability": "error",
+    "react/refs": "error",
+    "react/set-state-in-render": "error",
+    "react/set-state-in-effect": "error",
+    "react/no-deriving-state-in-effects": "error",
+    "react/preserve-manual-memoization": "error",
+    "react/use-memo": "error",
+    "react/void-use-memo": "error",
+    "react/static-components": "error",
+    "react/error-boundaries": "error",
+    "react/globals": "error",
+    "react/incompatible-library": "error",
+    "react/hooks": "error",
+    "react/capitalized-calls": "error",
+    "react/invariant": "error",
+    "react/rule-suppression": "error",
+    "react/unsupported-syntax": "warn",
+
+    // Warn, not error: the only two rules where the tool and the moodboard's
+    // documented chunk-delta architecture disagree without either being
+    // wrong. Two of their four findings are unactionable complaints about
+    // stable ref identity.
+    "react/exhaustive-effect-dependencies": "warn",
+    "react/memo-dependencies": "warn",
+
+    // --- Ordinary React correctness -----------------------------------------
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "error",
+    "react/jsx-no-useless-fragment": "error",
+    "react/jsx-no-target-blank": "error",
+    "react/no-unescaped-entities": "error",
+    "react/display-name": "error",
+    "react/no-array-index-key": "error",
+    "react/button-has-type": "error",
+    "react/no-danger": "error",
+    "react-perf/jsx-no-new-object-as-prop": "error",
+    "react-perf/jsx-no-jsx-as-prop": "error",
+
+    // --- TypeScript ---------------------------------------------------------
+    // Type-AWARE rules are not enabled yet. They need only the `oxlint-tsgolint`
+    // package, which bundles its own typescript-go, NOT a TypeScript 7 upgrade
+    // (see docs/adr/0004). `astro check` runs tsc on every build regardless.
+    "typescript/no-explicit-any": "error",
+    "typescript/no-non-null-assertion": "error",
+
+    "eslint/no-console": "warn",
+
+    // `_id` is Raindrop's own field name, in both the scaffold script and
+    // data-adapter.ts. It cannot be renamed, so it is allowlisted rather than
+    // suppressed at each use.
+    "eslint/no-underscore-dangle": ["error", { "allow": ["_id"] }]
+  },
+
+  "overrides": [
+    {
+      // Astro GENERATES .astro/types.d.ts and the triple-slash references are
+      // mandatory for the project's types to resolve. Verified load-bearing:
+      // removing this override surfaces exactly one finding.
+      "files": ["src/env.d.ts"],
+      "rules": { "typescript/triple-slash-reference": "off" }
+    },
+    {
+      // A CLI script's interface IS stdout, so these 6 console calls would
+      // never be fixed. Verified: removing this surfaces 6 warnings, and
+      // warnings exit 0 — so this suppresses noise, it does not gate CI.
+      "files": ["src/scripts/**/*.ts"],
+      "rules": { "eslint/no-console": "off" }
+    }
+  ]
+}

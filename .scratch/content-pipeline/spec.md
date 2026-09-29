@@ -11,11 +11,12 @@ The moodboard's content is other people's infrastructure. Items live in Raindrop
 Are.na, their images are served from whatever CDN those platforms happened to use, and the
 site reads that arrangement more or less directly. Two things follow from it.
 
-The first is that the collection decays on its own. 52 of the 133 covers in the current
-Raindrop dump are already dead — mostly expired Instagram signed URLs that cannot be
-revived, plus a handful of Raindrop render-service failures and deleted tweets. Nobody
-broke anything; the links simply aged out. Every month that passes takes more of the
-moodboard with it.
+The first is that the collection decays on its own. A full probe of the 133-item dump on
+2026-09-19 found 52 dead covers — mostly expired Instagram signed URLs, plus a handful of
+Raindrop render-service failures and deleted tweets. The dump has since been re-synced to
+158 items; that probe has not been repeated against it, but the 42 Instagram covers were
+re-confirmed dead on 2026-09-29. Nobody broke anything; the links simply aged out. Every
+month that passes takes more of the moodboard with it.
 
 The second is that maintaining the collection means touching several places. Adding
 something is easy in whichever app it was found in, but there is no single view of what the
@@ -180,10 +181,14 @@ collection in the low hundreds; Raindrop pages at 50 items and Are.na at 100.
 once, after the pipeline is stable, and the site is repointed. It is not an ongoing sync and
 should not be built into the worker.
 
-**Already-lost media is a recovery problem, not a pipeline problem.** The 52 dead covers
-predate any sync and cannot be retrieved by copying a URL that no longer resolves. The
-pipeline stops the bleeding; recovering those specific items means re-fetching from the
-Raindrop API so it re-signs them, which is tracked separately.
+**Already-lost media is unrecoverable, not merely out of scope.** The dead covers predate
+any sync and cannot be retrieved by copying a URL that no longer resolves. Re-fetching from
+the Raindrop API does **not** help: it was tried on 2026-09-29 and returned byte-identical
+URLs, recovering 0 of 42 Instagram covers, because Raindrop stores the URL captured at
+bookmark time rather than re-deriving it. The pipeline stops the bleeding for covers that
+still resolve; the already-dead ones only return if their images are re-captured from the
+source platform, which nothing currently plans to do. See
+`.scratch/moodboard-canvas/issues/15-raindrop-resync-fresh-covers.md`.
 
 ## Testing Decisions
 

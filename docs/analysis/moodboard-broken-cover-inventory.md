@@ -3,6 +3,12 @@
 Probe results for every `cover` URL in `src/content/moodboard/raindrop-collection.json`,
 captured 2026-09-19 with a browser User-Agent: 81 of 133 returned 200, 52 did not.
 
+> **Update 2026-09-29.** The collection has since been re-synced and now holds 158 items
+> (42 added, 17 removed), so the counts below describe the 133-item dump as it stood on
+> 2026-09-19 and are kept as a historical record rather than a current census. The probe
+> has not been re-run in full. What *was* re-tested is the recovery hypothesis at the
+> bottom of this section, and it is wrong — see below.
+
 `Raindrop ID` matches `_id` in that file; the corresponding Item id is `raindrop:<id>`.
 "Source page" is the Item's `link`, which is often still live even when the cover is not.
 
@@ -14,11 +20,19 @@ captured 2026-09-19 with a browser User-Agent: 81 of 133 returned 200, 52 did no
 | `en.goodtimes.my` | 1 | timeout | Maybe — host may be down |
 
 The 42 Instagram items carry signed URLs that expired years ago, with `file` null and
-every `media[]` entry pointing at the same expired host; they only come back by
-re-fetching from the Raindrop API, which re-signs them.
+every `media[]` entry pointing at the same expired host.
+
+**They do not come back by re-fetching from the Raindrop API.** This document originally
+claimed the API re-signs them. That was never tested and is false: a re-fetch on 2026-09-29
+returned byte-identical cover URLs (0 changed across the 116 items present in both dumps),
+and 8 of 8 sampled Instagram covers still returned 403 afterwards, while 4 non-Instagram
+controls from the same response returned 200. Raindrop stores the cover URL captured at
+bookmark time; it does not re-derive it. These 42 are permanently lost unless re-captured
+from Instagram directly.
 
 Worked in `.scratch/moodboard-canvas/issues/` — ticket 01 (the `rdl.ink` seven),
-then 15 → 16 → 17 for the resync, mirroring and host retirement.
+then 16 → 17 for mirroring and host retirement. Ticket 15 (resync) is closed
+`wontfix`: it ran, and recovered nothing.
 
 ### Instagram (42)
 

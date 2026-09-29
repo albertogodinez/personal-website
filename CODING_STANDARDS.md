@@ -4,8 +4,28 @@ Judgement calls for the reviewer to enforce. Mechanical rules belong in a linter
 
 ## CSS
 
-- Never leave an empty CSS rule with a placeholder comment (e.g. `/* Inherits from ... */`). If a class is only a JS hook and needs no styles, don't write a rule for it.
+The empty-placeholder-rule standard that used to live here is now enforced
+mechanically by `.biome/no-placeholder-css.grit`, so it has been removed.
+
 - Never import CSS from inside a `client:only` React component. Astro's production build doesn't extract CSS from `client:only` components into the static bundle — Vite handles it in dev but not in SSG/SSR builds, so the styles silently vanish in production. Import from the Astro layout or page that renders the component instead.
+
+## Astro (temporary)
+
+**Delete this section when Biome's Astro linting reaches full support** (its
+`Parsing`/`Formatting`/`Linting` row on
+<https://biomejs.dev/internals/language-support/> is currently experimental, and
+plugin support for Astro is listed as not in progress). At that point `.astro`
+moves into the gating `lint` script and these two stop being prose.
+
+Until then `pnpm lint:astro` reports them but does not gate CI, so they rely on
+being read here:
+
+- Every `<svg>` in an `.astro` file needs a `<title>`, or it is invisible to a
+  screen reader.
+- No `any` in `.astro` frontmatter.
+
+Unused variables and imports in `.astro` files are already caught by
+`astro check`, which runs as part of `pnpm build` — they don't need a rule here.
 
 ## React Three Fiber
 
