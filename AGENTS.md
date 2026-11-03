@@ -37,10 +37,10 @@ then types, then lint/CI, then a hook, and prose only for judgement calls.
 | Rule                                                                                        | Enforced by                                                      |
 | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | Lint clean (React Compiler rules, a11y, TS)                                                 | `pnpm lint` in `.husky/pre-push` and CI                          |
-| Types check                                                                                 | `astro check` in `pnpm build` (pre-push) and CI                  |
-| Production build succeeds                                                                   | `pnpm build` in pre-push; Netlify on `main`                      |
+| Types check                                                                                 | `astro check` in `pnpm build` (pre-push and CI)                  |
+| Production build succeeds                                                                   | `pnpm build` in pre-push and CI; Netlify on `main`               |
 | Node matches `.nvmrc`                                                                       | pre-push, `engine-strict` in `.npmrc`                            |
-| Dev and production render identically (e.g. no CSS imported from a `client:only` component) | `pnpm verify:site parity` in pre-push                            |
+| Dev and production render identically (e.g. no CSS imported from a `client:only` component) | `pnpm verify:site parity` in pre-push and CI                     |
 | No placeholder CSS rules                                                                    | `.biome/no-placeholder-css.grit` via `pnpm lint`                 |
 | `<svg>` has `<title>`, no `any` in `.astro`                                                 | `pnpm lint:astro`, advisory only; prose in `CODING_STANDARDS.md` |
 | R3F per-frame rules                                                                         | prose in `CODING_STANDARDS.md`                                   |

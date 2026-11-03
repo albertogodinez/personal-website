@@ -1,8 +1,7 @@
 # Gate: Node version, lint, build and dev/prod visual parity before push.
 #
 # Cheapest signal first: lint ~1s, build ~11s, parity ~65s. Parity reuses the
-# build above (--no-build). It only runs here, not in CI, because the build
-# prerenders /moodboard against the Raindrop API and needs .env.
+# build above (--no-build). CI runs the same command.
 
 if ! command -v pnpm >/dev/null 2>&1; then
   echo "pre-push: pnpm not found on PATH." >&2

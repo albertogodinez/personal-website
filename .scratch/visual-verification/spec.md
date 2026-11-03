@@ -42,8 +42,8 @@ Following the "Build the Lever" and "Encode Lessons in Structure" principles fro
 
 ## Follow-ups
 
-1. Use a Raindrop fixture when credentials are missing, so CI can run `pnpm build` and `parity`.
-2. When the moodboard canvas lands, update the Feature Map's `/moodboard` row and verify the canvas by eye with `shot`, since `<canvas>` is masked.
+1. ~~Raindrop fixture so CI can build~~: resolved. The moodboard canvas renders from the committed JSON, so CI now runs `pnpm build` and `parity`.
+2. ~~Feature Map for the moodboard canvas~~: done. `src/components/RaindropWrapper.astro` is now unused, so delete it.
 3. Interaction scripts (`shot --click <selector>`) for states behind a click, such as an open accordion or the dark-mode toggle.
 4. Canvas verification for the moodboard canvas (it's masked in parity today). In order of preference:
    - A dev-only, read-only `window.__MOODBOARD__` that reports each card's position, visibility and chunk, the camera, and a frame counter, with Playwright asserting on it.

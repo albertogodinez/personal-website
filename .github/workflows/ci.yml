@@ -32,14 +32,22 @@ jobs:
         run: pnpm lint:astro
         continue-on-error: true
 
-      # Typecheck, NOT a full build. `astro build` prerenders /moodboard, and
-      # src/components/RaindropWrapper.astro fetches the Raindrop API during
-      # that prerender, so a full build needs RAINDROP_* credentials and fails
-      # here with "Failed to parse URL from undefined/undefined". `astro check`
-      # runs tsc over the same tree and needs no secrets.
-      #
-      # The full build is still gated twice: .husky/pre-push runs it locally
-      # (where .env exists), and Netlify runs it on every push to main with the
-      # real environment variables. Netlify is the deploy gate.
-      - name: Typecheck
-        run: pnpm typecheck
+      # Full build (astro check + astro build). /moodboard renders from the
+      # committed src/content/moodboard/raindrop-collection.json, so no
+      # RAINDROP_* secrets are needed. Netlify still builds and deploys main.
+      - name: Build
+        run: pnpm build
+
+      - name: Install Chromium for verify-site
+        run: pnpm exec playwright install --with-deps chromium
+
+      # Same command as .husky/pre-push: dev vs production build, pixel-diffed.
+      - name: Visual parity
+        run: pnpm verify:site parity --no-build
+
+      - name: Upload parity screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-site
+          path: .verify/
