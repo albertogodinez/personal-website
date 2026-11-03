@@ -208,8 +208,12 @@ async function startDev(): Promise<DevServer> {
   const child: ChildProcess = spawn('pnpm', ['exec', 'astro', 'dev', '--port', String(port), '--host', '127.0.0.1'], {
     cwd: ROOT,
     stdio: ['ignore', 'pipe', 'pipe'],
-    // Disables the dev toolbar; see astro.config.mjs.
-    env: { ...process.env, VERIFY_SITE: '1' },
+    // VERIFY_SITE disables the dev toolbar (see astro.config.mjs). NETLIFY_DEV
+    // makes @netlify/vite-plugin skip its emulation layer, whose edge-functions
+    // server fails to start on the Linux CI runner and replaces dev pages with
+    // an "Unhandled rejection" overlay. The site uses no edge functions or
+    // blobs in dev; /api routes are served by Astro itself.
+    env: { ...process.env, VERIFY_SITE: '1', NETLIFY_DEV: '1' },
     detached: true
   });
   let lastOptimizeAt = 0;
