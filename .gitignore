@@ -30,3 +30,6 @@ raindrop/
 
 # playwright MCP scratch output
 .playwright-mcp/
+
+# verify-site screenshots and reports
+.verify/

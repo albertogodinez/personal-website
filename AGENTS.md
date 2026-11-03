@@ -23,9 +23,26 @@ The five canonical triage roles, recorded as a `Status:` line in each issue file
 
 Single-context: `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
 
-## Pre-Push Validation
+## Verifying visual changes
 
-`.husky/pre-push` gates lint, build and Node version; don't bypass it with
-`--no-verify`. What it can't check is visual parity: before pushing, compare
-the production build against the local dev server (layout, styles, assets)
-with browser screenshots or DevTools.
+Use the `verify-site` skill (`.agents/skills/verify-site/`) before claiming a
+UI change works: `pnpm verify:site shot <route>` to look, `pnpm verify:site
+parity` to prove dev and the production build match.
+
+## Rules and what enforces them
+
+When a review correction repeats, move its rule up this table: architecture,
+then types, then lint/CI, then a hook, and prose only for judgement calls.
+
+| Rule                                                                                        | Enforced by                                                      |
+| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Lint clean (React Compiler rules, a11y, TS)                                                 | `pnpm lint` in `.husky/pre-push` and CI                          |
+| Types check                                                                                 | `astro check` in `pnpm build` (pre-push) and CI                  |
+| Production build succeeds                                                                   | `pnpm build` in pre-push; Netlify on `main`                      |
+| Node matches `.nvmrc`                                                                       | pre-push, `engine-strict` in `.npmrc`                            |
+| Dev and production render identically (e.g. no CSS imported from a `client:only` component) | `pnpm verify:site parity` in pre-push                            |
+| No placeholder CSS rules                                                                    | `.biome/no-placeholder-css.grit` via `pnpm lint`                 |
+| `<svg>` has `<title>`, no `any` in `.astro`                                                 | `pnpm lint:astro`, advisory only; prose in `CODING_STANDARDS.md` |
+| R3F per-frame rules                                                                         | prose in `CODING_STANDARDS.md`                                   |
+
+Don't bypass `.husky/pre-push` with `--no-verify`.

@@ -7,7 +7,7 @@ Judgement calls for the reviewer to enforce. Mechanical rules belong in a linter
 The empty-placeholder-rule standard that used to live here is now enforced
 mechanically by `.biome/no-placeholder-css.grit`, so it has been removed.
 
-- Never import CSS from inside a `client:only` React component. Astro's production build doesn't extract CSS from `client:only` components into the static bundle — Vite handles it in dev but not in SSG/SSR builds, so the styles silently vanish in production. Import from the Astro layout or page that renders the component instead.
+- Never import CSS from inside a `client:only` React component. Astro's production build doesn't extract CSS from `client:only` components into the static bundle — Vite handles it in dev but not in SSG/SSR builds, so the styles silently vanish in production. Import from the Astro layout or page that renders the component instead. `pnpm verify:site parity` (pre-push) catches the symptom; this rule is the cause to look for.
 
 ## Astro (temporary)
 
