@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Winter is Coming (Dark Black - No Italics)",
+  "workbench.colorTheme": "Nord",
   "workbench.productIconTheme": "icons-carbon",
   "editor.renderWhitespace": "none",
   "editor.minimap.autohide": "mouseover",
@@ -22,10 +22,11 @@
   },
   "window.zoomLevel": 1,
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": false,
     "markdown": false,
-    "scminput": false
+    "scminput": false,
+    "github-actions-workflow": true
   },
   "projectManager.any.ignoredFolders": ["out", "typings", "test"],
   "projectManager.vscode.ignoredFolders": ["out", "typings", "test"],

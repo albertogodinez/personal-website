@@ -1,20 +1,49 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import RaindropWrapper from '../components/RaindropWrapper.astro';
-import '../styles/action-trigger.css';
+import MoodboardCanvas from '../components/moodboard/MoodboardCanvas';
+import ModeSwitch from '../components/moodboard/ModeSwitch';
+import FilterBar from '../components/moodboard/FilterBar';
+import DetailOverlay from '../components/moodboard/DetailOverlay';
+import PerformanceStats from '../components/moodboard/PerformanceStats';
+import '../styles/moodboard-canvas.css';
+
+export const prerender = true;
 ---
 
-<BaseLayout title="Alberto Godinez">
-  <main class="width-screen pi-2 mb-48 mt-16">
-    <section>
-      <!-- TODO: consider adding a tooltip with the description of aesthetics -->
-      <h1 class="font-secondary font-thin mb-4">
-        this page is just here for the <span class="glow-text">aesthetics</span>. Or at least what I consider to be <b>
-          <span class="glow-text">aesthetic</span>/nice/soothing/etc.</b
-        >
-      </h1>
-      <h3 class="mb-8" style={{ fontWeight: 300 }}></h3>
-      <RaindropWrapper />
-    </section>
-  </main>
+<BaseLayout title="Alberto Godinez | Moodboard">
+  <div id="moodboard-canvas-root">
+    <MoodboardCanvas client:only="react" />
+  </div>
+
+  <!-- Top-left: Globe icon -->
+  <div class="moodboard-chrome" style="top: 2rem; left: 2rem;">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.6;">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="2" y1="12" x2="22" y2="12"></line>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+  </div>
+
+  <!-- Top-right: Mode switcher -->
+  <div class="moodboard-chrome" style="top: 2rem; right: 2rem;">
+    <ModeSwitch client:load />
+  </div>
+
+  <!-- Bottom-center: Filter bar -->
+  <div class="moodboard-chrome" style="bottom: 2.5rem; left: 50%; transform: translateX(-50%);">
+    <FilterBar client:load />
+  </div>
+
+  <!-- Bottom-right: Hints -->
+  <div class="moodboard-chrome" style="bottom: 2.5rem; right: 2.5rem; pointer-events: none; opacity: 0.5; font-size: 10px; text-align: right; line-height: 1.8;">
+    <p>drag to pan</p>
+    <p>scroll to zoom</p>
+    <p>click to inspect</p>
+  </div>
+
+  <!-- Detail overlay -->
+  <DetailOverlay client:only="react" />
+
+  <!-- Performance stats (only visible when debug mode enabled) -->
+  <PerformanceStats client:load />
 </BaseLayout>
