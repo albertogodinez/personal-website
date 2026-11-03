@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Stats } from '@react-three/drei';
 import { useStore } from '@nanostores/react';
-import React, { useMemo, useEffect, useRef, memo, useCallback, useState } from 'react';
+import { useMemo, useEffect, useRef, memo, useCallback, useState, type CSSProperties } from 'react';
 import CameraRig from './CameraRig';
 import CardMesh, { type CardEntry } from './CardMesh';
 import { getMoodboardItems } from './data-adapter';
@@ -11,11 +11,51 @@ import { calculateClusteredLayout } from './layouts/clustered';
 import { calculateTimelineLayout } from './layouts/timeline';
 import { calculateItemOpacity } from './utils/fading';
 import type { MoodboardItem } from '../../types/moodboard';
-import type { CardLayout } from './layouts/types';
+import type { CardLayout, ChunkCoords } from './layouts/types';
 
 const OPACITY_LERP = 0.18;
 const INVIS_THRESHOLD = 0.01;
 const FILTERED_OUT_OPACITY = 0.08;
+
+const RENDER_DISTANCE = 2; // Must match infinite.ts
+const HYSTERESIS_BUFFER = 1; // Keep 1 extra chunk beyond render distance
+
+const CAMERA = { position: [0, 0, 10] as [number, number, number], fov: 75 };
+// `grab` is the resting cursor; CameraRig swaps it to `grabbing` mid-drag.
+const CANVAS_STYLE: CSSProperties = { width: '100vw', height: '100vh', cursor: 'grab' };
+
+type ChunkMap = ReadonlyMap<string, CardLayout[]>;
+
+/**
+ * Applies the add/remove delta for a camera chunk to an existing chunk map.
+ * Surviving chunks keep their layout arrays (object identity), so their cards
+ * don't remount — see CODING_STANDARDS.md "React Three Fiber". Returns `prev`
+ * itself when nothing changed, so React skips the re-render.
+ */
+function applyChunkDelta(prev: ChunkMap, camera: ChunkCoords, items: MoodboardItem[]): ChunkMap {
+  const next = new Map(prev);
+
+  for (let dx = -RENDER_DISTANCE; dx <= RENDER_DISTANCE; dx++) {
+    for (let dy = -RENDER_DISTANCE; dy <= RENDER_DISTANCE; dy++) {
+      for (let dz = -RENDER_DISTANCE; dz <= RENDER_DISTANCE; dz++) {
+        const cx = camera.cx + dx;
+        const cy = camera.cy + dy;
+        const cz = camera.cz + dz;
+        const key = chunkKey(cx, cy, cz);
+        if (!next.has(key)) next.set(key, generateChunkLayouts(cx, cy, cz, items));
+      }
+    }
+  }
+
+  for (const key of next.keys()) {
+    const [cx, cy, cz] = key.split(',').map(Number);
+    const maxDist = Math.max(Math.abs(cx - camera.cx), Math.abs(cy - camera.cy), Math.abs(cz - camera.cz));
+    if (maxDist > RENDER_DISTANCE + HYSTERESIS_BUFFER) next.delete(key);
+  }
+
+  const unchanged = next.size === prev.size && [...next.keys()].every((key) => prev.has(key));
+  return unchanged ? prev : next;
+}
 
 /**
  * Memoized card component to avoid re-rendering when props don't change
@@ -29,7 +69,7 @@ const MemoizedCard = memo(function MemoizedCard({
   registry,
 }: {
   layoutId: string;
-  layout: any;
+  layout: CardLayout;
   item: MoodboardItem;
   filterMatch: boolean;
   handleCardClick: (id: string) => void;
@@ -71,8 +111,7 @@ function SceneContent({
   activeFilter: string;
   handleCardClick: (id: string) => void;
 }) {
-  const renderedCountRef = useRef(0);
-  const cardRegistry = useRef(new Map<string, CardEntry>()).current;
+  const [cardRegistry] = useState(() => new Map<string, CardEntry>());
 
   useFrame((state) => {
     const cameraZ = state.camera.position.z;
@@ -98,38 +137,31 @@ function SceneContent({
       if (entry.badgeMaterial) entry.badgeMaterial.opacity = applied;
       entry.mesh.visible = entry.opacity > INVIS_THRESHOLD;
     }
-
-    // Update stats once per frame
-    if (renderedCountRef.current > 0) {
-      $cardsRendered.set(renderedCountRef.current);
-      renderedCountRef.current = 0; // Reset for next frame
-    }
   });
+
+  const cards = layouts.flatMap((layout) => {
+    const baseItemId = mode === 'infinite' ? layout.id.split('-chunk-')[0] : layout.id;
+    const item = itemsByLayoutId.get(baseItemId);
+    return item ? [{ layout, item, filterMatch: activeFilter === 'all' || item.contentType === activeFilter }] : [];
+  });
+
+  useEffect(() => {
+    $cardsRendered.set(cards.length);
+  }, [cards.length]);
 
   return (
     <>
-      {layouts.map((layout) => {
-        const baseItemId = mode === 'infinite'
-          ? layout.id.split('-chunk-')[0]
-          : layout.id;
-        const item = itemsByLayoutId.get(baseItemId);
-        if (!item) return null;
-
-        const filterMatch = activeFilter === 'all' || item.contentType === activeFilter;
-        renderedCountRef.current++;
-
-        return (
-          <MemoizedCard
-            key={layout.id}
-            layoutId={layout.id}
-            layout={layout}
-            item={item}
-            filterMatch={filterMatch}
-            handleCardClick={handleCardClick}
-            registry={cardRegistry}
-          />
-        );
-      })}
+      {cards.map(({ layout, item, filterMatch }) => (
+        <MemoizedCard
+          key={layout.id}
+          layoutId={layout.id}
+          layout={layout}
+          item={item}
+          filterMatch={filterMatch}
+          handleCardClick={handleCardClick}
+          registry={cardRegistry}
+        />
+      ))}
     </>
   );
 }
@@ -144,25 +176,27 @@ export default function MoodboardCanvas() {
   const debugMode = useStore($debugMode);
   const cameraChunk = useStore($cameraChunk);
 
-  // Throttled camera chunk to prevent layout thrashing during fast zoom
-  const [throttledCameraChunk, setThrottledCameraChunk] = React.useState(cameraChunk);
-  const lastChunkUpdateRef = useRef(Date.now());
+  const items = useMemo(() => getMoodboardItems(), []);
+
+  // Infinite mode's chunk map. Kept up to date in every mode, so switching
+  // back to infinite renders the right chunks immediately.
+  const [chunkMap, setChunkMap] = useState(() => applyChunkDelta(new Map(), cameraChunk, items));
+  const lastChunkUpdateRef = useRef(0);
 
   useEffect(() => {
     // Throttle chunk updates: 100ms when idle, 400ms when rapidly changing (zooming fast)
-    const now = Date.now();
-    const timeSinceLastUpdate = now - lastChunkUpdateRef.current;
+    const timeSinceLastUpdate = Date.now() - lastChunkUpdateRef.current;
 
     // If chunk changed recently (< 200ms), we're likely zooming fast — use longer throttle
     const throttleMs = timeSinceLastUpdate < 200 ? 400 : 100;
 
     const timeoutId = setTimeout(() => {
-      setThrottledCameraChunk(cameraChunk);
+      setChunkMap((prev) => applyChunkDelta(prev, cameraChunk, items));
       lastChunkUpdateRef.current = Date.now();
     }, throttleMs);
 
     return () => clearTimeout(timeoutId);
-  }, [cameraChunk]);
+  }, [cameraChunk, items]);
 
   // Keyboard shortcut for debug mode
   useEffect(() => {
@@ -175,99 +209,15 @@ export default function MoodboardCanvas() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const items = useMemo(() => getMoodboardItems(), []);
-
-  // For infinite mode: use Map-based chunk storage with incremental delta updates
-  const layoutChunksMapRef = useRef<Map<string, CardLayout[]>>(new Map());
-
-  // For clustered/timeline modes: flat array
-  const [flatLayouts, setFlatLayouts] = useState<CardLayout[]>([]);
-
-  // Incremental chunk-delta updates for infinite mode (synchronous in useMemo)
-  const infiniteLayouts = useMemo(() => {
-    if (mode !== 'infinite') {
-      return [];
-    }
-
-    const renderDistance = 2; // Must match infinite.ts
-    const hysteresisBuffer = 1; // Keep 1 extra chunk beyond render distance
-
-    // Compute required chunk keys (5x5x5 grid around camera)
-    const requiredKeys = new Set<string>();
-    for (let dx = -renderDistance; dx <= renderDistance; dx++) {
-      for (let dy = -renderDistance; dy <= renderDistance; dy++) {
-        for (let dz = -renderDistance; dz <= renderDistance; dz++) {
-          const cx = throttledCameraChunk.cx + dx;
-          const cy = throttledCameraChunk.cy + dy;
-          const cz = throttledCameraChunk.cz + dz;
-          requiredKeys.add(chunkKey(cx, cy, cz));
-        }
-      }
-    }
-
-    const currentMap = layoutChunksMapRef.current;
-
-    // Find chunks to add
-    for (const key of requiredKeys) {
-      if (!currentMap.has(key)) {
-        const [cx, cy, cz] = key.split(',').map(Number);
-        const chunkLayouts = generateChunkLayouts(cx, cy, cz, items);
-        currentMap.set(key, chunkLayouts);
-      }
-    }
-
-    // Find chunks to remove (with hysteresis buffer)
-    const keysToRemove: string[] = [];
-    for (const key of currentMap.keys()) {
-      const [cx, cy, cz] = key.split(',').map(Number);
-      const dx = Math.abs(cx - throttledCameraChunk.cx);
-      const dy = Math.abs(cy - throttledCameraChunk.cy);
-      const dz = Math.abs(cz - throttledCameraChunk.cz);
-      const maxDist = Math.max(dx, dy, dz);
-
-      if (maxDist > renderDistance + hysteresisBuffer) {
-        keysToRemove.push(key);
-      }
-    }
-
-    for (const key of keysToRemove) {
-      currentMap.delete(key);
-    }
-
-    $activeChunks.set(currentMap.size);
-
-    // Flatten to array
-    const flat: CardLayout[] = [];
-    for (const chunkLayouts of currentMap.values()) {
-      flat.push(...chunkLayouts);
-    }
-    return flat;
-  }, [mode, throttledCameraChunk, items]);
-
-  // Handle mode transitions
   useEffect(() => {
-    if (mode !== 'infinite') {
-      layoutChunksMapRef.current.clear();
-      $activeChunks.set(0);
+    $activeChunks.set(mode === 'infinite' ? chunkMap.size : 0);
+  }, [mode, chunkMap]);
 
-      // Compute flat layouts for clustered/timeline
-      if (mode === 'clustered') {
-        setFlatLayouts(calculateClusteredLayout(items, activeFilter));
-      } else {
-        setFlatLayouts(calculateTimelineLayout(items, activeFilter));
-      }
-    }
-    // When entering infinite mode, the incremental effect above will populate the map
-  }, [mode, items, activeFilter]);
-
-  // Update flat layouts when filter changes in clustered/timeline modes
-  useEffect(() => {
-    if (mode === 'clustered') {
-      setFlatLayouts(calculateClusteredLayout(items, activeFilter));
-    } else if (mode === 'timeline') {
-      setFlatLayouts(calculateTimelineLayout(items, activeFilter));
-    }
-  }, [mode, activeFilter, items]);
+  const layouts = useMemo(() => {
+    if (mode === 'clustered') return calculateClusteredLayout(items, activeFilter);
+    if (mode === 'timeline') return calculateTimelineLayout(items, activeFilter);
+    return [...chunkMap.values()].flat();
+  }, [mode, items, activeFilter, chunkMap]);
 
   const handleCardClick = useCallback((id: string) => {
     // Extract original item ID from layout ID
@@ -280,29 +230,15 @@ export default function MoodboardCanvas() {
 
   // Create a map for efficient item lookup by layout ID
   const itemsByLayoutId = useMemo(() => {
+    // Keyed by item ID. Infinite-mode layout IDs ("itemId-chunk-cx-cy-cz-i")
+    // are reduced to their item ID by SceneContent before lookup.
     const map = new Map<string, MoodboardItem>();
-    if (mode === 'infinite') {
-      // In infinite mode, chunk-based IDs: "itemId-chunk-cx-cy-cz-i"
-      // We need to map all possible layout IDs to their items
-      // Since we don't know all chunk coords ahead of time, we'll do lookup on-demand
-      // Store by item ID prefix for now
-      items.forEach(item => {
-        map.set(item.id, item);
-      });
-    } else {
-      // In other modes, 1:1 mapping
-      items.forEach(item => {
-        map.set(item.id, item);
-      });
-    }
+    for (const item of items) map.set(item.id, item);
     return map;
-  }, [items, mode]);
+  }, [items]);
 
   return (
-    <Canvas
-      camera={{ position: [0, 0, 10], fov: 75 }}
-      style={{ width: '100vw', height: '100vh' }}
-    >
+    <Canvas camera={CAMERA} style={CANVAS_STYLE}>
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} intensity={1} />
 
@@ -312,7 +248,7 @@ export default function MoodboardCanvas() {
 
       <SceneContent
         mode={mode}
-        layouts={mode === 'infinite' ? infiniteLayouts : flatLayouts}
+        layouts={layouts}
         itemsByLayoutId={itemsByLayoutId}
         activeFilter={activeFilter}
         handleCardClick={handleCardClick}

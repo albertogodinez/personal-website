@@ -55,8 +55,9 @@ export default function CameraRig() {
   }, [mode]);
 
   useEffect(() => {
+    // The resting `grab` cursor is set on the Canvas wrapper in
+    // MoodboardCanvas; these handlers only swap it while dragging.
     const canvas = gl.domElement;
-    canvas.style.cursor = 'grab';
 
     const dragFactor = (base: number) => {
       if (modeRef.current === 'infinite') return base;
@@ -141,7 +142,7 @@ export default function CameraRig() {
       canvas.removeEventListener('touchmove', onTouchMove);
       canvas.removeEventListener('touchend', onTouchEnd);
     };
-  }, [camera, gl]);
+  }, [gl]);
 
   useFrame(() => {
     const v = velocity.current;

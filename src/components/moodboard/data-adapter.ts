@@ -1,6 +1,24 @@
 import type { ContentType, MoodboardItem } from '../../types/moodboard';
 import raindropData from '../../content/moodboard/raindrop-collection.json';
 
+/*
+  The fields of a Raindrop item this adapter reads. Assigned from the JSON
+  import without a cast, so TypeScript checks the scaffolded file against it.
+*/
+interface RaindropItem {
+  _id: number;
+  type: string;
+  created: string;
+  cover?: string;
+  link?: string;
+  title?: string;
+  excerpt?: string;
+  tags?: string[];
+  domain?: string;
+}
+
+const raindropItems: RaindropItem[] = raindropData;
+
 const EXPIRED_MEDIA_HOSTS = ['cdninstagram.com'];
 
 const YOUTUBE_ID_PATTERNS = [
@@ -39,8 +57,8 @@ function youtubeThumbnail(youtubeId: string): string {
 }
 
 export function getMoodboardItems(): MoodboardItem[] {
-  return (raindropData as any[])
-    .filter((item) => item.cover && !hasExpiredMedia(item.cover))
+  return raindropItems
+    .filter((item): item is RaindropItem & { cover: string } => Boolean(item.cover) && !hasExpiredMedia(item.cover ?? ''))
     .map((item) => {
       const link = item.link ?? '';
       const youtubeId = extractYoutubeId(link);

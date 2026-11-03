@@ -1,5 +1,5 @@
 import { animated, useSpring } from '@react-spring/three';
-import { Suspense, useState, useEffect, useMemo, useRef } from 'react';
+import { Suspense, useEffect, useEffectEvent, useMemo, useRef, useState } from 'react';
 import { CanvasTexture, SRGBColorSpace, Texture } from 'three';
 import type * as THREE from 'three';
 import type { CardLayout, ChunkCoords } from './layouts/types';
@@ -63,18 +63,10 @@ function CardMeshInner({
   const badgeMaterialRef = useRef<THREE.MeshBasicMaterial>(null);
 
   useEffect(() => {
-    // One get() instead of has()+get()! — the assertion was only there to
-    // paper over the double lookup.
-    const cached = textureCache.get(imageUrl);
-    if (cached) {
-      setTexture(cached);
-      return;
-    }
-
-    if (errorCache.has(imageUrl)) {
-      setHasError(true);
-      return;
-    }
+    // Cached and failed URLs were already resolved by the useState
+    // initializers above. CardMesh keys this component by imageUrl, so a new
+    // URL remounts it and re-runs those initializers.
+    if (textureCache.has(imageUrl) || errorCache.has(imageUrl)) return;
 
     // `cancelled` guards every setState below. The previous cleanup was an
     // empty function, so an unmount mid-load still fired setState.
@@ -142,12 +134,20 @@ function CardMeshInner({
   // Memoize spring config to avoid retargeting when values haven't changed
   const springConfig = useMemo(() => ({
     position: [layout.x, layout.y, layout.z] as [number, number, number],
-    rotation: [layout.rotX, layout.rotY, layout.rotZ] as [number, number, number],
+    // Scalars, not a tuple: a tuple spring doesn't type-check as an Euler.
+    rotX: layout.rotX,
+    rotY: layout.rotY,
+    rotZ: layout.rotZ,
     scale: finalScale,
     config: { tension: 170, friction: 26, precision: 0.01 },
   }), [layout.x, layout.y, layout.z, layout.rotX, layout.rotY, layout.rotZ, finalScale]);
 
   const spring = useSpring(springConfig);
+
+  // Reads the latest props without making them dependencies: re-registering
+  // on every layout or filter change would reset the entry's opacity. The
+  // effect below keeps those fields current instead.
+  const currentFields = useEffectEvent(() => ({ chunkCoords, layout, filterMatch }));
 
   useEffect(() => {
     if (!meshRef.current || !materialRef.current) return;
@@ -158,14 +158,14 @@ function CardMeshInner({
       material: materialRef.current,
       badgeMaterial: badgeMaterialRef.current,
       opacity: registry.get(layoutId)?.opacity ?? 0,
-      chunkCoords,
-      layout,
-      filterMatch,
+      ...currentFields(),
     });
 
     return () => {
       registry.delete(layoutId);
     };
+    // `texture` is load-bearing: the mesh only mounts once its texture has
+    // loaded (the component renders null before), so refs are null until then.
   }, [layoutId, registry, texture]);
 
   useEffect(() => {
@@ -188,7 +188,9 @@ function CardMeshInner({
     <animated.mesh
       ref={meshRef}
       position={spring.position}
-      rotation={spring.rotation as any}
+      rotation-x={spring.rotX}
+      rotation-y={spring.rotY}
+      rotation-z={spring.rotZ}
       scale={spring.scale}
       onClick={onClick}
       onPointerOver={() => { document.body.style.cursor = 'pointer'; }}
@@ -221,7 +223,7 @@ function CardMeshInner({
 export default function CardMesh(props: CardMeshProps) {
   return (
     <Suspense fallback={null}>
-      <CardMeshInner {...props} />
+      <CardMeshInner key={props.imageUrl} {...props} />
     </Suspense>
   );
 }

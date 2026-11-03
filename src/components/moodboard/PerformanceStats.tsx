@@ -1,5 +1,24 @@
 import { useStore } from '@nanostores/react';
+import type { CSSProperties } from 'react';
 import { $cameraChunk, $cameraPosition, $cardsRendered, $activeChunks, $debugMode } from './stores';
+
+const PANEL_STYLE: CSSProperties = {
+  position: 'fixed',
+  bottom: '24px',
+  right: '24px',
+  backgroundColor: 'rgba(0, 0, 0, 0.75)',
+  color: 'white',
+  padding: '12px 16px',
+  borderRadius: '8px',
+  fontFamily: 'monospace',
+  fontSize: '12px',
+  lineHeight: '1.6',
+  pointerEvents: 'none',
+  zIndex: 100,
+  minWidth: '220px',
+};
+
+const TITLE_STYLE: CSSProperties = { fontWeight: 'bold', marginBottom: '8px' };
 
 /**
  * Performance stats overlay for the moodboard canvas.
@@ -19,24 +38,8 @@ export default function PerformanceStats() {
   if (!debugMode) return null;
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        bottom: '24px',
-        right: '24px',
-        backgroundColor: 'rgba(0, 0, 0, 0.75)',
-        color: 'white',
-        padding: '12px 16px',
-        borderRadius: '8px',
-        fontFamily: 'monospace',
-        fontSize: '12px',
-        lineHeight: '1.6',
-        pointerEvents: 'none',
-        zIndex: 100,
-        minWidth: '220px',
-      }}
-    >
-      <div style={{ fontWeight: 'bold', marginBottom: '8px' }}>
+    <div style={PANEL_STYLE}>
+      <div style={TITLE_STYLE}>
         Performance Stats
       </div>
       <div>Cards: {cardsRendered}</div>
