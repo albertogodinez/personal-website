@@ -62,7 +62,8 @@ export const GradientBackground: React.FC = () => {
         <div className="g3"></div>
         <div className="g4"></div>
         <div className="g5"></div>
-        <div className="interactive" ref={interactiveRef}></div>
+        {/* Follows the pointer via requestAnimationFrame; see verify-site. */}
+        <div className="interactive" ref={interactiveRef} data-verify-unstable></div>
       </div>
     </div>
   );

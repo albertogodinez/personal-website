@@ -44,7 +44,9 @@ type Mode = 'dev' | 'prod';
   headless starts, cause unexplained) read as a ~94% mismatch.
   `shot` leaves them visible: it is how the canvas gets looked at.
 */
-const HIDE_UNSTABLE_CSS = 'canvas, video { visibility: hidden !important; }';
+// [data-verify-unstable] opts in anything else driven by JS timing or pointer
+// input, which `animations: 'disabled'` (CSS only) can't freeze.
+const HIDE_UNSTABLE_CSS = 'canvas, video, [data-verify-unstable] { visibility: hidden !important; }';
 
 const NETWORK_IDLE_CAP_MS = 10_000;
 
