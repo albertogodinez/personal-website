@@ -36,17 +36,17 @@ type Theme = (typeof THEMES)[number];
 type Mode = 'dev' | 'prod';
 
 /*
-  Masked because they are not pixel-stable between two loads of the same
-  build: WebGL output (so /moodboard parity covers the page chrome, not the
-  card field) and autoplaying video (/404 lands on a different frame each
-  load; measured 2-4% mismatch with identical markup).
+  Hidden in parity because they aren't pixel-stable between two loads of the
+  same build: WebGL output and autoplaying video (/404 lands on a different
+  frame each load). visibility:hidden keeps their layout box, so parity still
+  compares the page around them. Masking was tried first and dropped: a mask
+  paints the element's box, so a canvas that hadn't resized yet (seen on cold
+  headless starts, cause unexplained) read as a ~94% mismatch.
+  `shot` leaves them visible: it is how the canvas gets looked at.
 */
-const MASK_SELECTORS = ['canvas', 'video'];
+const HIDE_UNSTABLE_CSS = 'canvas, video { visibility: hidden !important; }';
 
 const NETWORK_IDLE_CAP_MS = 10_000;
-
-// Dev-only overlays that are not part of the page.
-const DEV_ONLY_CSS = 'astro-dev-toolbar { display: none !important; }';
 
 const HELP = `verify-site — look at this site the way a visitor would.
 
@@ -195,16 +195,28 @@ async function waitForHttp(url: string, deadline: number, log: () => string): Pr
   return waitForHttp(url, deadline, log);
 }
 
-async function startDev(): Promise<{ origin: string; stop: () => void }> {
+interface DevServer {
+  origin: string;
+  stop: () => void;
+  // When Vite last re-optimized dependencies; each pass full-reloads every open page.
+  lastOptimizeAt: () => number;
+}
+
+async function startDev(): Promise<DevServer> {
   const port = await freePort();
   let output = '';
   const child: ChildProcess = spawn('pnpm', ['exec', 'astro', 'dev', '--port', String(port), '--host', '127.0.0.1'], {
     cwd: ROOT,
     stdio: ['ignore', 'pipe', 'pipe'],
+    // Disables the dev toolbar; see astro.config.mjs.
+    env: { ...process.env, VERIFY_SITE: '1' },
     detached: true
   });
+  let lastOptimizeAt = 0;
   const capture = (chunk: Buffer) => {
-    output = (output + chunk.toString()).slice(-4000);
+    const text = chunk.toString();
+    if (/dependencies optimized|optimized dependencies changed/.test(text)) lastOptimizeAt = Date.now();
+    output = (output + text).slice(-4000);
   };
   child.stdout?.on('data', capture);
   child.stderr?.on('data', capture);
@@ -225,7 +237,7 @@ async function startDev(): Promise<{ origin: string; stop: () => void }> {
     stop();
     throw error;
   }
-  return { origin, stop };
+  return { origin, stop, lastOptimizeAt: () => lastOptimizeAt };
 }
 
 async function startProd(build: boolean): Promise<{ origin: string; stop: () => void }> {
@@ -254,7 +266,7 @@ async function screenshot(
   spec: ShotSpec,
   mode: Mode,
   file: string,
-  { maskUnstable }: { maskUnstable: boolean }
+  { hideUnstable }: { hideUnstable: boolean }
 ): Promise<void> {
   const context = await browser.newContext({
     viewport: VIEWPORTS[spec.viewport],
@@ -268,8 +280,27 @@ async function screenshot(
     // Best-effort: the moodboard canvas streams textures through
     // /api/proxy-image for as long as it renders, so it never goes idle.
     await page.waitForLoadState('networkidle', { timeout: NETWORK_IDLE_CAP_MS }).catch(() => undefined);
-    if (mode === 'dev') await page.addStyleTag({ content: DEV_ONLY_CSS });
+    if (hideUnstable) await page.addStyleTag({ content: HIDE_UNSTABLE_CSS });
     await page.evaluate(() => document.fonts.ready);
+    // R3F sizes its <canvas> from a ResizeObserver after mount, so an early
+    // `shot` would show it at the default 300x150. Wait until every canvas's
+    // size has held for 3 polls.
+    await page.evaluate(
+      () =>
+        new Promise<void>((resolve) => {
+          const started = Date.now();
+          const poll = (last: string, stable: number) => {
+            const now = Array.from(
+              document.querySelectorAll('canvas'),
+              (c) => `${c.clientWidth}x${c.clientHeight}`
+            ).join();
+            const held = now === last ? stable + 1 : 0;
+            if (held >= 3 || Date.now() - started > 5000) resolve();
+            else setTimeout(() => poll(now, held), 100);
+          };
+          poll('', 0);
+        })
+    );
     // networkidle can fire with images still in flight, and /moodboard's
     // images have no fixed size, so page height would depend on timing.
     await page.evaluate(() =>
@@ -281,8 +312,7 @@ async function screenshot(
       path: file,
       fullPage: true,
       animations: 'disabled',
-      caret: 'hide',
-      mask: maskUnstable ? MASK_SELECTORS.map((selector) => page.locator(selector)) : []
+      caret: 'hide'
     });
   } finally {
     await context.close();
@@ -340,6 +370,53 @@ interface PairReport extends ShotSpec, DiffResult {
   dev: string;
   prod: string;
   diff: string;
+}
+
+/*
+  A fresh dev server compiles each page on first request, and Vite discovers
+  dependencies in waves (measured: a second wave ~13s in, from /moodboard's
+  lazy imports). Each wave full-reloads every open page, destroying any page
+  mid-screenshot. So every route stays open in a real browser (HTML alone
+  doesn't trigger discovery) until Vite has gone quiet.
+*/
+const DEV_QUIET_MS = 3_000;
+const DEV_SETTLE_CAP_MS = 30_000;
+
+async function waitForQuiet(dev: DevServer, deadline: number): Promise<void> {
+  if (Date.now() - dev.lastOptimizeAt() >= DEV_QUIET_MS || Date.now() > deadline) return;
+  await new Promise((r) => setTimeout(r, 250));
+  return waitForQuiet(dev, deadline);
+}
+
+async function warmUp(browser: Browser, dev: DevServer, routes: string[]): Promise<void> {
+  const deadline = Date.now() + DEV_SETTLE_CAP_MS;
+  const pages = await Promise.all(
+    routes.map(async (route) => {
+      const page = await browser.newPage();
+      await page.goto(dev.origin + route, { waitUntil: 'load', timeout: 60_000 });
+      return page;
+    })
+  );
+  try {
+    // Hold DEV_QUIET_MS even when nothing has been optimized yet, so a wave
+    // that starts just after load is still caught.
+    await new Promise((r) => setTimeout(r, DEV_QUIET_MS));
+    await waitForQuiet(dev, deadline);
+  } finally {
+    await Promise.all(pages.map((page) => page.close()));
+  }
+}
+
+// One retry for a reload that still lands mid-screenshot; a real failure fails twice.
+async function withRetry<T>(label: string, fn: () => Promise<T>): Promise<T> {
+  try {
+    return await fn();
+  } catch (error) {
+    console.error(
+      `verify-site: retrying ${label} once after: ${error instanceof Error ? error.message.split('\n')[0] : error}`
+    );
+    return fn();
+  }
 }
 
 // Pairs screenshotted at once. Each pair opens two browser contexts.
@@ -402,16 +479,19 @@ async function parity(options: Options): Promise<number> {
     const base = path.join(runDir, `${routeSlug(spec.route)}.${spec.viewport}.${spec.theme}`);
     const files = { dev: `${base}.dev.png`, prod: `${base}.prod.png`, diff: `${base}.diff.png` };
     await Promise.all([
-      screenshot(browser, dev.origin, spec, 'dev', files.dev, { maskUnstable: true }),
-      screenshot(browser, prod.origin, spec, 'prod', files.prod, { maskUnstable: true })
+      withRetry(`${spec.route} ${spec.viewport} ${spec.theme} dev`, () =>
+        screenshot(browser, dev.origin, spec, 'dev', files.dev, { hideUnstable: true })
+      ),
+      withRetry(`${spec.route} ${spec.viewport} ${spec.theme} prod`, () =>
+        screenshot(browser, prod.origin, spec, 'prod', files.prod, { hideUnstable: true })
+      )
     ]);
     const result = diffPngs(files.dev, files.prod, files.diff);
     return { ...spec, ...result, ...files, pass: result.ratio <= maxDiff };
   };
   let pairs: PairReport[] = [];
   try {
-    // Warm the dev server's on-demand compile for each route before fanning out.
-    await Promise.all(routes.map((route) => fetch(dev.origin + route)));
+    await warmUp(browser, dev, routes);
     pairs = await mapPool(specs, PARALLEL_PAIRS, runPair);
   } finally {
     await browser.close();
@@ -460,8 +540,8 @@ async function shot(routeArg: string | undefined, options: Options): Promise<num
   const browser = await chromium.launch();
   const file = path.join(newRunDir(), `${routeSlug(route)}.${viewport}.${theme}.${mode}.png`);
   try {
-    // Unmasked: shot is how a canvas gets looked at.
-    await screenshot(browser, server.origin, { route, viewport, theme }, mode, file, { maskUnstable: false });
+    // Canvas and video stay visible: shot is how a canvas gets looked at.
+    await screenshot(browser, server.origin, { route, viewport, theme }, mode, file, { hideUnstable: false });
   } finally {
     await browser.close();
     server.stop();

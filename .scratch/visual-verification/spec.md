@@ -29,7 +29,7 @@ Following the "Build the Lever" and "Encode Lessons in Structure" principles fro
 - On `main` at `db89dc1`, `parity` passes all 16 pairs (4 routes × 2 viewports × 2 themes) on three consecutive runs, in about 19s with 4 pairs at a time.
 - With `c0aa580`'s fix reverted, `parity --route / --route /404` fails 8 of 8 pairs. The prod page is 150px taller (1004 → 1154), matching the commit message.
 - Two false positives were measured and fixed, not tolerated: `/moodboard` page height changed with image-load timing (it now waits for every `<img>`).
-- The first run also flagged `/404` at 2–4% because the autoplaying video lands on a different frame each load, so `<video>` is masked alongside `<canvas>`.
+- The first run also flagged `/404` at 2–4% because the autoplaying video lands on a different frame each load, so `<video>` is excluded alongside `<canvas>` (now hidden rather than masked: a mask paints the element box, so a canvas that had not resized yet read as a ~94% mismatch locally and in CI).
 
 ## Rejected alternatives
 
@@ -45,7 +45,7 @@ Following the "Build the Lever" and "Encode Lessons in Structure" principles fro
 1. ~~Raindrop fixture so CI can build~~: resolved. The moodboard canvas renders from the committed JSON, so CI now runs `pnpm build` and `parity`.
 2. ~~Feature Map for the moodboard canvas~~: done. `src/components/RaindropWrapper.astro` is now unused, so delete it.
 3. Interaction scripts (`shot --click <selector>`) for states behind a click, such as an open accordion or the dark-mode toggle.
-4. Canvas verification for the moodboard canvas (it's masked in parity today). In order of preference:
+4. Canvas verification for the moodboard canvas (it is hidden in parity today). In order of preference:
    - A dev-only, read-only `window.__MOODBOARD__` that reports each card's position, visibility and chunk, the camera, and a frame counter, with Playwright asserting on it.
    - A trial of [threejs-devtools-mcp](https://github.com/DmitriyGolub/threejs-devtools-mcp) for interactive scene-graph inspection (0.x and solo-maintained, so not a gate).
    - [r3f-perf](https://github.com/utsuboco/r3f-perf) `PerfHeadless` for draw-call and triangle counts.

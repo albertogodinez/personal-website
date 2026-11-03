@@ -51,3 +51,5 @@ jobs:
         with:
           name: verify-site
           path: .verify/
+          # .verify is a dot-directory, which upload-artifact skips by default.
+          include-hidden-files: true

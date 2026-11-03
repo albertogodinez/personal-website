@@ -16,7 +16,7 @@ Proof for a visual change is a screenshot of the real page, never a passing buil
 
 ## Gotchas
 
-- `<canvas>` and `<video>` are masked in parity: they differ between two loads of the same build. `shot` leaves them unmasked, so verify the moodboard canvas by eye with `shot`, and assert on numbers from its Shift+D debug overlay (cards, chunks, camera) rather than on pixels.
+- `<canvas>` and `<video>` are hidden in parity (their layout box stays): they differ between two loads of the same build. `shot` leaves them visible, so verify the moodboard canvas by eye with `shot`, and assert on numbers from its Shift+D debug overlay (cards, chunks, camera) rather than on pixels.
 - `--mode prod` serves `dist/` statically, the way Netlify does. `src/pages/api/*` runs in a Netlify Function and is not served there.
 - `astro preview` is unsupported by the Netlify adapter; `pnpm preview` runs `verify:site serve` instead.
 
