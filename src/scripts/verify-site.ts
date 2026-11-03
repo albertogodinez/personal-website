@@ -43,6 +43,8 @@ type Mode = 'dev' | 'prod';
 */
 const MASK_SELECTORS = ['canvas', 'video'];
 
+const NETWORK_IDLE_CAP_MS = 10_000;
+
 // Dev-only overlays that are not part of the page.
 const DEV_ONLY_CSS = 'astro-dev-toolbar { display: none !important; }';
 
@@ -246,7 +248,14 @@ interface ShotSpec {
   theme: Theme;
 }
 
-async function screenshot(browser: Browser, origin: string, spec: ShotSpec, mode: Mode, file: string): Promise<void> {
+async function screenshot(
+  browser: Browser,
+  origin: string,
+  spec: ShotSpec,
+  mode: Mode,
+  file: string,
+  { maskUnstable }: { maskUnstable: boolean }
+): Promise<void> {
   const context = await browser.newContext({
     viewport: VIEWPORTS[spec.viewport],
     colorScheme: spec.theme,
@@ -255,7 +264,10 @@ async function screenshot(browser: Browser, origin: string, spec: ShotSpec, mode
   });
   try {
     const page = await context.newPage();
-    await page.goto(origin + spec.route, { waitUntil: 'networkidle', timeout: 45_000 });
+    await page.goto(origin + spec.route, { waitUntil: 'load', timeout: 45_000 });
+    // Best-effort: the moodboard canvas streams textures through
+    // /api/proxy-image for as long as it renders, so it never goes idle.
+    await page.waitForLoadState('networkidle', { timeout: NETWORK_IDLE_CAP_MS }).catch(() => undefined);
     if (mode === 'dev') await page.addStyleTag({ content: DEV_ONLY_CSS });
     await page.evaluate(() => document.fonts.ready);
     // networkidle can fire with images still in flight, and /moodboard's
@@ -270,7 +282,7 @@ async function screenshot(browser: Browser, origin: string, spec: ShotSpec, mode
       fullPage: true,
       animations: 'disabled',
       caret: 'hide',
-      mask: MASK_SELECTORS.map((selector) => page.locator(selector))
+      mask: maskUnstable ? MASK_SELECTORS.map((selector) => page.locator(selector)) : []
     });
   } finally {
     await context.close();
@@ -390,8 +402,8 @@ async function parity(options: Options): Promise<number> {
     const base = path.join(runDir, `${routeSlug(spec.route)}.${spec.viewport}.${spec.theme}`);
     const files = { dev: `${base}.dev.png`, prod: `${base}.prod.png`, diff: `${base}.diff.png` };
     await Promise.all([
-      screenshot(browser, dev.origin, spec, 'dev', files.dev),
-      screenshot(browser, prod.origin, spec, 'prod', files.prod)
+      screenshot(browser, dev.origin, spec, 'dev', files.dev, { maskUnstable: true }),
+      screenshot(browser, prod.origin, spec, 'prod', files.prod, { maskUnstable: true })
     ]);
     const result = diffPngs(files.dev, files.prod, files.diff);
     return { ...spec, ...result, ...files, pass: result.ratio <= maxDiff };
@@ -448,7 +460,8 @@ async function shot(routeArg: string | undefined, options: Options): Promise<num
   const browser = await chromium.launch();
   const file = path.join(newRunDir(), `${routeSlug(route)}.${viewport}.${theme}.${mode}.png`);
   try {
-    await screenshot(browser, server.origin, { route, viewport, theme }, mode, file);
+    // Unmasked: shot is how a canvas gets looked at.
+    await screenshot(browser, server.origin, { route, viewport, theme }, mode, file, { maskUnstable: false });
   } finally {
     await browser.close();
     server.stop();
