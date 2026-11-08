@@ -6,8 +6,8 @@
       "sourceType": "local",
       "bundle": "core",
       "skillPath": "bundles/core/diagnosing-bugs/SKILL.md",
-      "sourceRev": "995fde6",
-      "computedHash": "d6ac14417cf46482f5851230cdf7c999e03d30e7cebdcaad9da6972df9a46dfe"
+      "sourceRev": "e15129b",
+      "computedHash": "ae58b04d90cc74c46e03311fa6786c0ebb84c35b52f27c840bb78c16f5b5d8b4"
     },
     "handoff": {
       "source": "agent-factory",
@@ -30,16 +30,16 @@
       "sourceType": "local",
       "bundle": "core",
       "skillPath": "bundles/core/toolkit-context/SKILL.md",
-      "sourceRev": "3380cee",
-      "computedHash": "ec7c5ed378e84a7a3ff4350de6a08a73c3ede01261ebded1578761883070fbfa"
+      "sourceRev": "e15129b",
+      "computedHash": "061d82ca5aabdddcc6d0f4f4d12744527a475a3242f42df841527a6ad999fb6a"
     },
     "toolkit-pr-comment": {
       "source": "agent-factory",
       "sourceType": "local",
       "bundle": "core",
       "skillPath": "bundles/core/toolkit-pr-comment/SKILL.md",
-      "sourceRev": "995fde6",
-      "computedHash": "a1a768e923cc5254b7d1c56c767d5fa5f2bb429d7f95caa7981cfc7f67aa3c09"
+      "sourceRev": "e15129b",
+      "computedHash": "4baf3a2dcd0318ef692c693aae1b4e1af73ab105be39e2d614a1512ac259ec05"
     },
     "wait-what": {
       "source": "agent-factory",
@@ -78,8 +78,8 @@
       "sourceType": "local",
       "bundle": "core",
       "skillPath": "bundles/core/statechart/SKILL.md",
-      "sourceRev": "ff7a568",
-      "computedHash": "a34b32c31aa17aa7be9f9fcc22995f801efdc19ec208f4d60da5e4e89097c315"
+      "sourceRev": "e15129b",
+      "computedHash": "55ceb77680023b170280322a26b99617469371a4d483e1fd8b2c03e13bf67bf5"
     },
     "toolkit-dev-slot": {
       "source": "agent-factory",
@@ -126,8 +126,8 @@
       "sourceType": "local",
       "bundle": "core",
       "skillPath": "bundles/core/toolkit-record-flow/SKILL.md",
-      "sourceRev": "ff7a568",
-      "computedHash": "5a9a45240f0ee59b00fcefedb808f2e9a25b3c96d566f700d2de50bbc3364107"
+      "sourceRev": "e15129b",
+      "computedHash": "117ac93014588249c5188f0bb6fb23f5416f237751681c456b5f8c6152ac5678"
     },
     "toolkit-reflect": {
       "source": "agent-factory",
@@ -142,8 +142,56 @@
       "sourceType": "local",
       "bundle": "core",
       "skillPath": "bundles/core/toolkit-review/SKILL.md",
-      "sourceRev": "ff7a568",
-      "computedHash": "52a8191128cdd368c37d45160651d917f856f44dc727b23d21c145de35dd218b"
+      "sourceRev": "e15129b",
+      "computedHash": "811614074716e53134473211e955e7a3d87eeaecb03fe126dc7f755ab1b12d93"
+    },
+    "toolkit-ask": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/toolkit-ask/SKILL.md",
+      "sourceRev": "e15129b",
+      "computedHash": "b1ebebf53f0261e3bfe23172f1d58df2eca64f5af933621349d56e1a6da5f7c5"
+    },
+    "toolkit-docs-validate": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/toolkit-docs-validate/SKILL.md",
+      "sourceRev": "e15129b",
+      "computedHash": "d5b6840ec6f281d864e1d81526f4fa6bafea07594159ba106918b9b7e68344fe"
+    },
+    "toolkit-pr-mining": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/toolkit-pr-mining/SKILL.md",
+      "sourceRev": "e15129b",
+      "computedHash": "64cbeb7db7ba6c1d7f20ce440caf1b32ec9d83c4ec9dd1ab54b7c1f456e246eb"
+    },
+    "toolkit-repo-register": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/toolkit-repo-register/SKILL.md",
+      "sourceRev": "e15129b",
+      "computedHash": "432349425f71da2e8e6706616a0489cb7cbcf7c0a1aecdb500420fb13f2523ac"
+    },
+    "toolkit-repo-status": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/toolkit-repo-status/SKILL.md",
+      "sourceRev": "e15129b",
+      "computedHash": "4d74120a8ddabf117747166143e6eea750181a0a8ec2c4599b09d55dbee93863"
+    },
+    "toolkit-tool-sync": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/toolkit-tool-sync/SKILL.md",
+      "sourceRev": "e15129b",
+      "computedHash": "90fc8717604179e70d9efb2263a01a7052bbb96b65f9711f3f686f6263bb38b3"
     }
   },
   "mode": "commit",
