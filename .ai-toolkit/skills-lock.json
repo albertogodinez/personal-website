@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "skills": {
+    "diagnosing-bugs": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/diagnosing-bugs/SKILL.md",
+      "sourceRev": "995fde6",
+      "computedHash": "d6ac14417cf46482f5851230cdf7c999e03d30e7cebdcaad9da6972df9a46dfe"
+    },
+    "handoff": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/handoff/SKILL.md",
+      "sourceRev": "995fde6",
+      "computedHash": "23003df7b13da4541b8ce9cff57345c8d7a692453cd83e69e18695ea3036f774"
+    },
+    "improve-codebase-architecture": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/improve-codebase-architecture/SKILL.md",
+      "sourceRev": "995fde6",
+      "computedHash": "6a865551c48bc4bbb68e10ee50331a77834cc0d91accc3c9273fb754f56df1a7"
+    },
+    "toolkit-context": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/toolkit-context/SKILL.md",
+      "sourceRev": "995fde6",
+      "computedHash": "6cc8bb59326581c3c17d52e1774e06936e6b281e58f3afd13d4636817aee124f"
+    },
+    "toolkit-pr-comment": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/toolkit-pr-comment/SKILL.md",
+      "sourceRev": "995fde6",
+      "computedHash": "a1a768e923cc5254b7d1c56c767d5fa5f2bb429d7f95caa7981cfc7f67aa3c09"
+    },
+    "wait-what": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/wait-what/SKILL.md",
+      "sourceRev": "995fde6",
+      "computedHash": "5146c3ae7185a3590819b8ad4d66256c92292cdb33973ffa36ac06779ddc1a43"
+    },
+    "writing-for-agents": {
+      "source": "agent-factory",
+      "sourceType": "local",
+      "bundle": "core",
+      "skillPath": "bundles/core/writing-for-agents/SKILL.md",
+      "sourceRev": "995fde6",
+      "computedHash": "f9b73434d5ec4b7583d7bbb39e7f8e96c148473e416048b729300433a07c30fe"
+    }
+  },
+  "mode": "commit",
+  "bundles": [
+    "core"
+  ],
+  "claudeLink": "per-skill"
+}
