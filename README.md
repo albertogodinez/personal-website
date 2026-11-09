@@ -45,6 +45,17 @@ Astro 6 requires Node >= 22.12, so Node 20 fails the build outright. If `pnpm`
 resolves to a different Node's install, run `npm i -g pnpm@10.19.0` under the
 pinned version.
 
+## Agent skills
+
+Agent skills live in `.agents/skills/`; `.claude/skills/<name>` links to the same
+files, so Claude Code and Codex use one copy. The `toolkit-*` skills and the
+upstream `handoff`, `diagnosing-bugs`, `improve-codebase-architecture`,
+`wait-what`, and `writing-for-agents` skills are managed by agent-factory and
+refreshed from upstream on update; make changes to those skills in agent-factory.
+This repo's settings for them are in `.ai-toolkit/project.json`. Refresh skills
+with `node ~/Documents/repos/agent-factory/bin/factory.mjs update`, then check
+the install with `node ~/Documents/repos/agent-factory/bin/factory.mjs doctor`.
+
 ## Troubleshooting
 
 ### Browser Console Errors
