@@ -22,6 +22,11 @@
     "**/*.astro",
     "dist/**",
     ".astro/**",
+    // Agent skills: installed copies from agent-factory and skills.sh, owned and
+    // tested upstream and overwritten on update. .claude/skills holds symlinks
+    // to the same files.
+    ".agents/skills/**",
+    ".claude/skills/**",
     // Slated for deletion: /memorabilia and its components are being replaced
     // by the moodboard canvas. Delete these three entries with the page.
     "src/components/selection/**",
