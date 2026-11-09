@@ -48,10 +48,9 @@ pinned version.
 ## Agent skills
 
 Agent skills live in `.agents/skills/`; `.claude/skills/<name>` links to the same
-files, so Claude Code and Codex use one copy. The `toolkit-*` skills and the
-upstream `handoff`, `diagnosing-bugs`, `improve-codebase-architecture`,
-`wait-what`, and `writing-for-agents` skills are managed by agent-factory and
-refreshed from upstream on update; make changes to those skills in agent-factory.
+files, so Claude Code and Codex use one copy. The skills listed in
+`.ai-toolkit/skills-lock.json` are managed by agent-factory and overwritten on
+update, so make changes to those skills in agent-factory.
 This repo's settings for them are in `.ai-toolkit/project.json`. Refresh skills
 with `node ~/Documents/repos/agent-factory/bin/factory.mjs update`, then check
 the install with `node ~/Documents/repos/agent-factory/bin/factory.mjs doctor`.
