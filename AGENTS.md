@@ -2,7 +2,7 @@
 
 ## Navigation
 
-- `CONTEXT.md` — the domain glossary. Use its vocabulary in code, tests and issues.
+- `GLOSSARY.md` — the domain glossary. Use its vocabulary in code, tests and issues.
 - `CODING_STANDARDS.md` — judgement-call standards, read during review rather than implementation.
 - `docs/adr/` — recorded decisions. Read the ones touching the area you're working in; flag it explicitly if your change contradicts one.
 - `docs/agents/` — where issues live, how domain docs are laid out, and the triage label vocabulary.
@@ -21,7 +21,7 @@ The five canonical triage roles, recorded as a `Status:` line in each issue file
 
 ### Domain docs
 
-Single-context: `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+Single-context: `GLOSSARY.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
 
 ## Verifying visual changes
 

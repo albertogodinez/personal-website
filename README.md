@@ -75,4 +75,4 @@ For project-specific guidelines and issues, see:
 
 - [AGENTS.md](./AGENTS.md) — repo navigation, agent skills, and the pre-push checklist
 - [CODING_STANDARDS.md](./CODING_STANDARDS.md) — the judgement-call standards `pnpm lint` can't mechanise
-- [CONTEXT.md](./CONTEXT.md) — the domain glossary
+- [GLOSSARY.md](./GLOSSARY.md) — the domain glossary

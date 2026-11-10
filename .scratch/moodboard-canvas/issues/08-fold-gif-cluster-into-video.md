@@ -14,7 +14,7 @@ group beside clusters of dozens. Visually it reads as a mistake.
   assignment) and/or `src/components/moodboard/data-adapter.ts` (content-type
   derivation), depending on that decision.
 - Record the decision in the ticket comments; if it changes what content types
-  mean repo-wide, it belongs in `CONTEXT.md` rather than only here.
+  mean repo-wide, it belongs in `GLOSSARY.md` rather than only here.
 
 ## Done when
 
