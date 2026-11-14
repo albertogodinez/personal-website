@@ -15,7 +15,7 @@ jobs:
       # `packageManager` field, so this cannot drift from the repo's pin.
       - uses: pnpm/action-setup@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 24.21.0
           cache: pnpm
