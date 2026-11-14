@@ -31,7 +31,7 @@ importers:
         version: 5.2.7
       '@nanostores/react':
         specifier: ^1.0.0
-        version: 1.0.0(nanostores@1.1.0)(react@19.3.1)
+        version: 1.0.0(nanostores@1.5.5)(react@19.3.1)
       '@radix-ui/react-accordion':
         specifier: ^1.2.12
         version: 1.2.12(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -66,8 +66,8 @@ importers:
         specifier: ^17.3.1
         version: 17.3.1
       nanostores:
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^1.5.5
+        version: 1.5.5
       react:
         specifier: ^19.3.1
         version: 19.3.1
@@ -3054,6 +3054,7 @@ packages:
   image-size@2.0.2:
     resolution: {integrity: sha512-IRqXKlaXwgSMAMtpNzZa1ZAe8m+Sa1770Dhk8VkSsP9LS+iHD62Zd8FQKs8fbPiagBE7BzoFX23cxFnwshpV6w==}
     engines: {node: '>=16.x'}
+    deprecated: Use latest 2.x please
     hasBin: true
 
   immediate@3.0.6:
@@ -3658,8 +3659,8 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanostores@1.1.0:
-    resolution: {integrity: sha512-yJBmDJr18xy47dbNVlHcgdPrulSn1nhSE6Ns9vTG+Nx9VPT6iV1MD6aQFp/t52zpf82FhLLTXAXr30NuCnxvwA==}
+  nanostores@1.5.5:
+    resolution: {integrity: sha512-FixtE239Gl6Gz0ZGCK0WzvNwObNCIwVT+L7zQcf1QgcA6AzBxblzqe9OT88qiucNkhsjSOqiogSaF5jVbJiqSA==}
     engines: {node: ^20.0.0 || >=22.0.0}
 
   neotraverse@0.6.18:
@@ -5817,9 +5818,9 @@ snapshots:
       promise-worker-transferable: 1.0.4
       three: 0.182.0
 
-  '@nanostores/react@1.0.0(nanostores@1.1.0)(react@19.3.1)':
+  '@nanostores/react@1.0.0(nanostores@1.5.5)(react@19.3.1)':
     dependencies:
-      nanostores: 1.1.0
+      nanostores: 1.5.5
       react: 19.3.1
 
   '@netlify/ai@0.4.1':
@@ -9219,7 +9220,7 @@ snapshots:
 
   nanoid@3.3.11: {}
 
-  nanostores@1.1.0: {}
+  nanostores@1.5.5: {}
 
   neotraverse@0.6.18: {}
 
